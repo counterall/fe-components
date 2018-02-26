@@ -99,14 +99,14 @@ body {
 
 }
 .wrapper .store-inventory{
-        display: inline;
+        line-height: 0;
     }
 .wrapper .store-inventory-toggle {
-            height: 25px;
             cursor: pointer;
+            display: inline-block;
         }
 .wrapper .store-inventory-toggle * {
-                float: left;    
+                float: left;
             }
 .wrapper .store-inventory-toggle .icon{
                 width:  25px;

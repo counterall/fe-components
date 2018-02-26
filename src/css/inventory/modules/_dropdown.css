@@ -5,13 +5,14 @@
     background-color: #eeeeee;
 
     .store-inventory{
-        display: inline;
-        &-toggle {
-            height: 25px;
-            cursor: pointer;
+        line-height: 0;
 
+        &-toggle {
+            cursor: pointer;
+            display: inline-block;
+            
             * {
-                float: left;    
+                float: left;
             }
 
             .icon{
