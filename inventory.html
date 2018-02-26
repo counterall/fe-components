@@ -5,10 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Marimekko Inventory Status Component</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="src/css/lib/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="dest/css/inventory.css" />
+    <script src='src/js/lib/jquery-3.3.1.min.js'></script>
+    <script src="src/js/lib/bootstrap.min.js"></script>
     <script src="dest/js/inventory.js"></script>
 </head>
 <body>
-    <h1>Hello Marimekko</h1>
+    <div class='wrapper'>
+        <div class='store-inventory'>
+            <div class='store-inventory-toggle clearfix'>
+                <div class='icon'></div>
+                <!-- <img class='icon' src="src/img/location.png" alt="location"> -->
+                <div class='link'>Katso saatavuus myymälössä</div>
+            </div>
+            <div class='store-inventory-list'></div>
+        </div>
+    </div>
 </body>
 </html>

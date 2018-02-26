@@ -1,0 +1,38 @@
+.wrapper{
+
+    width: 400px;
+    margin: 50px auto;
+    background-color: #eeeeee;
+
+    .store-inventory{
+        display: inline;
+        &-toggle {
+            height: 25px;
+            cursor: pointer;
+
+            * {
+                float: left;    
+            }
+
+            .icon{
+                width:  25px;
+                height: 25px;
+                padding: 3px 0;
+                margin-right: 5px;
+                background-image: url(../img/location.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-origin: content-box;
+            }
+
+            .link{
+                line-height: 25px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    
+
+}

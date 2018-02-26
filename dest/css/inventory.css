@@ -89,3 +89,37 @@ body {
     color: #333;
     background-color: #f6f5f3;
 }
+.wrapper{
+
+    width: 400px;
+    margin: 50px auto;
+    background-color: #eeeeee;
+
+    
+
+}
+.wrapper .store-inventory{
+        display: inline;
+    }
+.wrapper .store-inventory-toggle {
+            height: 25px;
+            cursor: pointer;
+        }
+.wrapper .store-inventory-toggle * {
+                float: left;    
+            }
+.wrapper .store-inventory-toggle .icon{
+                width:  25px;
+                height: 25px;
+                padding: 3px 0;
+                margin-right: 5px;
+                background-image: url(../img/location.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-origin: content-box;
+            }
+.wrapper .store-inventory-toggle .link{
+                line-height: 25px;
+                font-weight: bold;
+            }
