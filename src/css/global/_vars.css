@@ -1,0 +1,72 @@
+$baseLayer: 0;
+$contentLayer: 100;
+$headerLayer: 200;
+$popoverLayer: 300;
+$navigationLayer: 400;
+$popupLayer: 500;
+
+$defaultFontFamily: MarimekkoSans, Arial, Verdana, Sans-serif;
+$defaultFontSize: 14px;
+$minHeadingFontSize: 18px;
+$bigHeadingFontSize: 24px;
+$defaultLineHeight: 22px;
+$defaultTextColour: #333;
+$defaultLetterSpacing: 0.08em;
+$headingLetterSpacing: 0.07em;
+$bigFontSize: 30px;
+$bigLineHeight: 42px;
+$darkTransparent: rgba(0, 0, 0, 0.8);
+$lightTransparent: rgba(0, 0, 0, 0.5);
+$lightNonTransparent: rgba(255, 255, 255, 1);
+$placeHolderColour: #aaaaaa;
+$thinText: 200;
+$regularText: 400;
+$boldText: 600;
+
+$disabledColor: #aaaaaa;
+
+$accentColour01: #eeeeee;
+$accentColour02: #e2e1e1;
+$accentColour03: #d6d6d6; 
+$accentColour04: #c8c7c6; 
+$accentColour05: #bbbbbb;
+$accentColour06: #a4a4a4;
+$accentColour07: #888888;
+$accentColour08: #404040;
+$accentColour09: #333333;
+$accentColour10: #777777;
+$accentColour11: #f64534;
+$accentColour12: #afafaf;
+$accentColour13: #989898;
+
+$background01: #ffffff;
+$background02: #f6f5f3;
+$background03: #555555;
+$background04: #f6f3f0;
+
+$ysmyColour: #e40079;
+
+$borderColour01: #dddddd;
+$borderColour02: #bbbbbb;
+$borderColour03: #959492;
+$borderColour04: #dfdfdf;
+$borderColour05: #979797;
+
+$borderStyle01: 1px solid rgba(0, 0, 0, 0.8);
+
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+$sizechartColour01: #f5f2ef;
+$sizechartColour02: #bbbbbb;
+
+$christmasRedColour: #b01116;
+$christmasBrownColour: #ad7f46;
+$christmasLightBrownColour: #f1e6d5;
+
+$klarnaGreyBackgroundColor: #fafafa;
+$klarnaGreyBorderColor: #cbcbcd;
+$klarnaLightGreyBorderColor: #e5e5e6;
+$klarnaErrorMessageColor: #e63200;
+$klarnaErrorMessageBackgroundColor: #ffeded;
+$klarnaGreyTextColor: #8e8e90;
+$klarnaDisabledButtonColor: #999999;

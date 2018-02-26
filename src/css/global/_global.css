@@ -1,0 +1,109 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* Marimekko fonts */
+
+@font-face {
+    font-family: Marimekko;
+    src: url("../fonts/Marimekko-Book.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Marimekko;
+    font-weight: 100;
+    src: url("../fonts/Marimekko-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Marimekko;
+    font-weight: 200;
+    src: url("../fonts/Marimekko-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Marimekko;
+    font-weight: 700;
+    src: url("../fonts/Marimekko-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Marimekko;
+    font-weight: 900;
+    src: url("../fonts/Marimekko-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: MarimekkoSans;
+    src: url("../fonts/MarimekkoSans-Book.otf") format("opentype");
+}
+
+@font-face {
+    font-family: MarimekkoSans;
+    font-weight: 100;
+    src: url("../fonts/MarimekkoSans-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-family: MarimekkoSans;
+    font-weight: 200;
+    src: url("../fonts/MarimekkoSans-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: MarimekkoSans;
+    font-weight: 700;
+    src: url("../fonts/MarimekkoSans-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: MarimekkoSans;
+    font-weight: 900;
+    src: url("../fonts/MarimekkoSans-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'marimekkobold';
+    src: url('../fonts/marimekko-bold-webfont.woff2') format('woff2'), url('../fonts/marimekko-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'marimekkobook';
+    src: url('../fonts/marimekko-book-webfont.woff2') format('woff2'), url('../fonts/marimekko-book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Care symbols fonts */
+
+@font-face {
+    font-family: CareSymbols;
+    src: url('../fonts/caresym-webfont.eot');
+    src: url('../fonts/caresym-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/caresym-webfont.woff2') format('woff2'), url('../fonts/caresym-webfont.woff') format('woff'), url('../fonts/caresym-webfont.ttf') format('truetype'), url('../fonts/caresym-webfont.svg#care_symbolsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body {
+    /* Fix for full width images and browsers that display a vertical scrollbar */
+    /* Prevent image overflow from causing a horisontal scrollbar */
+    overflow-x: hidden
+}
+
+body {
+    font-family: $defaultFontFamily;
+    font-size: $defaultFontSize;
+    line-height: $defaultLineHeight;
+    letter-spacing: $defaultLetterSpacing;
+    color: $defaultTextColour;
+    background-color: $background02;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "mari-store-inventory",
+  "version": "1.0.0",
+  "description": "FE Mockup of store inventory status",
+  "main": "master.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kan Cong",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-watch": "^5.0.0",
+    "postcss-import": "^11.1.0",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nested": "^3.0.0",
+    "postcss-simple-vars": "^4.1.0"
+  }
+}
