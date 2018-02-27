@@ -1,3 +1,4 @@
+/* Drop-down selection */
 *,
 *:before,
 *:after {
@@ -94,21 +95,22 @@ body {
     width: 400px;
     margin: 50px auto;
     background-color: #eeeeee;
+    padding: 30px 20px;
 
     
 
 }
-.wrapper .store-inventory{
+.wrapper .store-inventory {
         line-height: 0;
     }
-.wrapper .store-inventory-toggle {
+.wrapper .store-inventory__toggle {
             cursor: pointer;
             display: inline-block;
         }
-.wrapper .store-inventory-toggle * {
+.wrapper .store-inventory__toggle * {
                 float: left;
             }
-.wrapper .store-inventory-toggle .icon{
+.wrapper .store-inventory__toggle .toggle-icon{
                 width:  25px;
                 height: 25px;
                 padding: 3px 0;
@@ -119,7 +121,26 @@ body {
                 background-size: contain;
                 background-origin: content-box;
             }
-.wrapper .store-inventory-toggle .link{
+.wrapper .store-inventory__toggle .toggle-link{
                 line-height: 25px;
                 font-weight: bold;
             }
+.wrapper .store-inventory__list {
+            margin-top: 19px;
+
+        }
+.wrapper .store-inventory__list select.city-selector {
+               width: 300px;
+            }
+/* select2 element mod */
+.wrapper .store-inventory__list .select2-selection {
+                border-radius: 0;
+                height : 45px;
+                border-color: #dfdfdf;
+            }
+.wrapper .store-inventory__list .select2-selection__rendered{
+                    line-height : 45px;
+                }
+.wrapper .store-inventory__list .select2-selection__arrow{
+                    height: 45px;
+                }

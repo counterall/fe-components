@@ -3,19 +3,20 @@
     width: 400px;
     margin: 50px auto;
     background-color: #eeeeee;
+    padding: 30px 20px;
 
-    .store-inventory{
+    .store-inventory {
         line-height: 0;
 
-        &-toggle {
+        &__toggle {
             cursor: pointer;
             display: inline-block;
-            
+
             * {
                 float: left;
             }
 
-            .icon{
+            .toggle-icon{
                 width:  25px;
                 height: 25px;
                 padding: 3px 0;
@@ -27,10 +28,34 @@
                 background-origin: content-box;
             }
 
-            .link{
+            .toggle-link{
                 line-height: 25px;
                 font-weight: bold;
             }
+        }
+
+        &__list {
+            margin-top: 19px;
+
+            select.city-selector {
+               width: 300px;
+            }
+
+            /* select2 element mod */
+            .select2-selection {
+                border-radius: 0;
+                height : $dropdownDefaultHeight;
+                border-color: #dfdfdf;
+
+                &__rendered{
+                    line-height : $dropdownDefaultHeight;
+                }
+
+                &__arrow{
+                    height: $dropdownDefaultHeight;
+                }
+            }
+
         }
     }
 
