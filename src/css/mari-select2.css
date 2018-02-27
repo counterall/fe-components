@@ -1,0 +1,4 @@
+@import './global/_vars';
+@import './select2/modules/_single.css';
+@import './select2/modules/_multiple.css';
+@import './select2/modules/_layout.css';
