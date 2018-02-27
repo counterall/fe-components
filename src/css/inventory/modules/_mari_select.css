@@ -14,12 +14,22 @@
                     border-radius: 0;
                     height: $dropdownDefaultHeight;
                     border-color: #dfdfdf;
+                    
                     .select2-selection__rendered {
                         line-height: $dropdownDefaultHeight;
                     }
+                    
                     .select2-selection__arrow {
                         height: $dropdownDefaultHeight;
+                        
+                        b{
+                           border: solid black;
+                           border-width: 0 1px 1px 0;
+                           transform: rotate(45deg);
+                           padding: 3px;
+                        }
                     }
+
                 }
             }
         }
