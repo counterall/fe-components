@@ -1,0 +1,29 @@
+.mari-select {
+   
+    select {
+        width: 100%;
+    }
+
+    /* select2 element mod */
+    .select2-container {
+
+        &--default{
+
+            .select2-selection {
+                &--single {
+                    border-radius: 0;
+                    height: $dropdownDefaultHeight;
+                    border-color: #dfdfdf;
+                    .select2-selection__rendered {
+                        line-height: $dropdownDefaultHeight;
+                    }
+                    .select2-selection__arrow {
+                        height: $dropdownDefaultHeight;
+                    }
+                }
+            }
+        }
+
+    }
+
+}

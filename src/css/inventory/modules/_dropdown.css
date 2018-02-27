@@ -37,25 +37,9 @@
         &__list {
             margin-top: 19px;
 
-            select.city-selector {
-               width: 300px;
+            .inventory-dropdown{
+                width: 300px;
             }
-
-            /* select2 element mod */
-            .select2-selection {
-                border-radius: 0;
-                height : $dropdownDefaultHeight;
-                border-color: #dfdfdf;
-
-                &__rendered{
-                    line-height : $dropdownDefaultHeight;
-                }
-
-                &__arrow{
-                    height: $dropdownDefaultHeight;
-                }
-            }
-
         }
     }
 

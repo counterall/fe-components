@@ -90,6 +90,21 @@ body {
     color: #333;
     background-color: #f6f5f3;
 }
+.mari-select select {
+        width: 100%;
+    }
+/* select2 element mod */
+.mari-select .select2-container--default .select2-selection--single {
+                    border-radius: 0;
+                    height: 45px;
+                    border-color: #dfdfdf;
+                }
+.mari-select .select2-container--default .select2-selection--single .select2-selection__rendered {
+                        line-height: 45px;
+                    }
+.mari-select .select2-container--default .select2-selection--single .select2-selection__arrow {
+                        height: 45px;
+                    }
 .wrapper{
 
     width: 400px;
@@ -127,20 +142,7 @@ body {
             }
 .wrapper .store-inventory__list {
             margin-top: 19px;
-
         }
-.wrapper .store-inventory__list select.city-selector {
-               width: 300px;
+.wrapper .store-inventory__list .inventory-dropdown{
+                width: 300px;
             }
-/* select2 element mod */
-.wrapper .store-inventory__list .select2-selection {
-                border-radius: 0;
-                height : 45px;
-                border-color: #dfdfdf;
-            }
-.wrapper .store-inventory__list .select2-selection__rendered{
-                    line-height : 45px;
-                }
-.wrapper .store-inventory__list .select2-selection__arrow{
-                    height: 45px;
-                }

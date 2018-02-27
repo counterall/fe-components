@@ -1,4 +1,5 @@
 @import './global/_vars';
 @import './global/_global.css';
+@import './inventory/modules/_mari_select.css';
 @import './inventory/modules/_dropdown.css';
 @import './inventory/modules/_inventory_status.css';
