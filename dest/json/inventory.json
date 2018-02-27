@@ -1,0 +1,201 @@
+{
+    "FI": {
+        "Helsinki": [
+            {
+                "title": "Marimekko Jyv\u00e4skyl\u00e4",
+                "contact_details": {
+                    "phone": "+358 44 780 4352",
+                    "address": "Kauppakatu 33, Jyv\u00e4skyl\u00e4, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-17",
+                    "sunday": "12-16",
+                    "holiday": null
+                },
+                "sizes": [
+                    {
+                        "product_size": "XS",
+                        "quantity": 1,
+                        "sort": 1,
+                        "level": 1,
+                        "ean_code": "6411254395813"
+                    },
+                    {
+                        "product_size": "S",
+                        "quantity": 2,
+                        "sort": 2,
+                        "level": 1,
+                        "ean_code": "6411254395820"
+                    },
+                    {
+                        "product_size": "M",
+                        "quantity": 1,
+                        "sort": 3,
+                        "level": 1,
+                        "ean_code": "6411254395837"
+                    },
+                    {
+                        "product_size": "L",
+                        "quantity": 2,
+                        "sort": 4,
+                        "level": 1,
+                        "ean_code": "6411254395844"
+                    },
+                    {
+                        "product_size": "XL",
+                        "quantity": 1,
+                        "sort": 5,
+                        "level": 1,
+                        "ean_code": "6411254395851"
+                    }
+                ]
+            },
+            {
+                "title": "Marimekko Jumbo",
+                "contact_details": {
+                    "phone": "+358 44 717 9596",
+                    "address": "Vantaanportinkatu 3, Vantaa, Suomi"
+                },
+                "opening_hours": {
+                    "weekday": "9-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            }
+        ],
+        "Oulu": [
+            {
+                "title": "Marimekko Jyv\u00e4skyl\u00e4",
+                "contact_details": {
+                    "phone": "+358 44 780 4352",
+                    "address": "Kauppakatu 33, Jyv\u00e4skyl\u00e4, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-17",
+                    "sunday": "12-16",
+                    "holiday": null
+                },
+                "sizes": [
+                    {
+                        "product_size": "XS",
+                        "quantity": 1,
+                        "sort": 1,
+                        "level": 1,
+                        "ean_code": "6411254395813"
+                    },
+                    {
+                        "product_size": "S",
+                        "quantity": 2,
+                        "sort": 2,
+                        "level": 1,
+                        "ean_code": "6411254395820"
+                    },
+                    {
+                        "product_size": "M",
+                        "quantity": 1,
+                        "sort": 3,
+                        "level": 1,
+                        "ean_code": "6411254395837"
+                    },
+                    {
+                        "product_size": "L",
+                        "quantity": 2,
+                        "sort": 4,
+                        "level": 1,
+                        "ean_code": "6411254395844"
+                    },
+                    {
+                        "product_size": "XL",
+                        "quantity": 1,
+                        "sort": 5,
+                        "level": 1,
+                        "ean_code": "6411254395851"
+                    }
+                ]
+            },
+            {
+                "title": "Marimekko Jumbo",
+                "contact_details": {
+                    "phone": "+358 44 717 9596",
+                    "address": "Vantaanportinkatu 3, Vantaa, Suomi"
+                },
+                "opening_hours": {
+                    "weekday": "9-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            }
+        ]
+    },
+    "DE": {
+        "Berlin": [
+            {
+                "title": "Marimekko Jyv\u00e4skyl\u00e4",
+                "contact_details": {
+                    "phone": "+358 44 780 4352",
+                    "address": "Kauppakatu 33, Jyv\u00e4skyl\u00e4, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-17",
+                    "sunday": "12-16",
+                    "holiday": null
+                },
+                "sizes": [
+                    {
+                        "product_size": "XS",
+                        "quantity": 1,
+                        "sort": 1,
+                        "level": 1,
+                        "ean_code": "6411254395813"
+                    },
+                    {
+                        "product_size": "S",
+                        "quantity": 2,
+                        "sort": 2,
+                        "level": 1,
+                        "ean_code": "6411254395820"
+                    },
+                    {
+                        "product_size": "M",
+                        "quantity": 1,
+                        "sort": 3,
+                        "level": 1,
+                        "ean_code": "6411254395837"
+                    },
+                    {
+                        "product_size": "L",
+                        "quantity": 2,
+                        "sort": 4,
+                        "level": 1,
+                        "ean_code": "6411254395844"
+                    },
+                    {
+                        "product_size": "XL",
+                        "quantity": 1,
+                        "sort": 5,
+                        "level": 1,
+                        "ean_code": "6411254395851"
+                    }
+                ]
+            },
+            {
+                "title": "Marimekko Jumbo",
+                "contact_details": {
+                    "phone": "+358 44 717 9596",
+                    "address": "Vantaanportinkatu 3, Vantaa, Suomi"
+                },
+                "opening_hours": {
+                    "weekday": "9-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            }
+        ]
+    }
+}
