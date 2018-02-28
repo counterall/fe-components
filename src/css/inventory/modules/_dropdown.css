@@ -1,9 +1,10 @@
 .wrapper{
 
-    width: 400px;
+    width: 440px;
     margin: 50px auto;
-    background-color: #eeeeee;
+    border: 2px solid #eeeeee;
     padding: 30px 20px;
+    background: white;
 
     .store-inventory {
         line-height: 0;
@@ -36,10 +37,69 @@
 
         &__list {
             margin-top: 19px;
+            line-height: $defaultLineHeight;
+            letter-spacing: 0.8px;
 
             .city-selector{
                 width: 300px;
             }
+
+            .instruction{
+                
+                &-text{
+                    color: $accentColour09;
+                    margin-top: 15px;
+                }
+
+                &-demo{
+                    margin-top: 15px;
+                    padding-left: 0;
+                    list-style-type: none;
+
+                    li{
+                        line-height: 25px;
+                        .icon{
+                            display: inline-block;
+                            width: 15px;
+                            height: 15px;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            margin-right: 10px;
+                            vertical-align: middle;
+                            position: relative;
+                            bottom: 2px;
+                        }
+
+                        &.green{
+                            color: $inventoryStatusSuccess;
+
+                            .icon{
+                                background-image: url(../img/check_vihr.png);
+                            }
+                        }
+
+                        &.orange{
+                            color: $inventoryStatusWarning;
+
+                            .icon{
+                                background-image: url(../img/almost_sold_out.png);
+                            }
+                        }
+
+                        &.red{
+                            color: $inventoryStatusDanger;
+
+                            .icon{
+                                background-image: url(../img/sold_out.png);
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
         }
     }
 

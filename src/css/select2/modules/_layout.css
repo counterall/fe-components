@@ -1,6 +1,4 @@
 .select2-container--marimekko {
-    @import "./_single.css";
-    @import "./_multiple.css";
 
     &.select2-container--open.select2-container--above {
         .select2-selection--single,

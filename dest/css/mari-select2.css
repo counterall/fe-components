@@ -1,4 +1,5 @@
 /* Drop-down selection */
+/* Inventory status colors */
 .select2-container--marimekko .select2-selection--single {
         background-color: #fff;
         border: 1px solid #dfdfdf;
@@ -20,9 +21,10 @@
 .select2-container--marimekko .select2-selection--single .select2-selection__arrow {
             height: 45px;
             position: absolute;
-            top: 1px;
-            right: 1px;
-            width: 20px;
+            top: 0px;
+            right: 0px;
+            width: 40px;
+            padding-right: 15px;
         }
 .select2-container--marimekko .select2-selection--single .select2-selection__arrow b {
                 border-color: #888 transparent transparent transparent;
@@ -126,10 +128,6 @@
 .select2-container--marimekko.select2-container--disabled .select2-selection__choice__remove {
             display: none;
         }
-.select2-container--marimekko {
-    @import "./_single.css";
-    @import "./_multiple.css";
-}
 .select2-container--marimekko.select2-container--open.select2-container--above .select2-selection--single,
         .select2-container--marimekko.select2-container--open.select2-container--above .select2-selection--multiple {
             border-top-left-radius: 0;

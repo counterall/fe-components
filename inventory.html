@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Marimekko Inventory Status Component</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/global.css" />
     <link rel="stylesheet" href="src/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/global.css" />
     <link rel="stylesheet" href="src/css/lib/select2.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="dest/css/mari-select2.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="dest/css/inventory.css" />
@@ -25,11 +25,17 @@
             <div class='store-inventory__list'>
                   <select class='city-selector'>
                       <option value=""></option>
-                      <option value="Helsinki">Helsinki</option>
-                      <option value="Espoo">Espoo</option>
-                      <option value="Oulu">Oulu</option>
-                      <option value="Rovaniemi">Rovaniemi</option>
                   </select>
+                  <div class='instruction'>
+                      <div class='instruction-text'>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </div>
+                      <ul class="instruction-demo">
+                        <li class='green'><span class='icon'></span>Varastossa</li>
+                        <li class='orange'><span class='icon'></span>Vähän jäljellä</li>
+                        <li class='red'><span class='icon'></span>Loppuunmyyty</li>
+                      </ul>
+                  </div>
             </div>
         </div>
     </div>
