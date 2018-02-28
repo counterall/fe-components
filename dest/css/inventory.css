@@ -14,14 +14,14 @@
 .wrapper .store-inventory {
         line-height: 0;
     }
-.wrapper .store-inventory__toggle {
+.wrapper .store-inventory-toggle {
             cursor: pointer;
             display: inline-block;
         }
-.wrapper .store-inventory__toggle * {
+.wrapper .store-inventory-toggle * {
                 float: left;
             }
-.wrapper .store-inventory__toggle .toggle-icon{
+.wrapper .store-inventory-toggle .toggle-icon{
                 width:  25px;
                 height: 25px;
                 padding: 3px 0;
@@ -32,33 +32,35 @@
                 background-size: contain;
                 background-origin: content-box;
             }
-.wrapper .store-inventory__toggle .toggle-link{
+.wrapper .store-inventory-toggle .toggle-link{
                 line-height: 25px;
                 font-weight: bold;
             }
-.wrapper .store-inventory__list {
+.wrapper .store-inventory-info {
             margin-top: 19px;
             line-height: 22px;
             letter-spacing: 0.8px;
 
 
+
+
         }
-.wrapper .store-inventory__list .city-selector{
+.wrapper .store-inventory-info .city-selector{
                 width: 300px;
             }
-.wrapper .store-inventory__list .instruction-text{
+.wrapper .store-inventory-info .instruction-text{
                     color: #333333;
                     margin-top: 15px;
                 }
-.wrapper .store-inventory__list .instruction-demo{
+.wrapper .store-inventory-info .instruction-demo{
                     margin-top: 15px;
                     padding-left: 0;
                     list-style-type: none;
                 }
-.wrapper .store-inventory__list .instruction-demo li{
+.wrapper .store-inventory-info .instruction-demo li{
                         line-height: 25px;
                     }
-.wrapper .store-inventory__list .instruction-demo li .icon{
+.wrapper .store-inventory-info .instruction-demo li .icon{
                             display: inline-block;
                             width: 15px;
                             height: 15px;
@@ -70,21 +72,21 @@
                             position: relative;
                             bottom: 2px;
                         }
-.wrapper .store-inventory__list .instruction-demo li.green{
+.wrapper .store-inventory-info .instruction-demo li.green{
                             color: #7ed321;
                         }
-.wrapper .store-inventory__list .instruction-demo li.green .icon{
+.wrapper .store-inventory-info .instruction-demo li.green .icon{
                                 background-image: url(../img/check_vihr.png);
                             }
-.wrapper .store-inventory__list .instruction-demo li.orange{
+.wrapper .store-inventory-info .instruction-demo li.orange{
                             color: #f1c40e;
                         }
-.wrapper .store-inventory__list .instruction-demo li.orange .icon{
+.wrapper .store-inventory-info .instruction-demo li.orange .icon{
                                 background-image: url(../img/almost_sold_out.png);
                             }
-.wrapper .store-inventory__list .instruction-demo li.red{
+.wrapper .store-inventory-info .instruction-demo li.red{
                             color: #d0021b;
                         }
-.wrapper .store-inventory__list .instruction-demo li.red .icon{
+.wrapper .store-inventory-info .instruction-demo li.red .icon{
                                 background-image: url(../img/sold_out.png);
                             }

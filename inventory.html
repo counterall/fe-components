@@ -18,11 +18,11 @@
 <body>
     <div class='wrapper'>
         <div class='store-inventory'>
-            <div class='store-inventory__toggle clearfix'>
+            <div class='store-inventory-toggle clearfix'>
                 <div class='toggle-icon'></div>
                 <div class='toggle-link'>Katso saatavuus myymälössä</div>
             </div>
-            <div class='store-inventory__list'>
+            <div class='store-inventory-info'>
                   <select class='city-selector'>
                       <option value=""></option>
                   </select>
@@ -35,6 +35,12 @@
                         <li class='orange'><span class='icon'></span>Vähän jäljellä</li>
                         <li class='red'><span class='icon'></span>Loppuunmyyty</li>
                       </ul>
+                  </div>
+                  <div class='store-list'>
+                      <div class='store-status store-status--sizable'></div>
+                      <div class='store-status store-status--onesize'></div>
+                      <div class='store-status store-status--sizable'></div>
+                      <div class='store-status store-status--null'></div>
                   </div>
             </div>
         </div>
