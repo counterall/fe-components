@@ -99,7 +99,49 @@
 
             }
 
+            .store-list{
+                line-height: 30px;
 
+                .store-item{
+                    .store-title{
+                        &-name{
+                            font-weight: bold;
+                            text-decoration: underline;
+                        }
+                    }
+
+                    &--sizable,
+                    &--onesize {
+                         .store-status {
+                             display: flex;
+                             flex-flow: row wrap;
+                             justify-content: flex-start;
+                             
+                             &-item {
+                                 margin-right: 10px;
+                                 
+                                 &--green {
+                                     color: $inventoryStatusSuccess;
+                                 }
+                                 &--red {
+                                     color: $inventoryStatusDanger;
+                                 }
+                                 &--orange {
+                                     color: $inventoryStatusWarning;
+                                 }
+                             }
+                         }
+
+                    }
+
+                    &--null{
+                        .store-status{
+                            line-height: 21px;
+                        }
+                    }
+                    
+                }
+            }
 
 
         }
