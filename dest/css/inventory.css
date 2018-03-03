@@ -11,30 +11,26 @@
     
 
 }
-.wrapper .store-inventory {
-        line-height: 0;
-    }
 .wrapper .store-inventory-toggle {
             cursor: pointer;
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            height: 25px;
         }
-.wrapper .store-inventory-toggle * {
-                float: left;
-            }
 .wrapper .store-inventory-toggle .toggle-icon{
                 width:  25px;
-                height: 25px;
-                padding: 3px 0;
-                margin-right: 5px;
+                height: 19px;
                 background-image: url(../img/location.png);
-                background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-origin: content-box;
             }
 .wrapper .store-inventory-toggle .toggle-link{
-                line-height: 25px;
                 font-weight: bold;
+                position: relative;
+                top: 1px;
             }
 .wrapper .store-inventory-info {
             margin-top: 19px;
@@ -94,6 +90,7 @@
 .wrapper .store-inventory-info .store-list .store-item .store-title-name{
                             font-weight: bold;
                             text-decoration: underline;
+                            cursor: pointer;
                         }
 .wrapper .store-inventory-info .store-list .store-item--sizable .store-status, .wrapper .store-inventory-info .store-list .store-item--onesize .store-status {
                              display: flex;

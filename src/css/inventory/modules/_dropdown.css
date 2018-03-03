@@ -7,31 +7,28 @@
     background: white;
 
     .store-inventory {
-        line-height: 0;
 
         &-toggle {
             cursor: pointer;
-            display: inline-block;
-
-            * {
-                float: left;
-            }
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            height: 25px;
 
             .toggle-icon{
                 width:  25px;
-                height: 25px;
-                padding: 3px 0;
-                margin-right: 5px;
+                height: 19px;
                 background-image: url(../img/location.png);
-                background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-origin: content-box;
             }
 
             .toggle-link{
-                line-height: 25px;
                 font-weight: bold;
+                position: relative;
+                top: 1px;
             }
         }
 
@@ -107,6 +104,7 @@
                         &-name{
                             font-weight: bold;
                             text-decoration: underline;
+                            cursor: pointer;
                         }
                     }
 
@@ -139,7 +137,7 @@
                             line-height: 21px;
                         }
                     }
-                    
+
                 }
             }
 
