@@ -20,13 +20,33 @@
 
 <body>
     <div class='wrapper'>
-        <div class='store-inventory' id='iventory-app'>
+        <div class='store-inventory' id='inventory-app'>
             <div class='store-inventory-toggle clearfix'>
                 <div class='toggle-icon'></div>
-                <div class='toggle-link'>Katso saatavuus myymälössä</div>
+                <div class='toggle-link' @click='toggleDropdown'>Katso saatavuus myymälössä</div>
+            </div>
+            <div class='store-inventory-info' v-show='showDropdown'>
+                <select class='city-selector' v-model='cityChosen' @change='switchList'>
+                    <option v-for="city in cityList" :value="city">{{city}}</option>
+                </select>
+                <div class='instruction'>
+                    <div class='instruction-text'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                    <ul class="instruction-demo">
+                        <li class='green'>
+                            <span class='icon'></span>Varastossa</li>
+                        <li class='orange'>
+                            <span class='icon'></span>Vähän jäljellä</li>
+                        <li class='red'>
+                            <span class='icon'></span>Loppuunmyyty</li>
+                    </ul>
+                </div>
+                <div>{{cityChosen}}</div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
