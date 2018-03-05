@@ -1,5 +1,45 @@
 jQuery(function ($) {
-       
+    Vue.component('mari-select2', {
+        props: ['options', 'value'],
+        template: '<select>\
+        <slot></slot>\
+        </select>',
+        mounted: function () {
+            var vm = this
+            $(this.$el)
+                // init select2
+                .select2({
+                    data: this.options,
+                    placeholder: 'Valitse kaupunki',
+                    width: "element",
+                    theme: "marimekko"
+                })
+                .val(this.value)
+                .trigger('change')
+                // emit event on change.
+                .on('change', function () {
+                    vm.$emit('input', this.value)
+                })
+        },
+        watch: {
+            value: function (value) {
+                // update value
+                $(this.$el).val(value)
+            },
+            options: function (options) {
+                // update options
+                $(this.$el).empty().select2({
+                    data: options,
+                    placeholder: 'Valitse kaupunki',
+                    width: "element",
+                    theme: "marimekko"
+                })
+            }
+        },
+        destroyed: function () {
+            $(this.$el).off().select2('destroy')
+        }
+    });
     window.inventoryApp = new Vue({
         el: "#inventory-app",
         data: {
@@ -24,46 +64,6 @@ jQuery(function ($) {
         },
         created: function () {
 
-        },
-        components: {
-            'select2': {
-                props: ['options', 'city'],
-                template: "#select2-template",
-                mounted: function () {
-                    var vm = this
-                    console.log(this);
-                    $(this.$el)
-                        // init select2
-                        .select2({
-                            data: this.options,
-                            placeholder: 'Valitse kaupunki',
-                            width: "element",
-                            theme: "marimekko"
-                        })
-                        .val(this.city)
-                        .trigger('change')
-                        // emit event on change.
-                        .on('change', function () {
-                            vm.$emit('input', this.city)
-                        })
-                },
-                watch: {
-                    value: function (city) {
-                        // update value
-                        $(this.$el).val(city)
-                        console.log($(this.$el).val(city));
-                    },
-                    options: function (cityList) {
-                        // update options
-                        $(this.$el).empty().select2({
-                            data: cityList
-                        })
-                    }
-                },
-                destroyed: function () {
-                    $(this.$el).off().select2('destroy')
-                }
-            }
         }
     })
 });
