@@ -1,4 +1,5 @@
 jQuery(function ($) {
+    /* Create vue component of select element where select2 jQuery plugin is applied */
     Vue.component('mari-select2', {
         props: ['options', 'value'],
         template: '<select>\
@@ -14,9 +15,7 @@ jQuery(function ($) {
                     width: "element",
                     theme: "marimekko"
                 })
-                .val(this.value)
-                .trigger('change')
-                // emit event on change.
+                // emit event on change, actually used to pass new select value to cityChosen defined in v-model='cityChosen'
                 .on('change', function () {
                     vm.$emit('input', this.value)
                 })
@@ -45,14 +44,32 @@ jQuery(function ($) {
         data: {
             dropDownClass: "city-selector",
             showDropdown: false,
-            cityList: [
-                { id: 1, text: 'Hello' },
-                { id: 2, text: 'World' }
-            ],
-            cityChosen: ''
+            countryCode: false,
+            countryData: false,
+            cityList: false,
+            cityChosen: "",
+            url: {
+                host: "http://127.0.0.1:5500/dest/json/inventory.json"
+            }
         },
         methods: {
             toggleDropdown: function () {
+                var extraParams = '';
+                this.countryCode = 'FI';
+                var vm = this;
+                if (!this.countryData) {
+                   $.get({
+                       // beforeSend: BEATHELPER.toggleLoadingIcon($chartBodyName, true, isID),
+                       dataType: "json",
+                       url: this.url.host,
+                       data: extraParams
+                   }).done(function (data) {
+                       vm.countryData = data[vm.countryCode];
+                       var cityList = Object.keys(vm.countryData);
+                       cityList.unshift('');
+                       vm.cityList = cityList;
+                   });
+                }
                 this.showDropdown = !this.showDropdown;
             },
             switchList: function () {
