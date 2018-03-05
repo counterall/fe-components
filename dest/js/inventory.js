@@ -41,6 +41,36 @@ jQuery(function ($) {
         }
     });
 
+    Vue.component('store-inventory-list', {
+        props: ['storeName', 'storePhone', 'inventoryLevel', 'sizes', 'ownStore', 'partnerStoreInfo'],
+        template: "#store-inventory-template",
+        computed: {
+            productTypeClass: function(){
+                if (typeof this.sizes !== "undefined") {
+                    if (this.sizes.length === 1) {
+                        return "store-item--onesize";
+                    } else if (this.sizes.length >= 2) {
+                        return " store-item--sizable";
+                    }
+                }else{
+                    return "store-item--null";
+                }
+                console.log(this);
+            }
+        },
+        methods: {
+            getInventoryGroupClass: function (stock) {
+                if (stock === 1) {
+                    return "store-status-item-green";
+                } else if (stock === 2) {
+                    return "store-status-item-orange";
+                } else {
+                    return "store-status-item-red";
+                }
+            }
+        }
+    })
+
     // root vue app
     window.inventoryApp = new Vue({
         el: "#inventory-app",
@@ -49,6 +79,7 @@ jQuery(function ($) {
             showDropdown: false,
             countryCode: false,
             countryData: false,
+            cityData: false,
             cityList: false,
             cityChosen: "",
             url: {
@@ -76,7 +107,7 @@ jQuery(function ($) {
                 this.showDropdown = !this.showDropdown;
             },
             switchList: function(city) {
-              
+              this.cityData = this.countryData[city] ? this.countryData[city] : false;
             }
         },
         mounted: function () {
