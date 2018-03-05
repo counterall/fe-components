@@ -13,7 +13,17 @@
     <script src='src/js/lib/jquery-3.3.1.min.js'></script>
     <script src="src/js/lib/bootstrap.min.js"></script>
     <script src="src/js/lib/select2.min.js"></script>
-    <script src="dest/js/inventory.js"></script>
+    <script>
+    
+        jQuery(function($){
+            $('.city-selector').select2({
+                placeholder: 'Valitse kaupunki',
+                width: "element",
+                theme: "marimekko"
+            });
+        })
+
+    </script>
 </head>
 <body>
     <div class='wrapper'>

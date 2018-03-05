@@ -26,9 +26,10 @@
                 <div class='toggle-link' @click='toggleDropdown'>Katso saatavuus myymälössä</div>
             </div>
             <div class='store-inventory-info' v-show='showDropdown'>
-                <select class='city-selector' v-model='cityChosen' @change='switchList'>
-                    <option v-for="city in cityList" :value="city">{{city}}</option>
-                </select>
+              
+                <select2 :class="dropDownClass" v-model="cityChosen" :options="cityList" @change="switchList">
+                </select2>
+                
                 <div class='instruction'>
                     <div class='instruction-text'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -46,7 +47,11 @@
             </div>
         </div>
     </div>
-
+    <script type="text/x-template" id="select2-template">
+        <select>
+        <slot></slot>
+        </select>
+    </script>
 </body>
 
 </html>
