@@ -17,7 +17,8 @@ jQuery(function ($) {
                 })
                 // emit event on change, actually used to pass new select value to cityChosen defined in v-model='cityChosen'
                 .on('change', function () {
-                    vm.$emit('input', this.value)
+                    vm.$emit('input', this.value);
+                    vm.$emit('change', this.value);
                 })
         },
         watch: {
@@ -39,6 +40,8 @@ jQuery(function ($) {
             $(this.$el).off().select2('destroy')
         }
     });
+
+    // root vue app
     window.inventoryApp = new Vue({
         el: "#inventory-app",
         data: {
@@ -72,8 +75,8 @@ jQuery(function ($) {
                 }
                 this.showDropdown = !this.showDropdown;
             },
-            switchList: function () {
-                
+            switchList: function(city) {
+              
             }
         },
         mounted: function () {
