@@ -42,7 +42,7 @@ jQuery(function ($) {
     });
 
     Vue.component('store-inventory-list', {
-        props: ['storeName', 'storePhone', 'inventoryLevel', 'sizes', 'ownStore', 'partnerStoreInfo'],
+        props: ['storeName', 'storePhone', 'sizes', 'ownStore'],
         template: "#store-inventory-template",
         computed: {
             productTypeClass: function(){
@@ -55,17 +55,16 @@ jQuery(function ($) {
                 }else{
                     return "store-item--null";
                 }
-                console.log(this);
             }
         },
         methods: {
             getInventoryGroupClass: function (stock) {
                 if (stock === 1) {
-                    return "store-status-item-green";
+                    return "store-status-item--green";
                 } else if (stock === 2) {
-                    return "store-status-item-orange";
+                    return "store-status-item--orange";
                 } else {
-                    return "store-status-item-red";
+                    return "store-status-item--red";
                 }
             }
         }

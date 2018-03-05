@@ -48,9 +48,9 @@
                     <store-inventory-list
                         v-if='cityData'
                         v-for='item in cityData'
-                        :storeName='item.title'
-                        :storePhone='item.contact_details.phone'
-                        :ownStore="typeof item.size !== 'undefined'"
+                        :store-name='item.title'
+                        :store-phone='item.contact_details.phone'
+                        :own-store="typeof item.sizes !== 'undefined'"
                         :sizes='item.sizes'
                     ></store-inventory-list>
                 </div>
@@ -66,12 +66,14 @@
                 <span class='store-title-phone' v-if='ownStore'>{{storePhone}}</span>
             </div>
             <div class='store-status clearfix'>
-                <div class='store-status-item' 
+                <div class='store-status-item'
+                    v-if='ownStore'
                     v-for='size in sizes' 
-                    v-if="ownStore"
                     :class='getInventoryGroupClass(size.level)'
                 >{{size.product_size}}</div>
-                <div class="store-status-info" v-if="!ownStore">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{{storePhone}}</div>
+                <div class="store-status-info" 
+                v-if='!ownStore'
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{{storePhone}}</div>
             </div>
         </div>
     
