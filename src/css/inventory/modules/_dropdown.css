@@ -133,7 +133,9 @@
                     }
 
                     &--null{
+                        padding-bottom: 5px;
                         .store-status{
+                            padding-top: 4px;
                             line-height: 21px;
                         }
                     }

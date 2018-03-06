@@ -109,6 +109,10 @@
 .wrapper .store-inventory-info .store-list .store-item--sizable .store-status-item--orange, .wrapper .store-inventory-info .store-list .store-item--onesize .store-status-item--orange {
                                      color: #f1c40e;
                                  }
+.wrapper .store-inventory-info .store-list .store-item--null{
+                        padding-bottom: 5px;
+                    }
 .wrapper .store-inventory-info .store-list .store-item--null .store-status{
+                            padding-top: 4px;
                             line-height: 21px;
                         }
