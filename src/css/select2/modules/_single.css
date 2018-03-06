@@ -15,7 +15,7 @@
             font-weight: bold;
         }
         .select2-selection__placeholder {
-            color: #999;
+            color: $accentColour13;
         }
         .select2-selection__arrow {
             height: $dropdownDefaultHeight;
