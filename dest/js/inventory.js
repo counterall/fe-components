@@ -44,16 +44,21 @@ jQuery(function ($) {
     Vue.component('store-inventory-list', {
         props: ['storeName', 'storePhone', 'sizes', 'ownStore'],
         template: "#store-inventory-template",
+        data: function(){
+            return {
+                oneSizeMapping: [null, "Varastossa", "Vähän jäljellä", "Loppuunmyyty"]
+            };
+        },
         computed: {
-            productTypeClass: function(){
+            productType: function(){
                 if (typeof this.sizes !== "undefined") {
                     if (this.sizes.length === 1) {
-                        return "store-item--onesize";
+                        return "onesize";
                     } else if (this.sizes.length >= 2) {
-                        return " store-item--sizable";
+                        return "sizable";
                     }
                 }else{
-                    return "store-item--null";
+                    return "null";
                 }
             }
         },
@@ -82,7 +87,7 @@ jQuery(function ($) {
             cityList: false,
             cityChosen: "",
             url: {
-                host: "http://127.0.0.1:5500/dest/json/inventory.json"
+                host: "http://127.0.0.1:5500/dest/json/inventory-onesize.json"
             }
         },
         methods: {

@@ -60,20 +60,27 @@
 
     <script type="text/x-template" id="store-inventory-template">
     
-        <div class='store-item' :class='productTypeClass'>
+        <div class='store-item' :class="'store-item--' + productType">
             <div class='store-title'>
                 <span class='store-title-name'>{{storeName}}</span>
                 <span class='store-title-phone' v-if='ownStore'>{{storePhone}}</span>
             </div>
             <div class='store-status clearfix'>
-                <div class='store-status-item'
-                    v-if='ownStore'
-                    v-for='size in sizes' 
-                    :class='getInventoryGroupClass(size.level)'
-                >{{size.product_size}}</div>
-                <div class="store-status-info" 
-                v-if='!ownStore'
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{{storePhone}}</div>
+                <template v-if="ownStore">
+                    <template v-if="productType === 'sizable'">
+                        <div class='store-status-item'
+                            v-for='size in sizes'
+                            :class='getInventoryGroupClass(size.level)'
+                        >{{size.product_size}}</div>
+                    </template>
+                    <div class='store-status-item'
+                        :class='getInventoryGroupClass(sizes[0].level)'
+                        v-else
+                    >{{oneSizeMapping[sizes[0].level]}}</div>
+                </template>
+                <template v-else>
+                    <div class="store-status-item--null">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{{storePhone}}</div>
+                </template>
             </div>
         </div>
     
