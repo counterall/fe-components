@@ -16,53 +16,11 @@
                 },
                 "sizes": [
                     {
-                        "product_size": "34",
-                        "quantity": 1,
-                        "sort": 1,
-                        "level": 2,
-                        "ean_code": "6411254419564"
-                    },
-                    {
-                        "product_size": "36",
-                        "quantity": 1,
-                        "sort": 2,
-                        "level": 3,
-                        "ean_code": "6411254419571"
-                    },
-                    {
-                        "product_size": "38",
-                        "quantity": 2,
-                        "sort": 3,
-                        "level": 2,
-                        "ean_code": "6411254419588"
-                    },
-                    {
-                        "product_size": "40",
-                        "quantity": 2,
-                        "sort": 4,
+                        "product_size": "",
+                        "quantity": 15,
+                        "sort": 0,
                         "level": 1,
-                        "ean_code": "6411254419595"
-                    },
-                    {
-                        "product_size": "42",
-                        "quantity": 1,
-                        "sort": 5,
-                        "level": 3,
-                        "ean_code": "6411254419601"
-                    },
-                    {
-                        "product_size": "44",
-                        "quantity": 1,
-                        "sort": 6,
-                        "level": 1,
-                        "ean_code": "6411254419618"
-                    },
-                    {
-                        "product_size": "46",
-                        "quantity": 1,
-                        "sort": 7,
-                        "level": 1,
-                        "ean_code": "6411254419625"
+                        "ean_code": "6411254388273"
                     }
                 ]
             },
@@ -78,7 +36,16 @@
                     "saturday": "9-18",
                     "sunday": "12-18",
                     "holiday": null
-                }
+                },
+                "sizes": [
+                    {
+                        "product_size": "",
+                        "quantity": 15,
+                        "sort": 0,
+                        "level": 2,
+                        "ean_code": "6411254388273"
+                    }
+                ]
             },
             {
                 "storeId": "560",
@@ -92,7 +59,16 @@
                     "saturday": "10-15",
                     "sunday": null,
                     "holiday": null
-                }
+                },
+                "sizes": [
+                    {
+                        "product_size": "",
+                        "quantity": 15,
+                        "sort": 0,
+                        "level": 3,
+                        "ean_code": "6411254388273"
+                    }
+                ]
             }
         ],
         "Vantaa": [
@@ -111,53 +87,11 @@
                 },
                 "sizes": [
                     {
-                        "product_size": "34",
-                        "quantity": 1,
-                        "sort": 1,
+                        "product_size": "",
+                        "quantity": 19.3,
+                        "sort": 0,
                         "level": 1,
-                        "ean_code": "6411254419564"
-                    },
-                    {
-                        "product_size": "36",
-                        "quantity": 1,
-                        "sort": 2,
-                        "level": 1,
-                        "ean_code": "6411254419571"
-                    },
-                    {
-                        "product_size": "38",
-                        "quantity": 2,
-                        "sort": 3,
-                        "level": 1,
-                        "ean_code": "6411254419588"
-                    },
-                    {
-                        "product_size": "40",
-                        "quantity": 1,
-                        "sort": 4,
-                        "level": 1,
-                        "ean_code": "6411254419595"
-                    },
-                    {
-                        "product_size": "42",
-                        "quantity": 1,
-                        "sort": 5,
-                        "level": 1,
-                        "ean_code": "6411254419601"
-                    },
-                    {
-                        "product_size": "44",
-                        "quantity": 1,
-                        "sort": 6,
-                        "level": 1,
-                        "ean_code": "6411254419618"
-                    },
-                    {
-                        "product_size": "46",
-                        "quantity": 1,
-                        "sort": 7,
-                        "level": 1,
-                        "ean_code": "6411254419625"
+                        "ean_code": "6411254388273"
                     }
                 ]
             },
@@ -192,53 +126,11 @@
                 },
                 "sizes": [
                     {
-                        "product_size": "34",
-                        "quantity": 1,
-                        "sort": 1,
+                        "product_size": "",
+                        "quantity": 14,
+                        "sort": 0,
                         "level": 1,
-                        "ean_code": "6411254419564"
-                    },
-                    {
-                        "product_size": "36",
-                        "quantity": 2,
-                        "sort": 2,
-                        "level": 1,
-                        "ean_code": "6411254419571"
-                    },
-                    {
-                        "product_size": "38",
-                        "quantity": 2,
-                        "sort": 3,
-                        "level": 1,
-                        "ean_code": "6411254419588"
-                    },
-                    {
-                        "product_size": "40",
-                        "quantity": 2,
-                        "sort": 4,
-                        "level": 1,
-                        "ean_code": "6411254419595"
-                    },
-                    {
-                        "product_size": "42",
-                        "quantity": 1,
-                        "sort": 5,
-                        "level": 1,
-                        "ean_code": "6411254419601"
-                    },
-                    {
-                        "product_size": "44",
-                        "quantity": 1,
-                        "sort": 6,
-                        "level": 1,
-                        "ean_code": "6411254419618"
-                    },
-                    {
-                        "product_size": "46",
-                        "quantity": 1,
-                        "sort": 7,
-                        "level": 1,
-                        "ean_code": "6411254419625"
+                        "ean_code": "6411254388273"
                     }
                 ]
             },
@@ -287,46 +179,11 @@
                 },
                 "sizes": [
                     {
-                        "product_size": "34",
-                        "quantity": 1,
-                        "sort": 1,
+                        "product_size": "",
+                        "quantity": 15,
+                        "sort": 0,
                         "level": 1,
-                        "ean_code": "6411254419564"
-                    },
-                    {
-                        "product_size": "36",
-                        "quantity": 1,
-                        "sort": 2,
-                        "level": 1,
-                        "ean_code": "6411254419571"
-                    },
-                    {
-                        "product_size": "38",
-                        "quantity": 1,
-                        "sort": 3,
-                        "level": 1,
-                        "ean_code": "6411254419588"
-                    },
-                    {
-                        "product_size": "40",
-                        "quantity": 2,
-                        "sort": 4,
-                        "level": 1,
-                        "ean_code": "6411254419595"
-                    },
-                    {
-                        "product_size": "42",
-                        "quantity": 1,
-                        "sort": 5,
-                        "level": 1,
-                        "ean_code": "6411254419601"
-                    },
-                    {
-                        "product_size": "44",
-                        "quantity": 1,
-                        "sort": 6,
-                        "level": 1,
-                        "ean_code": "6411254419618"
+                        "ean_code": "6411254388273"
                     }
                 ]
             },
