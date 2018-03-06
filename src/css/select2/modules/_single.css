@@ -6,7 +6,7 @@
         height: $dropdownDefaultHeight;
 
         .select2-selection__rendered {
-            color: #444;
+            color: $accentColour09;
             line-height: $dropdownDefaultHeight;
         }
         .select2-selection__clear {
