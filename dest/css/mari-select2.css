@@ -32,13 +32,12 @@
             justify-content: center;
         }
 .select2-container--marimekko .select2-selection--single .select2-selection__arrow b {
-                border-width: 0 1px 1px 0;
-                border-color: #333;
-                border-style: solid;
-                width: 7px;
-                height: 7px;
-                -webkit-transform: rotate(45deg);
-                        transform: rotate(45deg);
+                width: 10px;
+                height: 6px;
+                background-image: url(../img/arrow.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-origin: content-box;
                 position: absolute;
                 right: 0;
             }
@@ -57,7 +56,8 @@
                 display: none;
             }
 .select2-container--marimekko.select2-container--open .select2-selection--single .select2-selection__arrow b {
-                    border-width: 1px 0 0 1px;
+                    -webkit-transform: rotate(180deg);
+                            transform: rotate(180deg);
                 }
 .select2-container--marimekko .select2-selection--multiple {
         background-color: white;

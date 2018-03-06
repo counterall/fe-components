@@ -32,12 +32,12 @@
             justify-content: center;
 
             b {
-                border-width: 0 1px 1px 0;
-                border-color: $defaultTextColour;
-                border-style: solid;
-                width: 7px;
-                height: 7px;
-                transform: rotate(45deg);
+                width: 10px;
+                height: 6px;
+                background-image: url(../img/arrow.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-origin: content-box;
                 position: absolute;
                 right: 0;
             }
@@ -70,7 +70,7 @@
         .select2-selection--single {
             .select2-selection__arrow {
                 b {
-                    border-width: 1px 0 0 1px;
+                    transform: rotate(180deg);
                 }
             }
         }
