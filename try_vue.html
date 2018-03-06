@@ -45,14 +45,17 @@
                 </div>
 
                 <div class="store-list">
-                    <store-inventory-list
-                        v-if='cityData'
-                        v-for='item in cityData'
-                        :store-name='item.title'
-                        :store-phone='item.contact_details.phone'
-                        :own-store="typeof item.sizes !== 'undefined'"
-                        :sizes='item.sizes'
-                    ></store-inventory-list>
+                    <template v-if='cityData'>
+                        <store-inventory-list
+                            v-for='(item, index) in cityData'
+                            :store-name='item.title'
+                            :store-phone='item.contact_details.phone'
+                            :own-store="typeof item.sizes !== 'undefined'"
+                            :sizes='item.sizes'
+                            :key='item.storeId'
+                            :index='index'
+                        ></store-inventory-list>
+                    </template>
                 </div>
             </div>
         </div>

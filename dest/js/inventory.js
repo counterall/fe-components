@@ -106,12 +106,14 @@ jQuery(function ($) {
                        var cityList = Object.keys(vm.countryData);
                        cityList.unshift('');
                        vm.cityList = cityList;
+                   }).fail(function(){
+                       vm.countryData = false;
                    });
                 }
                 this.showDropdown = !this.showDropdown;
             },
             switchList: function(city) {
-              this.cityData = this.countryData[city] ? this.countryData[city] : false;
+              this.cityData = this.countryData[city];
             }
         },
         mounted: function () {
