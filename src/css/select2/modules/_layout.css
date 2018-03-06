@@ -17,6 +17,9 @@
     .select2-search--dropdown {
         .select2-search__field {
             border: 1px solid #aaa;
+            &:focus{
+                outline: none;
+            }
         }
     }
     .select2-search--inline {
@@ -33,6 +36,7 @@
         overflow-y: auto;
     }
     .select2-results__option {
+        color: #333333;
         &[role=group] {
             padding: 0;
         }
@@ -70,8 +74,7 @@
         }
     }
     .select2-results__option--highlighted[aria-selected] {
-        background-color: #5897fb;
-        color: white;
+        background-color: #f9f9f9;
     }
     .select2-results__group {
         cursor: default;

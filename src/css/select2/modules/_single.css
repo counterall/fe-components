@@ -5,6 +5,10 @@
         border-radius: 0;
         height: $dropdownDefaultHeight;
 
+        &:focus {
+            outline: none;
+        }
+
         .select2-selection__rendered {
             color: $accentColour09;
             line-height: $dropdownDefaultHeight;
