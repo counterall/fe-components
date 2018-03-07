@@ -42,11 +42,14 @@ jQuery(function ($) {
     });
 
     Vue.component('store-inventory-list', {
-        props: ['storeName', 'storePhone', 'sizes', 'ownStore'],
+        props: ['storeName', 'storePhone', 'sizes', 'ownStore', 'countryCode'],
         template: "#store-inventory-template",
         data: function(){
             return {
-                oneSizeMapping: [null, "Varastossa", "Vähän jäljellä", "Loppuunmyyty"]
+                oneSizeMapping: {
+                    'FI': [null, "Varastossa", "Vähän jäljellä", "Loppuunmyyty"],
+                    'EN': [null, "In stock", 'Few left', "Out of stock"]
+                }
             };
         },
         computed: {
@@ -59,6 +62,13 @@ jQuery(function ($) {
                     }
                 }else{
                     return "null";
+                }
+            },
+            locale: function(){
+                if (this.countryCode === 'FI') {
+                    return "FI";
+                }else{
+                    return "EN";
                 }
             }
         },

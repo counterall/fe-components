@@ -25,7 +25,7 @@
                 <div class='toggle-icon'></div>
                 <div class='toggle-link' @click='toggleDropdown'>Katso saatavuus myymälössä</div>
             </div>
-            <div class='store-inventory-info' v-show='showDropdown'>
+            <div class='store-inventory-info' v-if='showDropdown'>
               
                 <mari-select2 :class="dropDownClass" v-model="cityChosen" :options="cityList" @change="switchList">
                 </mari-select2>
@@ -51,6 +51,7 @@
                             :store-name='item.title'
                             :store-phone='item.contact_details.phone'
                             :own-store="typeof item.sizes !== 'undefined'"
+                            :country-code='countryCode'
                             :sizes='item.sizes'
                             :key='item.storeId'
                             :index='index'
@@ -79,7 +80,7 @@
                     <div class='store-status-item'
                         :class='getInventoryGroupClass(sizes[0].level)'
                         v-else
-                    >{{oneSizeMapping[sizes[0].level]}}</div>
+                    >{{oneSizeMapping[locale][sizes[0].level]}}</div>
                 </template>
                 <template v-else>
                     <div class="store-status-item--null">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{{storePhone}}</div>
