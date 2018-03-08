@@ -39,6 +39,12 @@
                             background-origin: content-box;
                         }
                     }
+
+                    .modal-body{
+                        padding: 0;
+                        margin-top: 15px;
+                        letter-spacing: 0.8px;
+                    }
                 }
             }
 
