@@ -116,43 +116,46 @@
                             padding-top: 4px;
                             line-height: 21px;
                         }
-.rich-product-page .modal.fade .modal-dialog {
-                position: fixed;
-                top: 30%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                        transform: translate(-50%, -50%);
-                margin: 0;
-                width: 300px;
-            }
-.rich-product-page .modal.fade .modal-dialog .modal-content{
-                    border: none;
-                    box-shadow: none;
-                    border-radius: 0;
-                    padding: 30px;
-                    position: static;
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog {
+                    position: fixed;
+                    top: 30%;
+                    left: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                            transform: translate(-50%, -50%);
+                    margin: 0;
+                    width: 300px;
                 }
-.rich-product-page .modal.fade .modal-dialog .modal-content .modal-header{
-                        padding: 0;
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content{
                         border: none;
-                        min-height: initial;
-                        font-size: 18px;
-                        letter-spacing: 1px;
-                        color: #333333;
+                        box-shadow: none;
+                        border-radius: 0;
+                        padding: 30px;
+                        position: static;
                     }
-.rich-product-page .modal.fade .modal-dialog .modal-content .modal-header button.close{
-                            position: absolute;
-                            top: 15px;
-                            right: 15px;
-                            height: 15px;
-                            width: 15px;
-                            background-image: url(../img/close.png);
-                            background-repeat: no-repeat;
-                            background-size: contain;
-                            background-origin: content-box;
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header{
+                            padding: 0;
+                            border: none;
+                            min-height: initial;
+                            font-size: 18px;
+                            letter-spacing: 1px;
+                            color: #333333;
                         }
-.rich-product-page .modal.fade .modal-dialog .modal-content .modal-body{
-                        padding: 0;
-                        margin-top: 15px;
-                        letter-spacing: 0.8px;
-                    }
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header button.close{
+                                position: absolute;
+                                top: 15px;
+                                right: 15px;
+                                height: 15px;
+                                width: 15px;
+                                background-image: url(../img/close.png);
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-origin: content-box;
+                            }
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-body{
+                            padding: 0;
+                            margin-top: 15px;
+                            letter-spacing: 0.8px;
+                        }
+.catalog-product-view .modal-backdrop.in{
+        opacity: 0.2;
+    }

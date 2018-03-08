@@ -1,56 +1,64 @@
-.rich-product-page {
+.catalog-product-view {
+    
+    .rich-product-page {
 
-    .modal{
+        .modal{
 
-        &.fade{
+            &.fade{
 
-            .modal-dialog {
-                position: fixed;
-                top: 30%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                margin: 0;
-                width: 300px;
+                .modal-dialog {
+                    position: fixed;
+                    top: 30%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    margin: 0;
+                    width: 300px;
 
-                .modal-content{
-                    border: none;
-                    box-shadow: none;
-                    border-radius: 0;
-                    padding: 30px;
-                    position: static;
-
-                    .modal-header{
-                        padding: 0;
+                    .modal-content{
                         border: none;
-                        min-height: initial;
-                        font-size: 18px;
-                        letter-spacing: 1px;
-                        color: $accentColour09;
+                        box-shadow: none;
+                        border-radius: 0;
+                        padding: 30px;
+                        position: static;
 
-                        button.close{
-                            position: absolute;
-                            top: 15px;
-                            right: 15px;
-                            height: 15px;
-                            width: 15px;
-                            background-image: url(../img/close.png);
-                            background-repeat: no-repeat;
-                            background-size: contain;
-                            background-origin: content-box;
+                        .modal-header{
+                            padding: 0;
+                            border: none;
+                            min-height: initial;
+                            font-size: 18px;
+                            letter-spacing: 1px;
+                            color: $accentColour09;
+
+                            button.close{
+                                position: absolute;
+                                top: 15px;
+                                right: 15px;
+                                height: 15px;
+                                width: 15px;
+                                background-image: url(../img/close.png);
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-origin: content-box;
+                            }
+                        }
+
+                        .modal-body{
+                            padding: 0;
+                            margin-top: 15px;
+                            letter-spacing: 0.8px;
                         }
                     }
-
-                    .modal-body{
-                        padding: 0;
-                        margin-top: 15px;
-                        letter-spacing: 0.8px;
-                    }
                 }
+
             }
+            
+
 
         }
-        
-
-
     }
+
+    .modal-backdrop.in{
+        opacity: 0.2;
+    }
+    
 }
