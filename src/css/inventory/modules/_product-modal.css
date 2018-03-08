@@ -17,11 +17,27 @@
                     box-shadow: none;
                     border-radius: 0;
                     padding: 30px;
+                    position: static;
 
                     .modal-header{
                         padding: 0;
                         border: none;
                         min-height: initial;
+                        font-size: 18px;
+                        letter-spacing: 1px;
+                        color: $accentColour09;
+
+                        button.close{
+                            position: absolute;
+                            top: 15px;
+                            right: 15px;
+                            height: 15px;
+                            width: 15px;
+                            background-image: url(../img/close.png);
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            background-origin: content-box;
+                        }
                     }
                 }
             }
