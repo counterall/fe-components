@@ -1,0 +1,34 @@
+.rich-product-page {
+
+    .modal{
+
+        &.fade{
+
+            .modal-dialog {
+                position: fixed;
+                top: 30%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+                width: 300px;
+
+                .modal-content{
+                    border: none;
+                    box-shadow: none;
+                    border-radius: 0;
+                    padding: 30px;
+
+                    .modal-header{
+                        padding: 0;
+                        border: none;
+                        min-height: initial;
+                    }
+                }
+            }
+
+        }
+        
+
+
+    }
+}

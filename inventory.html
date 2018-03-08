@@ -21,12 +21,16 @@
                 width: "element",
                 theme: "marimekko"
             });
+
+            $('.store-title-name').on('click', function(){
+                $('.modal').modal();
+            });
         })
 
     </script>
 </head>
 <body>
-    <div class='wrapper'>
+    <div class='rich-product-page'>
         <div class='store-inventory'>
             <div class='store-inventory-toggle clearfix'>
                 <div class='toggle-icon'></div>
@@ -105,24 +109,25 @@
                   </div>
             </div>
         </div>
-    </div>
-            <!-- Bootstrap Modal component to render pop-up window -->
-    <div class="modal fade" id="universal-overlay" tabindex="-1" role="dialog" aria-labelledby="mariModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="mariModalLabel"></h4>
-                </div>
-                <div class="modal-body clearfix" id="universal-overlay-body">
-                </div>
-                <div class="modal-footer" id='universal-overlay--footer'>
-    
+
+        <!-- Bootstrap Modal component to render pop-up window -->
+        <div class="modal fade" id="universal-overlay" tabindex="-1" role="dialog" aria-labelledby="mariModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        </button>
+                        <div class="modal-title" id="mariModalLabel">Marimekko Iso Omena</div>
+                    </div>
+                    <div class="modal-body contact clearfix">
+                        <div class='contact-section'>Piispansilta 11<br>02230 Espoo<br>Finland</div>
+                        <div class='contact-section'>Avoinna:<br>Arkisin 10-21<br>lauantai 10-19<br>sunnuntai 11-18</div>
+                        <div class='contact-section'>+358 44 761 9785</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </body>
 </html>
