@@ -83,32 +83,31 @@ jQuery(function ($) {
                 }
             },
             prepareContactDetail: function(){
+                var address = this.contact.address.split(',').map(function(ad){return ad.trim()});
                 var contactInfo = {
-                    storeName: storeName,
-                    contact: contact,
-                    openingHours: openingHours
+                    name: this.storeName,
+                    address: address,
+                    openingHours: this.openingHours,
+                    phone: this.contact.phone
                 };
-
-                vm.$emit('prepareContactDetail', contactInfo);
+                this.$parent.storeContactInfo = contactInfo;
             }
         }
     });
 
     Vue.component("store-contact-overlay", {
-        props:['storeName', 'contact', 'openingHours'],
+        props:['storeContact'],
         template: "#store-contact-overlay",
-        methods: {
-            setContactOverlay: function(contactInfo){
-                this.storeName = contactInfo.storeName;
-                this.contact = contactInfo.contact;
-                this.openingHours = contactInfo.openingHours;
-                $(this.$el).modal();
-            }
+        updated: function(){
+            $(this.$el).modal();
+        },
+        mounted: function () {
+            $(this.$el).modal();
         }
-    })
+    });
 
     // root vue app
-    window.inventoryApp = new Vue({
+    var inventoryApp = new Vue({
         el: "#inventory-app",
         data: {
             dropDownClass: "city-selector",
@@ -118,6 +117,7 @@ jQuery(function ($) {
             cityData: false,
             cityList: false,
             cityChosen: "",
+            storeContactInfo: false,
             url: {
                 host: "http://127.0.0.1:5500/dest/json/inventory-onesize.json"
             }
@@ -147,12 +147,6 @@ jQuery(function ($) {
             switchList: function(city) {
               this.cityData = this.countryData[city];
             }
-        },
-        mounted: function () {
-
-        },
-        created: function () {
-
         }
     })
 });
