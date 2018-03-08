@@ -49,8 +49,9 @@
                         <store-inventory-list
                             v-for='(item, index) in cityData'
                             :store-name='item.title'
-                            :store-phone='item.contact_details.phone'
+                            :contact='item.contact_details'
                             :own-store="typeof item.sizes !== 'undefined'"
+                            :opening-hours="item.opening_hours"
                             :country-code='countryCode'
                             :sizes='item.sizes'
                             :key='item.storeId'
@@ -58,41 +59,51 @@
                         ></store-inventory-list>
                     </template>
                 </div>
+
+                 <store-contact-overlay
+                    @prepareContactDetail="setContactOverlay"
+                 ></store-contact-overlay>
             </div>
         </div>
     
-        <!-- Bootstrap Modal component to render pop-up window -->
-        <div class="modal fade" id="universal-overlay" tabindex="-1" role="dialog" aria-labelledby="mariModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        </button>
-                        <div class="modal-title" id="mariModalLabel">Marimekko Iso Omena</div>
-                    </div>
-                    <div class="modal-body contact clearfix">
-                        <div class='contact-section'>Piispansilta 11
-                            <br>02230 Espoo
-                            <br>Finland</div>
-                        <br>
-                        <div class='contact-section'>Avoinna:
-                            <br>Arkisin 10-21
-                            <br>lauantai 10-19
-                            <br>sunnuntai 11-18</div>
-                        <br>
-                        <div class='contact-section'>+358 44 761 9785</div>
+        <script type="text/x-template" id="store-contact-overlay">
+            <!-- Bootstrap Modal component to render pop-up window -->
+            <div class="modal fade" id="universal-overlay" tabindex="-1" role="dialog" aria-labelledby="mariModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                            <div class="modal-title" id="mariModalLabel">{{storeName}}</div>
+                        </div>
+                        <div class="modal-body contact clearfix">
+                            <div class='contact-section'>
+                                {{contact.address[0]}}<br>
+                                {{contact.address[1]}}<br>
+                                {{address[2]}}
+                            </div>
+                            <br>
+                            <div class='contact-section'>Avoinna:
+                                <br>Arkisin {{openinghours.weekday}}
+                                <br>lauantai {{openinghours.saturday}}
+                                <br>sunnuntai {{openinghours.sunday}}
+                            </div>
+                            <br>
+                            <div class='contact-section'>{{contact.phone}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </script>
+
     </div>
 
     <script type="text/x-template" id="store-inventory-template">
     
         <div class='store-item' :class="'store-item--' + productType">
             <div class='store-title'>
-                <span class='store-title-name'>{{storeName}}</span>
-                <span class='store-title-phone' v-if='ownStore'>{{storePhone}}</span>
+                <span @click="prepareContactDetail" class='store-title-name'>{{storeName}}</span>
+                <span class='store-title-phone' v-if='ownStore'>{{contact.phone}}</span>
             </div>
             <div class='store-status clearfix'>
                 <template v-if="ownStore">
@@ -108,12 +119,13 @@
                     >{{oneSizeMapping[locale][sizes[0].level]}}</div>
                 </template>
                 <template v-else>
-                    <div class="store-status-item--null">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{{storePhone}}</div>
+                    <div class="store-status-item--null">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{{contact.phone}}</div>
                 </template>
             </div>
         </div>
-    
     </script>
+
+
 </body>
 
 </html>

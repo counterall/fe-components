@@ -37,12 +37,12 @@ jQuery(function ($) {
             }
         },
         destroyed: function () {
-            $(this.$el).off().select2('destroy')
+            $(this.$el).off().select2('destroy');
         }
     });
 
     Vue.component('store-inventory-list', {
-        props: ['storeName', 'storePhone', 'sizes', 'ownStore', 'countryCode'],
+        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours'],
         template: "#store-inventory-template",
         data: function(){
             return {
@@ -81,6 +81,28 @@ jQuery(function ($) {
                 } else {
                     return "store-status-item--red";
                 }
+            },
+            prepareContactDetail: function(){
+                var contactInfo = {
+                    storeName: storeName,
+                    contact: contact,
+                    openingHours: openingHours
+                };
+
+                vm.$emit('prepareContactDetail', contactInfo);
+            }
+        }
+    });
+
+    Vue.component("store-contact-overlay", {
+        props:['storeName', 'contact', 'openingHours'],
+        template: "#store-contact-overlay",
+        methods: {
+            setContactOverlay: function(contactInfo){
+                this.storeName = contactInfo.storeName;
+                this.contact = contactInfo.contact;
+                this.openingHours = contactInfo.openingHours;
+                $(this.$el).modal();
             }
         }
     })
