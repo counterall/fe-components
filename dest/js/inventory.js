@@ -119,7 +119,7 @@ jQuery(function ($) {
             cityChosen: "",
             storeContactInfo: false,
             url: {
-                host: "http://192.168.1.107:5500/dest/json/inventory-onesize.json"
+                host: "http://localhost:5500/dest/json/inventory-onesize.json"
             }
         },
         methods: {
