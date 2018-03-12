@@ -19,7 +19,7 @@
             .toggle-icon{
                 width:  25px;
                 height: 19px;
-                background-image: url(../img/location.png);
+                background-image: url(../img/location_icon.svg);
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-origin: content-box;
@@ -72,7 +72,7 @@
                             color: $inventoryStatusSuccess;
 
                             .icon{
-                                background-image: url(../img/check_vihr.png);
+                                background-image: url(../img/success.svg);
                             }
                         }
 
@@ -80,7 +80,7 @@
                             color: $inventoryStatusWarning;
 
                             .icon{
-                                background-image: url(../img/almost_sold_out.png);
+                                background-image: url(../img/warning.svg);
                             }
                         }
 
@@ -88,7 +88,7 @@
                             color: $inventoryStatusDanger;
 
                             .icon{
-                                background-image: url(../img/sold_out.png);
+                                background-image: url(../img/error.svg);
                             }
                         }
                     }

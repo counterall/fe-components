@@ -22,7 +22,7 @@
 .rich-product-page .store-inventory-toggle .toggle-icon{
                 width:  25px;
                 height: 19px;
-                background-image: url(../img/location.png);
+                background-image: url(../img/location_icon.svg);
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-origin: content-box;
@@ -70,19 +70,19 @@
                             color: #7ed321;
                         }
 .rich-product-page .store-inventory-info .instruction-demo li.green .icon{
-                                background-image: url(../img/check_vihr.png);
+                                background-image: url(../img/success.svg);
                             }
 .rich-product-page .store-inventory-info .instruction-demo li.orange{
                             color: #f1c40e;
                         }
 .rich-product-page .store-inventory-info .instruction-demo li.orange .icon{
-                                background-image: url(../img/almost_sold_out.png);
+                                background-image: url(../img/warning.svg);
                             }
 .rich-product-page .store-inventory-info .instruction-demo li.red{
                             color: #d0021b;
                         }
 .rich-product-page .store-inventory-info .instruction-demo li.red .icon{
-                                background-image: url(../img/sold_out.png);
+                                background-image: url(../img/error.svg);
                             }
 .rich-product-page .store-inventory-info .store-list{
                 line-height: 30px;
@@ -146,7 +146,7 @@
                                 right: 15px;
                                 height: 15px;
                                 width: 15px;
-                                background-image: url(../img/close.png);
+                                background-image: url(../img/close_icon.svg);
                                 background-repeat: no-repeat;
                                 background-size: contain;
                                 background-origin: content-box;
