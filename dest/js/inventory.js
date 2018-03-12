@@ -15,9 +15,8 @@ jQuery(function ($) {
                     width: "element",
                     theme: "marimekko"
                 })
-                // emit event on change, actually used to pass new select value to cityChosen defined in v-model='cityChosen'
+                // emit vue change
                 .on('change', function () {
-                    vm.$emit('input', this.value);
                     vm.$emit('change', this.value);
                 })
         },
@@ -107,7 +106,7 @@ jQuery(function ($) {
     });
 
     // root vue app
-    var inventoryApp = new Vue({
+    window.inventoryApp = new Vue({
         el: "#inventory-app",
         data: {
             dropDownClass: "city-selector",
@@ -116,7 +115,7 @@ jQuery(function ($) {
             countryData: false,
             cityData: false,
             cityList: false,
-            cityChosen: "",
+            cityChosen: false,
             storeContactInfo: false,
             url: {
                 host: "http://localhost:5500/dest/json/inventory-onesize.json"
@@ -145,6 +144,7 @@ jQuery(function ($) {
                 this.showDropdown = !this.showDropdown;
             },
             switchList: function(city) {
+              this.cityChosen = city;
               this.cityData = this.countryData[city];
             }
         }
