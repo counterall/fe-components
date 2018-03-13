@@ -9,7 +9,6 @@
     .store-inventory {
 
         &-toggle {
-            cursor: pointer;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -29,6 +28,10 @@
                 font-weight: bold;
                 position: relative;
                 top: 1px;
+                &:hover {
+                    cursor: pointer;
+                    border-bottom: 1px solid $accentColour09;
+                }
             }
         }
 
@@ -103,7 +106,7 @@
                     .store-title{
                         &-name{
                             font-weight: bold;
-                            text-decoration: underline;
+                            border-bottom: 1px solid #333333;
                             cursor: pointer;
                         }
                     }

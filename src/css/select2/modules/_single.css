@@ -12,7 +12,7 @@
         .select2-selection__rendered {
             color: $accentColour09;
             line-height: $dropdownDefaultHeight;
-            padding-right: 15px;
+            padding: 0 15px;
         }
         .select2-selection__clear {
             cursor: pointer;
