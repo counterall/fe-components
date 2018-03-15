@@ -23,7 +23,7 @@
         <div class='store-inventory' id='inventory-app'>
             <div class='store-inventory-toggle clearfix'>
                 <div class='toggle-icon'></div>
-                <div class='toggle-link' @click='toggleDropdown'>Katso saatavuus myymälössä</div>
+                <div class='toggle-link' @click='toggleDropdown'>Katso saatavuus myymälöissä</div>
             </div>
             <div class='store-inventory-info' v-if='showDropdown'>
               
@@ -101,8 +101,8 @@
     
             <div class='store-item' :class="'store-item--' + productType">
                 <div class='store-title'>
-                    <span @click="prepareContactDetail" class='store-title-name'>{{storeName}}</span>
-                    <span class='store-title-phone' v-if='ownStore'>{{contact.phone}}</span>
+                    <span @click="prepareContactDetail" class='store-title-name' title="<?php echo $this->__('Myymälän yhteystiedot');?>">{{storeName}}</span>
+                    <span class='store-title-phone'>{{contact.phone}}</span>
                 </div>
                 <div class='store-status clearfix'>
                     <template v-if="ownStore">
@@ -118,7 +118,7 @@
                         >{{oneSizeMapping[locale][sizes[0].level]}}</div>
                     </template>
                     <template v-else>
-                        <div class="store-status-item--null">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{{contact.phone}}</div>
+                        <div class="store-status-item--null">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                     </template>
                 </div>
             </div>
