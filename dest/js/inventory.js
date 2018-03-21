@@ -118,7 +118,7 @@ jQuery(function ($) {
             cityChosen: false,
             storeContactInfo: false,
             url: {
-                host: "http://localhost:5500/dest/json/inventory-onesize.json"
+                host: "http://localhost:5500/dest/json/inventory-no-stock.json"
             }
         },
         methods: {
@@ -134,7 +134,7 @@ jQuery(function ($) {
                        data: extraParams
                    }).done(function (data) {
                        vm.countryData = data[vm.countryCode];
-                       var cityList = Object.keys(vm.countryData);
+                       var cityList = Object.keys(vm.countryData).sort();
                        cityList.unshift('');
                        vm.cityList = cityList;
                    }).fail(function(){

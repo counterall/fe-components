@@ -1,0 +1,766 @@
+{
+    "FI": {
+        "Helsinki": [
+            {
+                "storeId": "575",
+                "title": "Marimekko Aleksinkulma",
+                "contact_details": {
+                    "phone": "+358 44 719 4834",
+                    "address": "Aleksanterinkatu 50, Helsinki, Suomi"
+                },
+                "opening_hours": {
+                    "weekday": "10-20",
+                    "saturday": "10-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "649",
+                "title": "Marimekko Forum",
+                "contact_details": {
+                    "phone": "+358 40 774 9509",
+                    "address": "Mannerheimintie 20,helsinki"
+                },
+                "opening_hours": {
+                    "weekday": "9-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "576",
+                "title": "Marimekko Halli",
+                "contact_details": {
+                    "phone": "+358 9 753 6549",
+                    "address": "H\u00e4meentie 1, Helsinki, Suomi"
+                },
+                "opening_hours": {
+                    "weekday": "9-17",
+                    "saturday": "9-15",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "578",
+                "title": "Marimekko Herttoniemi",
+                "contact_details": {
+                    "phone": "+358 9 758 7646",
+                    "address": "Kirvesmiehenkatu 7, Helsinki, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-18",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "577",
+                "title": "Marimekko It\u00e4keskus",
+                "contact_details": {
+                    "phone": "+358 50 597 9445",
+                    "address": "Kauppakeskus Itis  It\u00e4katu 1-5"
+                },
+                "opening_hours": {
+                    "weekday": "10-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "574",
+                "title": "Marimekko Kamppi",
+                "contact_details": {
+                    "phone": "+358 10 344 3300",
+                    "address": "Urho Kekkosen katu 1, Helsinki, Suomi "
+                },
+                "opening_hours": {
+                    "weekday": "9-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "579",
+                "title": "Marimekko Mikonkatu",
+                "contact_details": {
+                    "phone": "+358 44 768 4078",
+                    "address": "Mikonkatu 2, Helsinki, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-18",
+                    "saturday": "10-17",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "561",
+                "title": "Marimekko Outlet Herttoniemi",
+                "contact_details": {
+                    "phone": "+358 9 758 7244",
+                    "address": "Kirvesmiehenkatu 7, Helsinki, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-18",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "527",
+                "title": "Stockmann Helsinki",
+                "contact_details": {
+                    "phone": "+358 91211",
+                    "address": "Aleksanterinkatu 52, Helsinki, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9\u201321",
+                    "saturday": "9\u201318",
+                    "sunday": "12\u201318",
+                    "holiday": null
+                }
+            }
+        ],
+        "Tampere": [
+            {
+                "storeId": "585",
+                "title": "Marimekko H\u00e4meenkatu",
+                "contact_details": {
+                    "phone": "+358 50 342 9962",
+                    "address": "H\u00e4meenkatu 19, Tampere, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "584",
+                "title": "Marimekko Koskikeskus",
+                "contact_details": {
+                    "phone": "+358 44 716 8906",
+                    "address": "Hatanp\u00e4\u00e4n Valtatie 1, Tampere, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-20",
+                    "saturday": "10-18",
+                    "sunday": "12-17",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "529",
+                "title": "Sokos Tampere",
+                "contact_details": {
+                    "phone": "+358 10 767 0800",
+                    "address": "H\u00e4meenkatu 21, Tampere, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9\u201321",
+                    "saturday": "9\u201318",
+                    "sunday": "12\u201318",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "528",
+                "title": "Stockmann Tampere",
+                "contact_details": {
+                    "phone": "+358 91211",
+                    "address": "H\u00e4meenkatu 4, Tampere, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9\u201320",
+                    "saturday": "9\u201318",
+                    "sunday": "12\u201318",
+                    "holiday": null
+                }
+            }
+        ],
+        "Espoo": [
+            {
+                "storeId": "558",
+                "title": "Marimekko Iso Omena",
+                "contact_details": {
+                    "phone": "+358 44 761 9785",
+                    "address": "Piispansilta 11, Espoo, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "559",
+                "title": "Marimekko Sello",
+                "contact_details": {
+                    "phone": "+358 44 727 0447",
+                    "address": "Lepp\u00e4vaarankatu 3-9, Espoo, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "560",
+                "title": "Marimekko Tapiola",
+                "contact_details": {
+                    "phone": "+358 50 567 2038",
+                    "address": "Kulttuuriaukio, Espoo, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-18",
+                    "saturday": "10-15",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Vantaa": [
+            {
+                "storeId": "581",
+                "title": "Marimekko Jumbo",
+                "contact_details": {
+                    "phone": "+358 44 717 9596",
+                    "address": "Vantaanportinkatu 3, Vantaa, Suomi"
+                },
+                "opening_hours": {
+                    "weekday": "9-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "580",
+                "title": "Marimekko Lentoasema",
+                "contact_details": {
+                    "phone": "+358 9 870 2110",
+                    "address": "Helsinki-Vantaan lentoasema, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "5.30-21",
+                    "saturday": "5.30-20",
+                    "sunday": "5.30-21",
+                    "holiday": null
+                }
+            }
+        ],
+        "Jyv\u00e4skyl\u00e4": [
+            {
+                "storeId": "586",
+                "title": "Marimekko Jyv\u00e4skyl\u00e4",
+                "contact_details": {
+                    "phone": "+358 44 780 4352",
+                    "address": "Kauppakatu 33, Jyv\u00e4skyl\u00e4, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-17",
+                    "sunday": "12-16",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "597",
+                "title": "Marimekko Keljo",
+                "contact_details": {
+                    "phone": "+358 290 092 559",
+                    "address": "Kylm\u00e4lahdentie 6, Jyv\u00e4skyl\u00e4, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-20",
+                    "saturday": "10-17",
+                    "sunday": "12-17",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "596",
+                "title": "Marimekko Palokka",
+                "contact_details": {
+                    "phone": "+358 290 092 555",
+                    "address": "Saarij\u00e4rventie 50, Palokka, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-20",
+                    "saturday": "10-17",
+                    "sunday": "12-17",
+                    "holiday": null
+                }
+            }
+        ],
+        "Rovaniemi": [
+            {
+                "storeId": "591",
+                "title": "Marimekko Rovaniemi",
+                "contact_details": {
+                    "phone": "+358 44 746 8284",
+                    "address": "Koskikatu 25, Rovaniemi, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-17",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "571",
+                "title": "Marimekko Napapiiri",
+                "contact_details": {
+                    "phone": "+358 50 407 1440",
+                    "address": "Joulumaantie 1, Rovaniemi, Suomi"
+                },
+                "opening_hours": {
+                    "weekday": "9-18",
+                    "saturday": "9-18",
+                    "sunday": "9-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "572",
+                "title": "Marimekko Outlet Napapiiri",
+                "contact_details": {
+                    "phone": "+358 50 407 1440",
+                    "address": "Joulumaantie 1, Rovaniemi, Suomi"
+                },
+                "opening_hours": {
+                    "weekday": "9-18",
+                    "saturday": "9-18",
+                    "sunday": "9-18",
+                    "holiday": null
+                }
+            }
+        ],
+        "Turku": [
+            {
+                "storeId": "583",
+                "title": "Marimekko Turku",
+                "contact_details": {
+                    "phone": "+358 44 765 2676",
+                    "address": "Aurakatu 10, Turku, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-20",
+                    "saturday": "10-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "598",
+                "title": "Marimekko Turku",
+                "contact_details": {
+                    "phone": "+358 290 092 558",
+                    "address": "Skanssinkatu 10, Turku, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            }
+        ],
+        "H\u00e4meenlinna": [
+            {
+                "storeId": "613",
+                "title": "Marimekko H\u00e4meenlinna",
+                "contact_details": {
+                    "phone": "+358 10 505 1540",
+                    "address": "Sibeliuksenkatu 9, H\u00e4meenlinna, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-18",
+                    "saturday": "10-15",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Joensuu": [
+            {
+                "storeId": "590",
+                "title": "Marimekko Joensuu",
+                "contact_details": {
+                    "phone": "+358 50 566 6219",
+                    "address": "Siltakatu 10, Joensuu, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "648",
+                "title": "Sokos Joensuu",
+                "contact_details": {
+                    "phone": "+358 10 762 2302",
+                    "address": "Siltakatu 6"
+                },
+                "opening_hours": {
+                    "weekday": "9-20",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            }
+        ],
+        "Kotka": [
+            {
+                "storeId": "582",
+                "title": "Marimekko Kotka",
+                "contact_details": {
+                    "phone": "+358 44 733 9426",
+                    "address": "Keskuskatu 10, Kotka, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-16",
+                    "sunday": "12-16",
+                    "holiday": null
+                }
+            }
+        ],
+        "Kuopio": [
+            {
+                "storeId": "599",
+                "title": "Marimekko Kuopio",
+                "contact_details": {
+                    "phone": "+358 290 092 552",
+                    "address": "Kauppakatu 32, Kuopio, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-18",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "602",
+                "title": "Marimekko Kuopio",
+                "contact_details": {
+                    "phone": "+358 290 092 551",
+                    "address": "Puijonkatu 17, Kuopio, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-17.30",
+                    "saturday": "10-15",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "608",
+                "title": "Marimekko Kuopio",
+                "contact_details": {
+                    "phone": "+358 290 092 564",
+                    "address": "Matkuksentie 60, Kuopio, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "531",
+                "title": "Carlson Kuopio",
+                "contact_details": {
+                    "phone": "+358 20 742 7040",
+                    "address": "Kauppakatu 36, Kuopio, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9-20",
+                    "saturday": "9-17",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Kuusankoski": [
+            {
+                "storeId": "606",
+                "title": "Marimekko Kuusankoski",
+                "contact_details": {
+                    "phone": "+358 290 092 563",
+                    "address": "Tervasharjuntie 1, Kuusankoski, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-20",
+                    "saturday": "10-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            }
+        ],
+        "Lahti": [
+            {
+                "storeId": "587",
+                "title": "Marimekko Lahti",
+                "contact_details": {
+                    "phone": "+358 50 578 0615",
+                    "address": "Aleksanterinkatu 12, Lahti, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "595",
+                "title": "Marimekko Lahti",
+                "contact_details": {
+                    "phone": "+358 290 092 562",
+                    "address": "Kauppiaankatu 2, Lahti, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-20",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            }
+        ],
+        "Lappeenranta": [
+            {
+                "storeId": "589",
+                "title": "Marimekko Lappeenranta",
+                "contact_details": {
+                    "phone": "+358 44 706 4595",
+                    "address": "Brahenkatu 5, Lappeenranta, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-18",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Mikkeli": [
+            {
+                "storeId": "604",
+                "title": "Marimekko Mikkeli",
+                "contact_details": {
+                    "phone": "+358 290 092 554",
+                    "address": "Maaherrankatu 18-20, Mikkeli, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9-19",
+                    "saturday": "9-17",
+                    "sunday": "12-16",
+                    "holiday": null
+                }
+            }
+        ],
+        "Porvoo": [
+            {
+                "storeId": "593",
+                "title": "Marimekko Porvoo",
+                "contact_details": {
+                    "phone": "+358 290 092 560",
+                    "address": "Lundinkatu 10, Porvoo, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9-19",
+                    "saturday": "9-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Raisio": [
+            {
+                "storeId": "600",
+                "title": "Marimekko Raisio",
+                "contact_details": {
+                    "phone": "+358 290 092 561",
+                    "address": "Myllynkatu 18, Raisio, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-21",
+                    "saturday": "9-18",
+                    "sunday": "12-18",
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "603",
+                "title": "Marimekko Raisio",
+                "contact_details": {
+                    "phone": "+358 290 092 556",
+                    "address": "It\u00e4niityntie 14, Raisio, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-20",
+                    "saturday": "10-17",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Sein\u00e4joki": [
+            {
+                "storeId": "610",
+                "title": "Marimekko Sein\u00e4joki",
+                "contact_details": {
+                    "phone": "+358 6 423 3551",
+                    "address": "Torikatu 9, Sein\u00e4joki, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-18",
+                    "saturday": "10-15",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Vaasa": [
+            {
+                "storeId": "588",
+                "title": "Marimekko Vaasa",
+                "contact_details": {
+                    "phone": "+358 50 576 5130",
+                    "address": "Hovioikeudenpuistikko 15, Vaasa, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "611",
+                "title": "Marimekko Vaasa",
+                "contact_details": {
+                    "phone": "+358 6 3192252",
+                    "address": "Rewell Center 134, Vaasa, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-17",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Varkaus": [
+            {
+                "storeId": "605",
+                "title": "Marimekko Varkaus",
+                "contact_details": {
+                    "phone": "+358 290 092 553",
+                    "address": "Kauppakatu 32, Varkaus, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9-17.30",
+                    "saturday": "9-14",
+                    "sunday": null,
+                    "holiday": null
+                }
+            }
+        ],
+        "Yl\u00f6j\u00e4rvi": [
+            {
+                "storeId": "594",
+                "title": "Marimekko Yl\u00f6j\u00e4rvi",
+                "contact_details": {
+                    "phone": "+358 290 092 557",
+                    "address": "Elotie1, Yl\u00f6j\u00e4rvi, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-17",
+                    "sunday": "12-16",
+                    "holiday": null
+                }
+            }
+        ],
+        "Pori": [
+            {
+                "storeId": "557",
+                "title": "Marimekko",
+                "contact_details": {
+                    "phone": "+358 2 6346 500",
+                    "address": "Yrj\u00f6nkatu 12, Pori, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-16",
+                    "sunday": null,
+                    "holiday": null
+                }
+            },
+            {
+                "storeId": "530",
+                "title": "Sokos Pori",
+                "contact_details": {
+                    "phone": "+358 29 009 6300",
+                    "address": "Liisankatu 2, Pori, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9\u201321",
+                    "saturday": "9\u201318",
+                    "sunday": "12\u201318",
+                    "holiday": null
+                }
+            }
+        ],
+        "Salo": [
+            {
+                "storeId": "609",
+                "title": "Marimekko Halikko",
+                "contact_details": {
+                    "phone": "+358 2 7362266",
+                    "address": "Vaskiontie 418, Halikko, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "9-19",
+                    "saturday": "9-18",
+                    "sunday": "12-19",
+                    "holiday": null
+                }
+            }
+        ],
+        "Kouvola": [
+            {
+                "storeId": "612",
+                "title": "Marimekko Kouvola",
+                "contact_details": {
+                    "phone": "+358 5 8843 300",
+                    "address": "Liikemiehenkatu 3-5, Kouvola, Finland"
+                },
+                "opening_hours": {
+                    "weekday": "10-19",
+                    "saturday": "10-16",
+                    "sunday": "12-16",
+                    "holiday": null
+                }
+            }
+        ]
+    }
+}
