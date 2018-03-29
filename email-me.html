@@ -13,37 +13,25 @@
     <script src='src/js/lib/jquery-3.3.1.min.js'></script>
     <script src="src/js/lib/bootstrap.min.js"></script>
     <script src="src/js/lib/select2.min.js"></script>
+    <script src="dest/js/email-me.js"></script>
     <style>
-        
+
         li{
             display: list-item;
         }
 
-        .select2-container--marimekko .select2-results__option[aria-disabled=true] {
+        /* .select2-container--marimekko .select2-results__option[aria-disabled=true] {
             user-select: initial;
             cursor: pointer;
-        }
+        } */
     
     </style>
-    <script>
 
-        jQuery(function ($) {
-            var select2Options = {
-                width: "element",
-                theme: "marimekko",
-                minimumResultsForSearch: Infinity,
-                dropdownParent:  $('.custom-select2-dropdown-wrapper')
-            };
-
-            $('.select2fied').select2(select2Options);
-        })
-
-    </script>
 </head>
 
 <body>
     <div class="rich-product-page">
-        <select class="select2fied" style='width: 300px'>
+        <select class="select2fied list-size" style='width: 300px'>
             <option value="" disabled>One - email me when available</option>
             <option value="">Two</option>
             <option value="" disabled>Three - email me when available</option>
