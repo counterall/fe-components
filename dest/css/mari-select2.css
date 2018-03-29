@@ -31,6 +31,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: flex-end;
         }
 .select2-container--marimekko .select2-selection--single .select2-selection__arrow b {
                 width: 10px;
@@ -39,8 +40,6 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-origin: content-box;
-                position: absolute;
-                right: 0;
             }
 .select2-container--marimekko[dir="rtl"] .select2-selection--single .select2-selection__clear {
                 float: left;

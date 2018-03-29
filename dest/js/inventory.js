@@ -118,7 +118,7 @@ jQuery(function ($) {
             cityChosen: false,
             storeContactInfo: false,
             url: {
-                host: "http://localhost:5500/dest/json/inventory-no-stock.json"
+                host: "http://localhost:5500/dest/json/inventory-onesize.json"
             }
         },
         methods: {
