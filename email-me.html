@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Marimekko Inventory Status Component</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="src/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/global.css" />
+    <link rel="stylesheet" href="src/css/lib/select2.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/mari-select2.css" />
+    <script src='src/js/lib/jquery-3.3.1.min.js'></script>
+    <script src="src/js/lib/bootstrap.min.js"></script>
+    <script src="src/js/lib/select2.min.js"></script>
+    <style>
+        
+        li{
+            display: list-item;
+        }
+
+        .select2-container--marimekko .select2-results__option[aria-disabled=true] {
+            user-select: initial;
+            cursor: pointer;
+        }
+    
+    </style>
+    <script>
+
+        jQuery(function ($) {
+            var select2Options = {
+                width: "element",
+                theme: "marimekko",
+                minimumResultsForSearch: Infinity,
+                dropdownParent:  $('.custom-select2-dropdown-wrapper')
+            };
+
+            $('.select2fied').select2(select2Options);
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="rich-product-page">
+        <select class="select2fied" style='width: 300px'>
+            <option value="" disabled>One - email me when available</option>
+            <option value="">Two</option>
+            <option value="" disabled>Three - email me when available</option>
+            <option value="">Four</option>
+            <option value="" disabled>Five - email me when available</option>
+            <option value="">Six</option>
+        </select>
+        <div class="custom-select2-dropdown-wrapper"></div>
+    </div>
+</body>
+
+</html>

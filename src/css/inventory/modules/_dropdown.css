@@ -1,11 +1,5 @@
  .rich-product-page {
 
-    width: 440px;
-    margin: 50px auto;
-    border: 2px solid #eeeeee;
-    padding: 30px 20px;
-    background: white;
-
     .store-inventory {
 
         &-toggle {
