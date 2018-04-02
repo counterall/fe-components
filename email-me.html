@@ -20,10 +20,9 @@
             display: list-item;
         }
 
-        /* .select2-container--marimekko .select2-results__option[aria-disabled=true] {
-            user-select: initial;
-            cursor: pointer;
-        } */
+        .select2-container--marimekko .select2-results__option.select2-dummy-disabled {
+            color: #999;
+        }
     
     </style>
 
@@ -32,12 +31,12 @@
 <body>
     <div class="rich-product-page">
         <select class="select2fied list-size" style='width: 300px'>
-            <option value="" disabled>One - email me when available</option>
-            <option value="">Two</option>
-            <option value="" disabled>Three - email me when available</option>
-            <option value="">Four</option>
-            <option value="" disabled>Five - email me when available</option>
-            <option value="">Six</option>
+            <option value="One" disabled>One - email me when available</option>
+            <option value="Two">Two</option>
+            <option value="Three" disabled>Three - email me when available</option>
+            <option value="Four">Four</option>
+            <option value="Five" disabled>Five - email me when available</option>
+            <option value="Six">Six</option>
         </select>
         <div class="custom-select2-dropdown-wrapper"></div>
     </div>

@@ -19,18 +19,15 @@ jQuery(function ($) {
                 dfd.resolve();
             }
         }, 10);
+
         dfd.done(function(){
-            $(disabledOpts).attr("aria-disabled", false).css({
-                "user-select": "initial",
-                "cursor": "pointer"
-            });
             clearInterval(window.checkSelect2DropdownOpened);
-            $(disabledOpts).off('click').on('click', function () {
-                var optVal = $(this).text();
-                $select2Rendered.text(optVal);
-                $('.custom-select2-dropdown-wrapper').html('');
-                console.log($('select.list-size').val());
-            });
+
+            // Make disabled original option selectable in select2-rendered dropdown
+            $(disabledOpts).attr({
+                "aria-disabled": false,
+                "aria-selected": false
+            }).addClass('select2-dummy-disabled');
         })
     });
 
