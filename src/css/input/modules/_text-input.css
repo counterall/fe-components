@@ -1,13 +1,53 @@
+/* Marimekko input component */
 .mari-input {
 
     /* For text-type input field */
     &--text{
         width: 300px;
-        height: 40px;
         outline: none;
         padding: 10px 15px;
-        border: 1px solid $accentColour13;
 
+        /* Height of different size input*/
+        &-sm{
+            height: 35px;
+        }
+
+        &-md{
+            height: 40px;
+        }
+
+        &-lg{
+            height: 45px;
+        }
+
+        &-xl{
+            height: 50px;
+        }
+
+        /* Themes of input */
+        &-primary{
+            border: 1px solid $accentColour13;
+        }
+
+        &-error {
+            border: 1px solid $inventoryStatusDanger;
+            background-color: $errorBackground;
+        }
+        
+        &-warning {
+            border: 1px solid $inventoryStatusWarning;
+            background-color: $warningBackground;
+        }
+        
+        &-success{
+            border: 1px solid $inventoryStatusSuccess;
+            background-color: $successBackground;
+        }
+
+        &-informative{
+            border: 1px solid $informativeBorder;
+            background-color: $infomativeBackground;
+        }
 
     }
 

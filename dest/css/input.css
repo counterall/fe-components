@@ -1,12 +1,44 @@
 /* Drop-down selection */
 /* Inventory status colors */
+/* Text input field themes*/
+/* Marimekko input component */
 /* For text-type input field */
 .mari-input--text{
         width: 300px;
-        height: 40px;
         outline: none;
         padding: 10px 15px;
-        border: 1px solid #989898;
-
 
     }
+/* Height of different size input*/
+.mari-input--text-sm{
+            height: 35px;
+        }
+.mari-input--text-md{
+            height: 40px;
+        }
+.mari-input--text-lg{
+            height: 45px;
+        }
+.mari-input--text-xl{
+            height: 50px;
+        }
+/* Themes of input */
+.mari-input--text-primary{
+            border: 1px solid #989898;
+        }
+.mari-input--text-error {
+            border: 1px solid #d0021b;
+            background-color: rgba(208, 2, 27, 0.1);
+        }
+.mari-input--text-warning {
+            border: 1px solid #f1c40e;
+            background-color: rgba(241, 196, 14, 0.1);
+        }
+.mari-input--text-success{
+            border: 1px solid #7ed321;
+            background-color: rgba(126, 211, 33, 0.1);
+        }
+.mari-input--text-informative{
+            border: 1px solid #4a90e2;
+            background-color: rgba(74, 144, 226, 0.1);
+        }
