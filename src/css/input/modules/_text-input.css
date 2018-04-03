@@ -6,6 +6,8 @@
         width: 300px;
         outline: none;
         padding: 10px 15px;
+        line-height: 1.5;
+        letter-spacing: 0.8px;
 
         /* Height of different size input*/
         &-sm{

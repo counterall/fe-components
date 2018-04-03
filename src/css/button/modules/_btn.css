@@ -1,0 +1,30 @@
+/* Marimekko button component */
+
+.mari-btn {
+
+    text-align: center;
+    letter-spacing: 0.8px;
+    line-height: 2;
+
+    /* Height of different size button*/
+    &-sm {
+        height: 35px;
+    }
+    &-md {
+        height: 40px;
+    }
+    &-lg {
+        height: 45px;
+    }
+    &-xl {
+        height: 50px;
+    }
+    /* Themes of button */
+    &-primary {
+        border: 1px solid $accentColour09;
+        background-color: $accentColour09;
+        color: $background01;
+
+    }
+        
+}
