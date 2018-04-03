@@ -8,6 +8,7 @@ gulp.task('watch', function () {
     watch('./src/css/global/*.css', function () {
         gulp.start('global');
         gulp.start('inventory-block');
+        gulp.start('emailme-block');
         gulp.start('select2');
     });
 
@@ -19,6 +20,11 @@ gulp.task('watch', function () {
     // marimekko theme for select2
     watch('./src/css/select2/**/*.css', function () {
         gulp.start('select2');
+    });
+
+    // dropdown related styles
+    watch('./src/css/email-me/**/*.css', function () {
+        gulp.start('emailme-block');
     });
 
 });

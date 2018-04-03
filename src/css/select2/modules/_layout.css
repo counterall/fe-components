@@ -49,6 +49,10 @@
         &[aria-selected=true] {
             background-color: $borderColour04;
         }
+
+        &.select2-dummy-disabled{
+            color: $accentColour13;
+        }
         .select2-results__option {
             padding-left: 1em;
             .select2-results__group {

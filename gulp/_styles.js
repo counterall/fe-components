@@ -16,6 +16,16 @@ gulp.task('inventory-block', function () {
         .pipe(gulp.dest('./dest/css/'));
 });
 
+gulp.task('emailme-block', function () {
+    return gulp.src('./src/css/email-me.css')
+        .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
+        .on('error', function (info) {
+            console.log(info);
+            this.emit('end');
+        })
+        .pipe(gulp.dest('./dest/css/'));
+});
+
 gulp.task('global', function () {
     return gulp.src('./src/css/global.css')
         .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
