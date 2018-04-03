@@ -45,3 +45,13 @@ gulp.task('select2', function () {
         })
         .pipe(gulp.dest('./dest/css/'));
 });
+
+gulp.task('input-component', function () {
+    return gulp.src('./src/css/input.css')
+        .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
+        .on('error', function (info) {
+            console.log(info);
+            this.emit('end');
+        })
+        .pipe(gulp.dest('./dest/css/'));
+});

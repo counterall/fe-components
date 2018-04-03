@@ -22,6 +22,11 @@ gulp.task('watch', function () {
         gulp.start('select2');
     });
 
+    // marimekko theme for input component
+    watch('./src/css/input/**/*.css', function () {
+        gulp.start('input-component');
+    });
+
     // dropdown related styles
     watch('./src/css/email-me/**/*.css', function () {
         gulp.start('emailme-block');
