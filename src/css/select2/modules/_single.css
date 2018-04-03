@@ -13,6 +13,10 @@
             color: $accentColour09;
             line-height: $dropdownDefaultHeight;
             padding: 0 15px;
+
+            &.disabled-option-selected{
+                color: $accentColour13;
+            }
         }
         .select2-selection__clear {
             cursor: pointer;
