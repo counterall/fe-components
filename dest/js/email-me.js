@@ -36,7 +36,12 @@ jQuery(function ($) {
         } else {
             $select2Rendered.removeClass('disabled-option-selected');
         }
-    });;
+    });
+
+    $('.product-alert-trigger').on('click', function(){
+        validateHELPER.setCustomMsg($('input.product-alert-email'), "Please input valid email address");
+    })
+
 
 
 })

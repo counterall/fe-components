@@ -55,3 +55,8 @@
 
 
 }
+
+.error-validation-msg{
+    margin-top: 7px;
+    color: $inventoryStatusDanger;
+}
