@@ -10,6 +10,8 @@
 
 .product-alert {
     margin-top: 30px;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
 
     &-title {
         margin-bottom: 10px;
