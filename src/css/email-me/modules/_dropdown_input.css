@@ -1,8 +1,18 @@
+.select2fied.list-size + .select2-container--marimekko {
+
+    .select2-selection {
+        &--single{
+            border: 1px solid $accentColour13;
+        }
+    }
+
+}
+
 .product-alert {
     margin-top: 30px;
 
     &-title {
-
+        margin-bottom: 10px;
     }
 
 

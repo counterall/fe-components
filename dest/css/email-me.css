@@ -1,10 +1,13 @@
 /* Drop-down selection */
 /* Inventory status colors */
+.select2fied.list-size + .select2-container--marimekko .select2-selection--single{
+            border: 1px solid #989898;
+        }
 .product-alert {
     margin-top: 30px;
 
 
 }
 .product-alert-title {
-
+        margin-bottom: 10px;
     }
