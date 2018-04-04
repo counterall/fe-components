@@ -12,6 +12,7 @@ jQuery(function ($) {
     var $emailInput = $('input.product-alert-email'); 
     var $alertBlock = $(".product-alert");
     var $triggerBtn = $('.product-alert-trigger');
+    var $addToCartBlock = $('.product-options-bottom');
     
     $('.select2fied.list-size').on('select2:open', function (e) {
         var disabledOpts = '.custom-select2-dropdown-wrapper .select2-container--marimekko .select2-results__option[aria-disabled=true]';
@@ -38,9 +39,11 @@ jQuery(function ($) {
             $select2Rendered.addClass('disabled-option-selected');
             $triggerBtn.prop('disabled', false).addClass('mari-btn-primary').removeClass('mari-btn-inactive');
             $alertBlock.show();
+            $addToCartBlock.hide();
         } else {
             $select2Rendered.removeClass('disabled-option-selected');
             $alertBlock.hide();
+            $addToCartBlock.show();
         }
     });
 
