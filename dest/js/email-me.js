@@ -9,6 +9,9 @@ jQuery(function ($) {
     $('.select2fied').select2(select2Options);
 
     var $select2Rendered = $('select.list-size + .select2 .select2-selection__rendered');
+    var $emailInput = $('input.product-alert-email'); 
+    var $alertBlock = $(".product-alert");
+    var $triggerBtn = $('.product-alert-trigger');
     
     $('.select2fied.list-size').on('select2:open', function (e) {
         var disabledOpts = '.custom-select2-dropdown-wrapper .select2-container--marimekko .select2-results__option[aria-disabled=true]';
@@ -33,18 +36,19 @@ jQuery(function ($) {
         var $optionChosen = $(e.params.data.element);
         if ($optionChosen.prop('disabled')) {
             $select2Rendered.addClass('disabled-option-selected');
+            $triggerBtn.prop('disabled', false).addClass('mari-btn-primary').removeClass('mari-btn-inactive');
+            $alertBlock.show();
         } else {
             $select2Rendered.removeClass('disabled-option-selected');
+            $alertBlock.hide();
         }
     });
 
-    var $emailInput = $('input.product-alert-email'); 
-    
     $emailInput.on('blur', function(){
         validateHELPER.setCustomMsg($emailInput, "Please input valid email address"); 
     });
 
-    $('.product-alert-trigger').on('click', function(){
+    $triggerBtn.on('click', function(){
         
         var validated = validateHELPER.setCustomMsg($emailInput, "Please input valid email address");
         console.log(validated);
@@ -52,7 +56,6 @@ jQuery(function ($) {
         if (validated) {
             
             $(this).prop('disabled', true).addClass('mari-btn-inactive').removeClass('mari-btn-primary');
-            var triggerBtn = this;   
 
             var extraParams = '';
             $.ajax({
@@ -66,7 +69,7 @@ jQuery(function ($) {
 
             }).fail(function () {
 
-                $(triggerBtn).prop('disabled', false).addClass('mari-btn-primary').removeClass('mari-btn-inactive');   
+                $triggerBtn.prop('disabled', false).addClass('mari-btn-primary').removeClass('mari-btn-inactive');   
 
             });
 
