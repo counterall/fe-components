@@ -1,29 +1,67 @@
-.select2fied.list-size + .select2-container--marimekko {
+.catalog-product-view {
+    
+    .rich-product-page {
 
-    .select2-selection {
-        &--single{
-            border: 1px solid $accentColour13;
+        .select2fied.list-size + .select2-container--marimekko {
+
+            .select2-selection {
+                &--single{
+                    border: 1px solid $accentColour13;
+                }
+            }
+
         }
+
+        .product-alert {
+            margin-top: 30px;
+            line-height: 1.5;
+            letter-spacing: 0.8px;
+
+            &-title {
+                margin-bottom: 10px;
+            }
+
+            &-trigger{
+                width: 300px;
+                margin-top: 15px;
+            }
+
+            .modal {
+                
+                &.fade {
+                
+                    .modal-dialog {
+                        width: 400px;
+                        height: 300px;
+                        text-align: center;
+
+                        .modal-content{
+                            height: 100%;
+                            width: 100%;
+                            padding: 50px 65px;
+
+                            .modal-title{
+                                font-size: $bigHeadingFontSize;
+                                line-height: 32px;
+                                letter-spacing: 1.1px;
+                            }
+
+                            .modal-body{
+                                margin-top: 20px;
+                            }
+
+                            button.mari-btn{
+                                margin-top: 40px;
+                                width: 188px;
+                            }
+                        }
+                    }
+                }
+        
+            }
+
+
+        }
+
     }
-
-}
-
-.product-alert {
-    margin-top: 30px;
-    line-height: 1.5;
-    letter-spacing: 0.8px;
-
-    &-title {
-        margin-bottom: 10px;
-    }
-
-    &-email{
-    }
-
-    &-trigger{
-        width: 300px;
-        margin-top: 15px;
-    }
-
-
 }

@@ -1,22 +1,42 @@
 /* Drop-down selection */
 /* Inventory status colors */
 /* Text input field themes*/
-.select2fied.list-size + .select2-container--marimekko .select2-selection--single{
-            border: 1px solid #989898;
+.catalog-product-view .rich-product-page .select2fied.list-size + .select2-container--marimekko .select2-selection--single{
+                    border: 1px solid #989898;
+                }
+.catalog-product-view .rich-product-page .product-alert {
+            margin-top: 30px;
+            line-height: 1.5;
+            letter-spacing: 0.8px;
+
+
         }
-.product-alert {
-    margin-top: 30px;
-    line-height: 1.5;
-    letter-spacing: 0.8px;
-
-
-}
-.product-alert-title {
-        margin-bottom: 10px;
-    }
-.product-alert-email{
-    }
-.product-alert-trigger{
-        width: 300px;
-        margin-top: 15px;
-    }
+.catalog-product-view .rich-product-page .product-alert-title {
+                margin-bottom: 10px;
+            }
+.catalog-product-view .rich-product-page .product-alert-trigger{
+                width: 300px;
+                margin-top: 15px;
+            }
+.catalog-product-view .rich-product-page .product-alert .modal.fade .modal-dialog {
+                        width: 400px;
+                        height: 300px;
+                        text-align: center;
+                    }
+.catalog-product-view .rich-product-page .product-alert .modal.fade .modal-dialog .modal-content{
+                            height: 100%;
+                            width: 100%;
+                            padding: 50px 65px;
+                        }
+.catalog-product-view .rich-product-page .product-alert .modal.fade .modal-dialog .modal-content .modal-title{
+                                font-size: 24px;
+                                line-height: 32px;
+                                letter-spacing: 1.1px;
+                            }
+.catalog-product-view .rich-product-page .product-alert .modal.fade .modal-dialog .modal-content .modal-body{
+                                margin-top: 20px;
+                            }
+.catalog-product-view .rich-product-page .product-alert .modal.fade .modal-dialog .modal-content button.mari-btn{
+                                margin-top: 40px;
+                                width: 188px;
+                            }
