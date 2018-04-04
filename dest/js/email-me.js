@@ -38,9 +38,15 @@ jQuery(function ($) {
         }
     });
 
+    var $emailInput = $('input.product-alert-email'); 
+    
+    $emailInput.on('blur', function(){
+        validateHELPER.setCustomMsg($emailInput, "Please input valid email address"); 
+    });
+
     $('.product-alert-trigger').on('click', function(){
         
-        var validated = validateHELPER.setCustomMsg($('input.product-alert-email'), "Please input valid email address");
+        var validated = validateHELPER.setCustomMsg($emailInput, "Please input valid email address");
         console.log(validated);
 
         if (validated) {
@@ -52,7 +58,7 @@ jQuery(function ($) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:5500/dest/json/inventory-oesize.json",
+                url: "http://localhost:5500/dest/json/inventory-onesize.json",
                 data: extraParams
             }).done(function (data) {
 
