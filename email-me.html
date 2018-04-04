@@ -84,7 +84,7 @@
             <button class="product-alert-trigger mari-btn mari-btn-md mari-btn-primary">Email me when available</button>
             <div class="modal fade" id="email-alert-overlay" tabindex="-1" role="dialog" aria-labelledby="mariModalLabel">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="modal-content  modal-content-success">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             </button>
@@ -94,7 +94,18 @@
                             An email will be sent to you as soon as this product becomes available!
                         </div>
                         <button data-dismiss="modal" class='mari-btn mari-btn-md mari-btn-primary' aria-label="Close">Continue shopping</button>
+                    </div>
 
+                    <div class='modal-content modal-content-error'>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                            <div class="modal-title" id="mariModalLabel">Oops!</div>
+                        </div>
+                        <div class="modal-body clearfix">
+                             Sorry, something wrong occurred, please try again in few minutes.
+                        </div>
+                        <button data-dismiss="modal" class='mari-btn mari-btn-md mari-btn-primary' aria-label="Close">OK</button>
                     </div>
                 </div>
             </div>

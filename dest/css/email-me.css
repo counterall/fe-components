@@ -22,6 +22,7 @@
                         width: 400px;
                         height: 300px;
                         text-align: center;
+
                     }
 .catalog-product-view .rich-product-page .product-alert .modal.fade .modal-dialog .modal-content{
                             height: 100%;
@@ -40,3 +41,9 @@
                                 margin-top: 40px;
                                 width: 188px;
                             }
+.catalog-product-view .rich-product-page .product-alert .modal.fade .modal-dialog .modal-content-error {
+                                display: none;
+                            }
+.catalog-product-view .rich-product-page .product-alert .modal.fade .modal-dialog .modal-content-error .modal-title {
+                                    color: #d0021b;
+                                }

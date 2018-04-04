@@ -16,6 +16,7 @@ jQuery(function ($) {
     var $alertBlock = $(".product-alert");
     var $triggerBtn = $('.product-alert-trigger');
     var $addToCartBlock = $('.product-options-bottom');
+    var $popupModal = $alertBlock.find('.modal');
     var sizeVal = false; 
     
     // Make originally disabled option selectable in select2fied dropdown representation
@@ -85,16 +86,21 @@ jQuery(function ($) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "http://localhost:5500/dest/json/add-alert.json",
+                url: "http://localhost:5500/dest/json/add-alsert.json",
                 data: $.param(extraParams)
             }).done(function (data) {
 
-                console.log("Email send");
+                $popupModal.find('.modal-content-success').show();
+                $popupModal.find('.modal-content-error').hide();
 
             }).fail(function () {
-
+                
+                $popupModal.find('.modal-content-success').hide();
+                $popupModal.find('.modal-content-error').show();
                 $triggerBtn.prop('disabled', false).addClass('mari-btn-primary').removeClass('mari-btn-inactive');   
 
+            }).always(function(){
+                $popupModal.modal();
             });
 
         }

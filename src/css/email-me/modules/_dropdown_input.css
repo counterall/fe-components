@@ -54,7 +54,16 @@
                                 margin-top: 40px;
                                 width: 188px;
                             }
+
+                            &-error {
+                                display: none;
+
+                                .modal-title {
+                                    color: $inventoryStatusDanger;
+                                }
+                            }
                         }
+
                     }
                 }
         
