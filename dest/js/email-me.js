@@ -45,12 +45,12 @@ jQuery(function ($) {
     });
 
     $emailInput.on('blur', function(){
-        validateHELPER.setCustomMsg($emailInput, "Please input valid email address"); 
+        validateHELPER.setCustomMsg($(this), "Please enter a valid email address"); 
     });
 
     $triggerBtn.on('click', function(){
         
-        var validated = validateHELPER.setCustomMsg($emailInput, "Please input valid email address");
+        var validated = validateHELPER.setCustomMsg($emailInput, "Please enter a valid email address");
         console.log(validated);
 
         if (validated) {
