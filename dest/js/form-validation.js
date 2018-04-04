@@ -7,7 +7,7 @@ window.validateHELPER = (function($) {
     var setCustomMsg = function ($container, msg) {
         var ele = $container[0];
         console.log(ele.validity);
-        
+
         // set custom validation message if validation failed
         if (!ele.checkValidity()) {
 
@@ -33,8 +33,22 @@ window.validateHELPER = (function($) {
 
     };
 
+    var parseProductData = function($dataMineContainer){
+
+        var lookupMalformedJSON = $dataMineContainer.data('lookup');
+        var JSONLookup = lookupMalformedJSON.replace(/'/g, '\"');
+
+        return JSON.parse(JSONLookup);
+
+    };
+
+    var getProductID = function ($dataMineContainer, attrVal){
+        return parseProductData($dataMineContainer)[attrVal].id;
+    };
+
     return {
-        setCustomMsg: setCustomMsg
+        setCustomMsg: setCustomMsg,
+        getProductID: getProductID
     };
 
 })(jQuery);
