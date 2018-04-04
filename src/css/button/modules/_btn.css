@@ -25,7 +25,11 @@
         border: 1px solid $accentColour09;
         background-color: $accentColour09;
         color: $background01;
-
+    }
+    &-inactive {
+        border: 1px solid $borderColour04;
+        background-color: $borderColour04;
+        color: $accentColour13;
     }
         
 }
