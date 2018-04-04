@@ -39,7 +39,33 @@ jQuery(function ($) {
     });
 
     $('.product-alert-trigger').on('click', function(){
-        validateHELPER.setCustomMsg($('input.product-alert-email'), "Please input valid email address");
+        
+        var validated = validateHELPER.setCustomMsg($('input.product-alert-email'), "Please input valid email address");
+        console.log(validated);
+
+        if (validated) {
+            
+            $(this).prop('disabled', true).addClass('mari-btn-inactive').removeClass('mari-btn-primary');
+            var triggerBtn = this;   
+
+            var extraParams = '';
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "http://localhost:5500/dest/json/inventory-oesize.json",
+                data: extraParams
+            }).done(function (data) {
+
+                console.log("Email send");
+
+            }).fail(function () {
+
+                $(triggerBtn).prop('disabled', false).addClass('mari-btn-primary').removeClass('mari-btn-inactive');   
+
+            });
+
+        }
+
     })
 
 
