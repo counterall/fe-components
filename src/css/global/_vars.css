@@ -73,7 +73,10 @@ $klarnaDisabledButtonColor: #999999;
 
 
 /* Drop-down selection */
-$dropdownDefaultHeight: 45px;
+$dropdownHeightXS: 35px;
+$dropdownHeightS: 40px;
+$dropdownHeightM: 45px;
+$dropdownHeightL: 50px;
 
 /* Inventory status colors */
 $inventoryStatusSuccess: #7ed321;
