@@ -41,6 +41,7 @@ window.inputValidateHELPER = (function($) {
             $container.removeClass('mari-input--text-success').addClass('mari-input--text-error');
         } else {
             $container.addClass('mari-input--text-success').removeClass('mari-input--text-error');
+            $("+ .error-validation-msg", ele).remove();
         }
 
     };
