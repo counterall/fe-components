@@ -89,3 +89,16 @@ $errorBackground: rgba(208, 2, 27, 0.1);
 $warningBackground: rgba(241, 196, 14, 0.1);
 $successBackground: rgba(126, 211, 33, 0.1);
 $infomativeBackground: rgba(74, 144, 226, 0.1);
+
+/* button style */
+$btnHeightXS: 35px;
+$btnHeightS: 40px;
+$btnHeightM: 45px;
+$btnHeightL: 50px;
+
+/* button style */
+$textInputHeightXS: 35px;
+$textInputHeightS: 40px;
+$textInputHeightM: 45px;
+$textInputHeightL: 50px;
+$textInputDefaultWidth: 300px;

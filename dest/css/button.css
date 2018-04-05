@@ -1,6 +1,7 @@
 /* Drop-down selection */
 /* Inventory status colors */
 /* Text input field themes*/
+/* button style */
 /* Marimekko button component */
 .mari-btn {
 
@@ -11,16 +12,16 @@
         
 }
 /* Height of different size button*/
-.mari-btn-sm {
+.mari-btn-xs {
         height: 35px;
     }
-.mari-btn-md {
+.mari-btn-sm {
         height: 40px;
     }
-.mari-btn-lg {
+.mari-btn-md {
         height: 45px;
     }
-.mari-btn-xl {
+.mari-btn-lg {
         height: 50px;
     }
 /* Themes of button */

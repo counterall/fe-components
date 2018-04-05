@@ -1,6 +1,8 @@
 /* Drop-down selection */
 /* Inventory status colors */
 /* Text input field themes*/
+/* button style */
+/* button style */
 /* Marimekko input component */
 /* For text-type input field */
 .mari-input--text{
@@ -12,16 +14,16 @@
 
     }
 /* Height of different size input*/
-.mari-input--text-sm{
+.mari-input--text-xs{
             height: 35px;
         }
-.mari-input--text-md{
+.mari-input--text-sm{
             height: 40px;
         }
-.mari-input--text-lg{
+.mari-input--text-md{
             height: 45px;
         }
-.mari-input--text-xl{
+.mari-input--text-lg{
             height: 50px;
         }
 /* Themes of input */

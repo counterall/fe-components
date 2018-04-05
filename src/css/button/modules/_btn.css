@@ -8,17 +8,17 @@
     outline: none;
 
     /* Height of different size button*/
+    &-xs {
+        height: $btnHeightXS;
+    }
     &-sm {
-        height: 35px;
+        height: $btnHeightS;
     }
     &-md {
-        height: 40px;
+        height: $btnHeightM;
     }
     &-lg {
-        height: 45px;
-    }
-    &-xl {
-        height: 50px;
+        height: $btnHeightL;
     }
     /* Themes of button */
     &-primary {

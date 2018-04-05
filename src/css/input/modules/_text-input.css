@@ -3,27 +3,27 @@
 
     /* For text-type input field */
     &--text{
-        width: 300px;
+        width: $textInputDefaultWidth;
         outline: none;
         padding: 10px 15px;
         line-height: 1.5;
         letter-spacing: 0.8px;
 
         /* Height of different size input*/
+        &-xs{
+            height: $textInputHeightXS;
+        }
+
         &-sm{
-            height: 35px;
+            height: $textInputHeightS;
         }
 
         &-md{
-            height: 40px;
+            height: $textInputHeightM;
         }
 
         &-lg{
-            height: 45px;
-        }
-
-        &-xl{
-            height: 50px;
+            height: $textInputHeightL;
         }
 
         /* Themes of input */
