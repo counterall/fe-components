@@ -8,8 +8,9 @@
 
     text-align: center;
     letter-spacing: 0.8px;
-    line-height: 2;
+    line-height: inherit;
     outline: none;
+    padding: 0;
         
 }
 /* Height of different size button*/
