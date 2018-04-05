@@ -4,23 +4,25 @@
 
     text-align: center;
     letter-spacing: 0.8px;
-    line-height: inherit;
-    outline: none;
     padding: 0;
 
     /* Height of different size button*/
     &-xs {
         height: $btnHeightXS;
+        line-height: $btnHeightXS;
     }
     &-sm {
         height: $btnHeightS;
         width:  $btnWidthS;
+        line-height: $btnHeightS;
     }
     &-md {
         height: $btnHeightM;
+        line-height: $btnHeightM;
     }
     &-lg {
         height: $btnHeightL;
+        line-height: $btnHeightL;
     }
     /* Themes of button */
     &-primary {
@@ -34,4 +36,35 @@
         color: $accentColour13;
     }
         
+}
+
+
+button.mari-btn{
+    outline: none;
+}
+
+/* Dedicated style when using a element as the button, e.g. can prevent wrapper form ele from being triggered*/
+a.mari-btn{
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover, 
+    &:focus{
+        text-decoration: none; 
+        outline: none;
+        margin-bottom: 0;
+    }
+
+    /* Themes of button */
+    &-primary:hover,
+    &-primary:focus
+        {
+        color: $background01;
+    }
+    &-inactive:hover,
+    &-inactive:focus
+        {
+        color: $accentColour13;
+    }
 }

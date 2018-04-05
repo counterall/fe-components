@@ -79,9 +79,10 @@
         <div class="custom-select2-dropdown-wrapper"></div>
         <input id="27845_jpi_hidden_attr_141" name="super_attribute[141]" type="hidden" value="223">
 
-        <div class='product-alert' style='display: none'>
+        <form class='product-alert' style='display: none'>
             <div class='product-alert-title'>Notify me when this product is available</div>
             <input class='product-alert-email mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Enter your email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+            <a class="product-alert-trigger mari-btn mari-btn-sm mari-btn-primary">Email me when available</a>
             <button class="product-alert-trigger mari-btn mari-btn-sm mari-btn-primary">Email me when available</button>
             <div class="modal fade" id="email-alert-overlay" tabindex="-1" role="dialog" aria-labelledby="mariModalLabel">
                 <div class="modal-dialog" role="document">
@@ -110,7 +111,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
 
         <div class="product-options-bottom" style='margin-top: 10px'>
             <div class="add-to-cart">
@@ -118,6 +119,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+    
+        $('.product-alert').on('submit', function(){
+            console.log('form submitted!');
+        })
+    
+    </script>
 </body>
 
 </html>

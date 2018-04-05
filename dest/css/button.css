@@ -8,24 +8,26 @@
 
     text-align: center;
     letter-spacing: 0.8px;
-    line-height: inherit;
-    outline: none;
     padding: 0;
         
 }
 /* Height of different size button*/
 .mari-btn-xs {
         height: 35px;
+        line-height: 35px;
     }
 .mari-btn-sm {
         height: 40px;
         width:  300px;
+        line-height: 40px;
     }
 .mari-btn-md {
         height: 45px;
+        line-height: 45px;
     }
 .mari-btn-lg {
         height: 50px;
+        line-height: 50px;
     }
 /* Themes of button */
 .mari-btn-primary {
@@ -36,5 +38,31 @@
 .mari-btn-inactive {
         border: 1px solid #dfdfdf;
         background-color: #dfdfdf;
+        color: #989898;
+    }
+button.mari-btn{
+    outline: none;
+}
+/* Dedicated style when using a element as the button, e.g. can prevent wrapper form ele from being triggered*/
+a.mari-btn{
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+a.mari-btn:hover, 
+    a.mari-btn:focus{
+        text-decoration: none; 
+        outline: none;
+        margin-bottom: 0;
+    }
+/* Themes of button */
+a.mari-btn-primary:hover,
+    a.mari-btn-primary:focus
+        {
+        color: #ffffff;
+    }
+a.mari-btn-inactive:hover,
+    a.mari-btn-inactive:focus
+        {
         color: #989898;
     }
