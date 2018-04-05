@@ -1,5 +1,5 @@
 /*
- * A lib to add additional features of handling form validation, e.g. custom validation message
+ * A lib to add additional features of processing product data on product page
  */
 
 window.productDataHelper = (function ($) {

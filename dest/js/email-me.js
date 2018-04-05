@@ -58,13 +58,13 @@ jQuery(function ($) {
 
     // Check email input validity once it loses focus
     $emailInput.on('keyup', function(){
-        validateHELPER.textInputValidate($(this));
+        inputValidateHELPER.realtimeTextInputValidate($(this));
     });
 
     //If email input is valid, then do ajax call to subscribe the notification
     $triggerBtn.on('click', function(){
         
-        var validated = validateHELPER.checkValidityAndSetCustomErrorMsg($emailInput, "Please enter a valid email address");
+        var validated = inputValidateHELPER.checkValidityAndSetCustomErrorMsg($emailInput, "Please enter a valid email address");
         console.log(validated);
 
         if (validated) {

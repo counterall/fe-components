@@ -2,7 +2,7 @@
  * A lib to add additional features of handling form validation, e.g. custom validation message
  */
 
-window.validateHELPER = (function($) {
+window.inputValidateHELPER = (function($) {
 
     var checkValidityAndSetCustomErrorMsg = function ($container, msg) {
         var ele = $container[0];
@@ -33,7 +33,7 @@ window.validateHELPER = (function($) {
 
     };
 
-    var textInputValidate = function($container){
+    var realtimeTextInputValidate = function($container){
 
         $container.removeClass('mari-input--text-primary');
         var ele = $container[0];
@@ -47,7 +47,7 @@ window.validateHELPER = (function($) {
 
     return {
         checkValidityAndSetCustomErrorMsg: checkValidityAndSetCustomErrorMsg,
-        textInputValidate: textInputValidate
+        realtimeTextInputValidate: realtimeTextInputValidate
     };
 
 })(jQuery);
