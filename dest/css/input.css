@@ -1,12 +1,11 @@
 /* Drop-down selection */
 /* Inventory status colors */
 /* Text input field themes*/
-/* button style */
-/* button style */
+/* Button style */
+/* Text input style */
 /* Marimekko input component */
 /* For text-type input field */
 .mari-input--text{
-        width: 300px;
         outline: none;
         padding: 10px 15px;
         line-height: 1.5;
@@ -19,6 +18,7 @@
         }
 .mari-input--text-sm{
             height: 40px;
+            width: 300px;
         }
 .mari-input--text-md{
             height: 45px;

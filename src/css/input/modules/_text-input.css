@@ -3,7 +3,6 @@
 
     /* For text-type input field */
     &--text{
-        width: $textInputDefaultWidth;
         outline: none;
         padding: 10px 15px;
         line-height: 1.5;
@@ -16,6 +15,7 @@
 
         &-sm{
             height: $textInputHeightS;
+            width: $textInputWidthS;
         }
 
         &-md{

@@ -78,7 +78,7 @@ jQuery(function ($) {
             $(this).prop('disabled', true).addClass('mari-btn-inactive').removeClass('mari-btn-primary');
             
             var email = $emailInput.val();
-            var productID = validateHELPER.getProductID($('.product-data-mine'), sizeVal);
+            var productID = productDataHelper.getProductID($('.product-data-mine'), sizeVal);
             var extraParams = {
                 email: email,
                 product_id: productID
