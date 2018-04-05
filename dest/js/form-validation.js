@@ -4,7 +4,7 @@
 
 window.validateHELPER = (function($) {
 
-    var setCustomMsg = function ($container, msg) {
+    var checkValidityAndSetCustomErrorMsg = function ($container, msg) {
         var ele = $container[0];
         console.log(ele.validity);
 
@@ -46,9 +46,22 @@ window.validateHELPER = (function($) {
         return parseProductData($dataMineContainer)[attrVal].id;
     };
 
+    var textInputValidate = function($container){
+
+        $container.removeClass('mari-input--text-primary');
+        var ele = $container[0];
+        if (!ele.checkValidity()) {
+            $container.removeClass('mari-input--text-success').addClass('mari-input--text-error');
+        } else {
+            $container.addClass('mari-input--text-success').removeClass('mari-input--text-error');
+        }
+
+    };
+
     return {
-        setCustomMsg: setCustomMsg,
-        getProductID: getProductID
+        checkValidityAndSetCustomErrorMsg: checkValidityAndSetCustomErrorMsg,
+        getProductID: getProductID,
+        textInputValidate: textInputValidate
     };
 
 })(jQuery);
