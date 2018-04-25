@@ -11,13 +11,21 @@ jQuery(function ($) {
     $('.select2fied').select2(select2Options);
 
     // prepare variables
-    var $select2Rendered = $('select.list-size + .select2 .select2-selection__rendered');
     var $emailInput = $('input.product-alert-email'); 
     var $alertBlock = $(".product-alert");
     var $triggerBtn = $('.product-alert-trigger');
     var $addToCartBlock = $('.product-options-bottom');
     var $popupModal = $alertBlock.find('.modal');
     var sizeVal = false; 
+
+    var lineThroughSoldoutSize = function($options){
+        $options.each(function () {
+            var text = $(this).text();
+            var arr = text.trim().split(' ');
+            arr[0] = "<span class='soldout-size' style='text-decoration: line-through'>" + arr[0] + "</span>"
+            $(this).html(arr.join(' '));
+        }); 
+    }
     
     // Make originally disabled option selectable in select2fied dropdown representation
     $('.select2fied.list-size').on('select2:open', function (e) {
@@ -30,8 +38,12 @@ jQuery(function ($) {
             }
         }, 10);
 
+        var isSizeDropdown = $(this).hasClass('list-size');
         dfd.done(function(){
             clearInterval(window.checkSelect2DropdownOpened);
+            if (isSizeDropdown) {
+                lineThroughSoldoutSize($(disabledOpts));
+            }
 
             // Make disabled original option selectable in select2-rendered dropdown
             $(disabledOpts).attr({
@@ -41,9 +53,11 @@ jQuery(function ($) {
         })
     }).on('select2:select', function (e) {
         // When a select2 option is chosen, show email-me block and hide 'add to cart' block
+        var $select2Rendered = $('select.list-size + .select2 .select2-selection__rendered');
         var $optionChosen = $(e.params.data.element);
         if ($optionChosen.prop('disabled')) {
             $select2Rendered.addClass('disabled-option-selected');
+            lineThroughSoldoutSize($select2Rendered);
             $triggerBtn.prop('disabled', false).addClass('mari-btn-primary').removeClass('mari-btn-inactive');
             sizeVal = $optionChosen.data('optionid');
             $alertBlock.show();
