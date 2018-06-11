@@ -108,10 +108,11 @@ jQuery(function ($) {
         }
     });
 
-    // Reserve & Collect Component
+    /* Reserve & Collect Component */
     Vue.component("reserve-collect-overlay", {
         template: "#reserve-collect-overlay",
         methods: {
+            /* Verify every input field given by user*/ 
             checkReserveFormValidity: function () {
                 var allPassed = true;
                 $(this.$el).find('input').each(function() {
@@ -120,9 +121,9 @@ jQuery(function ($) {
                     }
                 });
 
-                // Do POST requests when all fields are valid
+                /* Do POST request when all fields are valid */
                 if (allPassed) {
-                    
+                 
                 }
             }
         }
