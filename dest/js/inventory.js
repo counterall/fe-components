@@ -92,26 +92,25 @@ jQuery(function ($) {
                 this.$parent.storeContactInfo = contactInfo;
             },
             prepareReserveForm: function() {
-                this.$parent.popupReserveForm = true;
                 $('#reserve-overlay').modal();
             }
         }
     });
 
     Vue.component("store-contact-overlay", {
+        props: ['storeContact'],
         template: "#store-contact-overlay",
-    });
-
-    // Reserve & Collect Component
-    Vue.component("reserve-collect-overlay", {
-        props:['showForm'],
-        template: "#reserve-collect-overlay",
         updated: function () {
             $(this.$el).modal();
         },
         mounted: function () {
             $(this.$el).modal();
         }
+    });
+
+    // Reserve & Collect Component
+    Vue.component("reserve-collect-overlay", {
+        template: "#reserve-collect-overlay"
     });
 
     // root vue app
