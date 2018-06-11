@@ -16,6 +16,16 @@ gulp.task('inventory-block', function () {
         .pipe(gulp.dest('./dest/css/'));
 });
 
+gulp.task('emailme-block', function () {
+    return gulp.src('./src/css/email-me.css')
+        .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
+        .on('error', function (info) {
+            console.log(info);
+            this.emit('end');
+        })
+        .pipe(gulp.dest('./dest/css/'));
+});
+
 gulp.task('global', function () {
     return gulp.src('./src/css/global.css')
         .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
@@ -38,6 +48,26 @@ gulp.task('select2', function () {
 
 gulp.task('reserve-collect', function () {
     return gulp.src('./src/css/reserve-collect.css')
+    .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
+        .on('error', function (info) {
+            console.log(info);
+            this.emit('end');
+        })
+        .pipe(gulp.dest('./dest/css/'));
+});
+
+gulp.task('input-component', function () {
+    return gulp.src('./src/css/input.css')
+        .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
+        .on('error', function (info) {
+            console.log(info);
+            this.emit('end');
+        })
+        .pipe(gulp.dest('./dest/css/'));
+});
+
+gulp.task('btn-component', function () {
+    return gulp.src('./src/css/button.css')
         .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
         .on('error', function (info) {
             console.log(info);

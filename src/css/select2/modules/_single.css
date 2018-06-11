@@ -3,7 +3,7 @@
         background-color: #fff;
         border: 1px solid #dfdfdf;
         border-radius: 0;
-        height: $dropdownDefaultHeight;
+        height: $dropdownHeightM;
 
         &:focus {
             outline: none;
@@ -11,8 +11,12 @@
 
         .select2-selection__rendered {
             color: $accentColour09;
-            line-height: $dropdownDefaultHeight;
+            line-height: $dropdownHeightM;
             padding: 0 15px;
+
+            &.disabled-option-selected{
+                color: $accentColour13;
+            }
         }
         .select2-selection__clear {
             cursor: pointer;
@@ -23,7 +27,7 @@
             color: $accentColour13;
         }
         .select2-selection__arrow {
-            height: $dropdownDefaultHeight;
+            height: $dropdownHeightM;
             position: absolute;
             top: 0px;
             right: 16px;

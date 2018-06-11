@@ -1,0 +1,62 @@
+/* Marimekko input component */
+.mari-input {
+
+    /* For text-type input field */
+    &--text{
+        outline: none;
+        padding: 10px 15px;
+        line-height: 1.5;
+        letter-spacing: 0.8px;
+
+        /* Height of different size input*/
+        &-xs{
+            height: $textInputHeightXS;
+        }
+
+        &-sm{
+            height: $textInputHeightS;
+            width: $textInputWidthS;
+        }
+
+        &-md{
+            height: $textInputHeightM;
+        }
+
+        &-lg{
+            height: $textInputHeightL;
+        }
+
+        /* Themes of input */
+        &-primary{
+            border: 1px solid $accentColour13;
+        }
+
+        &-error {
+            border: 1px solid $inventoryStatusDanger;
+            background-color: $errorBackground;
+        }
+        
+        &-warning {
+            border: 1px solid $inventoryStatusWarning;
+            background-color: $warningBackground;
+        }
+        
+        &-success{
+            border: 1px solid $inventoryStatusSuccess;
+            background-color: $successBackground;
+        }
+
+        &-informative{
+            border: 1px solid $informativeBorder;
+            background-color: $infomativeBackground;
+        }
+
+    }
+
+
+}
+
+.error-validation-msg{
+    margin-top: 7px;
+    color: $inventoryStatusDanger;
+}

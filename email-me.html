@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Marimekko Inventory Status Component</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="src/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/global.css" />
+    <link rel="stylesheet" href="src/css/lib/select2.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/mari-select2.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/input.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/button.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/email-me.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/inventory.css" />
+    <script src='src/js/lib/jquery-3.3.1.min.js'></script>
+    <script src="src/js/lib/bootstrap.min.js"></script>
+    <script src="src/js/lib/select2.min.js"></script>
+    <script src="dest/js/email-me.js"></script>
+    <script src="dest/js/form-validation.js"></script>
+    <script src="dest/js/product-data.js"></script>
+</head>
+
+<body class='catalog-product-view'>
+    <div class="rich-product-page">
+        <div class="product-data-mine" data-attributeids="[141]" data-messagemoreoptions="You must specify all product options before adding it to the cart" data-confproductid="27845" data-lookup="{'220':{'qty':0,'stock_status':0,'price':'\n\n\n    <div class=\'price-wrapper\' itemprop=\'offers\' itemscope itemtype=\'http:\/\/schema.org\/Offer\'>\n    <div class=\'price-box sold-out\'>\n        Out of stock    <\/div>\n        <meta itemprop=\'priceCurrency\' content=\'EUR\' \/>\n        <meta itemprop=\'availability\' content=\'http:\/\/schema.org\/OutOfStock \' \/>\n    <\/div>\n\n','price_numeric':110,'size':'34','id':34196,'parent_attribute_code':'size'},'221':{'qty':0,'stock_status':0,'price':'\n\n\n    <div class=\'price-wrapper\' itemprop=\'offers\' itemscope itemtype=\'http:\/\/schema.org\/Offer\'>\n    <div class=\'price-box sold-out\'>\n        Out of stock    <\/div>\n        <meta itemprop=\'priceCurrency\' content=\'EUR\' \/>\n        <meta itemprop=\'availability\' content=\'http:\/\/schema.org\/OutOfStock \' \/>\n    <\/div>\n\n','price_numeric':110,'size':'36','id':34197,'parent_attribute_code':'size'},'222':{'qty':0,'stock_status':0,'price':'\n\n\n    <div class=\'price-wrapper\' itemprop=\'offers\' itemscope itemtype=\'http:\/\/schema.org\/Offer\'>\n    <div class=\'price-box sold-out\'>\n        Out of stock    <\/div>\n        <meta itemprop=\'priceCurrency\' content=\'EUR\' \/>\n        <meta itemprop=\'availability\' content=\'http:\/\/schema.org\/OutOfStock \' \/>\n    <\/div>\n\n','price_numeric':110,'size':'38','id':34198,'parent_attribute_code':'size'},'223':{'qty':2,'stock_status':1,'price':'\n\n\n    <div class=\'price-wrapper\' itemprop=\'offers\' itemscope itemtype=\'http:\/\/schema.org\/Offer\'>\n                \n    <div class=\'price-box\'>\n                                                            <span class=\'regular-price\' id=\'product-price-34199\' itemprop=\'price\'>\n                                           <span class=\'price\'>110.00EUR<\/span>                                    <\/span>\n                        \n    \n        \n    <\/div>\n\n        <meta itemprop=\'priceCurrency\' content=\'EUR\' \/>\n        <meta itemprop=\'availability\' content=\'http:\/\/schema.org\/InStock \' \/>\n    <\/div>\n\n','price_numeric':110,'size':'40','id':34199,'parent_attribute_code':'size'},'224':{'qty':2,'stock_status':1,'price':'\n\n\n    <div class=\'price-wrapper\' itemprop=\'offers\' itemscope itemtype=\'http:\/\/schema.org\/Offer\'>\n                \n    <div class=\'price-box\'>\n                                                            <span class=\'regular-price\' id=\'product-price-34200\' itemprop=\'price\'>\n                                           <span class=\'price\'>110.00EUR<\/span>                                    <\/span>\n                        \n    \n        \n    <\/div>\n\n        <meta itemprop=\'priceCurrency\' content=\'EUR\' \/>\n        <meta itemprop=\'availability\' content=\'http:\/\/schema.org\/InStock \' \/>\n    <\/div>\n\n','price_numeric':110,'size':'42','id':34200,'parent_attribute_code':'size'},'225':{'qty':2,'stock_status':1,'price':'\n\n\n    <div class=\'price-wrapper\' itemprop=\'offers\' itemscope itemtype=\'http:\/\/schema.org\/Offer\'>\n                \n    <div class=\'price-box\'>\n                                                            <span class=\'regular-price\' id=\'product-price-34201\' itemprop=\'price\'>\n                                           <span class=\'price\'>110.00EUR<\/span>                                    <\/span>\n                        \n    \n        \n    <\/div>\n\n        <meta itemprop=\'priceCurrency\' content=\'EUR\' \/>\n        <meta itemprop=\'availability\' content=\'http:\/\/schema.org\/InStock \' \/>\n    <\/div>\n\n','price_numeric':110,'size':'44','id':34201,'parent_attribute_code':'size'},'226':{'qty':2,'stock_status':1,'price':'\n\n\n    <div class=\'price-wrapper\' itemprop=\'offers\' itemscope itemtype=\'http:\/\/schema.org\/Offer\'>\n                \n    <div class=\'price-box\'>\n                                                            <span class=\'regular-price\' id=\'product-price-34202\' itemprop=\'price\'>\n                                           <span class=\'price\'>110.00EUR<\/span>                                    <\/span>\n                        \n    \n        \n    <\/div>\n\n        <meta itemprop=\'priceCurrency\' content=\'EUR\' \/>\n        <meta itemprop=\'availability\' content=\'http:\/\/schema.org\/InStock \' \/>\n    <\/div>\n\n','price_numeric':110,'size':'46','id':34202,'parent_attribute_code':'size'}}"></div>
+        <select class="select2fied select2fied-nosearch attribute-select-text list-size" style='width: 300px'>
+            <option class="27845_jpi_attr_141" 
+                    id="27845_jpi_option_141-220_selectOption" 
+                    type="button"
+                    data-productid="27845" 
+                    data-attributeid="141" 
+                    data-optionid="220" disabled>34 - email me when available 
+            </option>
+            <option class="27845_jpi_attr_141" 
+                    id="27845_jpi_option_141-221_selectOption" 
+                    type="button"
+                    data-productid="27845" 
+                    data-attributeid="141" 
+                    data-optionid="221" disabled>36 - email me when available 
+            </option>
+            <option class="27845_jpi_attr_141" 
+                    id="27845_jpi_option_141-222_selectOption" 
+                    type="button"
+                    data-productid="27845" 
+                    data-attributeid="141" 
+                    data-optionid="222" disabled>38 - email me when available 
+            </option>
+            <option class="27845_jpi_attr_141 attribute-selected" 
+                    id="27845_jpi_option_141-223_selectOption"
+                    type="button" 
+                    data-productid="27845" 
+                    data-attributeid="141" 
+                    data-optionid="223" selected="">40 
+            </option>
+            <option class="27845_jpi_attr_141" 
+                    id="27845_jpi_option_141-224_selectOption" 
+                    type="button"
+                    data-productid="27845" 
+                    data-attributeid="141" 
+                    data-optionid="224">42
+            </option>
+            <option class="27845_jpi_attr_141" 
+                    id="27845_jpi_option_141-225_selectOption" 
+                    type="button"
+                    data-productid="27845" 
+                    data-attributeid="141" 
+                    data-optionid="225">44
+            </option>
+            <option class="27845_jpi_attr_141" 
+                    id="27845_jpi_option_141-226_selectOption" 
+                    type="button"
+                    data-productid="27845" 
+                    data-attributeid="141" 
+                    data-optionid="226">46
+            </option>
+        </select>
+        <div class="custom-select2-dropdown-wrapper"></div>
+        <input id="27845_jpi_hidden_attr_141" name="super_attribute[141]" type="hidden" value="223">
+
+        <form class='product-alert' style='display: none'>
+            <div class='product-alert-title'>Notify me when this product is available</div>
+            <input class='product-alert-email mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Enter your email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+            <a class="product-alert-trigger mari-btn mari-btn-sm mari-btn-primary">Email me when available</a>
+            <!-- <button class="product-alert-trigger mari-btn mari-btn-sm mari-btn-primary">Email me when available</button> -->
+            <div class="modal fade" id="email-alert-overlay" tabindex="-1" role="dialog" aria-labelledby="mariModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content  modal-content-success">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                            <div class="modal-title" id="mariModalLabel">Email Address Registered</div>
+                        </div>
+                        <div class="modal-body clearfix">
+                            An email will be sent to you as soon as this product becomes available!
+                        </div>
+                        <button data-dismiss="modal" class='mari-btn mari-btn-sm mari-btn-primary' aria-label="Close">Continue shopping</button>
+                    </div>
+
+                    <div class='modal-content modal-content-error'>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                            <div class="modal-title" id="mariModalLabel">Oops!</div>
+                        </div>
+                        <div class="modal-body clearfix">
+                             Sorry, something wrong occurred, please try again in few minutes.
+                        </div>
+                        <button data-dismiss="modal" class='mari-btn mari-btn-sm mari-btn-primary' aria-label="Close">OK</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="product-options-bottom" style='margin-top: 10px'>
+            <div class="add-to-cart">
+                <button class='mari-btn mari-btn-sm mari-btn-primary' style='width: 200px'>Add TO BAG</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+        $('.product-alert').on('submit', function(){
+            console.log('form submitted!');
+        })
+    
+    </script>
+</body>
+
+</html>

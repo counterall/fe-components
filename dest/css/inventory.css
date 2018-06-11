@@ -1,16 +1,8 @@
 /* Drop-down selection */
 /* Inventory status colors */
-.rich-product-page {
-
-    width: 440px;
-    margin: 50px auto;
-    border: 2px solid #eeeeee;
-    padding: 30px 20px;
-    background: white;
-
-    
-
-}
+/* Text input field themes*/
+/* Button style */
+/* Text input style */
 .rich-product-page .store-inventory-toggle {
             display: flex;
             flex-direction: row;
