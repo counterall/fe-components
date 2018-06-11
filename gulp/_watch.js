@@ -9,6 +9,7 @@ gulp.task('watch', function () {
         gulp.start('global');
         gulp.start('inventory-block');
         gulp.start('select2');
+        gulp.start('reserve-collect');
     });
 
     // dropdown related styles
@@ -21,5 +22,9 @@ gulp.task('watch', function () {
         gulp.start('select2');
     });
 
+    // marimekko theme for select2
+    watch('./src/css/reserve-collect/**/*.css', function () {
+        gulp.start('reserve-collect');
+    });
 });
 
