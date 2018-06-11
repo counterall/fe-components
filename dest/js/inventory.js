@@ -90,14 +90,23 @@ jQuery(function ($) {
                     phone: this.contact.phone
                 };
                 this.$parent.storeContactInfo = contactInfo;
+            },
+            prepareReserveForm: function() {
+                this.$parent.popupReserveForm = true;
+                $('#reserve-overlay').modal();
             }
         }
     });
 
     Vue.component("store-contact-overlay", {
-        props:['storeContact'],
         template: "#store-contact-overlay",
-        updated: function(){
+    });
+
+    // Reserve & Collect Component
+    Vue.component("reserve-collect-overlay", {
+        props:['showForm'],
+        template: "#reserve-collect-overlay",
+        updated: function () {
             $(this.$el).modal();
         },
         mounted: function () {
@@ -117,6 +126,7 @@ jQuery(function ($) {
             cityList: false,
             cityChosen: false,
             storeContactInfo: false,
+            popupReserveForm: false,
             url: {
                 host: "http://localhost:5500/dest/json/inventory-onesize.json"
             }

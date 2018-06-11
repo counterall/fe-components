@@ -1,3 +1,9 @@
-.reserve-btn{
+.reserve-btn {
     margin-top: 10px;
+}
+
+.reserve-form {
+    input {
+        margin-bottom: 10px;
+    }
 }

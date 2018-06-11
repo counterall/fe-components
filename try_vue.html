@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="src/css/lib/select2.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="dest/css/mari-select2.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="dest/css/inventory.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/reserve-collect.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/button.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/input.css" />
     <script src='src/js/lib/jquery-3.3.1.min.js'></script>
     <script src="src/js/lib/bootstrap.min.js"></script>
     <script src="src/js/lib/select2.min.js"></script>
@@ -29,7 +32,8 @@
               
                 <mari-select2 :class="dropDownClass" :options="cityList" @change="switchList">
                 </mari-select2>
-                
+
+                <!-- User guidance -->
                 <div class='instruction'>
                     <div class='instruction-text'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -64,18 +68,23 @@
                     :store-contact="storeContactInfo"
                     v-if="storeContactInfo"
                  ></store-contact-overlay>
+                
+                 <reserve-collect-overlay
+                    v-if="popupReserveForm"
+                 ></reserve-collect-overlay>
             </div>
         </div>
     
+        <!-- Popup Contact Overlay -->
         <script type="text/x-template" id="store-contact-overlay">
             <!-- Bootstrap Modal component to render pop-up window -->
-            <div class="modal fade" id="universal-overlay" tabindex="-1" role="dialog" aria-labelledby="mariModalLabel">
+            <div class="modal fade" id="contact-overlay" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             </button>
-                            <div class="modal-title" id="mariModalLabel">{{storeContact.name}}</div>
+                            <div class="modal-title" id="contactModalLabel">{{storeContact.name}}</div>
                         </div>
                         <div class="modal-body contact clearfix">
                             <div class='contact-section'>
@@ -97,6 +106,36 @@
             </div>
         </script>
 
+        <!-- Popup Reserve Form Overlay -->
+        <script type="text/x-template" id="reserve-collect-overlay">
+        
+            <!-- Bootstrap Modal component to render pop-up window -->
+            <div class="modal fade" id="reserve-overlay" tabindex="-1" role="dialog" aria-labelledby="reserveModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                            <div class="modal-title" id="reserveModalLabel">Reserve & Collect</div>
+                        </div>
+                        <div class="modal-body reserve-form clearfix">
+                            <div class='reserve-form--product'></div>
+                            <form class='reserve-form--input'>
+                                <div>Contact</div>
+                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="First name *" required>
+                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Last name *" required>
+                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Phone number *" pattern="\+?\d{9,}" required>
+                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Email address *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                                <button class='mari-btn mari-btn-lg mari-btn-secondary'>Reserve</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </script>
+
+        <!-- Store inventory block template -->
         <script type="text/x-template" id="store-inventory-template">
     
             <div class='store-item' :class="'store-item--' + productType">
@@ -121,6 +160,7 @@
                         <div class="store-status-item--null">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                     </template>
                 </div>
+                <a @click='prepareReserveForm' class="reserve-btn mari-btn mari-btn-lg mari-btn-secondary">Varaa myymälössä</a>
             </div>
         </script>
     </div>

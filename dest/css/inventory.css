@@ -150,6 +150,10 @@
                             margin-top: 15px;
                             letter-spacing: 0.8px;
                         }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog{
+                top: 30%;
+                width: 360px;
+            }
 .catalog-product-view .modal-backdrop.in{
         opacity: 0.2;
     }
