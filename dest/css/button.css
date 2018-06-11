@@ -9,6 +9,7 @@
     text-align: center;
     letter-spacing: 0.8px;
     padding: 0;
+    width: 200px;
         
 }
 /* Height of different size button*/
@@ -35,16 +36,21 @@
         background-color: #333333;
         color: #ffffff;
     }
+.mari-btn-secondary {
+        border: 1px solid #333333;
+        background-color: #ffffff;
+        color: #333333;
+    }
 .mari-btn-inactive {
         border: 1px solid #dfdfdf;
         background-color: #dfdfdf;
         color: #989898;
     }
-button.mari-btn{
+button.mari-btn {
     outline: none;
 }
 /* Dedicated style when using a element as the button, e.g. can prevent wrapper form ele from being triggered*/
-a.mari-btn{
+a.mari-btn {
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
@@ -61,8 +67,11 @@ a.mari-btn-primary:hover,
         {
         color: #ffffff;
     }
+a.mari-btn-secondary:hover,
+    a.mari-btn-secondary:focus {
+        color: #333333;
+    }
 a.mari-btn-inactive:hover,
-    a.mari-btn-inactive:focus
-        {
+    a.mari-btn-inactive:focus {
         color: #989898;
     }

@@ -5,6 +5,7 @@
     text-align: center;
     letter-spacing: 0.8px;
     padding: 0;
+    width: 200px;
 
     /* Height of different size button*/
     &-xs {
@@ -30,6 +31,11 @@
         background-color: $accentColour09;
         color: $background01;
     }
+    &-secondary {
+        border: 1px solid $accentColour09;
+        background-color: $background01;
+        color: $accentColour09;
+    }
     &-inactive {
         border: 1px solid $borderColour04;
         background-color: $borderColour04;
@@ -39,12 +45,12 @@
 }
 
 
-button.mari-btn{
+button.mari-btn {
     outline: none;
 }
 
 /* Dedicated style when using a element as the button, e.g. can prevent wrapper form ele from being triggered*/
-a.mari-btn{
+a.mari-btn {
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
@@ -62,9 +68,12 @@ a.mari-btn{
         {
         color: $background01;
     }
+    &-secondary:hover,
+    &-secondary:focus {
+        color: $accentColour09;
+    }
     &-inactive:hover,
-    &-inactive:focus
-        {
+    &-inactive:focus {
         color: $accentColour13;
     }
 }
