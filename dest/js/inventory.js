@@ -53,15 +53,16 @@ jQuery(function ($) {
         },
         computed: {
             productType: function(){
+                var type = "null";
                 if (typeof this.sizes !== "undefined") {
                     if (this.sizes.length === 1) {
-                        return "onesize";
+                        type = "onesize";
                     } else if (this.sizes.length >= 2) {
-                        return "sizable";
+                        type = "sizable";
                     }
-                }else{
-                    return "null";
                 }
+                this.$parent.productType = type;
+                return type;
             },
             locale: function(){
                 if (this.countryCode === 'FI') {
@@ -142,6 +143,7 @@ jQuery(function ($) {
             cityChosen: false,
             storeContactInfo: false,
             popupReserveForm: false,
+            productType: false,
             url: {
                 host: "http://localhost:5500/dest/json/inventory-onesize.json"
             }
