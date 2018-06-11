@@ -19,6 +19,7 @@
     <script src="src/js/lib/select2.min.js"></script>
     <script src="src/js/lib/vue.js"></script>
     <script src="dest/js/inventory.js"></script>
+    <script src="dest/js/form-validation.js"></script>
 </head>
 
 <body class='catalog-product-view'>
@@ -119,14 +120,11 @@
                         </div>
                         <div class="modal-body reserve-form clearfix">
                             <div class='reserve-form--product'></div>
-                            <form class='reserve-form--input'>
-                                <div>Contact</div>
-                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="First name *" required>
-                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Last name *" required>
-                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Phone number *" pattern="\+?\d{9,}" required>
-                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Email address *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                                <button class='mari-btn mari-btn-lg mari-btn-secondary'>Reserve</button>
-                            </form>
+                            <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="First name *" required>
+                            <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Last name *" required>
+                            <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Phone number *" pattern="\+?\d{9,}" required>
+                            <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Email address *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                            <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
                         </div>
                     </div>
                 </div>

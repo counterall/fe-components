@@ -9,3 +9,10 @@
 .reserve-form input {
         margin-bottom: 10px;
     }
+.reserve-form .error-validation-msg{
+        margin-top: 0;
+        margin-bottom: 7px;
+    }
+.reserve-form .reserve-submit{
+        margin-top: 15px;
+    }
