@@ -71,6 +71,7 @@
                  ></store-contact-overlay>
                 
                  <reserve-collect-overlay
+                    :product-type='productType'
                  ></reserve-collect-overlay>
             </div>
         </div>
@@ -119,7 +120,15 @@
                             <div class="modal-title" id="reserveModalLabel">Reserve & Collect</div>
                         </div>
                         <div class="modal-body reserve-form clearfix">
-                            <div class='reserve-form--product'></div>
+                            <div class='reserve-form--product'>
+                                <div class='product-name'></div>
+                                <div class='qty-selector' v-if="productType === 'onesize'">
+                                    <span class="qty-minus"></span>
+                                    <span class="qty-val"></span>
+                                    <input type="text" class="qty-input">
+                                    <span class="qty-plus"></span>
+                                </div>
+                            </div>
                             <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="First name *" required>
                             <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Last name *" required>
                             <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Phone number *" pattern="\+?\d{9,}" required>

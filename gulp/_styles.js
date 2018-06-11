@@ -75,3 +75,13 @@ gulp.task('btn-component', function () {
         })
         .pipe(gulp.dest('./dest/css/'));
 });
+
+gulp.task('qty-selector', function () {
+    return gulp.src('./src/css/qty-selector.css')
+        .pipe(postcss([cssImport, mixins, cssvars, cssnested, autoprefixer]))
+        .on('error', function (info) {
+            console.log(info);
+            this.emit('end');
+        })
+        .pipe(gulp.dest('./dest/css/'));
+});

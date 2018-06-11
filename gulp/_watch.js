@@ -42,5 +42,10 @@ gulp.task('watch', function () {
         gulp.start('emailme-block');
     });
 
+    // quantity selector component
+    watch('./src/css/qty-selector/**/*.css', function () {
+        gulp.start('qty-selector');
+    });
+
 });
 

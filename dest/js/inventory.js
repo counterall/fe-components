@@ -111,6 +111,7 @@ jQuery(function ($) {
 
     /* Reserve & Collect Component */
     Vue.component("reserve-collect-overlay", {
+        props: ['productType'],
         template: "#reserve-collect-overlay",
         methods: {
             /* Verify every input field given by user*/ 
