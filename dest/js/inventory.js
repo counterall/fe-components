@@ -140,6 +140,7 @@ jQuery(function ($) {
             storeContactInfo: false,
             popupReserveForm: false,
             productType: $('ul.list-size > li').length > 1 ? "sizable" : "onesize",
+            productParams: {},
             url: {
                 host: "http://localhost:5500/dest/json/inventory-onesize.json"
             }
@@ -151,7 +152,6 @@ jQuery(function ($) {
                 var vm = this;
                 if (!this.countryData) {
                    $.get({
-                       // beforeSend: BEATHELPER.toggleLoadingIcon($chartBodyName, true, isID),
                        dataType: "json",
                        url: this.url.host,
                        data: extraParams
@@ -170,6 +170,13 @@ jQuery(function ($) {
               this.cityChosen = city;
               this.cityData = this.countryData[city];
             }
+        },
+        mounted: function() {
+            var rawData = $("#inventory-app .toggle-link").data('product-param');
+            this.productParams.productID = rawData.product_id;
+            this.productParams.colorId = rawData.color_id;
+            this.productParams.sku = rawData.product_id + "-" + rawData.color_id;
+            this.productParams.type = $('ul.list-size > li').length > 1 ? "sizable" : "onesize";
         }
     })
 });
