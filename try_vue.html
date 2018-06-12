@@ -24,6 +24,9 @@
 </head>
 
 <body class='catalog-product-view'>
+    <ul class="list-size" style='display: none'>
+        <li>haha</li>
+    </ul>
     <div class='rich-product-page'>
         <div class='store-inventory' id='inventory-app'>
             <div class='store-inventory-toggle clearfix'>
@@ -62,6 +65,7 @@
                             :sizes='item.sizes'
                             :key='item.storeId'
                             :index='index'
+                            :product-type='productType'
                         ></store-inventory-list>
                     </template>
                 </div>

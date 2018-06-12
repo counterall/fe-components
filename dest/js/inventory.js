@@ -41,7 +41,7 @@ jQuery(function ($) {
     });
 
     Vue.component('store-inventory-list', {
-        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours'],
+        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productType"],
         template: "#store-inventory-template",
         data: function(){
             return {
@@ -52,18 +52,6 @@ jQuery(function ($) {
             };
         },
         computed: {
-            productType: function(){
-                var type = "null";
-                if (typeof this.sizes !== "undefined") {
-                    if (this.sizes.length === 1) {
-                        type = "onesize";
-                    } else if (this.sizes.length >= 2) {
-                        type = "sizable";
-                    }
-                }
-                this.$parent.productType = type;
-                return type;
-            },
             locale: function(){
                 if (this.countryCode === 'FI') {
                     return "FI";
@@ -144,7 +132,7 @@ jQuery(function ($) {
             cityChosen: false,
             storeContactInfo: false,
             popupReserveForm: false,
-            productType: false,
+            productType: $('ul.list-size > li').length > 1 ? "sizable" : "onesize",
             url: {
                 host: "http://localhost:5500/dest/json/inventory-onesize.json"
             }
