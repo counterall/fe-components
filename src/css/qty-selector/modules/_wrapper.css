@@ -1,0 +1,10 @@
+.qty-selector{
+
+    height: 45px;
+    width: 110px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    border: 1px solid $accentColour13;
+
+}

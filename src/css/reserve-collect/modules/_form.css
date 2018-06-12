@@ -3,16 +3,25 @@
 }
 
 .reserve-form {
-    input {
+    &--product{
+
         margin-bottom: 10px;
+
     }
 
-    .error-validation-msg{
-        margin-top: 0;
-        margin-bottom: 7px;
-    }
+    &--contact{
 
-    .reserve-submit{
-        margin-top: 15px;
+        input {
+            margin-bottom: 10px;
+        }
+
+        .error-validation-msg{
+            margin-top: 0;
+            margin-bottom: 7px;
+        }
+
+        .reserve-submit{
+            margin-top: 15px;
+        }
     }
 }

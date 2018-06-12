@@ -1,0 +1,26 @@
+.qty-selector {
+
+    .qty-minus,
+    .qty-plus {
+        width: 20px;
+        height: 20px;
+        background-position: center center;
+        background-size: 9px 9px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .qty-plus {
+        background-image: url('http://kandy.io/marimekko-qa/htdocs/skin/frontend/carbon/marimekko/images/ui/icon_plus.png');
+        margin-left: auto;
+        margin-right: 15px;
+    }
+
+    .qty-minus {
+        background-image: url('http://kandy.io/marimekko-qa/htdocs/skin/frontend/carbon/marimekko/images/ui/icon_minus.png');
+        margin-left: 15px;
+        margin-right: auto;
+    }
+
+}

@@ -6,13 +6,18 @@
 .reserve-btn {
     margin-top: 10px;
 }
-.reserve-form input {
+.reserve-form--product{
+
         margin-bottom: 10px;
+
     }
-.reserve-form .error-validation-msg{
-        margin-top: 0;
-        margin-bottom: 7px;
-    }
-.reserve-form .reserve-submit{
-        margin-top: 15px;
-    }
+.reserve-form--contact input {
+            margin-bottom: 10px;
+        }
+.reserve-form--contact .error-validation-msg{
+            margin-top: 0;
+            margin-bottom: 7px;
+        }
+.reserve-form--contact .reserve-submit{
+            margin-top: 15px;
+        }

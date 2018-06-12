@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="dest/css/reserve-collect.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="dest/css/button.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="dest/css/input.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="dest/css/qty-selector.css" />
     <script src='src/js/lib/jquery-3.3.1.min.js'></script>
     <script src="src/js/lib/bootstrap.min.js"></script>
     <script src="src/js/lib/select2.min.js"></script>
@@ -124,16 +125,18 @@
                                 <div class='product-name'></div>
                                 <div class='qty-selector' v-if="productType === 'onesize'">
                                     <span class="qty-minus"></span>
-                                    <span class="qty-val"></span>
-                                    <input type="text" class="qty-input">
+                                    <span class="qty-val">1</span>
+                                    <input type="number" min='1' max='10' class="qty-input" value="1">
                                     <span class="qty-plus"></span>
                                 </div>
                             </div>
-                            <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="First name *" required>
-                            <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Last name *" required>
-                            <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Phone number *" pattern="\+?\d{9,}" required>
-                            <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Email address *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                            <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
+                            <div class='reserve-form--contact'>
+                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="First name *" required>
+                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Last name *" required>
+                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Phone number *" pattern="\+?\d{9,}" required>
+                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Email address *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                                <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
+                            </div>
                         </div>
                     </div>
                 </div>

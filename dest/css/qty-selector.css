@@ -3,3 +3,50 @@
 /* Text input field themes*/
 /* Button style */
 /* Text input style */
+.qty-selector{
+
+    height: 45px;
+    width: 110px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    border: 1px solid #989898;
+
+}
+.qty-selector input.qty-input{
+        width: 40px;
+        height: 25px;
+        border: 0;
+        padding: 0;
+        text-align: center;
+        margin-bottom: 15px;
+        display: none;
+    }
+.qty-selector .qty-val{
+
+        padding: 6px 5px 0 5px;
+
+    }
+.qty-selector .qty-minus,
+    .qty-selector .qty-plus {
+        width: 20px;
+        height: 20px;
+        background-position: center center;
+        background-size: 9px 9px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+    }
+.qty-selector .qty-plus {
+        background-image: url('http://kandy.io/marimekko-qa/htdocs/skin/frontend/carbon/marimekko/images/ui/icon_plus.png');
+        margin-left: auto;
+        margin-right: 15px;
+    }
+.qty-selector .qty-minus {
+        background-image: url('http://kandy.io/marimekko-qa/htdocs/skin/frontend/carbon/marimekko/images/ui/icon_minus.png');
+        margin-left: 15px;
+        margin-right: auto;
+    }
