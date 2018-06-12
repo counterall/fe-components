@@ -116,6 +116,13 @@ jQuery(function ($) {
                  
                 }
             }
+        },
+        mounted: function() {
+            
+            if (this.productType === 'onesize') {
+              initQuantitySelector($(this.$el).find('.qty-selector'));
+            }
+            
         }
     });
 
