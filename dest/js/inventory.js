@@ -139,7 +139,6 @@ jQuery(function ($) {
             cityChosen: false,
             storeContactInfo: false,
             popupReserveForm: false,
-            productType: $('ul.list-size > li').length > 1 ? "sizable" : "onesize",
             productParams: {},
             url: {
                 host: "http://localhost:5500/dest/json/inventory-onesize.json"
