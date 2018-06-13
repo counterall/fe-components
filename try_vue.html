@@ -128,7 +128,7 @@
                         <div class="modal-body reserve-form clearfix">
                             <div class='reserve-form--product'>
                                 <div class='product-name'></div>
-                                <div class='qty-selector' v-if="productType === 'onesize'">
+                                <div class='qty-selector' v-show="productType === 'onesize'">
                                     <span class="qty-minus"></span>
                                     <span class="qty-val">1</span>
                                     <input type="number" min='1' max='10' class="qty-input" value="1">
