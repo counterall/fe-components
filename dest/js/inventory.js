@@ -171,11 +171,11 @@ jQuery(function ($) {
             }
         },
         mounted: function() {
-            var rawData = $("#inventory-app .toggle-link").data('product-param');
-            this.productParams.productID = rawData.product_id;
-            this.productParams.colorId = rawData.color_id;
-            this.productParams.sku = rawData.product_id + "-" + rawData.color_id;
+            var configProductParams = $("#inventory-app .toggle-link").data('product-param');
+            this.productParams.config_product_id = configProductParams.product_id;
+            this.productParams.color_id = configProductParams.color_id;
             this.productParams.type = $('ul.list-size > li').length > 1 ? "sizable" : "onesize";
+            this.productParams.product_mapping = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
         }
     })
 });
