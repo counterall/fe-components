@@ -120,9 +120,18 @@ jQuery(function ($) {
         mounted: function() {
             
             if (this.productType === 'onesize') {
-              initQuantitySelector($(this.$el).find('.qty-selector'));
+                initQuantitySelector($(this.$el).find('.qty-selector'));
             }
             
+        },
+        computed: {
+            product_mapping: function() {
+                if (this.productType === 'sizable') {
+                    return this.$parent.productParams.product_mapping;
+                }else{
+                    return false;
+                }
+            }
         }
     });
 
@@ -139,7 +148,6 @@ jQuery(function ($) {
             cityChosen: false,
             storeContactInfo: false,
             popupReserveForm: false,
-            productParams: {},
             url: {
                 host: "http://localhost:5500/dest/json/inventory-onesize.json"
             }
@@ -170,12 +178,20 @@ jQuery(function ($) {
               this.cityData = this.countryData[city];
             }
         },
-        mounted: function() {
-            var configProductParams = $("#inventory-app .toggle-link").data('product-param');
-            this.productParams.config_product_id = configProductParams.product_id;
-            this.productParams.color_id = configProductParams.color_id;
-            this.productParams.type = $('ul.list-size > li').length > 1 ? "sizable" : "onesize";
-            this.productParams.product_mapping = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
+        computed: {
+            productParams: function() {
+                var rawProductData = JSON.parse($('.product-data-mine2').data('lookup').replace(/'/g, '\"'));
+                var productMapping = {};
+                for (var key in rawProductData) {
+                    productMapping[key] = {};
+                    productMapping[key].mag_id = rawProductData[key].id; 
+                    productMapping[key].size = rawProductData[key].size;
+                }
+                return {
+                    type: $('ul.list-size > li').length > 1 ? "sizable" : "onesize",
+                    product_mapping: productMapping
+                }
+            }
         }
     })
 });
