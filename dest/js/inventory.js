@@ -120,7 +120,22 @@ jQuery(function ($) {
         mounted: function() {
             
             if (this.productType === 'onesize') {
+                
                 initQuantitySelector($(this.$el).find('.qty-selector'));
+            
+            }else{
+
+                /* create size options */
+                var $wrapper = $(this.$el).find('ul.size-list');
+                for (var size in this.product_mapping) {
+                    var currentSize = this.product_mapping[size];
+                    var $sizeEle = $('<li/>', {
+                        'class': 'size-item',
+                        "data-product-id": currentSize.mag_id,
+                        text: currentSize.size
+                    });
+                    $wrapper.append($sizeEle);
+                }
             }
             
         },
