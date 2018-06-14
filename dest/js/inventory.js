@@ -1,6 +1,6 @@
 jQuery(function ($) {
     /* Create vue component of select element where select2 jQuery plugin is applied */
-    Vue.component('mari-select2', {
+    Vue.component('city-select2', {
         props: ['options', 'value'],
         template: '<select>\
         <slot></slot>\
@@ -33,6 +33,53 @@ jQuery(function ($) {
                     width: "element",
                     theme: "marimekko"
                 })
+            }
+        },
+        destroyed: function () {
+            $(this.$el).off().select2('destroy');
+        }
+    });
+
+    Vue.component('size-select2', {
+        props: ['value'],
+        template: '<select>\
+        <slot></slot>\
+        </select>',
+        mounted: function () {
+            var vm = this
+            $(this.$el)
+                .select2({
+                    placeholder: 'Valitse koko',
+                    width: "element",
+                    theme: "marimekko",
+                    minimumResultsForSearch: Infinity,
+                    dropdownParent: $('#custom-size-select2-dropdown-wrapper')
+                })
+                // emit vue change
+                .on('change', function () {
+                    vm.$emit('change', this.value);
+                });
+        },
+        updated: function () {
+            var vm = this
+            $(this.$el)
+            .empty()
+            .select2({
+                placeholder: 'Valitse koko',
+                width: "element",
+                theme: "marimekko",
+                minimumResultsForSearch: Infinity,
+                dropdownParent: $('#custom-size-select2-dropdown-wrapper')
+            })
+            // emit vue change
+            .on('change', function () {
+                vm.$emit('change', this.value);
+            });
+        },
+        watch: {
+            value: function (value) {
+                // update value
+                $(this.$el).val(value);
             }
         },
         destroyed: function () {
@@ -94,6 +141,28 @@ jQuery(function ($) {
                 this.$parent.storeContactInfo = contactInfo;
             },
             prepareReserveForm: function() {
+                if (this.productType === 'sizable' && this.hasInventory) {
+                    var $sizeSelect = $(this.$parent.$el).find('select.size-list');
+                    $sizeSelect.empty().append("<option></option>");
+                    $.each(this.sizes, function (idx, size) {
+                        var $sizeOption = $('<option/>', {
+                            'class': 'size-option'
+                        });
+                        switch (size.level) {
+                            case 1:
+                                $sizeOption.addClass('size-option--green').html("<span>" + size.product_size + "</span> - varastossa");
+                                break;
+                            case 2:
+                                $sizeOption.addClass('size-option--orange').html("<span>" + size.product_size + "</span> - vähän jäljellä")
+                                break;
+                            default:
+                                $sizeOption.addClass('size-option--red').attr('disabled', 'disabled').html("<span>" + size.product_size + "</span> - loppuunmyyty");
+                                break;
+                        }
+                        $sizeSelect.append($sizeOption);
+                    });
+                }
+
                 $('#reserve-overlay').modal();
             }
         }
@@ -177,7 +246,7 @@ jQuery(function ($) {
             storeContactInfo: false,
             popupReserveForm: false,
             url: {
-                host: "http://localhost:5500/dest/json/inventory-onesize.json"
+                host: "http://localhost:5500/dest/json/inventory.json"
             }
         },
         methods: {

@@ -22,10 +22,12 @@
     <script src="dest/js/inventory.js"></script>
     <script src="dest/js/form-validation.js"></script>
     <script src="dest/js/qty-selector.js"></script>
+    <script src="dest/js/email-me.js"></script>
 </head>
 
 <body class='catalog-product-view'>
     <ul class="list-size" style='display: none'>
+        <li>haha</li>
         <li>haha</li>
     </ul>
     <div class='rich-product-page'>
@@ -41,8 +43,8 @@
             </div>
             <div class='store-inventory-info' v-if='showDropdown'>
               
-                <mari-select2 :class="dropDownClass" :options="cityList" @change="switchList">
-                </mari-select2>
+                <city-select2 :class="dropDownClass" :options="cityList" @change="switchList">
+                </city-select2>
 
                 <!-- User guidance -->
                 <div class='instruction'>
@@ -141,8 +143,9 @@
                                     <span class="qty-plus"></span>
                                 </div>
                                 <div class='size-selector' v-else>
-                                    <div class="size-list">
-                                    </div>
+                                    <size-select2 class="size-list">
+                                    </size-select2>
+                                    <div id="custom-size-select2-dropdown-wrapper"></div>
                                     <input type="text" hidden class='size-chosen'>
                                 </div>
                             </div>
