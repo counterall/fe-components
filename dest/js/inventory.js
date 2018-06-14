@@ -58,6 +58,19 @@ jQuery(function ($) {
                 }else{
                     return "EN";
                 }
+            },
+            hasInventory: function() {
+                var validLevel = [1, 2];
+                var hasInventory = false;
+                if (this.ownStore) {
+                    $.each(this.sizes, function(idx, size) {
+                        if (validLevel.indexOf(size.level) !== -1) {
+                            hasInventory = true;
+                            return false;
+                        }
+                    });
+                }
+                return hasInventory;
             }
         },
         methods: {

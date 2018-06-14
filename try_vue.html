@@ -73,6 +73,9 @@
                             :index='index'
                             :product-type='productParams.type'
                         ></store-inventory-list>
+                        <reserve-collect-overlay 
+                        :product-type='productParams.type'
+                        ></reserve-collect-overlay>
                     </template>
                 </div>
 
@@ -81,9 +84,7 @@
                     v-if="storeContactInfo"
                  ></store-contact-overlay>
                 
-                 <reserve-collect-overlay
-                    :product-type='productParams.type'
-                 ></reserve-collect-overlay>
+                 
             </div>
         </div>
     
@@ -184,7 +185,10 @@
                         <div class="store-status-item--null">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                     </template>
                 </div>
-                <a @click='prepareReserveForm' class="reserve-btn mari-btn mari-btn-lg mari-btn-secondary">Varaa myymälössä</a>
+                <template v-if='hasInventory'>
+                    <!-- Reserve & collect button -->
+                    <a @click='prepareReserveForm' class="reserve-btn mari-btn mari-btn-lg mari-btn-secondary">Varaa myymälössä</a>
+                </template>
             </div>
         </script>
     </div>
