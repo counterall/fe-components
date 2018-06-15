@@ -137,20 +137,27 @@
                         <div class="modal-body reserve-form clearfix">
                             <div class='reserve-form--product'>
                                 <div class='product-name'></div>
-                                <div class='qty-selector' v-if="productType === 'onesize'">
-                                    <span class="qty-minus"></span>
-                                    <span class="qty-val">1</span>
-                                    <input type="number" hidden min='1' max='10' class="qty-input" value="1">
-                                    <span class="qty-plus"></span>
+                                <div class='product-attribute' v-if="productType === 'onesize'">
+                                    <div class='attribute-title'>Choose Quantity: </div>
+                                    <div class='qty-selector'>
+                                        <span class="qty-minus"></span>
+                                        <span class="qty-val">1</span>
+                                        <input type="number" hidden min='1' max='10' class="qty-input" value="1">
+                                        <span class="qty-plus"></span>
+                                    </div>
                                 </div>
-                                <div class='size-selector' v-else>
-                                    <size-select2 class="size-list">
-                                    </size-select2>
-                                    <div id="custom-size-select2-dropdown-wrapper"></div>
-                                    <input type="text" hidden class='size-chosen'>
+                                <div class='product-attribute' v-else>
+                                    <div class='attribute-title'>Size: </div>
+                                    <div class='size-selector'>
+                                        <size-select2 class="size-list">
+                                        </size-select2>
+                                        <div id="custom-size-select2-dropdown-wrapper"></div>
+                                        <input type="text" hidden class='size-chosen'>
+                                    </div>
                                 </div>
                             </div>
                             <div class='reserve-form--contact'>
+                                <div class='form-title'>Personal info</div>
                                 <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="First name *" required>
                                 <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Last name *" required>
                                 <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Phone number *" pattern="\+?\d{9,}" required>

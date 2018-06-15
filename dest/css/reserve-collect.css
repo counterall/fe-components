@@ -8,9 +8,12 @@
 }
 .reserve-form--product{
 
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
     }
+.reserve-form--product .product-attribute .attribute-title{
+                margin-bottom: 10px;
+            }
 .reserve-form--product .size-selector ul.size-list button.size-item{
                     margin: 0 10px 10px 0;
                     display: inline-block;
@@ -39,6 +42,9 @@
 .reserve-form--product .size-selector select.size-list{
                 width: 300px;
             }
+.reserve-form--contact .form-title{
+            margin-bottom: 10px;
+        }
 .reserve-form--contact input {
             margin-bottom: 10px;
         }
@@ -47,5 +53,5 @@
             margin-bottom: 7px;
         }
 .reserve-form--contact .reserve-submit{
-            margin-top: 15px;
+            margin-top: 10px;
         }
