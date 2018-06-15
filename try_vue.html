@@ -73,6 +73,7 @@
                             :sizes='item.sizes'
                             :key='item.storeId'
                             :index='index'
+                            :store-id='item.storeId'
                             :product-type='productParams.type'
                             :product-mapping='productParams.product_mapping'
                         ></store-inventory-list>
@@ -155,6 +156,7 @@
                                         <input type="text" hidden class='size-chosen'>
                                     </div>
                                 </div>
+                                <input hidden name='store-id' class='store-id'>
                             </div>
                             <div class='reserve-form--contact'>
                                 <div class='form-title'>Personal info</div>

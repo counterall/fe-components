@@ -88,7 +88,7 @@ jQuery(function ($) {
     });
 
     Vue.component('store-inventory-list', {
-        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productType", "productMapping"],
+        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productType", "productMapping", "storeId"],
         template: "#store-inventory-template",
         data: function(){
             return {
@@ -143,9 +143,12 @@ jQuery(function ($) {
             prepareReserveForm: function() {
                 if (this.productType === 'sizable' && this.hasInventory) {
                     var vm = this;
-                    
+                    /* Empty size select*/
                     var $sizeSelect = $(this.$parent.$el).find('select.size-list');
                     $sizeSelect.empty().append("<option></option>");
+
+                    /* Attach storeID to the reservation form */
+                    $('.reserve-form--product > input.store-id').val(this.storeId);
 
                     $.each(this.sizes, function (idx, size) {
                         var $sizeOption = $('<option/>', {
