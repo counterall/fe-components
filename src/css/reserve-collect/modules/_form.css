@@ -9,7 +9,7 @@
 
         .size-selector{
 
-            .size-list{
+            ul.size-list{
 
                 button.size-item{
                     margin: 0 10px 10px 0;
@@ -39,6 +39,10 @@
                     }
                 }
 
+            }
+
+            select.size-list{
+                width: 300px;
             }
 
         }

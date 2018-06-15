@@ -11,7 +11,7 @@
         margin-bottom: 10px;
 
     }
-.reserve-form--product .size-selector .size-list button.size-item{
+.reserve-form--product .size-selector ul.size-list button.size-item{
                     margin: 0 10px 10px 0;
                     display: inline-block;
                     height: 35px;
@@ -25,17 +25,20 @@
                     border: 1px solid #333333;
                     letter-spacing: 0.08em;
                 }
-.reserve-form--product .size-selector .size-list button.size-item.selected{
+.reserve-form--product .size-selector ul.size-list button.size-item.selected{
                         background: #333333;
                         border-color: #333333;
                         color: #ffffff;
                     }
-.reserve-form--product .size-selector .size-list button.size-item[disabled]{
+.reserve-form--product .size-selector ul.size-list button.size-item[disabled]{
                         background: #ffffff;
                         color: #dfdfdf;
                         border-color: #dfdfdf;
                         text-decoration: line-through;
                     }
+.reserve-form--product .size-selector select.size-list{
+                width: 300px;
+            }
 .reserve-form--contact input {
             margin-bottom: 10px;
         }
