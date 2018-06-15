@@ -88,7 +88,7 @@ jQuery(function ($) {
     });
 
     Vue.component('store-inventory-list', {
-        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productType"],
+        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productType", "productMapping"],
         template: "#store-inventory-template",
         data: function(){
             return {
@@ -142,12 +142,17 @@ jQuery(function ($) {
             },
             prepareReserveForm: function() {
                 if (this.productType === 'sizable' && this.hasInventory) {
+                    var vm = this;
+                    
                     var $sizeSelect = $(this.$parent.$el).find('select.size-list');
                     $sizeSelect.empty().append("<option></option>");
+
                     $.each(this.sizes, function (idx, size) {
                         var $sizeOption = $('<option/>', {
                             'class': 'size-option'
                         });
+
+                        // Define the html content of each option based on stock level
                         switch (size.level) {
                             case 1:
                                 $sizeOption.addClass('size-option--green').html("<span>" + size.product_size + "</span> - varastossa");
@@ -159,6 +164,21 @@ jQuery(function ($) {
                                 $sizeOption.addClass('size-option--red').attr('disabled', 'disabled').html("<span>" + size.product_size + "</span> - loppuunmyyty");
                                 break;
                         }
+
+                        // Set value of each option, value is the Magento product ID of a simple product with chosen size
+                        for (var key in vm.productMapping) {
+                            
+                            if (vm.productMapping.hasOwnProperty(key)) {
+                            
+                                if (vm.productMapping[key].size === size.product_size) {
+                                    $sizeOption.attr('value', vm.productMapping[key].mag_id);
+                                    break;
+                                }
+                                
+                            }
+                        }
+
+
                         $sizeSelect.append($sizeOption);
                     });
                 }
@@ -207,15 +227,6 @@ jQuery(function ($) {
             
             }
             
-        },
-        computed: {
-            product_mapping: function() {
-                if (this.productType === 'sizable') {
-                    return this.$parent.productParams.product_mapping;
-                }else{
-                    return false;
-                }
-            }
         }
     });
 
