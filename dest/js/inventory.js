@@ -189,6 +189,9 @@ jQuery(function ($) {
                     $('.reserve-form .qty-selector .product-id').val(this.productMapping[69].mag_id);
                 }
 
+                $('#reserve-overlay .modal-body.reserve-form').show();
+                $('#reserve-overlay .modal-body.success-msg').hide();
+                $('#reserve-overlay .modal-body.error-msg').hide();
                 $('#reserve-overlay').modal();
             }
         }
@@ -242,6 +245,22 @@ jQuery(function ($) {
                         extraParams.product_id = $form.find('input.product-id').val();
 
                     }
+
+
+                    $.ajax({
+                        dataType: "json",
+                        type: 'GET',
+                        url: this.$parent.url.host,
+                        data: extraParams
+                    }).done(function (data) {
+                        $form.find('.modal-body.success-msg').show();
+                        $form.find('.modal-body.error-msg').hide();
+                    }).fail(function () {
+                        $form.find('.modal-body.success-msg').hide();
+                        $form.find('.modal-body.error-msg').show();
+                    }).always(function (){
+                        $form.find('.modal-body.reserve-form').hide();
+                    });
 
                 }
             }

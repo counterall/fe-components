@@ -55,3 +55,7 @@
 .reserve-form--contact .reserve-submit{
             margin-top: 10px;
         }
+#reserve-overlay .success-msg,
+    #reserve-overlay .error-msg {
+        display: none
+    }
