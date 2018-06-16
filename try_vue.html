@@ -144,6 +144,7 @@
                                         <span class="qty-minus"></span>
                                         <span class="qty-val">1</span>
                                         <input type="number" hidden min='1' max='10' class="qty-input" value="1">
+                                        <input hidden name='product-id' class='product-id'>
                                         <span class="qty-plus"></span>
                                     </div>
                                 </div>
@@ -153,17 +154,16 @@
                                         <size-select2 class="size-list">
                                         </size-select2>
                                         <div id="custom-size-select2-dropdown-wrapper"></div>
-                                        <input type="text" hidden class='size-chosen'>
                                     </div>
                                 </div>
                                 <input hidden name='store-id' class='store-id'>
                             </div>
                             <div class='reserve-form--contact'>
                                 <div class='form-title'>Personal info</div>
-                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="First name *" required>
-                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Last name *" required>
-                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Phone number *" pattern="\+?\d{9,}" required>
-                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary' placeholder="Email address *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-fname' placeholder="First name *" value='Kan' required>
+                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-lname' placeholder="Last name *" value='Cong' required>
+                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-phone' placeholder="Phone number *" pattern="\+?\d{9,}" value='0443213407' required>
+                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-email' placeholder="Email address *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value='kcongmj23@gmail.com' required>
                                 <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
                             </div>
                         </div>

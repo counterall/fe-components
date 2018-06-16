@@ -141,14 +141,15 @@ jQuery(function ($) {
                 this.$parent.storeContactInfo = contactInfo;
             },
             prepareReserveForm: function() {
+
+                /* Attach storeID to the reservation form */
+                $('.reserve-form--product > input.store-id').val(this.storeId);
+
                 if (this.productType === 'sizable' && this.hasInventory) {
                     var vm = this;
                     /* Empty size select*/
                     var $sizeSelect = $(this.$parent.$el).find('select.size-list');
                     $sizeSelect.empty().append("<option></option>");
-
-                    /* Attach storeID to the reservation form */
-                    $('.reserve-form--product > input.store-id').val(this.storeId);
 
                     $.each(this.sizes, function (idx, size) {
                         var $sizeOption = $('<option/>', {
@@ -184,6 +185,8 @@ jQuery(function ($) {
 
                         $sizeSelect.append($sizeOption);
                     });
+                }else {
+                    $('.reserve-form .qty-selector .product-id').val(this.productMapping[69].mag_id);
                 }
 
                 $('#reserve-overlay').modal();
@@ -207,10 +210,11 @@ jQuery(function ($) {
         props: ['productType'],
         template: "#reserve-collect-overlay",
         methods: {
-            /* Verify every input field given by user*/ 
+            /* Verify every input field given by user valid*/ 
             checkReserveFormValidity: function () {
                 var allPassed = true;
-                $(this.$el).find('input').each(function() {
+                var $form = $(this.$el);
+                $form.find('input').each(function() {
                     if(!inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(this), "Please enter a valid value")){
                         allPassed = false;
                     }
@@ -218,7 +222,27 @@ jQuery(function ($) {
 
                 /* Do POST request when all fields are valid */
                 if (allPassed) {
-                 
+
+                    var extraParams = {
+                        firstname: $form.find('input.reservation-fname').val(),
+                        lastname: $form.find('input.reservation-lname').val(),
+                        telephone: $form.find('input.reservation-phone').val(),
+                        email: $form.find('input.reservation-email').val(),
+                        store_id: $form.find('input.store-id').val()
+                    }
+                    
+                    if (this.productType === 'sizable') {
+                        
+                        extraParams.quantity = 1;
+                        extraParams.product_id = $form.find('select.size-list').val(); 
+
+                    }else{
+
+                        extraParams.quantity = $form.find('input.qty-input').val();
+                        extraParams.product_id = $form.find('input.product-id').val();
+
+                    }
+
                 }
             }
         },
@@ -247,7 +271,7 @@ jQuery(function ($) {
             storeContactInfo: false,
             popupReserveForm: false,
             url: {
-                host: "http://localhost:5500/dest/json/inventory.json"
+                host: "http://localhost:5500/dest/json/inventory-onesize.json"
             }
         },
         methods: {
@@ -278,7 +302,7 @@ jQuery(function ($) {
         },
         computed: {
             productParams: function() {
-                var rawProductData = JSON.parse($('.product-data-mine2').data('lookup').replace(/'/g, '\"'));
+                var rawProductData = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
                 var productMapping = {};
                 for (var key in rawProductData) {
                     productMapping[key] = {};
