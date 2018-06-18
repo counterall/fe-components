@@ -6,7 +6,7 @@ window.inputValidateHELPER = (function($) {
 
     var checkValidityAndSetCustomErrorMsg = function ($container, msg) {
         var ele = $container[0];
-        console.log(ele.validity);
+        // console.log(ele.validity);
 
         // set custom validation message if validation failed
         if (!ele.checkValidity()) {
