@@ -65,5 +65,24 @@
     .modal-backdrop.in{
         opacity: 0.2;
     }
+
+
+    @media (max-width: 767px) {
+        
+        .rich-product-page {
+            
+            #reserve-overlay {
+                .modal-dialog {
+                    top: 10px;
+                    left: 10px;
+                    position: relative;
+                    transform: none;
+                    width: calc(100% - 20px);
+                }
+            }
+
+        }
+
+    }
     
 }
