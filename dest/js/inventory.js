@@ -109,7 +109,7 @@ jQuery(function ($) {
             hasInventory: function() {
                 var validLevel = [1, 2];
                 var hasInventory = false;
-                if (this.ownStore) {
+                if (this.ownStore && this.storeType != 1) {
                     $.each(this.sizes, function(idx, size) {
                         if (validLevel.indexOf(size.level) !== -1) {
                             hasInventory = true;
@@ -145,7 +145,7 @@ jQuery(function ($) {
                 /* Attach storeID to the reservation form */
                 $('.reserve-form--product > input.store-id').val(this.storeId);
 
-                if (this.productType === 'sizable' && this.hasInventory) {
+                if (this.productType === 'sizable') {
                     var vm = this;
                     /* Empty size select*/
                     var $sizeSelect = $(this.$parent.$el).find('select.size-list');
