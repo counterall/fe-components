@@ -88,7 +88,7 @@ jQuery(function ($) {
     });
 
     Vue.component('store-inventory-list', {
-        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productType", "productMapping", "storeId"],
+        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productType", "productMapping", "storeId", "storeType"],
         template: "#store-inventory-template",
         data: function(){
             return {
