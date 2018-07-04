@@ -29,17 +29,28 @@
                             letter-spacing: 1px;
                             color: $accentColour09;
 
-                            button.close{
+                            .close-section{
                                 position: absolute;
                                 top: 15px;
                                 right: 15px;
-                                height: 15px;
-                                width: 15px;
-                                background-image: url(../img/close_icon.svg);
-                                background-repeat: no-repeat;
-                                background-size: contain;
-                                background-origin: content-box;
+                                text-decoration: none;
+                                color: $accentColour09;
+
+                                .txt{
+                                    display: none;
+                                }
+
+                                .icon {
+                                    display: inline-block;
+                                    height: 15px;
+                                    width: 15px;
+                                    background-image: url(../img/close_icon.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+                                    background-origin: content-box;
+                                }
                             }
+                            
                         }
 
                         .modal-body{
@@ -68,9 +79,26 @@
 
 
     @media (max-width: 767px) {
-        
         .rich-product-page {
-            
+            .modal {
+                &.fade {
+                    .modal-dialog {
+                        .modal-content {
+                            .modal-header {
+                                .close-section {
+                                    .txt {
+                                        font-size: 14px;
+                                        position: relative;
+                                        top: -3px;
+                                        display: inline-block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             #reserve-overlay {
                 .modal-dialog {
                     top: 10px;
@@ -80,9 +108,6 @@
                     width: calc(100% - 20px);
                 }
             }
-
         }
-
     }
-    
 }

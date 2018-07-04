@@ -133,18 +133,27 @@
                             font-size: 18px;
                             letter-spacing: 1px;
                             color: #333333;
+                            
                         }
-.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header button.close{
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header .close-section{
                                 position: absolute;
                                 top: 15px;
                                 right: 15px;
-                                height: 15px;
-                                width: 15px;
-                                background-image: url(../img/close_icon.svg);
-                                background-repeat: no-repeat;
-                                background-size: contain;
-                                background-origin: content-box;
+                                text-decoration: none;
+                                color: #333333;
                             }
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header .close-section .txt{
+                                    display: none;
+                                }
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header .close-section .icon {
+                                    display: inline-block;
+                                    height: 15px;
+                                    width: 15px;
+                                    background-image: url(../img/close_icon.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: contain;
+                                    background-origin: content-box;
+                                }
 .catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-body{
                             padding: 0;
                             margin-top: 15px;
@@ -158,6 +167,12 @@
         opacity: 0.2;
     }
 @media (max-width: 767px) {
+                                    .catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header .close-section .txt {
+                                        font-size: 14px;
+                                        position: relative;
+                                        top: -3px;
+                                        display: inline-block;
+                                    }
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
                     top: 10px;
                     left: 10px;
@@ -166,5 +181,4 @@
                             transform: none;
                     width: calc(100% - 20px);
                 }
-
     }
