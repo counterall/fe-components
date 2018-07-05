@@ -6,7 +6,7 @@ jQuery(function ($) {
         <slot></slot>\
         </select>',
         mounted: function () {
-            var vm = this
+            var vm = this;
             $(this.$el)
                 // init select2
                 .select2({
@@ -18,12 +18,12 @@ jQuery(function ($) {
                 // emit vue change
                 .on('change', function () {
                     vm.$emit('change', this.value);
-                })
+                });
         },
         watch: {
             value: function (value) {
                 // update value
-                $(this.$el).val(value)
+                $(this.$el).val(value);
             },
             options: function (options) {
                 // update options
@@ -32,7 +32,7 @@ jQuery(function ($) {
                     placeholder: 'Valitse kaupunki',
                     width: "element",
                     theme: "marimekko"
-                })
+                });
             }
         },
         destroyed: function () {
@@ -46,7 +46,7 @@ jQuery(function ($) {
         <slot></slot>\
         </select>',
         mounted: function () {
-            var vm = this
+            var vm = this;
             $(this.$el)
                 .select2({
                     placeholder: 'Valitse koko',
@@ -61,7 +61,7 @@ jQuery(function ($) {
                 });
         },
         updated: function () {
-            var vm = this
+            var vm = this;
             $(this.$el)
             .empty()
             .select2({
@@ -131,7 +131,7 @@ jQuery(function ($) {
                 }
             },
             prepareContactDetail: function(){
-                var address = this.contact.address.split(',').map(function(ad){return ad.trim()});
+                var address = this.contact.address.split(',').map(function(ad){return ad.trim();});
                 var contactInfo = {
                     name: this.storeName,
                     address: address,
@@ -162,7 +162,7 @@ jQuery(function ($) {
                                 $sizeOption.addClass('size-option--green').html("<span>" + size.product_size + "</span> - varastossa");
                                 break;
                             case 2:
-                                $sizeOption.addClass('size-option--orange').html("<span>" + size.product_size + "</span> - vähän jäljellä")
+                                $sizeOption.addClass('size-option--orange').html("<span>" + size.product_size + "</span> - vähän jäljellä");
                                 break;
                             default:
                                 $sizeOption.addClass('size-option--red').attr('disabled', 'disabled').html("<span>" + size.product_size + "</span> - loppuunmyyty");
@@ -232,7 +232,7 @@ jQuery(function ($) {
                         telephone: $form.find('input.reservation-phone').val(),
                         email: $form.find('input.reservation-email').val(),
                         store_id: $form.find('input.store-id').val()
-                    }
+                    };
                     
                     if (this.productType === 'sizable') {
                         
@@ -331,8 +331,8 @@ jQuery(function ($) {
                 return {
                     type: $('ul.list-size > li').length > 1 ? "sizable" : "onesize",
                     product_mapping: productMapping
-                }
+                };
             }
         }
-    })
+    });
 });
