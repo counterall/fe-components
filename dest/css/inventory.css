@@ -159,10 +159,6 @@
                             margin-top: 15px;
                             letter-spacing: 0.8px;
                         }
-.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog{
-                top: 30%;
-                width: 400px;
-            }
 .catalog-product-view .modal-backdrop.in{
         opacity: 0.2;
     }
@@ -173,12 +169,4 @@
                                         top: -3px;
                                         display: inline-block;
                                     }
-                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
-                    top: 10px;
-                    left: 10px;
-                    position: relative;
-                    -webkit-transform: none;
-                            transform: none;
-                    width: calc(100% - 20px);
-                }
     }

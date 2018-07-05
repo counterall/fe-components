@@ -64,13 +64,6 @@
             }
             
         }
-
-        #reserve-overlay{
-            .modal-dialog{
-                top: 30%;
-                width: 400px;
-            }
-        }
     }
 
     .modal-backdrop.in{
@@ -96,16 +89,6 @@
                             }
                         }
                     }
-                }
-            }
-
-            #reserve-overlay {
-                .modal-dialog {
-                    top: 10px;
-                    left: 10px;
-                    position: relative;
-                    transform: none;
-                    width: calc(100% - 20px);
                 }
             }
         }

@@ -75,13 +75,3 @@
         }
     }
 }
-
-
-#reserve-overlay{
-
-    .success-msg,
-    .error-msg {
-        display: none
-    }
-
-}

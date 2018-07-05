@@ -1,2 +1,3 @@
 @import './global/_vars';
+@import './reserve-collect/modules/_modal.css';
 @import './reserve-collect/modules/_form.css';
