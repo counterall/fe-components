@@ -16,9 +16,17 @@
                             transform: none;
                     width: calc(100% - 20px);
                 }
+
                     .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content {
-                        padding: 10px
+                        padding: 10px;
                     }
+                                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .btn-section *{
+                                            width: 100%;
+                                        }
+
+                                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .btn-section .reserve-submit{
+                                            margin-bottom: 20px;
+                                        }
     }
 .reserve-btn {
     margin-top: 10px;
