@@ -5,6 +5,42 @@
             .modal-dialog {
                 top: 30%;
                 width: 400px;
+
+                .modal-content {
+                    .modal-body {
+                        .reserve-form {
+                            &--product {
+                                .store {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    margin-bottom: 30px;
+                                    .store-icon {
+                                        width: 31px;
+                                        height: 28px;
+                                        background-image: url(../img/location_icon.svg);
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        background-origin: content-box;
+                                        position: relative;
+                                        top: -2px;
+                                    }
+                                    .store-info {
+                                        &--name {
+                                            font-weight: bold;
+                                        }
+                                        &--phone {
+                                            font-size: 12px;
+                                            letter-spacing: 1px;
+                                            padding-top: 4px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -26,7 +62,10 @@
                         .modal-body{
 
                             .reserve-form{
-
+                                
+                                &--product{
+                                }
+                                
                                 &--contact{
 
                                     .btn-section{

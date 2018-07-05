@@ -7,6 +7,31 @@
                 top: 30%;
                 width: 400px;
             }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .store {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    margin-bottom: 30px;
+                                }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .store .store-icon {
+                                        width: 31px;
+                                        height: 28px;
+                                        background-image: url(../img/location_icon.svg);
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        background-origin: content-box;
+                                        position: relative;
+                                        top: -2px;
+                                    }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .store .store-info--name {
+                                            font-weight: bold;
+                                        }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .store .store-info--phone {
+                                            font-size: 12px;
+                                            letter-spacing: 1px;
+                                            padding-top: 4px;
+                                        }
 @media (max-width: 767px) {
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
                     top: 10px;
@@ -20,6 +45,9 @@
                     .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content {
                         padding: 38px 10px 10px;
                     }
+                                
+                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product{
+                                }
                                         .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .btn-section *{
                                             width: 100%;
                                         }
