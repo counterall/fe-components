@@ -78,9 +78,47 @@
                             :product-type='productParams.type'
                             :product-mapping='productParams.product_mapping'
                         ></store-inventory-list>
-                        <reserve-collect-overlay 
-                        :product-type='productParams.type'
-                        ></reserve-collect-overlay>
+                        <!-- Bootstrap Modal component to render reserve & collect window -->
+                        <div class="modal fade" id="reserve-overlay" tabindex="-1" role="dialog" aria-labelledby="reserveModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <a class='close-section clearfix' data-dismiss="modal" aria-label="Close">
+                                            <div class='txt'>Close</div>
+                                            <div class="icon"></div>
+                                        </a>
+                                        <div class="modal-title" id="reserveModalLabel">Reserve & Collect</div>
+                                    </div>
+                                    <div class="modal-body reserve-form clearfix">
+                                         <reserve-product-block
+                                            :product-type='productParams.type'
+                                         ></reserve-product-block>
+                                        <div class='reserve-form--contact'>
+                                            <div class='form-title'>Personal info</div>
+                                            <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-fname' placeholder="First name *"
+                                                value='Kan' required>
+                                            <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-lname' placeholder="Last name *"
+                                                value='Cong' required>
+                                            <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-phone' placeholder="Phone number *"
+                                                pattern="\+?\d{9,}" value='0443213407' required>
+                                            <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-email' placeholder="Email address *"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value='kcongmj23@gmail.com' required>
+                                            <div>
+                                                <button class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
+                                                <button class='reserve-cancel mari-btn mari-btn-lg mari-btn-secondary'>Cancel</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="modal-body success-msg">
+                                        Thanks for make the reservation, the store will contact you when product is ready to pick up.
+                                    </div>
+                                    <div class="modal-body error-msg">
+                                        SOrry, something went wrong when doing the reservation request, please try again later.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </template>
                 </div>
 
@@ -89,7 +127,6 @@
                     v-if="storeContactInfo"
                  ></store-contact-overlay>
                 
-                 
             </div>
         </div>
     
@@ -125,64 +162,6 @@
             </div>
         </script>
 
-        <!-- Popup Reserve Form Overlay -->
-        <script type="text/x-template" id="reserve-collect-overlay">
-        
-            <!-- Bootstrap Modal component to render pop-up window -->
-            <div class="modal fade" id="reserve-overlay" tabindex="-1" role="dialog" aria-labelledby="reserveModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <a class='close-section clearfix' data-dismiss="modal" aria-label="Close">
-                                <div class='txt'>Close</div>
-                                <div class="icon"></div>
-                            </a>
-                            <div class="modal-title" id="reserveModalLabel">Reserve & Collect</div>
-                        </div>
-                        <div class="modal-body reserve-form clearfix">
-                            <div class='reserve-form--product'>
-                                <div class='product-name'></div>
-                                <div class='product-attribute' v-if="productType === 'onesize'">
-                                    <div class='attribute-title'>Choose Quantity: </div>
-                                    <div class='qty-selector'>
-                                        <span class="qty-minus"></span>
-                                        <span class="qty-val">1</span>
-                                        <input type="number" hidden min='1' max='10' class="qty-input" value="1">
-                                        <input hidden name='product-id' class='product-id'>
-                                        <span class="qty-plus"></span>
-                                    </div>
-                                </div>
-                                <div class='product-attribute' v-else>
-                                    <div class='attribute-title'>Size: </div>
-                                    <div class='size-selector'>
-                                        <size-select2 class="size-list">
-                                        </size-select2>
-                                        <div id="custom-size-select2-dropdown-wrapper"></div>
-                                    </div>
-                                </div>
-                                <input hidden name='store-id' class='store-id'>
-                            </div>
-                            <div class='reserve-form--contact'>
-                                <div class='form-title'>Personal info</div>
-                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-fname' placeholder="First name *" value='Kan' required>
-                                <input type='text' class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-lname' placeholder="Last name *" value='Cong' required>
-                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-phone' placeholder="Phone number *" pattern="\+?\d{9,}" value='0443213407' required>
-                                <input class='mari-input mari-input--text mari-input--text-sm mari-input--text-primary reservation-email' placeholder="Email address *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value='kcongmj23@gmail.com' required>
-                                <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
-                            </div>
-                        </div>
-                        <div class="modal-body success-msg">
-                            Thanks for make the reservation, the store will contact you when product is ready to pick up.
-                        </div>
-                        <div class="modal-body error-msg">
-                            SOrry, something went wrong when doing the reservation request, please try again later.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        </script>
-
         <!-- Store inventory block template -->
         <script type="text/x-template" id="store-inventory-template">
     
@@ -214,6 +193,34 @@
                 </template>
             </div>
         </script>
+
+        <script type='text/x-template' id='reserve-product-template'>
+            <div class='reserve-form--product'>
+                <div class='product-name'></div>
+                <div class='product-attribute' v-if="productType === 'onesize'">
+                    <div class='attribute-title'>Choose Quantity: </div>
+                    <div class='qty-selector'>
+                        <span class="qty-minus"></span>
+                        <span class="qty-val">1</span>
+                        <input type="number" hidden min='1' max='10' class="qty-input" value="1">
+                        <input hidden name='product-id' class='product-id'>
+                        <span class="qty-plus"></span>
+                    </div>
+                </div>
+                <div class='product-attribute' v-else>
+                    <div class='attribute-title'>Size: </div>
+                    <div class='size-selector'>
+                        <size-select2 class="size-list">
+                        </size-select2>
+                        <div id="custom-size-select2-dropdown-wrapper"></div>
+                    </div>
+                </div>
+                <input hidden name='store-id' class='store-id'>
+            </div>
+        </script>
+
+
+
     </div>
 
 
