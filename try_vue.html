@@ -92,6 +92,7 @@
                                     <div class="modal-body reserve-form clearfix">
                                          <reserve-product-block
                                             :product-type='productParams.type'
+                                            :store-contact='storeContactInReserveForm'
                                          ></reserve-product-block>
                                         <div class='reserve-form--contact'>
                                             <div class='form-title'>Personal info</div>
@@ -123,8 +124,8 @@
                 </div>
 
                  <store-contact-overlay
-                    :store-contact="storeContactInfo"
-                    v-if="storeContactInfo"
+                    :store-contact="storeContactOverlay"
+                    v-if="storeContactOverlay"
                  ></store-contact-overlay>
                 
             </div>
@@ -167,7 +168,7 @@
     
             <div class='store-item' :class="'store-item--' + productType">
                 <div class='store-title'>
-                    <span @click="prepareContactDetail" class='store-title-name' title="<?php echo $this->__('Myymälän yhteystiedot');?>">{{storeName}}</span>
+                    <span @click="setContactFormOverlay" class='store-title-name' title="<?php echo $this->__('Myymälän yhteystiedot');?>">{{storeName}}</span>
                     <span class='store-title-phone'>{{contact.phone}}</span>
                 </div>
                 <div class='store-status clearfix'>
@@ -196,6 +197,13 @@
 
         <script type='text/x-template' id='reserve-product-template'>
             <div class='reserve-form--product'>
+                <div class='store'>
+                    <div class="store-icon"></div>
+                    <div class="store-info">
+                        <div class="store-name"></div>
+                        <div class="store-phone"></div>
+                    </div>
+                </div>
                 <div class='product-name'></div>
                 <div class='product-attribute' v-if="productType === 'onesize'">
                     <div class='attribute-title'>Choose Quantity: </div>

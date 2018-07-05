@@ -138,10 +138,15 @@ jQuery(function ($) {
                     openingHours: this.openingHours,
                     phone: this.contact.phone
                 };
-                this.$parent.storeContactInfo = contactInfo;
+                return contactInfo;  
+            },
+            setContactFormOverlay: function (){
+                this.$parent.storeContactOverlay = this.prepareContactDetail();
             },
             prepareReserveForm: function() {
 
+                /* set contact info property*/
+                this.$parent.storeContactInReserveForm = this.prepareContactDetail();
                 /* Attach storeID to the reservation form */
                 $('.reserve-form--product > input.store-id').val(this.storeId);
 
@@ -210,7 +215,7 @@ jQuery(function ($) {
 
     /* Reserve & Collect Component */
     Vue.component("reserve-product-block", {
-        props: ['productType'],
+        props: ['productType', 'storeContact'],
         template: "#reserve-product-template",
         methods: {
             /* Verify every input field given by user valid*/ 
@@ -287,7 +292,8 @@ jQuery(function ($) {
             cityData: false,
             cityList: false,
             cityChosen: false,
-            storeContactInfo: false,
+            storeContactOverlay: false,
+            storeContactInReserveForm: false,
             popupReserveForm: false,
             url: {
                 host: "http://localhost:5500/dest/json/inventory-onesize.json"
