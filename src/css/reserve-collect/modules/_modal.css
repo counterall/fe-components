@@ -37,6 +37,19 @@
                                         }
                                     }
                                 }
+
+                                .product-attribute {
+                                    >div {
+                                        float: left;
+                                    }
+                                    .left-side {
+                                        .product-img {
+                                            width: 100%;
+                                            height: auto;
+                                            display: inline-block;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -64,6 +77,17 @@
                             .reserve-form{
                                 
                                 &--product{
+
+                                    .product-attribute{
+                                        .left-side{
+                                            width: 80px;
+                                        }
+                                        .right-side{
+                                            width: calc(100% - 81px);
+                                            padding-left: 10px;
+                                        }
+                                    }
+
                                 }
                                 
                                 &--contact{
