@@ -10,8 +10,8 @@
                     .modal-body {
                         .reserve-form {
                             &--product {
-                                margin-bottom: 20px;
-                                
+                                margin-bottom: 50px;
+
                                 .size-selector {
                                     ul.size-list {
                                         button.size-item {
@@ -117,12 +117,10 @@
 
                     .modal-content {
                         padding: 38px 10px 10px;
-
                         .modal-body{
-
                             .reserve-form{
-                                
                                 &--product{
+                                    margin-bottom: 30px;
 
                                     .product-attribute{
                                         .left-side{
