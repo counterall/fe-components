@@ -34,6 +34,11 @@
                         .modal-body {
                             .reserve-form {
                                 &--contact {
+
+                                    > input{
+                                        width: 100%;
+                                    }
+
                                     .btn-section {
                                         * {
                                             width: 100%;

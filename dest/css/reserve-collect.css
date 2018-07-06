@@ -179,6 +179,10 @@
                                     margin-top: 10px;
                                 }
 @media (max-width: 767px) {
+
+                                    .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact > input{
+                                        width: 100%;
+                                    }
                                         .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .btn-section * {
                                             width: 100%;
                                         }
