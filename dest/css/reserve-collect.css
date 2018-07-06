@@ -32,13 +32,20 @@
                                             letter-spacing: 1px;
                                             padding-top: 4px;
                                         }
-.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute >div {
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute {
+                                    position: relative;
+                                }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute > div {
                                         float: left;
                                     }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .left-side .product-img {
                                             width: 100%;
                                             height: auto;
                                             display: inline-block;
+                                        }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .attribute-selector{
+                                            position: absolute;
+                                            bottom: 0;
                                         }
 @media (max-width: 767px) {
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
@@ -63,10 +70,10 @@
                                         }
                                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-name h1 {
                                                     margin: 0;
-                                                    font-size: 18px;
+                                                    font-size: 16px;
                                                     line-height: 26px;
                                                     font-weight: 700;
-                                                    letter-spacing: 0.8px;
+                                                    letter-spacing: 0.5px;
                                                 }
                                                     .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-name h1 .product-secondary-name {
                                                         font-weight: 400;
@@ -83,7 +90,14 @@
 
                                             .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price {
                                                 display: inline-block;
+                                                letter-spacing: 0.5px;
+                                                margin-top: 5px;
                                             }
+
+                                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price p {
+                                                    margin: 0;
+                                                }
+
                                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price .old-price {
                                                     display: inline-block;
                                                     color: #aaaaaa;
@@ -91,11 +105,6 @@
                                                 }
                                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price .special-price {
                                                     display: inline-block;
-                                                }
-                                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price .regular-price .price,
-                                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price .special-price .price,
-                                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price .old-price .price {
-                                                    font-size: 14px !important;
                                                 }
                                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price .regular-price .price {
                                                     color: #000000;
@@ -170,54 +179,3 @@
 .reserve-form--contact .reserve-submit{
             margin-top: 10px;
         }
-.product-name h1 {
-        margin: 0;
-        font-size: 18px;
-        line-height: 26px;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-    }
-.product-name h1 .product-secondary-name {
-            font-weight: 400;
-            display: inline-block;
-        }
-.product-name h1 .product-color-variant {
-            display: none;
-            margin-top: 10px;
-            font-size: 14px;
-            line-height: 21px;
-            font-weight: 400;
-            color: #989898;
-        }
-.price-box {
-    display: inline-block;
-}
-.price-box .old-price {
-        display: inline-block;
-        color: #aaaaaa;
-        text-decoration: line-through;
-    }
-.price-box .special-price {
-        display: inline-block;
-    }
-.price-box .regular-price .price,
-    .price-box .special-price .price,
-    .price-box .old-price .price {
-        font-size: 14px !important;
-    }
-.price-box .regular-price .price {
-        color: #000000;
-        font-weight: bold;
-    }
-.price-box .special-price .price {
-        color: rgb(255, 186, 25);
-        font-weight: bold;
-    }
-.price-box .old-price .price {
-        color: #aaaaaa;
-        font-weight: normal;
-    }
-.price-box .ysmy-item .price,
-    .price-box .ysmy-product .price {
-        color: #e40079;
-    }

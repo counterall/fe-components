@@ -256,14 +256,14 @@
                                     60,00&nbsp;EUR </span>
                             </p>
                         </div>
-                        <div class='qty-selector' v-if="productType === 'onesize'">
+                        <div class='attribute-selector qty-selector' v-if="productType === 'onesize'">
                             <span class="qty-minus"></span>
                             <span class="qty-val">1</span>
                             <input type="number" hidden min='1' max='10' class="qty-input" value="1">
                             <input hidden name='product-id' class='product-id'>
                             <span class="qty-plus"></span>
                         </div>
-                        <div class='size-selector' v-else>
+                        <div class='attribute-selector size-selector' v-else>
                             <size-select2 class="size-list">
                             </size-select2>
                             <div id="custom-size-select2-dropdown-wrapper"></div>

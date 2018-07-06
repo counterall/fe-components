@@ -39,14 +39,25 @@
                                 }
 
                                 .product-attribute {
-                                    >div {
+                                    position: relative;
+
+                                    > div {
                                         float: left;
                                     }
+                                    
                                     .left-side {
                                         .product-img {
                                             width: 100%;
                                             height: auto;
                                             display: inline-block;
+                                        }
+                                    }
+
+                                    .right-side{
+
+                                        .attribute-selector{
+                                            position: absolute;
+                                            bottom: 0;
                                         }
                                     }
                                 }
@@ -89,10 +100,10 @@
                                             .product-name {
                                                 h1 {
                                                     margin: 0;
-                                                    font-size: 18px;
+                                                    font-size: 16px;
                                                     line-height: 26px;
                                                     font-weight: 700;
-                                                    letter-spacing: 0.8px;
+                                                    letter-spacing: 0.5px;
                                                     .product-secondary-name {
                                                         font-weight: 400;
                                                         display: inline-block;
@@ -110,6 +121,13 @@
 
                                             .product-price {
                                                 display: inline-block;
+                                                letter-spacing: 0.5px;
+                                                margin-top: 5px;
+
+                                                p {
+                                                    margin: 0;
+                                                }
+
                                                 .old-price {
                                                     display: inline-block;
                                                     color: #aaaaaa;
@@ -117,11 +135,6 @@
                                                 }
                                                 .special-price {
                                                     display: inline-block;
-                                                }
-                                                .regular-price .price,
-                                                .special-price .price,
-                                                .old-price .price {
-                                                    font-size: 14px !important;
                                                 }
                                                 .regular-price .price {
                                                     color: #000000;
