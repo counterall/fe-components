@@ -217,67 +217,10 @@ jQuery(function ($) {
     Vue.component("reserve-product-block", {
         props: ['productType', 'storeContact'],
         template: "#reserve-product-template",
-        methods: {
-            /* Verify every input field given by user valid*/ 
-            checkReserveFormValidity: function () {
-                var allPassed = true;
-                var $form = $(this.$el);
-                $form.find('input').each(function() {
-                    if(!inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(this), "Please enter a valid value")){
-                        allPassed = false;
-                    }
-                });
-
-                /* Do POST request when all fields are valid */
-                if (allPassed) {
-
-                    var extraParams = {
-                        firstname: $form.find('input.reservation-fname').val(),
-                        lastname: $form.find('input.reservation-lname').val(),
-                        telephone: $form.find('input.reservation-phone').val(),
-                        email: $form.find('input.reservation-email').val(),
-                        store_id: $form.find('input.store-id').val()
-                    };
-                    
-                    if (this.productType === 'sizable') {
-                        
-                        extraParams.quantity = 1;
-                        extraParams.product_id = $form.find('select.size-list').val(); 
-
-                    }else{
-
-                        extraParams.quantity = $form.find('input.qty-input').val();
-                        extraParams.product_id = $form.find('input.product-id').val();
-
-                    }
-
-
-                    $.ajax({
-                        dataType: "json",
-                        type: 'GET',
-                        url: this.$parent.url.host,
-                        data: extraParams
-                    }).done(function (data) {
-                        $form.find('.modal-body.success-msg').show();
-                        $form.find('.modal-body.error-msg').hide();
-                    }).fail(function () {
-                        $form.find('.modal-body.success-msg').hide();
-                        $form.find('.modal-body.error-msg').show();
-                    }).always(function (){
-                        $form.find('.modal-body.reserve-form').hide();
-                    });
-
-                }
-            }
-        },
         mounted: function() {
-            
             if (this.productType === 'onesize') {
-                
                 initQuantitySelector($(this.$el).find('.qty-selector'));
-            
             }
-            
         }
     });
 
@@ -323,6 +266,53 @@ jQuery(function ($) {
             switchList: function(city) {
               this.cityChosen = city;
               this.cityData = this.countryData[city];
+            },
+            /* Verify every input field given by user valid*/
+            checkReserveFormValidity: function () {
+                var allPassed = true;
+                var $form = $('#reserve-overlay');
+                $form.find('input').each(function () {
+                    if (!inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(this), "Please enter a valid value")) {
+                        allPassed = false;
+                    }
+                });
+
+                /* Do POST request when all fields are valid */
+                if (allPassed) {
+
+                    var extraParams = {
+                        firstname: $form.find('#reservation-fname').val(),
+                        lastname: $form.find('#reservation-lname').val(),
+                        telephone: $form.find('#reservation-phone').val(),
+                        email: $form.find('#reservation-email').val(),
+                        store_id: $form.find('input.store-id').val()
+                    };
+
+                    if (this.productParams.type === 'sizable') {
+                        extraParams.quantity = 1;
+                        extraParams.product_id = $form.find('select.size-list').val();
+                    } else {
+                        extraParams.quantity = $form.find('input.qty-input').val();
+                        extraParams.product_id = $form.find('input.product-id').val();
+                    }
+
+                    console.log(extraParams);
+                    $.ajax({
+                        dataType: "json",
+                        type: 'GET',
+                        url: this.url.host,
+                        data: extraParams
+                    }).done(function (data) {
+                        $form.find('.modal-body.success-msg').show();
+                        $form.find('.modal-body.error-msg').hide();
+                    }).fail(function () {
+                        $form.find('.modal-body.success-msg').hide();
+                        $form.find('.modal-body.error-msg').show();
+                    }).always(function () {
+                        $form.find('.modal-body.reserve-form').hide();
+                    });
+
+                }
             }
         },
         computed: {

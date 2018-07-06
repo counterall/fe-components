@@ -136,9 +136,9 @@
                                             <input class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' placeholder=""
                                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value='kcongmj23@gmail.com' required id='reservation-email'>
                                             <label for="reservation-phone" class="form-field">Phone number <span>*</span></label>
-                                            <input class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' placeholder="" pattern="\+?\d{9,}" value='' required id='reservation-phone'>
+                                            <input class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' placeholder="" pattern="\+?\d{3}-?\d{6,}" value='' required id='reservation-phone'>
                                             <div class='btn-section'>
-                                                <button class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
+                                                <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
                                                 <button class='reserve-cancel mari-btn mari-btn-lg mari-btn-secondary' data-dismiss="modal" aria-label="Close">Cancel</button>
                                             </div>
                                         </div>
