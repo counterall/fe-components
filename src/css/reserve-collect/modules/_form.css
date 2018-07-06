@@ -1,71 +1,53 @@
-.reserve-btn {
-    margin-top: 10px;
-}
-
-.reserve-form {
-    &--product{
-
-        margin-bottom: 20px;
-
-        .size-selector{
-
-            ul.size-list{
-
-                button.size-item{
-                    margin: 0 10px 10px 0;
-                    display: inline-block;
-                    height: 35px;
-                    width: auto;
-                    min-width: 35px;
-                    padding: 0 5px;
-                    font-size: 14px;
-                    line-height: 35px;
-                    color: $accentColour09;
-                    background: $background01;
-                    border: 1px solid $accentColour09;
-                    letter-spacing: 0.08em;
-
-                    &.selected{
-                        background: $accentColour09;
-                        border-color: $accentColour09;
-                        color: $background01;
-                    }
-
-                    &[disabled]{
-                        background: $background01;
-                        color: $borderColour04;
-                        border-color: $borderColour04;
-                        text-decoration: line-through;
+.catalog-product-view {
+    .rich-product-page {
+        #reserve-overlay {
+            .modal-dialog {
+                .modal-content {
+                    .modal-body {
+                        .reserve-form {
+                            &--contact {
+                                .form-title {
+                                    margin-bottom: 10px;
+                                }
+                                input {
+                                    margin-bottom: 10px;
+                                }
+                                .error-validation-msg {
+                                    margin-top: 0;
+                                    margin-bottom: 7px;
+                                }
+                                .reserve-submit {
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
                     }
                 }
-
             }
-
-            select.size-list{
-                width: 300px;
-            }
-
         }
-
     }
-
-    &--contact{
-
-        .form-title{
-            margin-bottom: 10px;
-        }
-
-        input {
-            margin-bottom: 10px;
-        }
-
-        .error-validation-msg{
-            margin-top: 0;
-            margin-bottom: 7px;
-        }
-
-        .reserve-submit{
-            margin-top: 10px;
+    @media (max-width: 767px) {
+        .rich-product-page {
+            #reserve-overlay {
+                .modal-dialog {
+                    .modal-content {
+                        .modal-body {
+                            .reserve-form {
+                                &--contact {
+                                    .btn-section {
+                                        * {
+                                            width: 100%;
+                                        }
+                                        .reserve-submit {
+                                            margin-bottom: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

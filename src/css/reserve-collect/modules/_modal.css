@@ -10,6 +10,41 @@
                     .modal-body {
                         .reserve-form {
                             &--product {
+                                margin-bottom: 20px;
+                                
+                                .size-selector {
+                                    ul.size-list {
+                                        button.size-item {
+                                            margin: 0 10px 10px 0;
+                                            display: inline-block;
+                                            height: 35px;
+                                            width: auto;
+                                            min-width: 35px;
+                                            padding: 0 5px;
+                                            font-size: 14px;
+                                            line-height: 35px;
+                                            color: $accentColour09;
+                                            background: $background01;
+                                            border: 1px solid $accentColour09;
+                                            letter-spacing: 0.08em;
+                                            &.selected {
+                                                background: $accentColour09;
+                                                border-color: $accentColour09;
+                                                color: $background01;
+                                            }
+                                            &[disabled] {
+                                                background: $background01;
+                                                color: $borderColour04;
+                                                border-color: $borderColour04;
+                                                text-decoration: line-through;
+                                            }
+                                        }
+                                    }
+                                    select.size-list {
+                                        width: 300px;
+                                    }
+                                }
+
                                 .store {
                                     display: flex;
                                     flex-direction: row;
