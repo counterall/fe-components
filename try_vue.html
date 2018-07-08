@@ -127,16 +127,14 @@
                                         <div class='reserve-form--contact'>
                                             <div class='form-title'>Personal info</div>
                                             <label for="reservation-fname" class="form-field">First name <span>*</span></label>
-                                            <input type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' placeholder=""
-                                                value='Kan' required id='reservation-fname'>
+                                            <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-fname'>
                                             <label for="reservation-lname" class="form-field">Family name <span>*</span></label>
-                                            <input type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' placeholder=""
-                                                value='Cong' required id='reservation-lname'>
+                                            <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-lname'>
                                             <label for="reservation-email" class="form-field">Email address <span>*</span></label>
-                                            <input class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' placeholder=""
-                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value='kcongmj23@gmail.com' required id='reservation-email'>
+                                            <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' 
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required id='reservation-email'>
                                             <label for="reservation-phone" class="form-field">Phone number <span>*</span></label>
-                                            <input class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' placeholder="" pattern="\+?\d{3}-?\d{6,}" value='' required id='reservation-phone'>
+                                            <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern="\+?\d{3}-?\d{6,}" required id='reservation-phone'>
                                             <div class='btn-section'>
                                                 <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
                                                 <button class='reserve-cancel mari-btn mari-btn-lg mari-btn-secondary' data-dismiss="modal" aria-label="Close">Cancel</button>

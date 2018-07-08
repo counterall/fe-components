@@ -268,6 +268,10 @@ jQuery(function ($) {
               this.cityData = this.countryData[city];
             },
             /* Verify every input field given by user valid*/
+            validateFormInput: function(evt) {
+                var input = evt.target;
+                inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(input), "Please enter a valid value");
+            },
             checkReserveFormValidity: function () {
                 var allPassed = true;
                 var $form = $('#reserve-overlay');
