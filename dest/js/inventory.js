@@ -197,34 +197,36 @@ jQuery(function ($) {
                 $('#reserve-overlay .modal-body.reserve-form').show();
                 $('#reserve-overlay .modal-body.success-msg').hide();
                 $('#reserve-overlay .modal-body.error-msg').hide();
-                $('#reserve-overlay').modal();
+                // $('#reserve-overlay').modal();
             }
-        }
+        },
+        updated: function () {
+            // var overlay = this;
+            // this.$nextTick(function () {
+            //     $(overlay.$el).modal();
+            // });
+            console.log('store list updated!')
+        },
     });
 
     Vue.component('store-general-overlay', {
-        props: ['modalId'],
+        props: ['modalId', 'modalTitle'],
         template: '#store-general-overlay',
-        data: function () {
-            return {
-                modalTitle: inventoryApp.storeContactOverlay.name
-            };
-        },
         updated: function () {
-            $(this.$el).modal();
+            // var overlay = this;
+            // this.$nextTick(function () {
+            //     $(overlay.$el).modal();
+            // });
+            console.log('overlay updated!')
         },
-        mounted: function () {
+        mounted: function() {
             $(this.$el).modal();
         }
     });
 
     Vue.component("store-contact", {
-        template: "#store-contact",
-        data: function () {
-            return {
-                storeContact: inventoryApp.storeContactOverlay
-            };
-        }
+        props: ['storeContact'],
+        template: "#store-contact"
     });
 
     /* Reserve & Collect Component */
@@ -347,6 +349,13 @@ jQuery(function ($) {
                     product_mapping: productMapping
                 };
             }
-        }
+        },
+        updated: function () {
+            // var overlay = this;
+            // this.$nextTick(function () {
+            //     $(overlay.$el).modal();
+            // });
+            console.log('App updated!')
+        },
     });
 });

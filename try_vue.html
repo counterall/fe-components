@@ -112,8 +112,11 @@
                         <!-- Bootstrap Modal component to render store contact popup -->
                         <store-general-overlay v-if='storeContactOverlay'
                             :modal-id='"store-contact"'
+                            :key='"store-contact"'
+                            :modal-title='storeContactOverlay.name'
                         >
                             <store-contact
+                                :store-contact='storeContactOverlay'
                             ></store-contact>
                         </store-general-overlay>
                 
@@ -177,7 +180,9 @@
                             </a>
                             <div class="modal-title" :id="modalId + '-label'">{{modalTitle}}</div>
                         </div>
-                        <slot></slot>
+                        <div class="modal-body clearfix">
+                            <slot></slot>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -186,7 +191,7 @@
 
         <!-- Popup Contact Overlay -->
         <script type="text/x-template" id="store-contact">
-            <div class="modal-body clearfix">
+            <div class="contact-wrapper">
                 <div class='contact-section'>
                     {{storeContact.address[0]}}<br>
                     {{storeContact.address[1]}}<br>
