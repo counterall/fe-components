@@ -108,6 +108,15 @@
                             :product-type='productParams.type'
                             :product-mapping='productParams.product_mapping'
                         ></store-inventory-list>
+
+                        <!-- Bootstrap Modal component to render store contact popup -->
+                        <store-general-overlay v-if='storeContactOverlay'
+                            :modal-id='"store-contact"'
+                        >
+                            <store-contact
+                            ></store-contact>
+                        </store-general-overlay>
+                
                         <!-- Bootstrap Modal component to render reserve & collect window -->
                         <div class="modal fade" id="reserve-overlay" tabindex="-1" role="dialog" aria-labelledby="reserveModalLabel">
                             <div class="modal-dialog" role="document">
@@ -153,45 +162,45 @@
                         </div>
                     </template>
                 </div>
-
-                 <store-contact-overlay
-                    :store-contact="storeContactOverlay"
-                    v-if="storeContactOverlay"
-                 ></store-contact-overlay>
-                
             </div>
         </div>
-    
-        <!-- Popup Contact Overlay -->
-        <script type="text/x-template" id="store-contact-overlay">
-            <!-- Bootstrap Modal component to render pop-up window -->
-            <div class="modal fade" id="contact-overlay" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel">
+        
+
+        <script type="text/x-template" id='store-general-overlay'>
+            <div class="modal fade" :id="modalId" tabindex="-1" role="dialog" :aria-labelledby="modalId + '-label'">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <a class='close-section clearfix' data-dismiss="modal" aria-label="Close">
+                                <div class='txt'>Close</div>
                                 <div class="icon"></div>
                             </a>
-                            <div class="modal-title" id="contactModalLabel">{{storeContact.name}}</div>
+                            <div class="modal-title" :id="modalId + '-label'">{{modalTitle}}</div>
                         </div>
-                        <div class="modal-body contact clearfix">
-                            <div class='contact-section'>
-                                {{storeContact.address[0]}}<br>
-                                {{storeContact.address[1]}}<br>
-                                {{storeContact.address[2]}}
-                            </div>
-                            <br>
-                            <div class='contact-section'>Avoinna:
-                                <br>Arkisin {{storeContact.openingHours.weekday}}
-                                <br>lauantai {{storeContact.openingHours.saturday}}
-                                <br>sunnuntai {{storeContact.openingHours.sunday}}
-                            </div>
-                            <br>
-                            <div class='contact-section'>{{storeContact.phone}}</div>
-                        </div>
+                        <slot></slot>
                     </div>
                 </div>
             </div>
+
+        </script>
+
+        <!-- Popup Contact Overlay -->
+        <script type="text/x-template" id="store-contact">
+            <div class="modal-body clearfix">
+                <div class='contact-section'>
+                    {{storeContact.address[0]}}<br>
+                    {{storeContact.address[1]}}<br>
+                    {{storeContact.address[2]}}
+                </div>
+                <br>
+                <div class='contact-section'>Avoinna:
+                    <br>Arkisin {{storeContact.openingHours.weekday}}
+                    <br>lauantai {{storeContact.openingHours.saturday}}
+                    <br>sunnuntai {{storeContact.openingHours.sunday}}
+                </div>
+                <br>
+                <div class='contact-section'>{{storeContact.phone}}</div>     
+            </div>     
         </script>
 
         <!-- Store inventory block template -->

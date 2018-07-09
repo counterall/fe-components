@@ -202,14 +202,28 @@ jQuery(function ($) {
         }
     });
 
-    Vue.component("store-contact-overlay", {
-        props: ['storeContact'],
-        template: "#store-contact-overlay",
+    Vue.component('store-general-overlay', {
+        props: ['modalId'],
+        template: '#store-general-overlay',
+        data: function () {
+            return {
+                modalTitle: inventoryApp.storeContactOverlay.name
+            };
+        },
         updated: function () {
             $(this.$el).modal();
         },
         mounted: function () {
             $(this.$el).modal();
+        }
+    });
+
+    Vue.component("store-contact", {
+        template: "#store-contact",
+        data: function () {
+            return {
+                storeContact: inventoryApp.storeContactOverlay
+            };
         }
     });
 
