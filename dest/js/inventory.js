@@ -1,4 +1,36 @@
 jQuery(function ($) {
+    
+    // Universal state store
+    window.inventoryStatesStore = {
+        debug: true,
+        overlay: {
+            reserveMsg: false
+        },
+        storeContactInReserveForm: false,
+        storeContactOverlay: false,
+        setReserveMsg: function (val) {
+            if (this.debug) {
+                console.log('Reserve return message state updated to ' + '"' + (val ? val : 'false') + '"');
+            }
+            this.overlay.reserveMsg = val;
+        },
+        setStoreContactOverlay: function (val) {
+            if (this.debug) {
+                console.log('Contact data for store contact overlay is updated!');
+            }
+            this.storeContactOverlay = val;
+        },
+        setStoreContactInReserveForm: function (val) {
+            if (this.debug) {
+                console.log('Contact data for reservation is updated!');
+            }
+            this.storeContactInReserveForm = val;
+        },
+        ajaxUrl: {
+            host: "http://localhost:5500/dest/json/inventory-onesize.json"
+        }
+    }
+    
     /* Create vue component of select element where select2 jQuery plugin is applied */
     Vue.component('city-select2', {
         props: ['options', 'value'],
@@ -88,14 +120,15 @@ jQuery(function ($) {
     });
 
     Vue.component('store-inventory-list', {
-        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productType", "productMapping", "storeId", "storeType"],
+        props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productMapping", "storeId", "storeType"],
         template: "#store-inventory-template",
         data: function(){
             return {
                 oneSizeMapping: {
                     'FI': [null, "Varastossa", "Vähän jäljellä", "Loppuunmyyty"],
                     'EN': [null, "In stock", 'Few left', "Out of stock"]
-                }
+                },
+                productType: inventoryStatesStore.productType
             };
         },
         computed: {
@@ -141,12 +174,15 @@ jQuery(function ($) {
                 return contactInfo;  
             },
             setContactFormOverlay: function (){
-                this.$parent.storeContactOverlay = this.prepareContactDetail();
+                /* set contact info property for contact overlay */
+                inventoryStatesStore.setStoreContactOverlay(this.prepareContactDetail());
             },
             prepareReserveForm: function() {
 
-                /* set contact info property*/
-                this.$parent.storeContactInReserveForm = this.prepareContactDetail();
+                inventoryStatesStore.setReserveMsg(false);
+
+                /* set contact info property for reservation form*/
+                inventoryStatesStore.setStoreContactInReserveForm(this.prepareContactDetail());
                 /* Attach storeID to the reservation form */
                 $('.reserve-form--product > input.store-id').val(this.storeId);
 
@@ -200,43 +236,146 @@ jQuery(function ($) {
                 // $('#reserve-overlay').modal();
             }
         },
-        updated: function () {
-            // var overlay = this;
-            // this.$nextTick(function () {
-            //     $(overlay.$el).modal();
-            // });
-            console.log('store list updated!')
+        mounted: function() {
+            console.log('city mounted!');
         },
+        updated: function () {
+            console.log('city updated!');
+        },
+        destroyed: function () {
+            console.log('city destroyed!');
+        },
+        created: function () {
+            console.log('city created!');
+        }
     });
 
     Vue.component('store-general-overlay', {
         props: ['modalId', 'modalTitle'],
         template: '#store-general-overlay',
         updated: function () {
-            // var overlay = this;
-            // this.$nextTick(function () {
-            //     $(overlay.$el).modal();
-            // });
-            console.log('overlay updated!')
+            var overlay = this;
+            this.$nextTick(function () {
+                $(overlay.$el).modal();
+            });
+            console.log($(overlay.$el).attr('id') + ' overlay updated!');
         },
         mounted: function() {
             $(this.$el).modal();
+            console.log($(this.$el).attr('id') + ' overlay mounted!');
+        },
+        destroyed: function () {
+            console.log($(this.$el).attr('id') + 'overlay destroyed!');
         }
     });
 
     Vue.component("store-contact", {
         props: ['storeContact'],
-        template: "#store-contact"
+        template: "#store-contact",
+        created: function () {
+            console.log('store contact created!');
+        },
+        updated: function () {
+            console.log('store contact updated!');
+        },
+        mounted: function () {
+            console.log('store contact mounted!');
+        }
     });
 
-    /* Reserve & Collect Component */
+    /* Reserve & Collect Product Component */
     Vue.component("reserve-product-block", {
-        props: ['productType', 'storeContact'],
+        props: ['storeContact'],
+        data: function() {
+            return {
+                productType: inventoryStatesStore.productType
+            }
+        },
         template: "#reserve-product-template",
         mounted: function() {
             if (this.productType === 'onesize') {
                 initQuantitySelector($(this.$el).find('.qty-selector'));
             }
+            console.log('reserve product mounted!');
+        },
+        destroyed: function () {
+            console.log('reserve product destroyed!');
+        },
+        created: function () {
+            console.log('reserve product created!');
+        },
+        updated: function () {
+            console.log('reserve product updated!');
+        },
+    });
+
+    /* Reserve & Collect Form Component */
+    Vue.component("reserve-form-block", {
+        template: "#reserve-form-template",
+        data: function () {
+            return {
+                productType: inventoryStatesStore.productType
+            }
+        },
+        methods: {
+            /* Verify every input field given by user valid*/
+            validateFormInput: function (evt) {
+                var input = evt.target;
+                inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(input), "Please enter a valid value");
+            },
+            checkReserveFormValidity: function () {
+                var allPassed = true;
+                var $form = $('#reserve-overlay');
+                $form.find('input').each(function () {
+                    if (!inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(this), "Please enter a valid value")) {
+                        allPassed = false;
+                    }
+                });
+
+                /* Do POST request when all fields are valid */
+                if (allPassed) {
+                    var extraParams = {
+                        firstname: $form.find('#reservation-fname').val(),
+                        lastname: $form.find('#reservation-lname').val(),
+                        telephone: $form.find('#reservation-phone').val(),
+                        email: $form.find('#reservation-email').val(),
+                        store_id: $form.find('input.store-id').val()
+                    };
+
+                    if (this.productType === 'sizable') {
+                        extraParams.quantity = 1;
+                        extraParams.product_id = $form.find('select.size-list').val();
+                    } else {
+                        extraParams.quantity = $form.find('input.qty-input').val();
+                        extraParams.product_id = $form.find('input.product-id').val();
+                    }
+
+                    console.log(extraParams);
+                    $.ajax({
+                        dataType: "json",
+                        type: 'GET',
+                        url: inventoryStatesStore.ajaxUrl.host,
+                        data: extraParams
+                    }).done(function (data) {
+                        inventoryStatesStore.setReserveMsg('success');
+                    }).fail(function () {
+                        inventoryStatesStore.setReserveMsg('error');
+                    })
+
+                }
+            }
+        },
+        destroyed: function () {
+            console.log('reserve form destroyed!');
+        },
+        created: function () {
+            console.log('reserve form created!');
+        },
+        updated: function () {
+            console.log('reserve form updated!');
+        },
+        mounted: function (){
+            console.log('reserve form mounted!');
         }
     });
 
@@ -251,12 +390,7 @@ jQuery(function ($) {
             cityData: false,
             cityList: false,
             cityChosen: false,
-            storeContactOverlay: false,
-            storeContactInReserveForm: false,
-            popupReserveForm: false,
-            url: {
-                host: "http://localhost:5500/dest/json/inventory-onesize.json"
-            }
+            statesStore: inventoryStatesStore
         },
         methods: {
             toggleDropdown: function () {
@@ -266,7 +400,7 @@ jQuery(function ($) {
                 if (!this.countryData) {
                    $.get({
                        dataType: "json",
-                       url: this.url.host,
+                       url: inventoryStatesStore.ajaxUrl.host,
                        data: extraParams
                    }).done(function (data) {
                        vm.countryData = data[vm.countryCode];
@@ -282,57 +416,6 @@ jQuery(function ($) {
             switchList: function(city) {
               this.cityChosen = city;
               this.cityData = this.countryData[city];
-            },
-            /* Verify every input field given by user valid*/
-            validateFormInput: function(evt) {
-                var input = evt.target;
-                inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(input), "Please enter a valid value");
-            },
-            checkReserveFormValidity: function () {
-                var allPassed = true;
-                var $form = $('#reserve-overlay');
-                $form.find('input').each(function () {
-                    if (!inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(this), "Please enter a valid value")) {
-                        allPassed = false;
-                    }
-                });
-
-                /* Do POST request when all fields are valid */
-                if (allPassed) {
-
-                    var extraParams = {
-                        firstname: $form.find('#reservation-fname').val(),
-                        lastname: $form.find('#reservation-lname').val(),
-                        telephone: $form.find('#reservation-phone').val(),
-                        email: $form.find('#reservation-email').val(),
-                        store_id: $form.find('input.store-id').val()
-                    };
-
-                    if (this.productParams.type === 'sizable') {
-                        extraParams.quantity = 1;
-                        extraParams.product_id = $form.find('select.size-list').val();
-                    } else {
-                        extraParams.quantity = $form.find('input.qty-input').val();
-                        extraParams.product_id = $form.find('input.product-id').val();
-                    }
-
-                    console.log(extraParams);
-                    $.ajax({
-                        dataType: "json",
-                        type: 'GET',
-                        url: this.url.host,
-                        data: extraParams
-                    }).done(function (data) {
-                        $form.find('.modal-body.success-msg').show();
-                        $form.find('.modal-body.error-msg').hide();
-                    }).fail(function () {
-                        $form.find('.modal-body.success-msg').hide();
-                        $form.find('.modal-body.error-msg').show();
-                    }).always(function () {
-                        $form.find('.modal-body.reserve-form').hide();
-                    });
-
-                }
             }
         },
         computed: {
@@ -344,6 +427,7 @@ jQuery(function ($) {
                     productMapping[key].mag_id = rawProductData[key].id; 
                     productMapping[key].size = rawProductData[key].size;
                 }
+                inventoryStatesStore.productType = $('ul.list-size > li').length > 1 ? "sizable" : "onesize";
                 return {
                     type: $('ul.list-size > li').length > 1 ? "sizable" : "onesize",
                     product_mapping: productMapping
@@ -351,11 +435,11 @@ jQuery(function ($) {
             }
         },
         updated: function () {
-            // var overlay = this;
-            // this.$nextTick(function () {
-            //     $(overlay.$el).modal();
-            // });
-            console.log('App updated!')
+            // console.log('App updated!')
         },
+        created: function() {
+            // console.log('App created!');
+        }
     });
+
 });

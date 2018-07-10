@@ -105,64 +105,47 @@
                             :index='index'
                             :store-id='item.company_store_id'
                             :store-type='item.storeType'
-                            :product-type='productParams.type'
                             :product-mapping='productParams.product_mapping'
                         ></store-inventory-list>
 
                         <!-- Bootstrap Modal component to render store contact popup -->
-                        <store-general-overlay v-if='storeContactOverlay'
+                        <store-general-overlay 
+                            v-if='statesStore.storeContactOverlay'
                             :modal-id='"store-contact"'
                             :key='"store-contact"'
-                            :modal-title='storeContactOverlay.name'
+                            :modal-title='statesStore.storeContactOverlay.name'
                         >
-                            <store-contact slot='body'
-                                :store-contact='storeContactOverlay'
+                            <store-contact 
+                                slot='body'
+                                :store-contact='statesStore.storeContactOverlay'
                             ></store-contact>
                         </store-general-overlay>
                 
                         <!-- Bootstrap Modal component to render reserve & collect window -->
-                        <div class="modal fade" id="reserve-overlay" tabindex="-1" role="dialog" aria-labelledby="reserveModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <a class='close-section clearfix' data-dismiss="modal" aria-label="Close">
-                                            <div class='txt'>Close</div>
-                                            <div class="icon"></div>
-                                        </a>
-                                        <div class="modal-title" id="reserveModalLabel">Reserve & Collect</div>
-                                    </div>
-                                    <div class="modal-body reserve-form clearfix">
-                                         <reserve-product-block
-                                            :product-type='productParams.type'
-                                            :store-contact='storeContactInReserveForm'
-                                         ></reserve-product-block>
-                                        <div class='reserve-form--contact'>
-                                            <div class='form-title'>Personal info</div>
-                                            <label for="reservation-fname" class="form-field">First name <span>*</span></label>
-                                            <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-fname'>
-                                            <label for="reservation-lname" class="form-field">Family name <span>*</span></label>
-                                            <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-lname'>
-                                            <label for="reservation-email" class="form-field">Email address <span>*</span></label>
-                                            <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' 
-                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required id='reservation-email'>
-                                            <label for="reservation-phone" class="form-field">Phone number <span>*</span></label>
-                                            <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern="\+?\d{3}-?\d{6,}" required id='reservation-phone'>
-                                            <div class='btn-section'>
-                                                <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
-                                                <button class='reserve-cancel mari-btn mari-btn-lg mari-btn-secondary' data-dismiss="modal" aria-label="Close">Cancel</button>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="modal-body success-msg">
-                                        Thanks for make the reservation, the store will contact you when product is ready to pick up.
-                                    </div>
-                                    <div class="modal-body error-msg">
-                                        SOrry, something went wrong when doing the reservation request, please try again later.
-                                    </div>
-                                </div>
+                         <store-general-overlay 
+                            v-if='statesStore.storeContactInReserveForm'
+                            :modal-id='"reserve-overlay"'
+                            :key='"reserve-overlay"'
+                            :modal-title='"Reserve & Collect"'
+                        >
+                            <div class='reserve-form' slot='body' v-if='!statesStore.overlay.reserveMsg'>
+                                <reserve-product-block 
+                                    :store-contact='statesStore.storeContactInReserveForm'
+                                ></reserve-product-block>
+                                <reserve-form-block
+                                >
+                                </reserve-form-block>
                             </div>
-                        </div>
+                            <template slot='messages' v-else>
+                                <div class="success-msg" v-show='statesStore.overlay.reserveMsg == "success"'>
+                                    Thanks for make the reservation, the store will contact you when product is ready to pick up.
+                                </div>
+                                <div class="error-msg" v-show='statesStore.overlay.reserveMsg == "error"'>
+                                    SOrry, something went wrong when doing the reservation request, please try again later.
+                                </div>
+                            </template>
+                        </store-general-overlay>
+
                     </template>
                 </div>
             </div>
@@ -292,6 +275,26 @@
             </div>
         </script>
 
+        <script type='text/x-template' id='reserve-form-template'>
+        
+            <div class='reserve-form--contact'>
+                <div class='form-title'>Personal info</div>
+                <label for="reservation-fname" class="form-field">First name <span>*</span></label>
+                <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-fname' value='Kan'>
+                <label for="reservation-lname" class="form-field">Family name <span>*</span></label>
+                <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-lname' value='Cong'>
+                <label for="reservation-email" class="form-field">Email address <span>*</span></label>
+                <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' 
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required id='reservation-email' value='kan.cong@marimekko.com'>
+                <label for="reservation-phone" class="form-field">Phone number <span>*</span></label>
+                <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern="\+?\d{3}-?\d{6,}" required id='reservation-phone' value='044123123123'>
+                <div class='btn-section'>
+                    <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
+                    <button class='reserve-cancel mari-btn mari-btn-lg mari-btn-secondary' data-dismiss="modal" aria-label="Close">Cancel</button>
+                </div>
+            </div>
+        
+        </script>
 
 
     </div>
