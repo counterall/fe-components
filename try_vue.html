@@ -115,7 +115,7 @@
                             :key='"store-contact"'
                             :modal-title='storeContactOverlay.name'
                         >
-                            <store-contact
+                            <store-contact slot='body'
                                 :store-contact='storeContactOverlay'
                             ></store-contact>
                         </store-general-overlay>
@@ -181,7 +181,10 @@
                             <div class="modal-title" :id="modalId + '-label'">{{modalTitle}}</div>
                         </div>
                         <div class="modal-body clearfix">
-                            <slot></slot>
+                            <slot name='body'></slot>
+                        </div>
+                        <div class='modal-msg clearfix'>
+                            <slot name='messages'></slot>    
                         </div>
                     </div>
                 </div>
