@@ -176,9 +176,9 @@ jQuery(function ($) {
             setContactFormOverlay: function (){
                 /* set contact info property for contact overlay */
                 inventoryStatesStore.setStoreContactOverlay(this.prepareContactDetail());
-
-                /* trigger modal after it was firstly mounted to DOM*/
-                this.triggerModalAfterMounted('#store-contact-overlay');
+                this.$root.$nextTick(function () {
+                    $('#store-contact-overlay').modal();
+                });
             },
             prepareReserveForm: function() {
 
@@ -186,9 +186,6 @@ jQuery(function ($) {
 
                 /* set contact info property for reservation form*/
                 inventoryStatesStore.setStoreContactInReserveForm(this.prepareContactDetail());
-
-                /* trigger modal after it was firstly mounted to DOM*/
-                this.triggerModalAfterMounted('#reserve-overlay');
 
                 /* Attach storeID to the reservation form */
                 $('.reserve-form--product > input.store-id').val(this.storeId);
@@ -237,23 +234,10 @@ jQuery(function ($) {
                     $('.reserve-form .qty-selector .product-id').val(this.productMapping[69].mag_id);
                 }
 
-            },
-            triggerModalAfterMounted: function(modalID) {
-                if (!$(modalID).length) {
-                    var dfd = $.Deferred();
-                    var checkIfModalMounted = setInterval(function() {
-                        if ($(modalID).length) {
-                            dfd.resolve();
-                        }
-                        console.log('waiting for modal mounted!');
-                    }, 10);
+                this.$root.$nextTick(function () {
+                    $('#reserve-overlay').modal();
+                });
 
-                    dfd.done(function () {
-                        clearInterval(checkIfModalMounted);
-                    });
-                }else{
-                    $(modalID).modal();
-                }
             }
         },
         mounted: function() {
@@ -272,14 +256,7 @@ jQuery(function ($) {
 
     Vue.component('store-general-overlay', {
         props: ['modalId', 'modalTitle'],
-        template: '#store-general-overlay',
-        mounted: function() {
-            $(this.$el).modal();
-            console.log($(this.$el).attr('id') + ' overlay mounted!');
-        },
-        destroyed: function () {
-            console.log($(this.$el).attr('id') + 'overlay destroyed!');
-        }
+        template: '#store-general-overlay'
     });
 
     Vue.component("store-contact", {
