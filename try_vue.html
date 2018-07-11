@@ -111,7 +111,7 @@
                         <!-- Bootstrap Modal component to render store contact popup -->
                         <store-general-overlay 
                             v-if='statesStore.storeContactOverlay'
-                            :modal-id='"store-contact"'
+                            :modal-id='"store-contact-overlay"'
                             :key='"store-contact"'
                             :modal-title='statesStore.storeContactOverlay.name'
                         >
@@ -176,7 +176,7 @@
         </script>
 
         <!-- Popup Contact Overlay -->
-        <script type="text/x-template" id="store-contact">
+        <script type="text/x-template" id="store-contact-template">
             <div class="contact-wrapper">
                 <div class='contact-section'>
                     {{storeContact.address[0]}}<br>

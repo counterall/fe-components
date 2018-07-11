@@ -50,7 +50,7 @@ jQuery(function ($) {
                 "aria-disabled": false,
                 "aria-selected": false
             }).addClass('select2-dummy-disabled');
-        })
+        });
     }).on('select2:select', function (e) {
         // When a select2 option is chosen, show email-me block and hide 'add to cart' block
         var $select2Rendered = $('select.list-size + .select2 .select2-selection__rendered');
