@@ -6,19 +6,31 @@
                     .modal-body {
                         .reserve-form {
                             &--contact {
+                                letter-spacing: 1px;
+
                                 .form-title {
-                                    margin-bottom: 10px;
+                                    margin-bottom: 15px;
+                                    font-size: 16px;
                                 }
-                                input {
-                                    margin-bottom: 10px;
+                                label{
+                                    display: block;
+                                    margin-bottom: 5px;
+                                    line-height: 1.5;
+
+                                    &:not(:first-of-type){
+                                        margin-top: 12px;
+                                    }
+                                }
+                                .form-info{
+                                    font-size: 12px;
+                                    line-height: 1.75;
+                                    margin: 15px 0 28px;
                                 }
                                 .error-validation-msg {
                                     margin-top: 0;
                                     margin-bottom: 7px;
                                 }
-                                .reserve-submit {
-                                    margin-top: 10px;
-                                }
+                                
                             }
                         }
                     }
@@ -42,9 +54,6 @@
                                     .btn-section {
                                         * {
                                             width: 100%;
-                                        }
-                                        .reserve-submit {
-                                            margin-bottom: 20px;
                                         }
                                     }
                                 }

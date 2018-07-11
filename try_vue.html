@@ -288,6 +288,7 @@
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required id='reservation-email' value='kan.cong@marimekko.com'>
                 <label for="reservation-phone" class="form-field">Phone number <span>*</span></label>
                 <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern="\+?\d{3}-?\d{6,}" required id='reservation-phone' value='044123123123'>
+                <div class='form-info'>* All fields are required</div>
                 <div class='btn-section'>
                     <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
                     <button class='reserve-cancel mari-btn mari-btn-lg mari-btn-secondary' data-dismiss="modal" aria-label="Close">Cancel</button>
