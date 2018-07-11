@@ -41,12 +41,12 @@
                 user-select: none;
     }
 .qty-selector .qty-plus {
-        background-image: url('http://kandy.io/marimekko-qa/htdocs/skin/frontend/carbon/marimekko/images/ui/icon_plus.png');
+        background-image: url('https://marimekko.com/skin/frontend/carbon/marimekko/images/ui/icon_plus.png');
         margin-left: auto;
         margin-right: 15px;
     }
 .qty-selector .qty-minus {
-        background-image: url('http://kandy.io/marimekko-qa/htdocs/skin/frontend/carbon/marimekko/images/ui/icon_minus.png');
+        background-image: url('https://marimekko.com/skin/frontend/carbon/marimekko/images/ui/icon_minus.png');
         margin-left: 15px;
         margin-right: auto;
     }
