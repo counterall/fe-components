@@ -383,14 +383,24 @@ jQuery(function ($) {
 
     /* Reserve & Collect Final Price Component */
     Vue.component("reserve-summary", {
-        props: [],
+        props: ['currency', 'currencyAhead'],
         data: function() {
             return {
-                qty: 1,
-                price: inventoryStatesStore.productParams.price
+                qty: 1
             }
         },
         template: "#reserve-summary-template",
+        computed: {
+            finalPrice: function() {
+                var unitPrice = inventoryStatesStore.productParams.unitPrice;
+                var totalPrice = parseInt(this.qty) * unitPrice;
+                return this.$root.formatPrice(totalPrice);
+            },
+            unitPrice: function() {
+                var unitPrice = inventoryStatesStore.productParams.unitPrice;
+                return this.$root.formatPrice(unitPrice);
+            }
+        },
         methods: {
 
         }
@@ -432,6 +442,13 @@ jQuery(function ($) {
             switchList: function(city) {
               this.cityChosen = city;
               this.cityData = this.countryData[city];
+            },
+            formatPrice: function(price) {
+                price = price.toFixed(2);
+                if (this.countryCode == 'FI') {
+                    price = price.replace('.', ',');
+                }
+                return price;
             }
         },
         computed: {
@@ -447,7 +464,7 @@ jQuery(function ($) {
                 inventoryStatesStore.setProductParams('type', $('ul.list-size > li').length > 1 ? "sizable" : "onesize");
         
                 var productDataKey = Object.keys(rawProductData);
-                inventoryStatesStore.setProductParams('price', rawProductData[productDataKey[0]].price_numeric);
+                inventoryStatesStore.setProductParams('unitPrice', Number(rawProductData[productDataKey[0]].price_numeric));
 
                 var nonEuroCountries = ['US', 'AU', 'SE', 'UK', 'DK', 'NO'];
                 var currency;
@@ -477,7 +494,7 @@ jQuery(function ($) {
                     }
                 }
                 inventoryStatesStore.setProductParams('currency', currency);
-        
+                
                 return {
                     product_mapping: productMapping
                 };
