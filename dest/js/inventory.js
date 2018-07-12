@@ -6,6 +6,9 @@ jQuery(function ($) {
         overlay: {
             reserveMsg: false
         },
+        productParams: {
+            currencyAhead: false
+        },
         storeContactInReserveForm: false,
         storeContactOverlay: false,
         setReserveMsg: function (val) {
@@ -25,6 +28,12 @@ jQuery(function ($) {
                 console.log('Contact data for reservation is updated!');
             }
             this.storeContactInReserveForm = val;
+        },
+        setProductParams: function(key, val) {
+            if (this.debug) {
+                console.log(key + " updated to value: " + '"' + (val ? val : 'false') + '"');
+            }
+            this.productParams[key] = val;
         },
         ajaxUrl: {
             host: "http://localhost:5500/dest/json/inventory-onesize.json"
@@ -128,7 +137,7 @@ jQuery(function ($) {
                     'FI': [null, "Varastossa", "Vähän jäljellä", "Loppuunmyyty"],
                     'EN': [null, "In stock", 'Few left', "Out of stock"]
                 },
-                productType: inventoryStatesStore.productType
+                productType: inventoryStatesStore.productParams.type
             };
         },
         computed: {
@@ -281,7 +290,7 @@ jQuery(function ($) {
         props: ['storeContact'],
         data: function() {
             return {
-                productType: inventoryStatesStore.productType
+                productType: inventoryStatesStore.productParams.type
             }
         },
         template: "#reserve-product-template",
@@ -307,7 +316,7 @@ jQuery(function ($) {
         template: "#reserve-form-template",
         data: function () {
             return {
-                productType: inventoryStatesStore.productType
+                productType: inventoryStatesStore.productParams.type
             }
         },
         methods: {
@@ -375,6 +384,12 @@ jQuery(function ($) {
     /* Reserve & Collect Final Price Component */
     Vue.component("reserve-summary", {
         props: [],
+        data: function() {
+            return {
+                qty: 1,
+                price: inventoryStatesStore.productParams.price
+            }
+        },
         template: "#reserve-summary-template",
         methods: {
 
@@ -387,7 +402,7 @@ jQuery(function ($) {
         data: {
             dropDownClass: "city-selector",
             showDropdown: false,
-            countryCode: false,
+            countryCode: "FI",
             countryData: false,
             cityData: false,
             cityList: false,
@@ -397,7 +412,6 @@ jQuery(function ($) {
         methods: {
             toggleDropdown: function () {
                 var extraParams = '';
-                this.countryCode = 'FI';
                 var vm = this;
                 if (!this.countryData) {
                    $.get({
@@ -429,9 +443,42 @@ jQuery(function ($) {
                     productMapping[key].mag_id = rawProductData[key].id; 
                     productMapping[key].size = rawProductData[key].size;
                 }
-                inventoryStatesStore.productType = $('ul.list-size > li').length > 1 ? "sizable" : "onesize";
+                
+                inventoryStatesStore.setProductParams('type', $('ul.list-size > li').length > 1 ? "sizable" : "onesize");
+        
+                var productDataKey = Object.keys(rawProductData);
+                inventoryStatesStore.setProductParams('price', rawProductData[productDataKey[0]].price_numeric);
+
+                var nonEuroCountries = ['US', 'AU', 'SE', 'UK', 'DK', 'NO'];
+                var currency;
+                if (nonEuroCountries.indexOf(this.countryCode) === -1) {
+                    currency = 'EUR';
+                } else{
+                    switch (this.countryCode) {
+                        case 'AU':
+                            currency = 'AUD';
+                            break;
+                        case 'US':
+                            currency = '$';
+                            inventoryStatesStore.setProductParams('currencyAhead', true);
+                            break;
+                        case 'SE':
+                            currency = 'SEK';
+                            break;
+                        case 'DK':
+                            currency = 'DKK';
+                            break;
+                        case 'NO':
+                            currency = 'NOK';
+                            break;
+                        case 'UK':
+                            currency = 'GBP';
+                            break;
+                    }
+                }
+                inventoryStatesStore.setProductParams('currency', currency);
+        
                 return {
-                    type: $('ul.list-size > li').length > 1 ? "sizable" : "onesize",
                     product_mapping: productMapping
                 };
             }
