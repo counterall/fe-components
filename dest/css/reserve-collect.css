@@ -78,6 +78,15 @@
                                             position: absolute;
                                             bottom: 0;
                                         }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--additional{
+                                background-color: #f6f5f3;
+                                line-height: 1.5;
+                                letter-spacing: 0.8px;
+                                padding: 88px 35px 40px;
+                            }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--additional .contact-info {
+                                    margin-top: 30px;
+                                }
 @media (max-width: 767px) {
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
                     top: 10px;
@@ -159,10 +168,8 @@
                                                 }
 
                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--additional{
-                                    background-color: #f6f5f3;
                                     padding: 33px 10px;
-                                    line-height: 1.5;
-                                    letter-spacing: 0.8px;
+                                    
                                 }
     }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact {

@@ -97,6 +97,17 @@
                                     }
                                 }
                             }
+
+                            &--additional{
+                                background-color: $background02;
+                                line-height: 1.5;
+                                letter-spacing: 0.8px;
+                                padding: 88px 35px 40px;
+
+                                .contact-info {
+                                    margin-top: 30px;
+                                }
+                            }
                         }
                     }
                 }
@@ -193,10 +204,8 @@
                                 }
 
                                 &--additional{
-                                    background-color: $background02;
                                     padding: 33px 10px;
-                                    line-height: 1.5;
-                                    letter-spacing: 0.8px;
+                                    
                                 }
 
                             }
