@@ -256,7 +256,10 @@ jQuery(function ($) {
 
     Vue.component('store-general-overlay', {
         props: ['modalId', 'modalTitle'],
-        template: '#store-general-overlay'
+        template: '#store-general-overlay',
+        updated: function() {
+            console.log($(this.$el).attr('id') + ' modal updated!');
+        }
     });
 
     Vue.component("store-contact", {
@@ -425,7 +428,7 @@ jQuery(function ($) {
             }
         },
         updated: function () {
-            // console.log('App updated!')
+            console.log('App updated!');
         },
         created: function() {
             // console.log('App created!');
