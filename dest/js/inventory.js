@@ -372,6 +372,15 @@ jQuery(function ($) {
         }
     });
 
+    /* Reserve & Collect Final Price Component */
+    Vue.component("reserve-summary", {
+        props: [],
+        template: "#reserve-summary-template",
+        methods: {
+
+        }
+    });
+
     // root vue app
     window.inventoryApp = new Vue({
         el: "#inventory-app",
