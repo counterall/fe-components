@@ -461,40 +461,6 @@ jQuery(function ($) {
                     productMapping[key].size = rawProductData[key].size;
                 }
                 
-                inventoryStatesStore.setProductParams('type', $('ul.list-size > li').length > 1 ? "sizable" : "onesize");
-        
-                var productDataKey = Object.keys(rawProductData);
-                inventoryStatesStore.setProductParams('unitPrice', Number(rawProductData[productDataKey[0]].price_numeric));
-
-                var nonEuroCountries = ['US', 'AU', 'SE', 'UK', 'DK', 'NO'];
-                var currency;
-                if (nonEuroCountries.indexOf(this.countryCode) === -1) {
-                    currency = 'EUR';
-                } else{
-                    switch (this.countryCode) {
-                        case 'AU':
-                            currency = 'AUD';
-                            break;
-                        case 'US':
-                            currency = '$';
-                            inventoryStatesStore.setProductParams('currencyAhead', true);
-                            break;
-                        case 'SE':
-                            currency = 'SEK';
-                            break;
-                        case 'DK':
-                            currency = 'DKK';
-                            break;
-                        case 'NO':
-                            currency = 'NOK';
-                            break;
-                        case 'UK':
-                            currency = 'GBP';
-                            break;
-                    }
-                }
-                inventoryStatesStore.setProductParams('currency', currency);
-                
                 return {
                     product_mapping: productMapping
                 };
@@ -503,8 +469,46 @@ jQuery(function ($) {
         updated: function () {
             console.log('App updated!');
         },
-        created: function() {
-            // console.log('App created!');
+        mounted: function() {
+            var bePassedParams = $(this.$el).data('product-params');
+
+            inventoryStatesStore.productParams = Object.assign({}, inventoryStatesStore.productParams, bePassedParams)
+
+            inventoryStatesStore.setProductParams('type', $('ul.list-size > li').length > 1 ? "sizable" : "onesize");
+
+            var rawProductData = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
+            var productDataKey = Object.keys(rawProductData);
+            inventoryStatesStore.setProductParams('unitPrice', Number(rawProductData[productDataKey[0]].price_numeric));
+
+            var nonEuroCountries = ['US', 'AU', 'SE', 'UK', 'DK', 'NO'];
+            var currency;
+            if (nonEuroCountries.indexOf(this.countryCode) === -1) {
+                currency = 'EUR';
+            } else {
+                switch (this.countryCode) {
+                    case 'AU':
+                        currency = 'AUD';
+                        break;
+                    case 'US':
+                        currency = '$';
+                        inventoryStatesStore.setProductParams('currencyAhead', true);
+                        break;
+                    case 'SE':
+                        currency = 'SEK';
+                        break;
+                    case 'DK':
+                        currency = 'DKK';
+                        break;
+                    case 'NO':
+                        currency = 'NOK';
+                        break;
+                    case 'UK':
+                        currency = 'GBP';
+                        break;
+                }
+            }
+            inventoryStatesStore.setProductParams('currency', currency);
+
         }
     });
 
