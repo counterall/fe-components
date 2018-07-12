@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <div class='store-inventory' id='inventory-app' data-product-params='{"productId":"065808", "colorId":"601", "productName": "Feeni Ruusuruoho -tunika"}'>
+        <div class='store-inventory' id='inventory-app' data-product-params='{"id":"065808", "color":"601", "name": "Feeni Ruusuruoho -tunika"}'>
             <div class='store-inventory-toggle clearfix'>
                 <div class='toggle-icon'></div>
                 <div class='toggle-link' @click='toggleDropdown'>Katso saatavuus myymälöissä</div>
@@ -169,15 +169,19 @@
                     Reservation Summary
                 </div>
                 <div class='reservation-summary--product'>
-                    <div class='product-quantity'></div>
-                    <div class='product-name'></div>
-                    <div class='product-price'></div>
+                    <div class='product-quantity' v-if='productType == "onesize" && qty > 1'>{{qty}}</div>
+                    <div class='product-name'>{{productName}}</div>
+                    <div class='product-price' v-if='currencyAhead'>{{currency}}{{unitPrice}}</div>
+                    <div class='product-price' v-else>{{unitPrice}} {{currency}}</div>
                 </div>
                 <div class='reservation-summary--delivery'>
                     <div class="shipping-cost"></div>
                     <div class="pickup-store"></div>
                 </div>
                 <div class='reservation-summary--cost'>
+                    <div class='txt'>In total:</div>
+                    <div class='amount' v-if='currencyAhead'>{{currency}}{{finalPrice}}</div>
+                    <div class='amount' v-else>{{finalPrice}} {{currency}}</div>
                 </div>
             </div>
         </script>

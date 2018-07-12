@@ -383,10 +383,13 @@ jQuery(function ($) {
 
     /* Reserve & Collect Final Price Component */
     Vue.component("reserve-summary", {
-        props: ['currency', 'currencyAhead'],
         data: function() {
             return {
-                qty: 1
+                qty: 1,
+                currency: inventoryStatesStore.productParams.currency,
+                currencyAhead: inventoryStatesStore.productParams.currencyAhead,
+                productName: inventoryStatesStore.productParams.name,
+                productType: inventoryStatesStore.productParams.type
             }
         },
         template: "#reserve-summary-template",
