@@ -157,13 +157,13 @@
                                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-price .ysmy-product .price {
                                                     color: #e40079;
                                                 }
-                                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .btn-section *{
-                                            width: 100%;
-                                        }
 
-                                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .btn-section .reserve-submit{
-                                            margin-bottom: 20px;
-                                        }
+                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--additional{
+                                    background-color: #f6f5f3;
+                                    padding: 33px 10px;
+                                    line-height: 1.5;
+                                    letter-spacing: 0.8px;
+                                }
     }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact {
                                 letter-spacing: 1px;
@@ -190,12 +190,18 @@
                                     margin-top: 0;
                                     margin-bottom: 7px;
                                 }
-@media (max-width: 767px) {
+@media (max-width: 767px) {                                
+                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact {
+                                    margin-bottom: 42px;
+                                }
 
                                     .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact > input{
                                         width: 100%;
                                     }
                                         .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .btn-section * {
                                             width: 100%;
+                                        }
+                                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .btn-section .reserve-submit {
+                                            margin-bottom: 20px;
                                         }
     }

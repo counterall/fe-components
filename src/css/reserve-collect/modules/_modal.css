@@ -191,19 +191,12 @@
                                     }
 
                                 }
-                                
-                                &--contact{
 
-                                    .btn-section{
-                                        *{
-                                            width: 100%;
-                                        }
-
-                                        .reserve-submit{
-                                            margin-bottom: 20px;
-                                        }
-                                    }
-
+                                &--additional{
+                                    background-color: $background02;
+                                    padding: 33px 10px;
+                                    line-height: 1.5;
+                                    letter-spacing: 0.8px;
                                 }
 
                             }

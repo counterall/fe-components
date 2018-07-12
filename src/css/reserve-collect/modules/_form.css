@@ -44,8 +44,9 @@
                 .modal-dialog {
                     .modal-content {
                         .modal-body {
-                            .reserve-form {
+                            .reserve-form {                                
                                 &--contact {
+                                    margin-bottom: 42px;
 
                                     > input{
                                         width: 100%;
@@ -54,6 +55,9 @@
                                     .btn-section {
                                         * {
                                             width: 100%;
+                                        }
+                                        .reserve-submit {
+                                            margin-bottom: 20px;
                                         }
                                     }
                                 }
