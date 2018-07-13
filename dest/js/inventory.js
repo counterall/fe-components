@@ -12,7 +12,8 @@ jQuery(function ($) {
             reserveMsg: false
         },
         productParams: {
-            currencyAhead: false
+            currencyAhead: false,
+            qty: 1
         },
         storeContactInReserveForm: false,
         storeContactOverlay: false,
@@ -151,7 +152,7 @@ jQuery(function ($) {
                     'FI': [null, "Varastossa", "Vähän jäljellä", "Loppuunmyyty"],
                     'EN': [null, "In stock", 'Few left', "Out of stock"]
                 },
-                productType: inventoryStatesStore.productParams.type
+                productType: this.$root.statesStore.productParams.type
             };
         },
         computed: {
@@ -328,12 +329,8 @@ jQuery(function ($) {
 
     /* Reserve & Collect Form Component */
     Vue.component("reserve-form-block", {
+        props: ['productType', 'isMobile'],
         template: "#reserve-form-template",
-        data: function () {
-            return {
-                productType: inventoryStatesStore.productParams.type
-            }
-        },
         methods: {
             /* Verify every input field given by user valid*/
             validateFormInput: function (evt) {
@@ -398,15 +395,7 @@ jQuery(function ($) {
 
     /* Reserve & Collect Final Price Component */
     Vue.component("reserve-summary", {
-        data: function() {
-            return {
-                qty: 1,
-                currency: inventoryStatesStore.productParams.currency,
-                currencyAhead: inventoryStatesStore.productParams.currencyAhead,
-                productName: inventoryStatesStore.productParams.name,
-                productType: inventoryStatesStore.productParams.type
-            }
-        },
+        props: ['currency', 'currencyAhead', 'productName', 'productType', 'qty'],
         template: "#reserve-summary-template",
         computed: {
             finalPrice: function() {
@@ -418,9 +407,6 @@ jQuery(function ($) {
                 var unitPrice = inventoryStatesStore.productParams.unitPrice;
                 return this.$root.formatPrice(unitPrice);
             }
-        },
-        methods: {
-
         }
     });
 
@@ -435,7 +421,8 @@ jQuery(function ($) {
             cityData: false,
             cityList: false,
             cityChosen: false,
-            statesStore: inventoryStatesStore
+            statesStore: inventoryStatesStore,
+            tmpPrice: inventoryStatesStore.productParams
         },
         methods: {
             toggleDropdown: function () {
@@ -489,14 +476,11 @@ jQuery(function ($) {
         },
         mounted: function() {
             var bePassedParams = $(this.$el).data('product-params');
-
-            inventoryStatesStore.productParams = Object.assign({}, inventoryStatesStore.productParams, bePassedParams)
-
-            inventoryStatesStore.setProductParams('type', $('ul.list-size > li').length > 1 ? "sizable" : "onesize");
+            bePassedParams.type = $('ul.list-size > li').length > 1 ? "sizable" : "onesize";
 
             var rawProductData = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
             var productDataKey = Object.keys(rawProductData);
-            inventoryStatesStore.setProductParams('unitPrice', Number(rawProductData[productDataKey[0]].price_numeric));
+            bePassedParams.unitPrice = Number(rawProductData[productDataKey[0]].price_numeric);
 
             var nonEuroCountries = ['US', 'AU', 'SE', 'UK', 'DK', 'NO'];
             var currency;
@@ -525,7 +509,8 @@ jQuery(function ($) {
                         break;
                 }
             }
-            inventoryStatesStore.setProductParams('currency', currency);
+            bePassedParams.currency = currency;
+
             /* set screensize property when window is resized*/
             inventoryStatesStore.setScreenSize();
             var resizeTimeout;
@@ -536,6 +521,7 @@ jQuery(function ($) {
                 }, 50);
             });
 
+            this.statesStore.productParams = Object.assign({}, this.statesStore.productParams, bePassedParams);
         }
     });
 

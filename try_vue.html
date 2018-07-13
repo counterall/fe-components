@@ -134,9 +134,28 @@
                                 <reserve-product-block 
                                     :store-contact='statesStore.storeContactInReserveForm'
                                 ></reserve-product-block>
-                                <reserve-form-block></reserve-form-block>
+                                <reserve-form-block
+                                    :product-type='statesStore.productParams.type'
+                                    :is-mobile='statesStore.screensize.mobile'
+                                >
+                                    <reserve-summary slot='summary'
+                                        v-show='statesStore.screensize.mobile'
+                                        :currency='statesStore.productParams.currency'
+                                        :currency-ahead='statesStore.productParams.currencyAhead'
+                                        :product-name='statesStore.productParams.name'
+                                        :product-type='statesStore.productParams.type'
+                                        :qty='statesStore.productParams.qty'
+                                    ></reserve-summary>
+                                </reserve-form-block>
                                 <div class="reserve-form--additional">
-                                    <reserve-summary></reserve-summary>
+                                    <reserve-summary 
+                                        v-show='!statesStore.screensize.mobile'
+                                        :currency='statesStore.productParams.currency'
+                                        :currency-ahead='statesStore.productParams.currencyAhead'
+                                        :product-name='statesStore.productParams.name'
+                                        :product-type='statesStore.productParams.type'
+                                        :qty='statesStore.productParams.qty'
+                                    ></reserve-summary>
                                     <div class='instruction-txt'>
                                         Varaus maksetaan myymälään. Saat viestin kun varauksesi on noudettavissa myymä-lästä. Sinulla on 24 tuntia aikaa noutaa varauksesi. Jos varausta ei noudeta, se peruuntuu automaattisesti. <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus orci nec quam laoreet tincidunt. Nam sem risus, rhoncus ut scelerisque eu, tincidunt finibus libero. Sed ac volutpat arcu, vel suscipit ligula. Ut ultrices fringilla massa eu maximus.
                                     </div>
@@ -325,6 +344,7 @@
                 <label for="reservation-phone" class="form-field">Phone number <span>*</span></label>
                 <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern="\+?\d{3}-?\d{6,}" required id='reservation-phone' value='044123123123'>
                 <div class='form-info'>* All fields are required</div>
+                <slot name='summary'></slot>
                 <div class='btn-section'>
                     <button @click='checkReserveFormValidity' class='reserve-submit mari-btn mari-btn-lg mari-btn-primary'>Reserve</button>
                     <button class='reserve-cancel mari-btn mari-btn-lg mari-btn-secondary' data-dismiss="modal" aria-label="Close">Cancel</button>
