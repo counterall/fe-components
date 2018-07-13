@@ -395,16 +395,20 @@ jQuery(function ($) {
 
     /* Reserve & Collect Final Price Component */
     Vue.component("reserve-summary", {
-        props: ['currency', 'currencyAhead', 'productName', 'productType', 'qty'],
+        data: function(){
+            return {
+                params: inventoryStatesStore.productParams
+            };
+        },
         template: "#reserve-summary-template",
         computed: {
             finalPrice: function() {
-                var unitPrice = inventoryStatesStore.productParams.unitPrice;
-                var totalPrice = parseInt(this.qty) * unitPrice;
+                var unitPrice = this.params.unitPrice;
+                var totalPrice = parseInt(this.params.qty) * unitPrice;
                 return this.$root.formatPrice(totalPrice);
             },
             unitPrice: function() {
-                var unitPrice = inventoryStatesStore.productParams.unitPrice;
+                var unitPrice = this.params.unitPrice;
                 return this.$root.formatPrice(unitPrice);
             }
         }

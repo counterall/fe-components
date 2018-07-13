@@ -139,22 +139,12 @@
                                     :is-mobile='statesStore.screensize.mobile'
                                 >
                                     <reserve-summary slot='summary'
-                                        v-show='statesStore.screensize.mobile'
-                                        :currency='statesStore.productParams.currency'
-                                        :currency-ahead='statesStore.productParams.currencyAhead'
-                                        :product-name='statesStore.productParams.name'
-                                        :product-type='statesStore.productParams.type'
-                                        :qty='statesStore.productParams.qty'
+                                        v-if='statesStore.screensize.mobile'
                                     ></reserve-summary>
                                 </reserve-form-block>
                                 <div class="reserve-form--additional">
                                     <reserve-summary 
-                                        v-show='!statesStore.screensize.mobile'
-                                        :currency='statesStore.productParams.currency'
-                                        :currency-ahead='statesStore.productParams.currencyAhead'
-                                        :product-name='statesStore.productParams.name'
-                                        :product-type='statesStore.productParams.type'
-                                        :qty='statesStore.productParams.qty'
+                                        v-if='!statesStore.screensize.mobile'
                                     ></reserve-summary>
                                     <div class='instruction-txt'>
                                         Varaus maksetaan myymälään. Saat viestin kun varauksesi on noudettavissa myymä-lästä. Sinulla on 24 tuntia aikaa noutaa varauksesi. Jos varausta ei noudeta, se peruuntuu automaattisesti. <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus orci nec quam laoreet tincidunt. Nam sem risus, rhoncus ut scelerisque eu, tincidunt finibus libero. Sed ac volutpat arcu, vel suscipit ligula. Ut ultrices fringilla massa eu maximus.
@@ -190,10 +180,10 @@
                     Reservation Summary
                 </div>
                 <div class='reservation-summary--product'>
-                    <div class='product-quantity' v-if='productType == "onesize" && qty > 1'>{{qty}}</div>
-                    <div class='product-name'>{{productName}}</div>
-                    <div class='product-price' v-if='currencyAhead'>{{currency}}{{unitPrice}}</div>
-                    <div class='product-price' v-else>{{unitPrice}} {{currency}}</div>
+                <div class='product-quantity' v-if='params.type == "onesize" && params.qty > 1'>{{params.qty}}</div>
+                    <div class='product-name'>{{params.name}}</div>
+                    <div class='product-price' v-if='params.currencyAhead'>{{params.currency}}{{params.unitPrice}}</div>
+                    <div class='product-price' v-else>{{unitPrice}} {{params.currency}}</div>
                 </div>
                 <div class='reservation-summary--delivery'>
                     <div class="shipping-cost"></div>
@@ -201,8 +191,8 @@
                 </div>
                 <div class='reservation-summary--cost'>
                     <div class='txt'>In total:</div>
-                    <div class='amount' v-if='currencyAhead'>{{currency}}{{finalPrice}}</div>
-                    <div class='amount' v-else>{{finalPrice}} {{currency}}</div>
+                    <div class='amount' v-if='params.currencyAhead'>{{params.currency}}{{finalPrice}}</div>
+                    <div class='amount' v-else>{{finalPrice}} {{params.currency}}</div>
                 </div>
             </div>
         </script>
