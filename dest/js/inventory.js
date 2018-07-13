@@ -1,8 +1,13 @@
 jQuery(function ($) {
-    
+
     // Universal state store
     window.inventoryStatesStore = {
         debug: true,
+        screensize: {
+            mobile: false,
+            tablet: false,
+            desktop: true
+        },
         overlay: {
             reserveMsg: false
         },
@@ -34,6 +39,15 @@ jQuery(function ($) {
                 console.log(key + " updated to value: " + '"' + (val ? val : 'false') + '"');
             }
             this.productParams[key] = val;
+        },
+        setScreenSize: function() {
+            var screenWidth = $('body').width();
+            if (this.debug) {
+                console.log("screen size has been updated to " + screenWidth + "!");
+            }
+            this.screensize.mobile = screenWidth < 768;
+            this.screensize.tablet = screenWidth < 1024 && screenWidth > 767;
+            this.screensize.desktop = !this.screensize.mobile && !this.screensize.tablet;
         },
         ajaxUrl: {
             host: "http://localhost:5500/dest/json/inventory-onesize.json"
@@ -512,6 +526,15 @@ jQuery(function ($) {
                 }
             }
             inventoryStatesStore.setProductParams('currency', currency);
+            /* set screensize property when window is resized*/
+            inventoryStatesStore.setScreenSize();
+            var resizeTimeout;
+            $(window).resize(function () {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(function() {
+                    inventoryStatesStore.setScreenSize();
+                }, 50);
+            });
 
         }
     });
