@@ -185,9 +185,6 @@ jQuery(function ($) {
             setContactFormOverlay: function (){
                 /* set contact info property for contact overlay */
                 inventoryStatesStore.setStoreContactOverlay(this.prepareContactDetail());
-                this.$root.$nextTick(function () {
-                    $('#store-contact-overlay').modal();
-                });
             },
             prepareReserveForm: function() {
 
@@ -243,10 +240,6 @@ jQuery(function ($) {
                     $('.reserve-form .qty-selector .product-id').val(this.productMapping[69].mag_id);
                 }
 
-                this.$root.$nextTick(function () {
-                    $('#reserve-overlay').modal();
-                });
-
             }
         },
         mounted: function() {
@@ -264,10 +257,18 @@ jQuery(function ($) {
     });
 
     Vue.component('store-general-overlay', {
-        props: ['modalId', 'modalTitle'],
+        props: ['modalId', 'modalTitle', 'showModal'],
         template: '#store-general-overlay',
         updated: function() {
             console.log($(this.$el).attr('id') + ' modal updated!');
+        },
+        watch: {
+            showModal: function() {
+                $(this.$el).modal();
+            }
+        },
+        mounted: function() {
+            $(this.$el).modal();
         }
     });
 

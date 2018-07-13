@@ -114,6 +114,7 @@
                             :modal-id='"store-contact-overlay"'
                             :key='"store-contact"'
                             :modal-title='statesStore.storeContactOverlay.name'
+                            :show-modal='statesStore.storeContactOverlay'
                         >
                             <store-contact 
                                 slot='body'
@@ -127,6 +128,7 @@
                             :modal-id='"reserve-overlay"'
                             :key='"reserve-overlay"'
                             :modal-title='"Reserve & Collect"'
+                            :show-modal='statesStore.storeContactInReserveForm'
                         >
                             <div class='reserve-form' slot='body' v-if='!statesStore.overlay.reserveMsg'>
                                 <reserve-product-block 
