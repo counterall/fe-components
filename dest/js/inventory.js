@@ -69,7 +69,8 @@ jQuery(function ($) {
                     data: this.options,
                     placeholder: 'Valitse kaupunki',
                     width: "element",
-                    theme: "marimekko"
+                    theme: "marimekko",
+                    dropdownParent: $('#custom-city-select2-dropdown-wrapper')
                 })
                 // emit vue change
                 .on('change', function () {
@@ -87,7 +88,8 @@ jQuery(function ($) {
                     data: options,
                     placeholder: 'Valitse kaupunki',
                     width: "element",
-                    theme: "marimekko"
+                    theme: "marimekko",
+                    dropdownParent: $('#custom-city-select2-dropdown-wrapper')
                 });
             }
         },
@@ -248,9 +250,12 @@ jQuery(function ($) {
                             }
                         }
 
+                        $sizeOptions.push($sizeOption);
 
-                        $sizeSelect.append($sizeOption);
                     });
+
+                    $sizeSelect.empty().append($sizeOptions);
+
                 }else {
                     $('.reserve-form .qty-selector .product-id').val(this.productMapping[69].mag_id);
                 }
@@ -307,7 +312,7 @@ jQuery(function ($) {
         data: function() {
             return {
                 productType: inventoryStatesStore.productParams.type
-            }
+            };
         },
         template: "#reserve-product-template",
         mounted: function() {
@@ -374,7 +379,7 @@ jQuery(function ($) {
                         inventoryStatesStore.setReserveMsg('success');
                     }).fail(function () {
                         inventoryStatesStore.setReserveMsg('error');
-                    })
+                    });
 
                 }
             }
