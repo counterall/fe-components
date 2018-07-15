@@ -99,16 +99,18 @@ jQuery(function ($) {
     });
 
     Vue.component('size-select2', {
-        props: ['value'],
+        props: ['value', 'width'],
         template: '<select>\
         <slot></slot>\
         </select>',
         mounted: function () {
+            this.$nextTick(function () {
             var vm = this;
             $(this.$el)
+                .css('width', this.width)
                 .select2({
                     placeholder: 'Valitse koko',
-                    width: "element",
+                    width: "resolve",
                     theme: "marimekko",
                     minimumResultsForSearch: Infinity,
                     dropdownParent: $('#custom-size-select2-dropdown-wrapper')
@@ -139,9 +141,6 @@ jQuery(function ($) {
                 // update value
                 $(this.$el).val(value);
             }
-        },
-        destroyed: function () {
-            $(this.$el).off().select2('destroy');
         }
     });
 
