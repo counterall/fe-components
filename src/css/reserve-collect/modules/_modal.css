@@ -74,23 +74,22 @@
                                 }
 
                                 .product-attribute {
-                                    position: relative;
-
-                                    > div {
-                                        float: left;
-                                    }
+                                    display: flex;
+                                    flex-direction: row;
                                     
                                     .left-side {
                                         .product-img {
                                             width: 100%;
                                             height: auto;
-                                            display: inline-block;
+                                            display: block;
                                         }
                                     }
 
                                     .right-side{
+                                        position: relative;
 
                                         .attribute-selector{
+                                            width: 100%;
                                             position: absolute;
                                             bottom: 0;
                                         }
@@ -137,13 +136,19 @@
                                 &--product{
                                     margin-bottom: 30px;
 
+                                    .size-selector {
+                                        select.size-list {
+                                            width: 100%;
+                                        }
+                                    }
+
                                     .product-attribute{
                                         .left-side{
                                             width: 80px;
                                         }
                                         .right-side{
-                                            width: calc(100% - 81px);
-                                            padding-left: 10px;
+                                            width: calc(100% - 91px);
+                                            margin-left: 10px;
 
                                             .product-name {
                                                 h1 {

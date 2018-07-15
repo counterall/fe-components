@@ -64,17 +64,19 @@
                                             padding-top: 4px;
                                         }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute {
-                                    position: relative;
+                                    display: flex;
+                                    flex-direction: row;
                                 }
-.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute > div {
-                                        float: left;
-                                    }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .left-side .product-img {
                                             width: 100%;
                                             height: auto;
-                                            display: inline-block;
+                                            display: block;
                                         }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side{
+                                        position: relative;
+                                    }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .attribute-selector{
+                                            width: 100%;
                                             position: absolute;
                                             bottom: 0;
                                         }
@@ -107,12 +109,15 @@
                                     margin-bottom: 30px;
 
                                 }
+                                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .size-selector select.size-list {
+                                            width: 100%;
+                                        }
                                         .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .left-side{
                                             width: 80px;
                                         }
                                         .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side{
-                                            width: calc(100% - 81px);
-                                            padding-left: 10px;
+                                            width: calc(100% - 91px);
+                                            margin-left: 10px;
 
                                         }
                                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-name h1 {
