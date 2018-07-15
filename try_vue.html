@@ -28,7 +28,7 @@
 <body class='catalog-product-view'>
     <ul class="list-size" style='display: none'>
         <li>haha</li>
-        <!-- <li>haha</li> -->
+        <li>haha</li>
     </ul>
     <div class='rich-product-page product-page-wrapper'>
         <!-- Raw data of onesize product attributes -->
@@ -67,15 +67,28 @@
         </div>
 
         <div class='store-inventory' id='inventory-app' data-product-params='{"id":"065808", "color":"601", "name": "Feeni Ruusuruoho -tunika"}'>
+           
             <div class='store-inventory-toggle clearfix'>
                 <div class='toggle-icon'></div>
                 <div class='toggle-link' @click='toggleDropdown'>Katso saatavuus myymälöissä</div>
             </div>
             <div class='store-inventory-info' v-if='showDropdown'>
-              
+
+                <vue-select2 v-if='cityList'
+                    @change="switchList" 
+                    v-bind="{
+                        className: 'city-selector',
+                        placeholder: 'Choose City',
+                        label: 'city',
+                        options: cityList,
+                        htmlOption: false
+                    }"
+                >
+                </vue-select2>
+
                 <city-select2 :class="dropDownClass" :options="cityList" @change="switchList">
                 </city-select2>
-                <div id="custom-city-select2-dropdown-wrapper"></div>
+                <div id='custom-city-select2-dropdown-wrapper'></div>
                 <!-- User guidance -->
                 <div class='instruction'>
                     <div class='instruction-text'>
@@ -346,6 +359,14 @@
         
         </script>
 
+        <script type='text/x-template' id='vue-select2-component'>
+            <div class='select2-component-wrapper'>
+                <select :class='className'>
+                    <slot></slot>
+                </select>
+                <div :id='dropDownWrapperId'></div>
+            </div>
+        </script>
 
     </div>
 

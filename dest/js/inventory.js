@@ -51,10 +51,68 @@ jQuery(function ($) {
             this.screensize.desktop = !this.screensize.mobile && !this.screensize.tablet;
         },
         ajaxUrl: {
-            host: "http://localhost:5500/dest/json/inventory-onesize.json"
+            host: "http://localhost:5500/dest/json/inventory.json"
         }
-    }
+    };
     
+    Vue.component('vue-select2', {
+        template: "#vue-select2-component",
+        props: ['value', 'width', 'placeholder', 'label', 'options', 'htmlOption', 'className'],
+        data: function() {
+            return {
+                config: {
+                    placeholder: this.placeholder,
+                    width: "resolve",
+                    theme: "marimekko",
+                    minimumResultsForSearch: Infinity
+                }
+            };
+        },
+        methods: {
+            renderSelect2: function() {
+                if (!this.htmlOptions) {
+                    this.config.data = this.options;
+                } else {
+                    $(this.$el).find('select').empty().append(this.options);
+                }
+
+                if (this.width) {
+                    $(this.$el).find('select').css('width', this.width);
+                }
+
+                this.config.dropdownParent = $('#' + this.dropDownWrapperId);
+                var vm = this;
+                $(this.$el).find('select')
+                .select2(this.config)
+                // emit vue change
+                .on('change', function () {
+                    vm.$emit('change', this.value);
+                });
+            }
+        },
+        computed: {
+            dropDownWrapperId: function() {
+                return 'custom-' + this.label + '-select2-dropdown-wrapper';
+            }
+        },
+        mounted: function () {
+            this.renderSelect2();
+        },
+        watch: {
+            value: function (value) {
+                // update value
+                $(this.$el).find('select').val(value);
+            },
+            options: function () {
+                $(this.$el).find('select').off().select2('destroy');
+                this.renderSelect2();
+            }
+        },
+        destroyed: function () {
+            $(this.$el).find('select').off().select2('destroy');
+        }
+    });
+
     /* Create vue component of select element where select2 jQuery plugin is applied */
     Vue.component('city-select2', {
         props: ['options', 'value'],
@@ -68,7 +126,7 @@ jQuery(function ($) {
                 .select2({
                     data: this.options,
                     placeholder: 'Valitse kaupunki',
-                    width: "element",
+                    width: "resolve",
                     theme: "marimekko",
                     dropdownParent: $('#custom-city-select2-dropdown-wrapper')
                 })
@@ -104,26 +162,25 @@ jQuery(function ($) {
         <slot></slot>\
         </select>',
         mounted: function () {
-            this.$nextTick(function () {
             var vm = this;
             $(this.$el)
-                .css('width', this.width)
-                .select2({
-                    placeholder: 'Valitse koko',
-                    width: "resolve",
-                    theme: "marimekko",
-                    minimumResultsForSearch: Infinity,
-                    dropdownParent: $('#custom-size-select2-dropdown-wrapper')
-                })
-                // emit vue change
-                .on('change', function () {
-                    vm.$emit('change', this.value);
-                });
+            .css('width', this.width)
+            .select2({
+                placeholder: 'Valitse koko',
+                width: "resolve",
+                theme: "marimekko",
+                minimumResultsForSearch: Infinity,
+                dropdownParent: $('#custom-size-select2-dropdown-wrapper')
+            })
+            // emit vue change
+            .on('change', function () {
+                vm.$emit('change', this.value);
+            });
         },
         updated: function () {
+            console.log('size option updated');
             var vm = this;
             $(this.$el)
-            .empty()
             .select2({
                 placeholder: 'Valitse koko',
                 width: "element",
@@ -216,7 +273,7 @@ jQuery(function ($) {
                     var vm = this;
                     /* Empty size select*/
                     var $sizeSelect = $(this.$parent.$el).find('select.size-list');
-                    $sizeSelect.empty().append("<option></option>");
+                    var $sizeOptions = ["<option></option>"];
 
                     $.each(this.sizes, function (idx, size) {
                         var $sizeOption = $('<option/>', {
@@ -466,7 +523,7 @@ jQuery(function ($) {
         },
         computed: {
             productParams: function() {
-                var rawProductData = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
+                var rawProductData = JSON.parse($('.product-data-mine2').data('lookup').replace(/'/g, '\"'));
                 var productMapping = {};
                 for (var key in rawProductData) {
                     productMapping[key] = {};
