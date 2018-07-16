@@ -122,51 +122,6 @@ jQuery(function ($) {
             $(this.$el).find('select').off().select2('destroy');
         }
     });
-    
-    Vue.component('size-select2', {
-        props: ['value', 'width'],
-        template: '<select>\
-        <slot></slot>\
-        </select>',
-        mounted: function () {
-            var vm = this;
-            $(this.$el)
-            .css('width', this.width)
-            .select2({
-                placeholder: 'Valitse koko',
-                width: "resolve",
-                theme: "marimekko",
-                minimumResultsForSearch: Infinity,
-                dropdownParent: $('#custom-size-select2-dropdown-wrapper')
-            })
-            // emit vue change
-            .on('change', function () {
-                vm.$emit('change', this.value);
-            });
-        },
-        updated: function () {
-            console.log('size option updated');
-            var vm = this;
-            $(this.$el)
-            .select2({
-                placeholder: 'Valitse koko',
-                width: "element",
-                theme: "marimekko",
-                minimumResultsForSearch: Infinity,
-                dropdownParent: $('#custom-size-select2-dropdown-wrapper')
-            })
-            // emit vue change
-            .on('change', function () {
-                vm.$emit('change', this.value);
-            });
-        },
-        watch: {
-            value: function (value) {
-                // update value
-                $(this.$el).val(value);
-            }
-        }
-    });
 
     Vue.component('store-inventory-list', {
         props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productMapping", "storeId", "storeType"],
