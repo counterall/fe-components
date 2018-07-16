@@ -81,7 +81,8 @@
                         placeholder: 'Choose City',
                         label: 'city',
                         options: cityList,
-                        htmlOption: false
+                        htmlOption: false,
+                        disableSearch: false
                     }"
                 >
                 </vue-select2>
@@ -89,6 +90,7 @@
                 <city-select2 :class="dropDownClass" :options="cityList" @change="switchList">
                 </city-select2>
                 <div id='custom-city-select2-dropdown-wrapper'></div>
+
                 <!-- User guidance -->
                 <div class='instruction'>
                     <div class='instruction-text'>

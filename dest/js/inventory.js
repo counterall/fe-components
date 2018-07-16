@@ -57,14 +57,13 @@ jQuery(function ($) {
     
     Vue.component('vue-select2', {
         template: "#vue-select2-component",
-        props: ['value', 'width', 'placeholder', 'label', 'options', 'htmlOption', 'className'],
+        props: ['value', 'width', 'placeholder', 'label', 'options', 'htmlOption', 'disableSearch', 'className'],
         data: function() {
             return {
                 config: {
                     placeholder: this.placeholder,
                     width: "resolve",
-                    theme: "marimekko",
-                    minimumResultsForSearch: Infinity
+                    theme: "marimekko"
                 }
             };
         },
@@ -74,6 +73,10 @@ jQuery(function ($) {
                     this.config.data = this.options;
                 } else {
                     $(this.$el).find('select').empty().append(this.options);
+                }
+
+                if (this.disableSearch) {
+                    this.config.minimumResultsForSearch = Infinity;
                 }
 
                 if (this.width) {
