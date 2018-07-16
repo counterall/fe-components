@@ -202,8 +202,7 @@
                                     margin: 15px 0 28px;
                                 }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact .error-validation-msg {
-                                    margin-top: 0;
-                                    margin-bottom: 7px;
+                                    margin-top: 10px;
                                 }
 @media (max-width: 767px) {                                
                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact {

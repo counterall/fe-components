@@ -323,17 +323,22 @@ jQuery(function ($) {
             /* Verify every input field given by user valid*/
             validateFormInput: function (evt) {
                 var input = evt.target;
-                inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(input), "Please enter a valid value");
+                inputValidateHELPER.checkInputValidity($(input), "Please enter a valid value");
             },
             checkReserveFormValidity: function () {
                 var allPassed = true;
                 var $form = $('#reserve-overlay');
                 $form.find('input').each(function () {
-                    if (!inputValidateHELPER.checkValidityAndSetCustomErrorMsg($(this), "Please enter a valid value")) {
+                    if (!inputValidateHELPER.checkInputValidity($(this), "Please enter a valid value")) {
                         allPassed = false;
                     }
                 });
 
+                if (inventoryStatesStore.productParams.type == 'sizable') {
+                    if (!inputValidateHELPER.checkSelectValidity($form.find('.size-list'), 'Please select size first')) {
+                        allPassed = false;
+                    }
+                }
                 /* Do POST request when all fields are valid */
                 if (allPassed) {
                     var extraParams = {
@@ -445,8 +450,9 @@ jQuery(function ($) {
                 return price;
             },
             updateSku: function() {
-                var sku = $('select.size-list').val();
+                var sku = $('#reserve-overlay select.size-list').val();
                 inventoryStatesStore.setReserveAttrs('sku', sku);
+                inputValidateHELPER.checkSelectValidity($('#reserve-overlay select.size-list'), 'Please select size first');
             }
         },
         computed: {

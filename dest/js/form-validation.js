@@ -4,7 +4,7 @@
 
 window.inputValidateHELPER = (function($) {
 
-    var checkValidityAndSetCustomErrorMsg = function ($container, msg) {
+    var checkInputValidity = function ($container, msg) {
         var ele = $container[0];
         // console.log(ele.validity);
 
@@ -33,6 +33,32 @@ window.inputValidateHELPER = (function($) {
 
     };
 
+    var checkSelectValidity = function ($container, msg) {
+        var ele = $container[0];
+        var $select2Container = $container.next('.select2-container');
+        // set custom validation message if validation failed
+        if (!ele.checkValidity()) {
+
+            if (!$select2Container.next('.error-validation-msg').length) {
+                var $errorMsg = $('<div/>', {
+                    "class": "error-validation-msg",
+                    text: msg
+                });
+                $select2Container.after($errorMsg);
+            }
+
+            return false;
+
+        } else {
+
+            $select2Container.next('.error-validation-msg').remove();
+
+            return true;
+
+        }
+
+    };
+
     var realtimeTextInputValidate = function($container){
 
         $container.removeClass('mari-input--text-primary');
@@ -47,7 +73,8 @@ window.inputValidateHELPER = (function($) {
     };
 
     return {
-        checkValidityAndSetCustomErrorMsg: checkValidityAndSetCustomErrorMsg,
+        checkInputValidity: checkInputValidity,
+        checkSelectValidity: checkSelectValidity,
         realtimeTextInputValidate: realtimeTextInputValidate
     };
 
