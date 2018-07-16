@@ -68,7 +68,7 @@ jQuery(function ($) {
     /* Create vue component of select element where select2 jQuery plugin is applied */
     Vue.component('vue-select2', {
         template: "#vue-select2-component",
-        props: ['value', 'width', 'placeholder', 'label', 'options', 'htmlOptions', 'disableSearch', 'className'],
+        props: ['width', 'placeholder', 'label', 'options', 'htmlOptions', 'disableSearch', 'className'],
         data: function() {
             return {
                 config: {
@@ -113,10 +113,6 @@ jQuery(function ($) {
             this.renderSelect2();
         },
         watch: {
-            value: function (value) {
-                // update value
-                $(this.$el).find('select').val(value);
-            },
             options: function () {
                 $(this.$el).find('select').off().select2('destroy');
                 this.renderSelect2();
@@ -505,7 +501,7 @@ jQuery(function ($) {
             }
         },
         updated: function () {
-            console.log('App updated!');
+            // console.log('App updated!');
         },
         mounted: function() {
             var bePassedParams = $(this.$el).data('product-params');
