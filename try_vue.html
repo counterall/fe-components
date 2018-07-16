@@ -144,7 +144,21 @@
                             <div class='reserve-form' slot='body' v-if='!statesStore.overlay.reserveMsg'>
                                 <reserve-product-block 
                                     :store-contact='statesStore.storeContactInReserveForm'
-                                ></reserve-product-block>
+                                >
+                                    <vue-select2 slot='size-selector' v-if='statesStore.selector.size'
+                                        @change="switchList" 
+                                        v-bind="{
+                                            className: 'size-list',
+                                            placeholder: 'Choose Size',
+                                            label: 'size',
+                                            options: statesStore.selector.size,
+                                            htmlOptions: true,
+                                            disableSearch: true,
+                                            width: '100%'
+                                        }"
+                                    >
+                                    </vue-select2>
+                                </reserve-product-block>
                                 <reserve-form-block
                                     :product-type='statesStore.productParams.type'
                                     :is-mobile='statesStore.screensize.mobile'
@@ -321,12 +335,7 @@
                             <span class="qty-plus"></span>
                         </div>
                         <div class='attribute-selector size-selector' v-else>
-                            <size-select2 
-                                class="size-list"
-                                :width='"100%"'
-                            >
-                            </size-select2>
-                            <div id="custom-size-select2-dropdown-wrapper"></div>
+                            <slot name='size-selector'></slot>
                         </div>
                     </div>
                 </div>

@@ -243,8 +243,7 @@ jQuery(function ($) {
                 if (this.productType === 'sizable') {
                     var vm = this;
                     /* Empty size select*/
-                    var $sizeSelect = $(this.$parent.$el).find('select.size-list');
-                    var $sizeOptions = ["<option></option>"];
+                    var $sizeOptions = [$("<option></option>")];
 
                     $.each(this.sizes, function (idx, size) {
                         var $sizeOption = $('<option/>', {
@@ -281,7 +280,7 @@ jQuery(function ($) {
 
                     });
 
-                    $sizeSelect.empty().append($sizeOptions);
+                    inventoryStatesStore.setSelector('size', $sizeOptions);
 
                 }else {
                     $('.reserve-form .qty-selector .product-id').val(this.productMapping[69].mag_id);
