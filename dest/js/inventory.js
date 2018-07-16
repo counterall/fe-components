@@ -269,7 +269,7 @@ jQuery(function ($) {
                             if (vm.productMapping.hasOwnProperty(key)) {
                             
                                 if (vm.productMapping[key].size === size.product_size) {
-                                    $sizeOption.attr('value', vm.productMapping[key].mag_id);
+                                    $sizeOption.attr('value', vm.productMapping[key].sku);
                                     break;
                                 }
                                 
@@ -455,8 +455,7 @@ jQuery(function ($) {
             countryData: false,
             cityData: false,
             cityChosen: false,
-            statesStore: inventoryStatesStore,
-            tmpPrice: inventoryStatesStore.productParams
+            statesStore: inventoryStatesStore
         },
         methods: {
             toggleDropdown: function () {
@@ -496,7 +495,7 @@ jQuery(function ($) {
                 var productMapping = {};
                 for (var key in rawProductData) {
                     productMapping[key] = {};
-                    productMapping[key].mag_id = rawProductData[key].id; 
+                    productMapping[key].sku = rawProductData[key].sku; 
                     productMapping[key].size = rawProductData[key].size;
                 }
                 
