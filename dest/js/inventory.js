@@ -17,6 +17,16 @@ jQuery(function ($) {
         },
         storeContactInReserveForm: false,
         storeContactOverlay: false,
+        selector: {
+            size: false,
+            city: false
+        },
+        setSelector: function (key, val) {
+            if (this.debug) {
+                console.log(key + " selector updated to value: ", val);
+            }
+            this.selector[key] = val;
+        },
         setReserveMsg: function (val) {
             if (this.debug) {
                 console.log('Reserve return message state updated to ' + '"' + (val ? val : 'false') + '"');
@@ -445,7 +455,6 @@ jQuery(function ($) {
             countryCode: "FI",
             countryData: false,
             cityData: false,
-            cityList: false,
             cityChosen: false,
             statesStore: inventoryStatesStore,
             tmpPrice: inventoryStatesStore.productParams
@@ -463,7 +472,7 @@ jQuery(function ($) {
                        vm.countryData = data[vm.countryCode];
                        var cityList = Object.keys(vm.countryData).sort();
                        cityList.unshift('');
-                       vm.cityList = cityList;
+                       inventoryStatesStore.setSelector('city', cityList);
                    }).fail(function(){
                        vm.countryData = false;
                    });

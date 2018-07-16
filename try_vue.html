@@ -74,13 +74,13 @@
             </div>
             <div class='store-inventory-info' v-if='showDropdown'>
 
-                <vue-select2 v-if='cityList'
+                <vue-select2 v-if='statesStore.selector.city'
                     @change="switchList" 
                     v-bind="{
                         className: 'city-selector',
                         placeholder: 'Choose City',
                         label: 'city',
-                        options: cityList,
+                        options: statesStore.selector.city,
                         htmlOption: false,
                         disableSearch: false
                     }"
