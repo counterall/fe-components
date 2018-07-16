@@ -55,6 +55,7 @@ jQuery(function ($) {
         }
     };
     
+    /* Create vue component of select element where select2 jQuery plugin is applied */
     Vue.component('vue-select2', {
         template: "#vue-select2-component",
         props: ['value', 'width', 'placeholder', 'label', 'options', 'htmlOption', 'disableSearch', 'className'],
@@ -115,50 +116,7 @@ jQuery(function ($) {
             $(this.$el).find('select').off().select2('destroy');
         }
     });
-
-    /* Create vue component of select element where select2 jQuery plugin is applied */
-    Vue.component('city-select2', {
-        props: ['options', 'value'],
-        template: '<select>\
-        <slot></slot>\
-        </select>',
-        mounted: function () {
-            var vm = this;
-            $(this.$el)
-                // init select2
-                .select2({
-                    data: this.options,
-                    placeholder: 'Valitse kaupunki',
-                    width: "resolve",
-                    theme: "marimekko",
-                    dropdownParent: $('#custom-city-select2-dropdown-wrapper')
-                })
-                // emit vue change
-                .on('change', function () {
-                    vm.$emit('change', this.value);
-                });
-        },
-        watch: {
-            value: function (value) {
-                // update value
-                $(this.$el).val(value);
-            },
-            options: function (options) {
-                // update options
-                $(this.$el).empty().select2({
-                    data: options,
-                    placeholder: 'Valitse kaupunki',
-                    width: "element",
-                    theme: "marimekko",
-                    dropdownParent: $('#custom-city-select2-dropdown-wrapper')
-                });
-            }
-        },
-        destroyed: function () {
-            $(this.$el).off().select2('destroy');
-        }
-    });
-
+    
     Vue.component('size-select2', {
         props: ['value', 'width'],
         template: '<select>\
