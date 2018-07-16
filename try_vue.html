@@ -114,8 +114,8 @@
                             :sizes='item.sizes'
                             :key='item.storeId'
                             :index='index'
-                            :store-id='item.company_store_id'
                             :store-type='item.storeType'
+                            :store-id='item.company_store_id'
                             :product-mapping='productParams.product_mapping'
                         ></store-inventory-list>
 
@@ -338,7 +338,7 @@
                         </div>
                     </div>
                 </div>
-                <input hidden name='store-id' class='store-id'>
+                <input hidden name='store-id' class='store-id' v-model='storeAttrs.id'>
             </div>
         </script>
 

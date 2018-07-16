@@ -196,9 +196,9 @@ jQuery(function ($) {
 
                 /* set contact info property for reservation form*/
                 inventoryStatesStore.setStoreContactInReserveForm(this.prepareContactDetail());
-
-                /* Attach storeID to the reservation form */
-                $('.reserve-form--product > input.store-id').val(this.storeId);
+                
+                /* set store ID for reservation form */
+                inventoryStatesStore.setStoreAttrs('id', this.storeId);
 
                 if (this.productType === 'sizable') {
                     var vm = this;
@@ -297,7 +297,8 @@ jQuery(function ($) {
         props: ['storeContact'],
         data: function() {
             return {
-                productType: inventoryStatesStore.productParams.type
+                productType: inventoryStatesStore.productParams.type,
+                storeAttrs: inventoryStatesStore.storeAttrs
             };
         },
         template: "#reserve-product-template",
