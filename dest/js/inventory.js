@@ -57,7 +57,7 @@ jQuery(function ($) {
             this.screensize.desktop = !this.screensize.mobile && !this.screensize.tablet;
         },
         ajaxUrl: {
-            host: "http://localhost:5500/dest/json/inventory-onesize.json"
+            host: "http://localhost:5500/dest/json/inventory.json"
         }
     };
     
@@ -345,7 +345,7 @@ jQuery(function ($) {
                         sku: inventoryStatesStore.reservationForm.sku
                     };
 
-                    if (this.productType === 'sizable') {
+                    if (inventoryStatesStore.productParams.type === 'sizable') {
                         extraParams.quantity = 1;
                     } else {
                         extraParams.quantity = $form.find('input.qty-input').val();
@@ -406,7 +406,6 @@ jQuery(function ($) {
     window.inventoryApp = new Vue({
         el: "#inventory-app",
         data: {
-            dropDownClass: "city-selector",
             showDropdown: false,
             countryCode: "FI",
             countryData: false,
@@ -444,11 +443,15 @@ jQuery(function ($) {
                     price = price.replace('.', ',');
                 }
                 return price;
+            },
+            updateSku: function() {
+                var sku = $('select.size-list').val();
+                inventoryStatesStore.setReserveAttrs('sku', sku);
             }
         },
         computed: {
             productParams: function() {
-                var rawProductData = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
+                var rawProductData = JSON.parse($('.product-data-mine2').data('lookup').replace(/'/g, '\"'));
                 var productMapping = {};
                 for (var key in rawProductData) {
                     productMapping[key] = {};
