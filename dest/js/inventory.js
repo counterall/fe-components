@@ -11,6 +11,9 @@ jQuery(function ($) {
         overlay: {
             reserveMsg: false
         },
+        storeAttrs: {
+            id: false
+        },
         productParams: {
             currencyAhead: false,
             qty: 1
@@ -32,6 +35,12 @@ jQuery(function ($) {
                 console.log('Reserve return message state updated to ' + '"' + (val ? val : 'false') + '"');
             }
             this.overlay.reserveMsg = val;
+        },
+        setStoreAttrs: function (key, val) {
+            if (this.debug) {
+                console.log('Store attr "' + key + '" is updated to ' + '"' + (val ? val : 'false') + '"');
+            }
+            this.storeAttrs[key] = val;
         },
         setStoreContactOverlay: function (val) {
             if (this.debug) {
