@@ -68,7 +68,7 @@ jQuery(function ($) {
     /* Create vue component of select element where select2 jQuery plugin is applied */
     Vue.component('vue-select2', {
         template: "#vue-select2-component",
-        props: ['value', 'width', 'placeholder', 'label', 'options', 'htmlOption', 'disableSearch', 'className'],
+        props: ['value', 'width', 'placeholder', 'label', 'options', 'htmlOptions', 'disableSearch', 'className'],
         data: function() {
             return {
                 config: {
