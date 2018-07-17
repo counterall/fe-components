@@ -421,6 +421,9 @@ jQuery(function ($) {
             console.log('reserve summary updated!');
         },
         mounted: function () {
+            if (this.product.type == 'onesize' && !$('select.quanity-selector').val() && this.summary.qty > 1) {
+                inventoryStatesStore.setReserveAttrs('qty', 1);
+            }
             console.log('reserve summary mounted!');
         }
     });
