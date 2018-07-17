@@ -201,24 +201,29 @@
         </div>
         
         <script type='text/x-template' id='reserve-summary-template'>
-            <div class='reservation-summary'>
-                <div class='reservation-summary--title'>
+            <div class='reserve-form--summary'>
+                <div class='summary-title'>
                     Reservation Summary
                 </div>
-                <div class='reservation-summary--product'>
-                <div class='product-quantity' v-if='params.type == "onesize" && params.qty > 1'>{{params.qty}}</div>
-                    <div class='product-name'>{{params.name}}</div>
-                    <div class='product-price' v-if='params.currencyAhead'>{{params.currency}}{{params.unitPrice}}</div>
-                    <div class='product-price' v-else>{{unitPrice}} {{params.currency}}</div>
+                <div class='summary-product summary-row'>
+                    <div class='product-name left-side'>                          
+                        <span class='product-quantity' v-if='params.type == "onesize" && params.qty > 1'>{{params.qty}} x &nbsp;</span>{{params.name}}
+                    </div>
+                    <div class='product-price right-side' v-if='params.currencyAhead'>{{params.currency}}{{params.unitPrice}}</div>
+                    <div class='product-price right-side' v-else>{{unitPrice}} {{params.currency}}</div>
                 </div>
-                <div class='reservation-summary--delivery'>
-                    <div class="shipping-cost"></div>
-                    <div class="pickup-store"></div>
+                <div class='summary-delivery summary-row'>
+                    <div class="pickup-store left-side">
+                        <div>Nouto myymälästä</div>
+                        <div class='store-name'>{{params.storeName}}</div>
+                    </div>
+                    <div class="shipping-cost right-side" v-if='params.currencyAhead'>{{params.currency}}0</div>
+                    <div class='shipping-cost right-side' v-else>0 {{params.currency}}</div>
                 </div>
-                <div class='reservation-summary--cost'>
-                    <div class='txt'>In total:</div>
-                    <div class='amount' v-if='params.currencyAhead'>{{params.currency}}{{finalPrice}}</div>
-                    <div class='amount' v-else>{{finalPrice}} {{params.currency}}</div>
+                <div class='summary-cost summary-row'>
+                    <div class='txt left-side'>In total:</div>
+                    <div class='amount right-side' v-if='params.currencyAhead'>{{params.currency}}{{finalPrice}}</div>
+                    <div class='amount right-side' v-else>{{finalPrice}} {{params.currency}}</div>
                 </div>
             </div>
         </script>

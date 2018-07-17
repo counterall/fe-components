@@ -92,6 +92,42 @@
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--additional .contact-info .store-name{
                                         font-weight: bold;
                                     }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary {
+                                letter-spacing: 1px;
+                                line-height: 21px;
+                                padding-bottom: 30px;
+                                
+                            }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary .summary-row{
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary .summary-row .right-side{
+                                        min-width: 100px;
+                                        text-align: right;
+                                    }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary .summary-title{
+                                    font-size: 16px;
+                                    padding-bottom: 20px;
+                                }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary .summary-product{
+                                    font-size: 12px;
+                                    padding-bottom: 20px;
+                                }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary .summary-delivery{
+                                    font-size: 12px;
+                                    border-bottom: 1px solid #dfdfdf;
+                                    padding-bottom: 10px;
+                                }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary .summary-delivery .pickup-store .store-name{
+                                            font-weight: bold;
+                                        }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary .summary-cost{
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    padding-top: 10px;
+                                }
 @media (max-width: 767px) {
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
                     top: 10px;
@@ -177,6 +213,10 @@
 
                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--additional{
                                     padding: 33px 10px;
+                                    
+                                }
+
+                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--summary{
                                     
                                 }
     }
