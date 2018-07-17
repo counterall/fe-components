@@ -117,6 +117,10 @@ jQuery(function ($) {
         },
         destroyed: function () {
             $(this.$el).find('select').off().select2('destroy');
+            console.log('"' + this.label + '" select is destroyed!');
+        },
+        created: function() {
+            console.log('"' + this.label + '" select is created!');
         }
     });
 
@@ -406,6 +410,18 @@ jQuery(function ($) {
                 var unitPrice = this.product.unitPrice;
                 return this.$root.formatPrice(unitPrice);
             }
+        },
+        destroyed: function () {
+            console.log('reserve summary destroyed!');
+        },
+        created: function () {
+            console.log('reserve summary created!');
+        },
+        updated: function () {
+            console.log('reserve summary updated!');
+        },
+        mounted: function () {
+            console.log('reserve summary mounted!');
         }
     });
 
