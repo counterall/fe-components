@@ -12,16 +12,17 @@ jQuery(function ($) {
             reserveMsg: false,
             contact: false,
             storeId: false,
-            sku: false         
+            sku: false,
+            qty: 1
         },
         productParams: {
-            currencyAhead: false,
-            qty: 1
+            currencyAhead: false
         },
         storeContactOverlay: false,
         selector: {
             size: false,
-            city: false
+            city: false,
+            qty: ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         },
         setSelector: function (key, val) {
             if (this.debug) {
@@ -347,14 +348,9 @@ jQuery(function ($) {
                         telephone:this.tel,
                         email: this.email,
                         store_id: inventoryStatesStore.reservationForm.storeId,
-                        sku: inventoryStatesStore.reservationForm.sku
+                        sku: inventoryStatesStore.reservationForm.sku,
+                        quantity: inventoryStatesStore.reservationForm.qty
                     };
-
-                    if (inventoryStatesStore.productParams.type === 'sizable') {
-                        extraParams.quantity = 1;
-                    } else {
-                        extraParams.quantity = $form.find('input.qty-input').val();
-                    }
 
                     console.log(extraParams);
 
@@ -451,14 +447,22 @@ jQuery(function ($) {
                 return price;
             },
             updateSku: function() {
-                var sku = $('#reserve-overlay select.size-list').val();
+                var $skuSelect = $('#reserve-overlay select.size-list');
+                var sku = $skuSelect.val();
                 inventoryStatesStore.setReserveAttrs('sku', sku);
-                inputValidateHELPER.checkSelectValidity($('#reserve-overlay select.size-list'), 'Please select size first');
+                inputValidateHELPER.checkSelectValidity($skuSelect, 'Please select size first');
+            },
+            updateQty: function () {
+                var $qtySelect = $('#reserve-overlay select.qty-selector');
+                var qty = parseInt($qtySelect.val());
+                inventoryStatesStore.setReserveAttrs('qty', qty);
+                inputValidateHELPER.checkSelectValidity($qtySelect, 'Please select quantity first');
             }
+
         },
         computed: {
             productParams: function() {
-                var rawProductData = JSON.parse($('.product-data-mine2').data('lookup').replace(/'/g, '\"'));
+                var rawProductData = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
                 var productMapping = {};
                 for (var key in rawProductData) {
                     productMapping[key] = {};
