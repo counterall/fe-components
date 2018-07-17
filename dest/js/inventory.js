@@ -339,6 +339,10 @@ jQuery(function ($) {
                     if (!inputValidateHELPER.checkSelectValidity($form.find('.size-selector'), 'Please select size first')) {
                         allPassed = false;
                     }
+                }else{
+                    if (!inputValidateHELPER.checkSelectValidity($form.find('.qty-selector'), 'Please select size first')) {
+                        allPassed = false;
+                    }
                 }
                 /* Do POST request when all fields are valid */
                 if (allPassed) {
@@ -451,13 +455,11 @@ jQuery(function ($) {
                 var $skuSelect = $('#reserve-overlay select.size-selector');
                 var sku = $skuSelect.val();
                 inventoryStatesStore.setProductParams('sku', sku);
-                inputValidateHELPER.checkSelectValidity($skuSelect, 'Please select size first');
             },
             updateQty: function () {
                 var $qtySelect = $('#reserve-overlay select.qty-selector');
                 var qty = parseInt($qtySelect.val());
                 inventoryStatesStore.setReserveAttrs('qty', qty);
-                inputValidateHELPER.checkSelectValidity($qtySelect, 'Please select quantity first');
             }
 
         },
