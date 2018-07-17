@@ -292,7 +292,7 @@ jQuery(function ($) {
         template: "#reserve-product-template",
         mounted: function() {
             if (this.productType === 'onesize') {
-                initQuantitySelector($(this.$el).find('.qty-selector'));
+                initQuantitySelector($(this.$el).find('.qty-selector-wrapper'));
             }
             console.log('reserve product mounted!');
         },

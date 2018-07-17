@@ -3,7 +3,7 @@
 /* Text input field themes*/
 /* Button style */
 /* Text input style */
-.qty-selector{
+.qty-selector-wrapper{
 
     height: 45px;
     width: 110px;
@@ -13,7 +13,7 @@
     border: 1px solid #989898;
 
 }
-.qty-selector input.qty-input{
+.qty-selector-wrapper input.qty-input{
         width: 40px;
         height: 25px;
         border: 0;
@@ -22,13 +22,13 @@
         margin-bottom: 15px;
         display: none;
     }
-.qty-selector .qty-val{
+.qty-selector-wrapper .qty-val{
 
         padding: 6px 5px 0 5px;
 
     }
-.qty-selector .qty-minus,
-    .qty-selector .qty-plus {
+.qty-selector-wrapper .qty-minus,
+    .qty-selector-wrapper .qty-plus {
         width: 20px;
         height: 20px;
         background-position: center center;
@@ -40,12 +40,12 @@
             -ms-user-select: none;
                 user-select: none;
     }
-.qty-selector .qty-plus {
+.qty-selector-wrapper .qty-plus {
         background-image: url('https://marimekko.com/skin/frontend/carbon/marimekko/images/ui/icon_plus.png');
         margin-left: auto;
         margin-right: 15px;
     }
-.qty-selector .qty-minus {
+.qty-selector-wrapper .qty-minus {
         background-image: url('https://marimekko.com/skin/frontend/carbon/marimekko/images/ui/icon_minus.png');
         margin-left: 15px;
         margin-right: auto;
