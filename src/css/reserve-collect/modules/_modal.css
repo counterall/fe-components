@@ -12,36 +12,11 @@
                             &--product {
                                 margin-bottom: 50px;
 
-                                .size-selector {
-                                    ul.size-list {
-                                        button.size-item {
-                                            margin: 0 10px 10px 0;
-                                            display: inline-block;
-                                            height: 35px;
-                                            width: auto;
-                                            min-width: 35px;
-                                            padding: 0 5px;
-                                            font-size: 14px;
-                                            line-height: 35px;
-                                            color: $accentColour09;
-                                            background: $background01;
-                                            border: 1px solid $accentColour09;
-                                            letter-spacing: 0.08em;
-                                            &.selected {
-                                                background: $accentColour09;
-                                                border-color: $accentColour09;
-                                                color: $background01;
-                                            }
-                                            &[disabled] {
-                                                background: $background01;
-                                                color: $borderColour04;
-                                                border-color: $borderColour04;
-                                                text-decoration: line-through;
-                                            }
+                                .attribute-selector {
+                                    &--size {
+                                        select.size-selector {
+                                            width: 300px;
                                         }
-                                    }
-                                    select.size-list {
-                                        width: 300px;
                                     }
                                 }
 
@@ -182,9 +157,11 @@
                                 &--product{
                                     margin-bottom: 30px;
 
-                                    .size-selector {
-                                        select.size-list {
-                                            width: 100%;
+                                    .attribute-selector{
+                                        &--size {
+                                            select.size-selector {
+                                                width: 100%;
+                                            }
                                         }
                                     }
 
@@ -260,10 +237,6 @@
 
                                 &--additional{
                                     padding: 33px 10px;
-                                    
-                                }
-
-                                &--summary{
                                     
                                 }
 

@@ -28,7 +28,7 @@
 <body class='catalog-product-view'>
     <ul class="list-size" style='display: none'>
         <li>haha</li>
-        <li>haha</li>
+        <!-- <li>haha</li> -->
     </ul>
     <div class='rich-product-page product-page-wrapper'>
         <!-- Raw data of onesize product attributes -->
@@ -74,7 +74,8 @@
             </div>
             <div class='store-inventory-info' v-if='showDropdown'>
 
-                <vue-select2 v-if='statesStore.selector.city'
+                <vue-select2 
+                    v-if='statesStore.selector.city'
                     @change="switchList" 
                     v-bind="{
                         className: 'city-selector',
@@ -160,13 +161,13 @@
                                         @change='updateQty'
                                     >
                                     </vue-select2>
-                                    
+
                                     <!-- Size selector -->
                                     <vue-select2 
                                         slot='size-selector'
                                         v-if='statesStore.selector.size'
                                         v-bind="{
-                                            className: 'size-list',
+                                            className: 'size-selector',
                                             placeholder: 'Choose Size',
                                             label: 'size',
                                             options: statesStore.selector.size,
@@ -226,23 +227,23 @@
                 </div>
                 <div class='summary-product summary-row'>
                     <div class='product-name left-side'>                          
-                        <span class='product-quantity' v-if='params.type == "onesize" && params.qty > 1'>{{params.qty}} x &nbsp;</span>{{params.name}}
+                        <span class='product-quantity' v-if='product.type == "onesize" && summary.qty > 1'>{{summary.qty}} x &nbsp;</span>{{product.name}}
                     </div>
-                    <div class='product-price right-side' v-if='params.currencyAhead'>{{params.currency}}{{unitPrice}}</div>
-                    <div class='product-price right-side' v-else>{{unitPrice}} {{params.currency}}</div>
+                    <div class='product-price right-side' v-if='summary.currencyAhead'>{{product.currency}}{{unitPrice}}</div>
+                    <div class='product-price right-side' v-else>{{unitPrice}} {{product.currency}}</div>
                 </div>
                 <div class='summary-delivery summary-row'>
                     <div class="pickup-store left-side">
                         <div>Nouto myymälästä</div>
                         <div class='store-name'>{{storeName}}</div>
                     </div>
-                    <div class="shipping-cost right-side" v-if='params.currencyAhead'>{{params.currency}}0</div>
-                    <div class='shipping-cost right-side' v-else>0 {{params.currency}}</div>
+                    <div class="shipping-cost right-side" v-if='summary.currencyAhead'>{{product.currency}}0</div>
+                    <div class='shipping-cost right-side' v-else>0 {{product.currency}}</div>
                 </div>
                 <div class='summary-cost summary-row'>
                     <div class='txt left-side'>In total:</div>
-                    <div class='amount right-side' v-if='params.currencyAhead'>{{params.currency}}{{finalPrice}}</div>
-                    <div class='amount right-side' v-else>{{finalPrice}} {{params.currency}}</div>
+                    <div class='amount right-side' v-if='summary.currencyAhead'>{{product.currency}}{{finalPrice}}</div>
+                    <div class='amount right-side' v-else>{{finalPrice}} {{product.currency}}</div>
                 </div>
             </div>
         </script>
@@ -355,7 +356,7 @@
                         <div class='attribute-selector attribute-selector--qty' v-if="productType === 'onesize'">
                             <slot name='qty-selector'></slot>
                         </div>
-                        <div class='attribute-selector size-selector' v-else>
+                        <div class='attribute-selector attribute-selector--size' v-else>
                             <slot name='size-selector'></slot>
                         </div>
                     </div>

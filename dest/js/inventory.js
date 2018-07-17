@@ -12,11 +12,11 @@ jQuery(function ($) {
             reserveMsg: false,
             contact: false,
             storeId: false,
-            sku: false,
-            qty: 1
+            qty: 1,
+            currencyAhead: false
         },
         productParams: {
-            currencyAhead: false
+            sku: false
         },
         storeContactOverlay: false,
         selector: {
@@ -58,7 +58,7 @@ jQuery(function ($) {
             this.screensize.desktop = !this.screensize.mobile && !this.screensize.tablet;
         },
         ajaxUrl: {
-            host: "http://localhost:5500/dest/json/inventory.json"
+            host: "http://localhost:5500/dest/json/inventory-onesize.json"
         }
     };
     
@@ -232,7 +232,7 @@ jQuery(function ($) {
 
                 }else {
                     var key = Object.keys(this.productMapping)[0];
-                    inventoryStatesStore.setReserveAttrs('sku', this.productMapping[key].sku);
+                    inventoryStatesStore.setProductParams('sku', this.productMapping[key].sku);
                 }
 
             }
@@ -336,7 +336,7 @@ jQuery(function ($) {
                 });
 
                 if (inventoryStatesStore.productParams.type == 'sizable') {
-                    if (!inputValidateHELPER.checkSelectValidity($form.find('.size-list'), 'Please select size first')) {
+                    if (!inputValidateHELPER.checkSelectValidity($form.find('.size-selector'), 'Please select size first')) {
                         allPassed = false;
                     }
                 }
@@ -348,7 +348,7 @@ jQuery(function ($) {
                         telephone:this.tel,
                         email: this.email,
                         store_id: inventoryStatesStore.reservationForm.storeId,
-                        sku: inventoryStatesStore.reservationForm.sku,
+                        sku: inventoryStatesStore.productParams.sku,
                         quantity: inventoryStatesStore.reservationForm.qty
                     };
 
@@ -387,18 +387,19 @@ jQuery(function ($) {
         props: ['storeName'],
         data: function(){
             return {
-                params: inventoryStatesStore.productParams
+                product: inventoryStatesStore.productParams,
+                summary: inventoryStatesStore.reservationForm
             };
         },
         template: "#reserve-summary-template",
         computed: {
             finalPrice: function() {
-                var unitPrice = this.params.unitPrice;
-                var totalPrice = parseInt(this.params.qty) * unitPrice;
+                var unitPrice = this.product.unitPrice;
+                var totalPrice = parseInt(this.summary.qty) * unitPrice;
                 return this.$root.formatPrice(totalPrice);
             },
             unitPrice: function() {
-                var unitPrice = this.params.unitPrice;
+                var unitPrice = this.product.unitPrice;
                 return this.$root.formatPrice(unitPrice);
             }
         }
@@ -447,9 +448,9 @@ jQuery(function ($) {
                 return price;
             },
             updateSku: function() {
-                var $skuSelect = $('#reserve-overlay select.size-list');
+                var $skuSelect = $('#reserve-overlay select.size-selector');
                 var sku = $skuSelect.val();
-                inventoryStatesStore.setReserveAttrs('sku', sku);
+                inventoryStatesStore.setProductParams('sku', sku);
                 inputValidateHELPER.checkSelectValidity($skuSelect, 'Please select size first');
             },
             updateQty: function () {
@@ -497,7 +498,7 @@ jQuery(function ($) {
                         break;
                     case 'US':
                         currency = '$';
-                        inventoryStatesStore.setProductParams('currencyAhead', true);
+                        inventoryStatesStore.setReserveAttrs('currencyAhead', true);
                         break;
                     case 'SE':
                         currency = 'SEK';
