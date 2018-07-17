@@ -166,11 +166,13 @@
                                 >
                                     <reserve-summary slot='summary'
                                         v-if='statesStore.screensize.mobile'
+                                        :store-name='statesStore.reservationForm.contact.name'
                                     ></reserve-summary>
                                 </reserve-form-block>
                                 <div class="reserve-form--additional">
                                     <reserve-summary 
                                         v-if='!statesStore.screensize.mobile'
+                                        
                                     ></reserve-summary>
                                     <div class='instruction-txt'>
                                         Varaus maksetaan myymälään. Saat viestin kun varauksesi on noudettavissa myymä-lästä. Sinulla on 24 tuntia aikaa noutaa varauksesi. Jos varausta ei noudeta, se peruuntuu automaattisesti. <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus orci nec quam laoreet tincidunt. Nam sem risus, rhoncus ut scelerisque eu, tincidunt finibus libero. Sed ac volutpat arcu, vel suscipit ligula. Ut ultrices fringilla massa eu maximus.
@@ -215,7 +217,7 @@
                 <div class='summary-delivery summary-row'>
                     <div class="pickup-store left-side">
                         <div>Nouto myymälästä</div>
-                        <div class='store-name'>{{params.storeName}}</div>
+                        <div class='store-name'>{{storeName}}</div>
                     </div>
                     <div class="shipping-cost right-side" v-if='params.currencyAhead'>{{params.currency}}0</div>
                     <div class='shipping-cost right-side' v-else>0 {{params.currency}}</div>

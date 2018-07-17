@@ -388,6 +388,7 @@ jQuery(function ($) {
 
     /* Reserve & Collect Final Price Component */
     Vue.component("reserve-summary", {
+        props: ['storeName'],
         data: function(){
             return {
                 params: inventoryStatesStore.productParams
