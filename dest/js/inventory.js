@@ -59,7 +59,7 @@ jQuery(function ($) {
             this.screensize.desktop = !this.screensize.mobile && !this.screensize.tablet;
         },
         ajaxUrl: {
-            host: "http://localhost:5500/dest/json/inventory-onesize.json"
+            host: window.location.origin + "/dest/json/inventory-onesize.json"
         }
     };
     
