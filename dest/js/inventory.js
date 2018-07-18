@@ -73,18 +73,22 @@ jQuery(function ($) {
                     placeholder: this.placeholder,
                     width: "resolve",
                     theme: "marimekko"
-                }
+                },
+                selected: false,
+                selector: false
             };
         },
         methods: {
             destroySelect2: function() {
-                $(this.$el).find('select').off().select2('destroy');
+                if (this.selector.hasClass("select2-hidden-accessible")) {
+                    this.selector.off('select2:open').select2('destroy');
+                }
             },
             renderSelect2: function() {
                 if (!this.htmlOptions) {
                     this.config.data = this.options;
                 } else {
-                    $(this.$el).find('select').empty().append(this.options);
+                    this.selector.empty().append(this.options);
                 }
 
                 if (this.disableSearch) {
@@ -92,25 +96,34 @@ jQuery(function ($) {
                 }
 
                 if (this.width) {
-                    $(this.$el).find('select').css('width', this.width);
+                    this.selector.css('width', this.width);
                 }
 
                 this.config.dropdownParent = $('#' + this.dropDownWrapperId);
                 var vm = this;
-                $(this.$el).find('select')
+                this.selector
                 .select2(this.config)
                 // emit vue change
                 .on('change', function () {
                     vm.$emit('change', this.value);
                 });
+
+                // Destory select2 if on touch screen
+                if (inventoryStatesStore.touchDevice) {
+                    this.destroySelect2();
+                    this.selector.find('option').eq(0).text(this.config.placeholder);
+                }else{
+                    if (this.label == 'size') {
+                        this.colorSizeOptions();
+                    }
+                }
             },
             colorSizeOptions: function() {
-                var $sizeSelector = $(this.$el).find('.size-selector');
                 var vm = this;
-                $sizeSelector.on('select2:open', function (e) {
+                this.selector.on('select2:open', function (e) {
                     /* Check if all options are rendered ready */
                     var  renderedOptions = '#custom-' + vm.label+ '-select2-dropdown-wrapper .select2-container--marimekko .select2-results__option';
-                    var $validOptions = $sizeSelector.find('option').map(function () {
+                    var $validOptions = vm.selector.find('option').map(function () {
                         if (this.value) {
                             return this;
                         }
@@ -147,22 +160,17 @@ jQuery(function ($) {
             }
         },
         mounted: function () {
+            this.selector = $(this.$el).find('select');
             this.renderSelect2();
-            if (this.label == 'size') {
-                this.colorSizeOptions();
-            }
         },
         watch: {
             options: function () {
                 this.destroySelect2();
                 this.renderSelect2();
-                if (this.label == 'size') {
-                    this.colorSizeOptions();
-                }
             }
         },
         destroyed: function () {
-            $(this.$el).find('select').off().select2('destroy');
+            this.destroySelect2();
             console.log('"' + this.label + '" select is destroyed!');
         },
         created: function() {

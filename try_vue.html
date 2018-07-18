@@ -389,7 +389,7 @@
 
         <script type='text/x-template' id='vue-select2-component'>
             <div class='select2-component-wrapper'>
-                <select :class='className' required>
+                <select :class='className' v-model='selected' required>
                     <slot></slot>
                 </select>
                 <div :id='dropDownWrapperId'></div>
