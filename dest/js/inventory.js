@@ -76,6 +76,9 @@ jQuery(function ($) {
             };
         },
         methods: {
+            destroySelect2: function() {
+                $(this.$el).find('select').off().select2('destroy');
+            },
             renderSelect2: function() {
                 if (!this.htmlOptions) {
                     this.config.data = this.options;
@@ -150,7 +153,7 @@ jQuery(function ($) {
         },
         watch: {
             options: function () {
-                $(this.$el).find('select').off().select2('destroy');
+                this.destroySelect2();
                 this.renderSelect2();
                 if (this.label == 'size') {
                     this.colorSizeOptions();
