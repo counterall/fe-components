@@ -3,6 +3,7 @@ jQuery(function ($) {
     // Universal state store
     window.inventoryStatesStore = {
         debug: true,
+        touchDevice: false,
         screensize: {
             mobile: false,
             tablet: false,
@@ -591,6 +592,11 @@ jQuery(function ($) {
                     inventoryStatesStore.setScreenSize();
                 }, 50);
             });
+
+            // Check if a touch screen device
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                inventoryStatesStore.touchDevice = true;
+            }
 
             this.statesStore.productParams = Object.assign({}, this.statesStore.productParams, bePassedParams);
         }
