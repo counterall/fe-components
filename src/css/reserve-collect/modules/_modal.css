@@ -67,6 +67,25 @@
                                             width: 100%;
                                             position: absolute;
                                             bottom: 0;
+
+                                            &--size{
+                                                #custom-size-select2-dropdown-wrapper{
+
+                                                    .select2-results__option{
+                                                        &.green{
+                                                            color: $inventoryStatusSuccess
+                                                        }
+                                                        &.orange{
+                                                            color: $inventoryStatusWarning
+                                                        }
+                                                        &.red{
+                                                            text-decoration: line-through;
+                                                            color: $inventoryStatusDanger
+                                                        }
+                                                    }
+
+                                                }
+                                            }
                                         }
                                     }
                                 }

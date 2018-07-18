@@ -99,6 +99,42 @@ jQuery(function ($) {
                 .on('change', function () {
                     vm.$emit('change', this.value);
                 });
+            },
+            colorSizeOptions: function() {
+                var $sizeSelector = $(this.$el).find('.size-selector');
+                var vm = this;
+                $sizeSelector.on('select2:open', function (e) {
+                    /* Check if all options are rendered ready */
+                    var  renderedOptions = '#custom-' + vm.label+ '-select2-dropdown-wrapper .select2-container--marimekko .select2-results__option';
+                    var $validOptions = $sizeSelector.find('option').map(function () {
+                        if (this.value) {
+                            return this;
+                        }
+                    });
+                    var dfd = $.Deferred();
+                    window.checkSelect2DropdownOpened = setInterval(() => {
+                        if ($(renderedOptions).not(".loading-results").length == $validOptions.length) {
+                            dfd.resolve();
+                        }
+                    }, 10);
+
+                    dfd.done(function () {
+                        clearInterval(window.checkSelect2DropdownOpened);
+                        $validOptions.each(function(idx){
+                            var color;
+                            if ($(this).hasClass('size-option--green')) {
+                                color = 'green';
+                            }else if ($(this).hasClass('size-option--orange')) {
+                                color = 'orange';
+                            }else if ($(this).hasClass('size-option--red')) {
+                                color = 'red';
+                            }
+
+                            $(renderedOptions).eq(idx).addClass(color);
+                            
+                        });
+                    });
+                })
             }
         },
         computed: {
@@ -108,11 +144,17 @@ jQuery(function ($) {
         },
         mounted: function () {
             this.renderSelect2();
+            if (this.label == 'size') {
+                this.colorSizeOptions();
+            }
         },
         watch: {
             options: function () {
                 $(this.$el).find('select').off().select2('destroy');
                 this.renderSelect2();
+                if (this.label == 'size') {
+                    this.colorSizeOptions();
+                }
             }
         },
         destroyed: function () {
@@ -205,13 +247,13 @@ jQuery(function ($) {
                         // Define the html content of each option based on stock level
                         switch (size.level) {
                             case 1:
-                                $sizeOption.addClass('size-option--green').html("<span>" + size.product_size + "</span> - varastossa");
+                                $sizeOption.addClass('size-option--green').html(size.product_size + " - varastossa");
                                 break;
                             case 2:
-                                $sizeOption.addClass('size-option--orange').html("<span>" + size.product_size + "</span> - vähän jäljellä");
+                                $sizeOption.addClass('size-option--orange').html(size.product_size + " - vähän jäljellä");
                                 break;
                             default:
-                                $sizeOption.addClass('size-option--red').attr('disabled', 'disabled').html("<span>" + size.product_size + "</span> - loppuunmyyty");
+                                $sizeOption.addClass('size-option--red').attr('disabled', 'disabled').html(size.product_size + " - loppuunmyyty");
                                 break;
                         }
 
