@@ -397,13 +397,13 @@ jQuery(function ($) {
             /* Verify every input field given by user valid*/
             validateFormInput: function (evt) {
                 var input = evt.target;
-                inputValidateHELPER.checkInputValidity($(input), "Please enter a valid value");
+                inputValidateHELPER.checkInputValidity($(input), "Please enter a valid " + input.name);
             },
             checkReserveFormValidity: function () {
                 var allPassed = true;
                 var $form = $('#reserve-overlay');
                 $form.find('input').each(function () {
-                    if (!inputValidateHELPER.checkInputValidity($(this), "Please enter a valid value")) {
+                    if (!inputValidateHELPER.checkInputValidity($(this), "Please enter a valid " + this.name)) {
                         allPassed = false;
                     }
                 });

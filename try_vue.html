@@ -373,14 +373,14 @@
             <div class='reserve-form--contact'>
                 <div class='form-title'>Personal info</div>
                 <label for="reservation-fname" class="form-field">First name <span>*</span></label>
-                <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-fname' v-model='fn'>
+                <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-fname' name='firstname' v-model='fn'>
                 <label for="reservation-lname" class="form-field">Family name <span>*</span></label>
-                <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-lname' v-model='ln'>
+                <input @change='validateFormInput' type='text' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern='[a-zA-Z]+' required id='reservation-lname' name='lastname' v-model='ln'>
                 <label for="reservation-email" class="form-field">Email address <span>*</span></label>
                 <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' 
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required id='reservation-email' v-model='email'>
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required id='reservation-email' name='email' v-model='email'>
                 <label for="reservation-phone" class="form-field">Phone number <span>*</span></label>
-                <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern="\+?\d{3}-?\d{6,}" required id='reservation-phone' v-model='tel'>
+                <input @change='validateFormInput' class='mari-input mari-input--text mari-input--text-xs mari-input--text-primary' pattern="\+?\d{3}-?\d{6,}" required id='reservation-phone' name='phone number' v-model='tel'>
                 <div class='form-info'>* All fields are required</div>
                 <slot name='summary'></slot>
                 <div class='btn-section'>
