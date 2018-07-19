@@ -35,9 +35,13 @@
                                 right: 10px;
                                 text-decoration: none;
                                 color: $accentColour09;
+                                z-index: 1051;
 
                                 .txt{
-                                    display: none;
+                                    font-size: 14px;
+                                    position: relative;
+                                    top: -3px;
+                                    display: inline-block;
                                 }
 
                                 .icon {
@@ -68,29 +72,5 @@
 
     .modal-backdrop.in{
         opacity: 0.2;
-    }
-
-
-    @media (max-width: 767px) {
-        .rich-product-page {
-            .modal {
-                &.fade {
-                    .modal-dialog {
-                        .modal-content {
-                            .modal-header {
-                                .close-section {
-                                    .txt {
-                                        font-size: 14px;
-                                        position: relative;
-                                        top: -3px;
-                                        display: inline-block;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
