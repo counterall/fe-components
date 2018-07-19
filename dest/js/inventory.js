@@ -259,7 +259,7 @@ jQuery(function ($) {
                 if (this.productType === 'sizable') {
                     var vm = this;
                     /* Empty size select*/
-                    var $sizeOptions = [$("<option></option>")];
+                    var $sizeOptions = [$("<option value=''></option>")];
 
                     $.each(this.sizes, function (idx, size) {
                         var $sizeOption = $('<option/>', {
@@ -535,8 +535,10 @@ jQuery(function ($) {
             },
             updateSku: function() {
                 var $skuSelect = $('#reserve-overlay select.size-selector');
-                var sku = $skuSelect.val();
-                inventoryStatesStore.setProductParams('sku', sku);
+                var sku;
+                if (sku = $skuSelect.val()) {
+                    inventoryStatesStore.setProductParams('sku', sku);
+                }
             },
             updateQty: function () {
                 var $qtySelect = $('#reserve-overlay select.qty-selector');
