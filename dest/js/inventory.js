@@ -403,11 +403,11 @@ jQuery(function ($) {
                 });
 
                 if (inventoryStatesStore.productParams.type == 'sizable') {
-                    if (!inputValidateHELPER.checkSelectValidity($form.find('.size-selector'), 'Please select size first')) {
+                    if (!inputValidateHELPER.checkInputValidity($form.find('.size-selector'), 'Please choose size')) {
                         allPassed = false;
                     }
                 }else{
-                    if (!inputValidateHELPER.checkSelectValidity($form.find('.qty-selector'), 'Please select quantity first')) {
+                    if (!inputValidateHELPER.checkInputValidity($form.find('.qty-selector'), 'Please choose quantity')) {
                         allPassed = false;
                     }
                 }

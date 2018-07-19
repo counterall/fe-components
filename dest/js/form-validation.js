@@ -3,12 +3,10 @@
  */
 
 window.inputValidateHELPER = (function($) {
-
-    var checkInputValidity = function ($container, msg) {
-        var ele = $container[0];
-        // console.log(ele.validity);
+    var doValidation = function($container, msg) {
 
         // set custom validation message if validation failed
+        var ele = $container[0];
         if (!ele.checkValidity()) {
 
             $container.removeClass('mari-input--text-primary').addClass('mari-input--text-error');
@@ -23,7 +21,7 @@ window.inputValidateHELPER = (function($) {
 
             return false;
 
-        }else{
+        } else {
 
             $("+ .error-validation-msg", ele).remove();
             $container.addClass('mari-input--text-primary').removeClass('mari-input--text-error');
@@ -33,34 +31,15 @@ window.inputValidateHELPER = (function($) {
 
     };
 
-    var checkSelectValidity = function ($container, msg) {
-        var ele = $container[0];
+    var checkInputValidity = function ($container, msg) {
 
+        /* when select2 widget is used to render the original select*/
         var $selectContainer = $container.next('.select2-container');
-        if (!$selectContainer.length) {
-            $selectContainer = $container;
+        if ($selectContainer.length) {
+            $container = $selectContainer;
         }
-        // set custom validation message if validation failed
-        if (!ele.checkValidity()) {
-
-            if (!$selectContainer.next('.error-validation-msg').length) {
-                var $errorMsg = $('<div/>', {
-                    "class": "error-validation-msg",
-                    text: msg
-                });
-                $selectContainer.after($errorMsg);
-            }
-
-            return false;
-
-        } else {
-
-            $selectContainer.next('.error-validation-msg').remove();
-
-            return true;
-
-        }
-
+        
+        doValidation($container, msg);
     };
 
     var realtimeTextInputValidate = function($container){
@@ -78,7 +57,6 @@ window.inputValidateHELPER = (function($) {
 
     return {
         checkInputValidity: checkInputValidity,
-        checkSelectValidity: checkSelectValidity,
         realtimeTextInputValidate: realtimeTextInputValidate
     };
 
