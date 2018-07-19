@@ -39,7 +39,7 @@ window.inputValidateHELPER = (function($) {
             $container = $selectContainer;
         }
         
-        doValidation(ele, $container, msg);
+        return doValidation(ele, $container, msg);
     };
 
     var realtimeTextInputValidate = function($container){
