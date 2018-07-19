@@ -280,7 +280,14 @@
                             .reserve-form {
                                 display: flex;
                                 flex-direction: row;
-
+                                
+                                .left-column{
+                                    > div{
+                                        width: 360px;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                    }
+                                }
                             }
                         }
                     }
@@ -321,7 +328,7 @@
                             .reserve-form {
                                 .left-column{
                                     width: 470px;
-                                    padding: 34px 55px 49px 55px;
+                                    padding: 34px 0 49px;
                                 }
                             }
                         }

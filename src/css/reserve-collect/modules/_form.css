@@ -8,6 +8,10 @@
                             &--contact {
                                 letter-spacing: 1px;
 
+                                > input {
+                                    width: 100%;
+                                }
+
                                 .form-title {
                                     margin-bottom: 15px;
                                     font-size: 16px;
@@ -36,9 +40,8 @@
                 }
             }
         }
-    }
-    @media (max-width: 767px) {
-        .rich-product-page {
+    
+        @media (max-width: 767px) {
             #reserve-overlay {
                 .modal-dialog {
                     .modal-content {
@@ -47,16 +50,37 @@
                                 &--contact {
                                     margin-bottom: 42px;
 
-                                    > input{
-                                        width: 100%;
-                                    }
-
                                     .btn-section {
                                         * {
                                             width: 100%;
                                         }
                                         .reserve-submit {
                                             margin-bottom: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            #reserve-overlay {
+                .modal-dialog {
+                    .modal-content {
+                        .modal-body {
+                            .reserve-form {
+
+                                &--contact {
+                                    
+                                    .btn-section{
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: space-between;
+                                        > button{
+                                            width: 170px;
                                         }
                                     }
                                 }
