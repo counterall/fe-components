@@ -66,8 +66,10 @@ jQuery(function ($) {
             this.screen.size.tablet = screenWidth < 1024 && screenWidth > 767;
             this.screen.size.desktop = !this.screen.size.mobile && !this.screen.size.tablet;
         },
-        ajaxUrl: {
-            host: window.location.origin + "/dest/json/inventory-onesize.json"
+        ajaxUrl: function() {
+            return {
+                host: window.location.origin + "/dest/json/inventory" + (this.productParams.type === 'onesize' ? "-onesize" : "") + ".json"
+            };
         }
     };
     
@@ -426,7 +428,7 @@ jQuery(function ($) {
                     $.ajax({
                         dataType: "json",
                         type: 'GET',
-                        url: inventoryStatesStore.ajaxUrl.host,
+                        url: inventoryStatesStore.ajaxUrl().host,
                         data: extraParams
                     }).done(function (data) {
                         inventoryStatesStore.setReserveAttrs('reserveMsg', 'success');
@@ -507,7 +509,7 @@ jQuery(function ($) {
                 if (!this.countryData) {
                    $.get({
                        dataType: "json",
-                       url: inventoryStatesStore.ajaxUrl.host,
+                       url: inventoryStatesStore.ajaxUrl().host,
                        data: extraParams
                    }).done(function (data) {
                        vm.countryData = data[vm.countryCode];
@@ -575,8 +577,13 @@ jQuery(function ($) {
         mounted: function() {
             var bePassedParams = $(this.$el).data('product-params');
             bePassedParams.type = $('ul.list-size > li').length > 1 ? "sizable" : "onesize";
-
-            var rawProductData = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
+            var dataMine;
+            if (bePassedParams.type == 'sizable') {
+                dataMine = '.product-data-mine2';
+            }else{
+                dataMine = '.product-data-mine1';
+            }
+            var rawProductData = JSON.parse($(dataMine).data('lookup').replace(/'/g, '\"'));
             var productDataKey = Object.keys(rawProductData);
             bePassedParams.unitPrice = Number(rawProductData[productDataKey[0]].price_numeric);
 
