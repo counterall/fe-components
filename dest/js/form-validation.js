@@ -35,23 +35,27 @@ window.inputValidateHELPER = (function($) {
 
     var checkSelectValidity = function ($container, msg) {
         var ele = $container[0];
-        var $select2Container = $container.next('.select2-container');
+
+        var $selectContainer = $container.next('.select2-container');
+        if (!$selectContainer.length) {
+            $selectContainer = $container;
+        }
         // set custom validation message if validation failed
         if (!ele.checkValidity()) {
 
-            if (!$select2Container.next('.error-validation-msg').length) {
+            if (!$selectContainer.next('.error-validation-msg').length) {
                 var $errorMsg = $('<div/>', {
                     "class": "error-validation-msg",
                     text: msg
                 });
-                $select2Container.after($errorMsg);
+                $selectContainer.after($errorMsg);
             }
 
             return false;
 
         } else {
 
-            $select2Container.next('.error-validation-msg').remove();
+            $selectContainer.next('.error-validation-msg').remove();
 
             return true;
 

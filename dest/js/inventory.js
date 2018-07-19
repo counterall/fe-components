@@ -405,7 +405,7 @@ jQuery(function ($) {
                         allPassed = false;
                     }
                 }else{
-                    if (!inputValidateHELPER.checkSelectValidity($form.find('.qty-selector'), 'Please select size first')) {
+                    if (!inputValidateHELPER.checkSelectValidity($form.find('.qty-selector'), 'Please select quantity first')) {
                         allPassed = false;
                     }
                 }
@@ -550,7 +550,6 @@ jQuery(function ($) {
                     return false;
                 }
             }
-            
 
         },
         computed: {
