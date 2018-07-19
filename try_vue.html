@@ -179,17 +179,15 @@
                                     >
                                     </vue-select2>
                                 </reserve-product-block>
-                                <reserve-form-block
-                                    :is-mobile='statesStore.screensize.mobile'
-                                >
+                                <reserve-form-block>
                                     <reserve-summary slot='summary'
-                                        v-if='statesStore.screensize.mobile'
+                                        v-if='statesStore.screen.size.mobile'
                                         :store-name='statesStore.reservationForm.contact.name'
                                     ></reserve-summary>
                                 </reserve-form-block>
                                 <div class="reserve-form--additional">
                                     <reserve-summary 
-                                        v-if='!statesStore.screensize.mobile'
+                                        v-if='!statesStore.screen.size.mobile'
                                         
                                     ></reserve-summary>
                                     <div class='instruction-txt'>

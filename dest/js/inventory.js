@@ -3,11 +3,13 @@ jQuery(function ($) {
     // Universal state store
     window.inventoryStatesStore = {
         debug: true,
-        touchDevice: false,
-        screensize: {
-            mobile: false,
-            tablet: false,
-            desktop: true
+        screen: {
+            size:{
+                mobile: false,
+                tablet: false,
+                desktop: true
+            },
+            touch: false
         },
         reservationForm: {
             reserveMsg: false,
@@ -24,6 +26,12 @@ jQuery(function ($) {
             size: false,
             city: false,
             qty: ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        },
+        setScreen: function(key, val) {
+            if (this.debug) {
+                console.log("screen '" + key + "' is updated to value: ", val)
+            }
+            this.screen[key] = val;
         },
         setSelector: function (key, val) {
             if (this.debug) {
@@ -54,9 +62,9 @@ jQuery(function ($) {
             if (this.debug) {
                 console.log("screen size has been updated to " + screenWidth + "!");
             }
-            this.screensize.mobile = screenWidth < 768;
-            this.screensize.tablet = screenWidth < 1024 && screenWidth > 767;
-            this.screensize.desktop = !this.screensize.mobile && !this.screensize.tablet;
+            this.screen.size.mobile = screenWidth < 768;
+            this.screen.size.tablet = screenWidth < 1024 && screenWidth > 767;
+            this.screen.size.desktop = !this.screen.size.mobile && !this.screen.size.tablet;
         },
         ajaxUrl: {
             host: window.location.origin + "/dest/json/inventory-onesize.json"
@@ -109,7 +117,7 @@ jQuery(function ($) {
                 });
 
                 // Destory select2 if on touch screen
-                if (inventoryStatesStore.touchDevice) {
+                if (inventoryStatesStore.screen.touch) {
                     this.destroySelect2();
                     this.selector.find('option').eq(0).text(this.config.placeholder);
                 }else{
@@ -368,7 +376,6 @@ jQuery(function ($) {
 
     /* Reserve & Collect Form Component */
     Vue.component("reserve-form-block", {
-        props: ['isMobile'],
         data: function () {
             return {
                 fn: 'Kan',
@@ -533,7 +540,17 @@ jQuery(function ($) {
                 var $qtySelect = $('#reserve-overlay select.qty-selector');
                 var qty = parseInt($qtySelect.val());
                 inventoryStatesStore.setReserveAttrs('qty', qty);
+            },
+            isTouchScreen: function() {
+                // Check if a touch screen device
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    inventoryStatesStore.setScreen('touch', true);
+                    return true;
+                }else{
+                    return false;
+                }
             }
+            
 
         },
         computed: {
@@ -601,10 +618,7 @@ jQuery(function ($) {
                 }, 50);
             });
 
-            // Check if a touch screen device
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                inventoryStatesStore.touchDevice = true;
-            }
+            this.isTouchScreen();
 
             this.statesStore.productParams = Object.assign({}, this.statesStore.productParams, bePassedParams);
         }
