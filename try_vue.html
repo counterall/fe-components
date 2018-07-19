@@ -141,11 +141,11 @@
                             v-if='statesStore.reservationForm.contact'
                             :modal-id='"reserve-overlay"'
                             :key='"reserve-overlay"'
-                            :modal-title='"Reserve & Collect"'
                             :show-modal='statesStore.reservationForm.contact'
                         >
                             <div class='reserve-form' slot='body' v-if='!statesStore.reservationForm.reserveMsg'>
                                 <div class="left-column">
+                                    <div class="modal-title">Reserve & Collect</div>
                                     <reserve-product-block 
                                         :store-contact='statesStore.reservationForm.contact'
                                     >

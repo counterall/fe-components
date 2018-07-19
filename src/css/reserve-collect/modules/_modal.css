@@ -7,6 +7,13 @@
 
                 .modal-content {
                     .modal-body {
+                        margin-top: 0;
+
+                        .modal-title {
+                            font-size: 18px;
+                            letter-spacing: 1px;
+                        }
+
                         .reserve-form {
 
                             &--product {
@@ -306,11 +313,15 @@
                     .modal-content {
                         padding: 0;
                         .modal-body {
-                            margin-top: 37px;
+                            .modal-title {
+                                font-size: 18px;
+                                letter-spacing: 1px;
+                                margin-bottom: 37px;
+                            }
                             .reserve-form {
                                 .left-column{
                                     width: 470px;
-                                    padding: 0 55px 0;
+                                    padding: 34px 55px 49px 55px;
                                 }
                             }
                         }
