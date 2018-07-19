@@ -566,7 +566,13 @@ jQuery(function ($) {
         },
         computed: {
             productParams: function() {
-                var rawProductData = JSON.parse($('.product-data-mine1').data('lookup').replace(/'/g, '\"'));
+                var dataMine;
+                if ($('ul.list-size > li').length > 1) {
+                    dataMine = '.product-data-mine2';
+                } else {
+                    dataMine = '.product-data-mine1';
+                }
+                var rawProductData = JSON.parse($(dataMine).data('lookup').replace(/'/g, '\"'));
                 var productMapping = {};
                 for (var key in rawProductData) {
                     productMapping[key] = {};
