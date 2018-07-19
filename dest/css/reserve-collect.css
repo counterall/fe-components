@@ -48,6 +48,9 @@
                                     display: flex;
                                     flex-direction: row;
                                 }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .left-side {
+                                        width: 80px;
+                                    }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .left-side .product-img {
                                             width: 100%;
                                             height: auto;
@@ -56,6 +59,25 @@
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side{
                                         position: relative;
                                     }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-name h1 {
+                                                margin: 0;
+                                                font-size: 16px;
+                                                line-height: 26px;
+                                                font-weight: 700;
+                                                letter-spacing: 0.5px;
+                                            }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-name h1 .product-secondary-name {
+                                                    font-weight: 400;
+                                                    display: inline-block;
+                                                }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-name h1 .product-color-variant {
+                                                    display: none;
+                                                    margin-top: 10px;
+                                                    font-size: 14px;
+                                                    line-height: 21px;
+                                                    font-weight: 400;
+                                                    color: #989898;
+                                                }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .attribute-selector{
                                             width: 100%;
                                             position: absolute;
@@ -139,9 +161,6 @@
                                             .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .attribute-selector--size select.size-selector {
                                                 width: 100%;
                                             }
-                                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .left-side{
-                                            width: 80px;
-                                        }
                                         .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side{
                                             width: calc(100% - 91px);
                                             margin-left: 10px;
@@ -217,6 +236,10 @@
                                         margin-left: auto;
                                         margin-right: auto;
                                     }
+                                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side {
+                                            width: calc(100% - 31px);
+                                            margin-left: 30px;
+                                        }
         }
 @media (min-width: 768px) and (max-width: 1024px) {
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {

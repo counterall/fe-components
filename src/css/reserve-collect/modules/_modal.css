@@ -60,6 +60,7 @@
                                     flex-direction: row;
                                     
                                     .left-side {
+                                        width: 80px;
                                         .product-img {
                                             width: 100%;
                                             height: auto;
@@ -69,7 +70,27 @@
 
                                     .right-side{
                                         position: relative;
-
+                                        .product-name {
+                                            h1 {
+                                                margin: 0;
+                                                font-size: 16px;
+                                                line-height: 26px;
+                                                font-weight: 700;
+                                                letter-spacing: 0.5px;
+                                                .product-secondary-name {
+                                                    font-weight: 400;
+                                                    display: inline-block;
+                                                }
+                                                .product-color-variant {
+                                                    display: none;
+                                                    margin-top: 10px;
+                                                    font-size: 14px;
+                                                    line-height: 21px;
+                                                    font-weight: 400;
+                                                    color: $accentColour13;
+                                                }
+                                            }
+                                        }
                                         .attribute-selector{
                                             width: 100%;
                                             position: absolute;
@@ -190,9 +211,6 @@
                                     }
 
                                     .product-attribute{
-                                        .left-side{
-                                            width: 80px;
-                                        }
                                         .right-side{
                                             width: calc(100% - 91px);
                                             margin-left: 10px;
@@ -286,6 +304,15 @@
                                         width: 360px;
                                         margin-left: auto;
                                         margin-right: auto;
+                                    }
+                                }
+
+                                &--product {
+                                    .product-attribute {
+                                        .right-side {
+                                            width: calc(100% - 31px);
+                                            margin-left: 30px;
+                                        }
                                     }
                                 }
                             }
