@@ -225,7 +225,7 @@
                 </div>
                 <div class='summary-product summary-row'>
                     <div class='product-name left-side'>                          
-                        <span class='product-quantity' v-if='product.type == "onesize" && summary.qty > 1'>{{summary.qty}} x &nbsp;</span>{{product.name}}
+                        <span class='product-quantity'>{{summary.qty}} x &nbsp;</span>{{product.name}}
                     </div>
                     <div class='product-price right-side' v-if='summary.currencyAhead'>{{product.currency}}{{unitPrice}}</div>
                     <div class='product-price right-side' v-else>{{unitPrice}} {{product.currency}}</div>
