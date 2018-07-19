@@ -1,5 +1,5 @@
 jQuery(function ($) {
-
+    "use strict"
     // Universal state store
     window.inventoryStatesStore = {
         debug: true,
