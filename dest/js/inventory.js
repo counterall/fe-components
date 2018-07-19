@@ -76,7 +76,7 @@ jQuery(function ($) {
     /* Create vue component of select element where select2 jQuery plugin is applied */
     Vue.component('vue-select2', {
         template: "#vue-select2-component",
-        props: ['width', 'placeholder', 'label', 'options', 'htmlOptions', 'disableSearch', 'className'],
+        props: ['width', 'placeholder', 'label', 'options', 'htmlOptions', 'disableSearch', 'className', 'validate', 'errorMsg'],
         data: function() {
             return {
                 config: {
@@ -162,6 +162,12 @@ jQuery(function ($) {
                         });
                     });
                 })
+            },
+            checkSelectValidity: function(evt) {
+                if (typeof this.validate !== 'undefined' && this.validate) {
+                    var select = evt.target;
+                    inputValidateHELPER.checkInputValidity($(select), this.errorMsg);
+                }
             }
         },
         computed: {

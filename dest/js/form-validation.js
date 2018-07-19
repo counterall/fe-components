@@ -3,20 +3,19 @@
  */
 
 window.inputValidateHELPER = (function($) {
-    var doValidation = function($container, msg) {
+    var doValidation = function(ele, $msgBeforeContainer, msg) {
 
         // set custom validation message if validation failed
-        var ele = $container[0];
         if (!ele.checkValidity()) {
 
-            $container.removeClass('mari-input--text-primary').addClass('mari-input--text-error');
+            $msgBeforeContainer.removeClass('mari-input--text-primary').addClass('mari-input--text-error');
 
             if (!$("+ .error-validation-msg", ele).length) {
                 var $errorMsg = $('<div/>', {
                     "class": "error-validation-msg",
                     text: msg
                 });
-                $container.after($errorMsg);
+                $msgBeforeContainer.after($errorMsg);
             }
 
             return false;
@@ -24,7 +23,7 @@ window.inputValidateHELPER = (function($) {
         } else {
 
             $("+ .error-validation-msg", ele).remove();
-            $container.addClass('mari-input--text-primary').removeClass('mari-input--text-error');
+            $msgBeforeContainer.addClass('mari-input--text-primary').removeClass('mari-input--text-error');
             return true;
 
         }
@@ -32,6 +31,7 @@ window.inputValidateHELPER = (function($) {
     };
 
     var checkInputValidity = function ($container, msg) {
+        var ele = $container[0];
 
         /* when select2 widget is used to render the original select*/
         var $selectContainer = $container.next('.select2-container');
@@ -39,7 +39,7 @@ window.inputValidateHELPER = (function($) {
             $container = $selectContainer;
         }
         
-        doValidation($container, msg);
+        doValidation(ele, $container, msg);
     };
 
     var realtimeTextInputValidate = function($container){

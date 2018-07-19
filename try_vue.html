@@ -83,7 +83,9 @@
                         label: 'city',
                         options: statesStore.selector.city,
                         htmlOptions: false,
-                        disableSearch: false
+                        disableSearch: false,
+                        validate: true,
+                        errorMsg: 'Please choose city'
                     }"
                 >
                 </vue-select2>
@@ -156,7 +158,9 @@
                                             options: statesStore.selector.qty,
                                             htmlOptions: false,
                                             disableSearch: true,
-                                            width: '100%'
+                                            width: '100%',
+                                            validate: true,
+                                            errorMsg: 'Please choose quantity'
                                         }"
                                         @change='updateQty'
                                     >
@@ -173,7 +177,9 @@
                                             options: statesStore.selector.size,
                                             htmlOptions: true,
                                             disableSearch: true,
-                                            width: '100%'
+                                            width: '100%',
+                                            validate: true,
+                                            errorMsg: 'Please choose size'
                                         }"
                                         @change='updateSku'
                                     >
@@ -387,7 +393,7 @@
 
         <script type='text/x-template' id='vue-select2-component'>
             <div class='select2-component-wrapper'>
-                <select :class='className' v-model='selected' required>
+                <select :class='className' v-model='selected' @change='checkSelectValidity' required>
                     <slot></slot>
                 </select>
                 <div :id='dropDownWrapperId'></div>
