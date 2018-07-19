@@ -538,8 +538,10 @@ jQuery(function ($) {
             },
             updateQty: function () {
                 var $qtySelect = $('#reserve-overlay select.qty-selector');
-                var qty = parseInt($qtySelect.val());
-                inventoryStatesStore.setReserveAttrs('qty', qty);
+                var qty;
+                if (qty = parseInt($qtySelect.val())) {
+                    inventoryStatesStore.setReserveAttrs('qty', qty);
+                }
             },
             isTouchScreen: function() {
                 // Check if a touch screen device
