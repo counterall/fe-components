@@ -3,12 +3,12 @@
 
         #reserve-overlay {
             .modal-dialog {
-                top: 30%;
                 width: 400px;
 
                 .modal-content {
                     .modal-body {
                         .reserve-form {
+
                             &--product {
                                 margin-bottom: 50px;
 
@@ -156,10 +156,8 @@
                 }
             }
         }
-    }
-
-    @media (max-width: 767px) {
-        .rich-product-page {
+    
+        @media (max-width: 767px) {
 
             #reserve-overlay {
                 .modal-dialog {
@@ -266,5 +264,60 @@
                 }
             }
         }
+
+        @media (min-width: 768px) {
+            #reserve-overlay {
+                .modal-dialog {
+                    .modal-content {
+                        .modal-body {
+                            .reserve-form {
+                                display: flex;
+                                flex-direction: row;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            #reserve-overlay {
+                .modal-dialog {
+                    width: 740px;
+                    .modal-content {
+                        // padding: 34px 18px 49px 21px;
+                        .modal-body {
+                            .reserve-form {
+                                .left-column{
+                                    width: 400px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 1025px){
+            #reserve-overlay {
+                .modal-dialog {
+                    width: 840px;
+                    .modal-content {
+                        padding: 0;
+                        .modal-body {
+                            margin-top: 37px;
+                            .reserve-form {
+                                .left-column{
+                                    width: 470px;
+                                    padding: 0 55px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

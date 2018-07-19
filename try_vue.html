@@ -28,7 +28,7 @@
 <body class='catalog-product-view'>
     <ul class="list-size" style='display: none'>
         <li>haha</li>
-        <!-- <li>haha</li> -->
+        <li>haha</li>
     </ul>
     <div class='rich-product-page product-page-wrapper'>
         <!-- Raw data of onesize product attributes -->
@@ -145,67 +145,71 @@
                             :show-modal='statesStore.reservationForm.contact'
                         >
                             <div class='reserve-form' slot='body' v-if='!statesStore.reservationForm.reserveMsg'>
-                                <reserve-product-block 
-                                    :store-contact='statesStore.reservationForm.contact'
-                                >
-                                    <!-- Quantity Selector -->
-                                    <vue-select2 
-                                        slot='qty-selector'
-                                        v-bind="{
-                                            className: 'qty-selector',
-                                            placeholder: 'Choose Quantity',
-                                            label: 'qty',
-                                            options: statesStore.selector.qty,
-                                            htmlOptions: false,
-                                            disableSearch: true,
-                                            width: '100%',
-                                            validate: true,
-                                            errorMsg: 'Please choose quantity'
-                                        }"
-                                        @change='updateQty'
+                                <div class="left-column">
+                                    <reserve-product-block 
+                                        :store-contact='statesStore.reservationForm.contact'
                                     >
-                                    </vue-select2>
+                                        <!-- Quantity Selector -->
+                                        <vue-select2 
+                                            slot='qty-selector'
+                                            v-bind="{
+                                                className: 'qty-selector',
+                                                placeholder: 'Choose Quantity',
+                                                label: 'qty',
+                                                options: statesStore.selector.qty,
+                                                htmlOptions: false,
+                                                disableSearch: true,
+                                                width: '100%',
+                                                validate: true,
+                                                errorMsg: 'Please choose quantity'
+                                            }"
+                                            @change='updateQty'
+                                        >
+                                        </vue-select2>
 
-                                    <!-- Size selector -->
-                                    <vue-select2 
-                                        slot='size-selector'
-                                        v-if='statesStore.selector.size'
-                                        v-bind="{
-                                            className: 'size-selector',
-                                            placeholder: 'Choose Size',
-                                            label: 'size',
-                                            options: statesStore.selector.size,
-                                            htmlOptions: true,
-                                            disableSearch: true,
-                                            width: '100%',
-                                            validate: true,
-                                            errorMsg: 'Please choose size'
-                                        }"
-                                        @change='updateSku'
-                                    >
-                                    </vue-select2>
-                                </reserve-product-block>
-                                <reserve-form-block>
-                                    <reserve-summary slot='summary'
-                                        v-if='statesStore.screen.size.mobile'
-                                        :store-name='statesStore.reservationForm.contact.name'
-                                    ></reserve-summary>
-                                </reserve-form-block>
-                                <div class="reserve-form--additional">
-                                    <reserve-summary 
-                                        v-if='!statesStore.screen.size.mobile'
-                                        
-                                    ></reserve-summary>
-                                    <div class='instruction-txt'>
-                                        Varaus maksetaan myymälään. Saat viestin kun varauksesi on noudettavissa myymä-lästä. Sinulla on 24 tuntia aikaa noutaa varauksesi. Jos varausta ei noudeta, se peruuntuu automaattisesti. <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus orci nec quam laoreet tincidunt. Nam sem risus, rhoncus ut scelerisque eu, tincidunt finibus libero. Sed ac volutpat arcu, vel suscipit ligula. Ut ultrices fringilla massa eu maximus.
-                                    </div>
-                                    <div class='contact-info'>
-                                        <div class="store-name">
-                                            {{statesStore.reservationForm.contact.name}}
+                                        <!-- Size selector -->
+                                        <vue-select2 
+                                            slot='size-selector'
+                                            v-if='statesStore.selector.size'
+                                            v-bind="{
+                                                className: 'size-selector',
+                                                placeholder: 'Choose Size',
+                                                label: 'size',
+                                                options: statesStore.selector.size,
+                                                htmlOptions: true,
+                                                disableSearch: true,
+                                                width: '100%',
+                                                validate: true,
+                                                errorMsg: 'Please choose size'
+                                            }"
+                                            @change='updateSku'
+                                        >
+                                        </vue-select2>
+                                    </reserve-product-block>
+                                    <reserve-form-block>
+                                        <reserve-summary slot='summary'
+                                            v-if='statesStore.screen.size.mobile'
+                                            :store-name='statesStore.reservationForm.contact.name'
+                                        ></reserve-summary>
+                                    </reserve-form-block>
+                                </div>
+                                <div class="right-column">
+                                    <div class="reserve-form--additional">
+                                        <reserve-summary 
+                                            v-if='!statesStore.screen.size.mobile'
+                                            
+                                        ></reserve-summary>
+                                        <div class='instruction-txt'>
+                                            Varaus maksetaan myymälään. Saat viestin kun varauksesi on noudettavissa myymä-lästä. Sinulla on 24 tuntia aikaa noutaa varauksesi. Jos varausta ei noudeta, se peruuntuu automaattisesti. <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus orci nec quam laoreet tincidunt. Nam sem risus, rhoncus ut scelerisque eu, tincidunt finibus libero. Sed ac volutpat arcu, vel suscipit ligula. Ut ultrices fringilla massa eu maximus.
                                         </div>
-                                        <store-contact 
-                                            :store-contact='statesStore.reservationForm.contact'
-                                        ></store-contact> 
+                                        <div class='contact-info'>
+                                            <div class="store-name">
+                                                {{statesStore.reservationForm.contact.name}}
+                                            </div>
+                                            <store-contact 
+                                                :store-contact='statesStore.reservationForm.contact'
+                                            ></store-contact> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
