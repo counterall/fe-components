@@ -227,6 +227,9 @@
                                 }
         }
 @media (min-width: 768px) {
+                    .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content {
+                        padding: 0;
+                    }
                             .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form {
                                 display: flex;
                                 flex-direction: row;
@@ -245,20 +248,17 @@
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
                     width: 740px;
                 }
-                    .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content {
-                        // padding: 34px 18px 49px 21px;
-                    }
                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form .left-column{
                                     width: 400px;
+                                }
+                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form .right-column{
+                                    width: calc(100% - 401px);
                                 }
         }
 @media (min-width: 1025px){
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
                     width: 840px;
                 }
-                    .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content {
-                        padding: 0;
-                    }
                             .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .modal-title {
                                 font-size: 18px;
                                 letter-spacing: 1px;
@@ -267,6 +267,9 @@
                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form .left-column{
                                     width: 470px;
                                     padding: 34px 0 49px;
+                                }
+                                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form .right-column {
+                                    width: calc(100% - 471px);
                                 }
         }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact {

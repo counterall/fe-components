@@ -294,6 +294,8 @@
             #reserve-overlay {
                 .modal-dialog {
                     .modal-content {
+                        padding: 0;
+
                         .modal-body {
                             .reserve-form {
                                 display: flex;
@@ -327,11 +329,13 @@
                 .modal-dialog {
                     width: 740px;
                     .modal-content {
-                        // padding: 34px 18px 49px 21px;
                         .modal-body {
                             .reserve-form {
                                 .left-column{
                                     width: 400px;
+                                }
+                                .right-column{
+                                    width: calc(100% - 401px);
                                 }
                             }
                         }
@@ -345,7 +349,6 @@
                 .modal-dialog {
                     width: 840px;
                     .modal-content {
-                        padding: 0;
                         .modal-body {
                             .modal-title {
                                 font-size: 18px;
@@ -356,6 +359,9 @@
                                 .left-column{
                                     width: 470px;
                                     padding: 34px 0 49px;
+                                }
+                                .right-column {
+                                    width: calc(100% - 471px);
                                 }
                             }
                         }
