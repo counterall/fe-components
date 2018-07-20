@@ -326,7 +326,7 @@ jQuery(function ($) {
     });
 
     Vue.component('store-general-overlay', {
-        props: ['modalId', 'modalTitle', 'showModal'],
+        props: ['modalId', 'modalTitle', 'showModal', 'centred'],
         template: '#store-general-overlay',
         updated: function() {
             console.log($(this.$el).attr('id') + ' modal updated!');
