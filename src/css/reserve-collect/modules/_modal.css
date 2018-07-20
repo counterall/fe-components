@@ -186,10 +186,12 @@
 
             #reserve-overlay {
                 .modal-dialog {
-
                     .modal-content {
-                        padding: 38px 10px 10px;
+                        padding: 38px 0 0 0;
                         .modal-body{
+                            .modal-title {
+                                margin-bottom: 28px;
+                            }
                             .reserve-form{
                                 &--product{
                                     margin-bottom: 30px;
@@ -274,6 +276,9 @@
                                     
                                 }
 
+                                .left-column{
+                                    padding: 0 10px;
+                                }
                             }
 
                         }
@@ -287,13 +292,16 @@
                 .modal-dialog {
                     .modal-content {
                         padding: 0;
-
                         .modal-body {
+                            .modal-title {
+                                margin-bottom: 37px;
+                            }
                             .reserve-form {
                                 display: flex;
                                 flex-direction: row;
                                 
                                 .left-column{
+                                    padding: 34px 0 0 0;
                                     > div{
                                         width: 360px;
                                         margin-left: auto;
@@ -342,15 +350,9 @@
                     width: 840px;
                     .modal-content {
                         .modal-body {
-                            .modal-title {
-                                font-size: 18px;
-                                letter-spacing: 1px;
-                                margin-bottom: 37px;
-                            }
                             .reserve-form {
                                 .left-column{
                                     width: 470px;
-                                    padding: 34px 0 49px;
                                 }
                                 .right-column {
                                     width: calc(100% - 471px);
