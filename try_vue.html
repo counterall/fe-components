@@ -161,7 +161,7 @@
                                             v-bind="{
                                                 className: 'qty-selector',
                                                 placeholder: 'Choose Quantity',
-                                                label: 'qty',
+                                                label: 'quantity',
                                                 options: statesStore.selector.qty,
                                                 htmlOptions: false,
                                                 disableSearch: true,
@@ -405,7 +405,7 @@
 
         <script type='text/x-template' id='vue-select2-component'>
             <div class='select2-component-wrapper'>
-                <select :class='className' v-model='selected' @change='checkSelectValidity' required>
+                <select :class='className' :name='label' v-model='selected' @change='checkSelectValidity' required>
                     <slot></slot>
                 </select>
                 <div :id='dropDownWrapperId'></div>

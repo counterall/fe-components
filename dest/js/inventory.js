@@ -407,16 +407,12 @@ jQuery(function ($) {
                         allPassed = false;
                     }
                 });
+                $form.find('select').each(function () {
+                    if (!inputValidateHELPER.checkInputValidity($(this), "Please choose " + this.name)) {
+                        allPassed = false;
+                    }
+                });
 
-                if (inventoryStatesStore.productParams.type == 'sizable') {
-                    if (!inputValidateHELPER.checkInputValidity($form.find('.size-selector'), 'Please choose size')) {
-                        allPassed = false;
-                    }
-                }else{
-                    if (!inputValidateHELPER.checkInputValidity($form.find('.qty-selector'), 'Please choose quantity')) {
-                        allPassed = false;
-                    }
-                }
                 /* Do POST request when all fields are valid */
                 if (allPassed) {
                     var extraParams = {
