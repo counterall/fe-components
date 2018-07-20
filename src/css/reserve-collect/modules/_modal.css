@@ -88,6 +88,38 @@
                                                 }
                                             }
                                         }
+                                        .product-price {
+                                            display: inline-block;
+                                            letter-spacing: 0.5px;
+                                            margin-top: 5px;
+                                            p {
+                                                margin: 0;
+                                            }
+                                            .old-price {
+                                                display: inline-block;
+                                                color: #aaaaaa;
+                                                text-decoration: line-through;
+                                            }
+                                            .special-price {
+                                                display: inline-block;
+                                            }
+                                            .regular-price .price {
+                                                color: #000000;
+                                                font-weight: bold;
+                                            }
+                                            .special-price .price {
+                                                color: rgb(255, 186, 25);
+                                                font-weight: bold;
+                                            }
+                                            .old-price .price {
+                                                color: #aaaaaa;
+                                                font-weight: normal;
+                                            }
+                                            .ysmy-item .price,
+                                            .ysmy-product .price {
+                                                color: #e40079;
+                                            }
+                                        }
                                         .attribute-selector{
                                             width: 100%;
                                             position: absolute;
@@ -209,62 +241,7 @@
                                             width: calc(100% - 91px);
                                             margin-left: 10px;
 
-                                            .product-name {
-                                                h1 {
-                                                    margin: 0;
-                                                    font-size: 16px;
-                                                    line-height: 26px;
-                                                    font-weight: 700;
-                                                    letter-spacing: 0.5px;
-                                                    .product-secondary-name {
-                                                        font-weight: 400;
-                                                        display: inline-block;
-                                                    }
-                                                    .product-color-variant {
-                                                        display: none;
-                                                        margin-top: 10px;
-                                                        font-size: 14px;
-                                                        line-height: 21px;
-                                                        font-weight: 400;
-                                                        color: $accentColour13;
-                                                    }
-                                                }
-                                            }
-
-                                            .product-price {
-                                                display: inline-block;
-                                                letter-spacing: 0.5px;
-                                                margin-top: 5px;
-
-                                                p {
-                                                    margin: 0;
-                                                }
-
-                                                .old-price {
-                                                    display: inline-block;
-                                                    color: #aaaaaa;
-                                                    text-decoration: line-through;
-                                                }
-                                                .special-price {
-                                                    display: inline-block;
-                                                }
-                                                .regular-price .price {
-                                                    color: #000000;
-                                                    font-weight: bold;
-                                                }
-                                                .special-price .price {
-                                                    color: rgb(255, 186, 25);
-                                                    font-weight: bold;
-                                                }
-                                                .old-price .price {
-                                                    color: #aaaaaa;
-                                                    font-weight: normal;
-                                                }
-                                                .ysmy-item .price,
-                                                .ysmy-product .price {
-                                                    color: #e40079;
-                                                }
-                                            }
+                                            
 
                                         }
                                     }
