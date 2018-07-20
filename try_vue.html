@@ -125,10 +125,13 @@
                         <!-- Bootstrap Modal component to render store contact popup -->
                         <store-general-overlay 
                             v-if='statesStore.storeContactOverlay'
-                            :modal-id='"store-contact-overlay"'
-                            :key='"store-contact"'
-                            :modal-title='statesStore.storeContactOverlay.name'
-                            :show-modal='statesStore.storeContactOverlay'
+                            v-bind='{
+                                modalId: "store-contact-overlay",
+                                key: "store-contact",
+                                modalTitle: statesStore.storeContactOverlay.name,
+                                showModal: statesStore.storeContactOverlay,
+                                centred: true
+                            }'
                         >
                             <store-contact 
                                 slot='body'
@@ -139,9 +142,12 @@
                         <!-- Bootstrap Modal component to render reserve & collect window -->
                          <store-general-overlay 
                             v-if='statesStore.reservationForm.contact'
-                            :modal-id='"reserve-overlay"'
-                            :key='"reserve-overlay"'
-                            :show-modal='statesStore.reservationForm.contact'
+                            v-bind='{
+                                modalId: "reserve-overlay",
+                                key: "reserve-overlay",
+                                showModal: statesStore.reservationForm.contact,
+                                centred: false
+                            }'
                         >
                             <div class='reserve-form' slot='body' v-if='!statesStore.reservationForm.reserveMsg'>
                                 <div class="left-column">
