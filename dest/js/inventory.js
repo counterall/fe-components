@@ -401,14 +401,17 @@ jQuery(function ($) {
             },
             checkReserveFormValidity: function () {
                 var allPassed = true;
+                var $failedInputs = $();
                 var $form = $('#reserve-overlay');
                 $form.find('input').each(function () {
                     if (!inputValidateHELPER.checkInputValidity($(this), "Please enter a valid " + this.name)) {
+                        $failedInputs = $failedInputs.add($(this));
                         allPassed = false;
                     }
                 });
                 $form.find('select').each(function () {
                     if (!inputValidateHELPER.checkInputValidity($(this), "Please choose " + this.name)) {
+                        $failedInputs = $failedInputs.add($(this));
                         allPassed = false;
                     }
                 });
@@ -438,6 +441,8 @@ jQuery(function ($) {
                         inventoryStatesStore.setReserveAttrs('reserveMsg', 'error');
                     });
 
+                }else{
+                    $failedInputs.eq(0).focus();
                 }
             }
         },
