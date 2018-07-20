@@ -461,13 +461,7 @@ jQuery(function ($) {
 
     /* Reserve & Collect Final Price Component */
     Vue.component("reserve-summary", {
-        props: ['storeName'],
-        data: function(){
-            return {
-                product: inventoryStatesStore.productParams,
-                summary: inventoryStatesStore.reservationForm
-            };
-        },
+        props: ['product', 'summary'],
         template: "#reserve-summary-template",
         computed: {
             finalPrice: function() {
@@ -490,7 +484,7 @@ jQuery(function ($) {
             console.log('reserve summary updated!');
         },
         mounted: function () {
-            if (this.product.type == 'onesize' && !$('select.quanity-selector').val() && this.summary.qty > 1) {
+            if (this.product.type == 'onesize' && !$(this.$root.$el).find('select.qty-selector').val() && this.summary.qty > 1) {
                 inventoryStatesStore.setReserveAttrs('qty', 1);
             }
             console.log('reserve summary mounted!');
@@ -541,15 +535,15 @@ jQuery(function ($) {
             },
             updateSku: function() {
                 var $skuSelect = $('#reserve-overlay select.size-selector');
-                var sku;
-                if (sku = $skuSelect.val()) {
+                var sku = $skuSelect.val();
+                if (sku) {
                     inventoryStatesStore.setProductParams('sku', sku);
                 }
             },
             updateQty: function () {
                 var $qtySelect = $('#reserve-overlay select.qty-selector');
-                var qty;
-                if (qty = parseInt($qtySelect.val())) {
+                var qty = parseInt($qtySelect.val());
+                if (qty) {
                     inventoryStatesStore.setReserveAttrs('qty', qty);
                 }
             },
