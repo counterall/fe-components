@@ -3,9 +3,6 @@
 /* Text input field themes*/
 /* Button style */
 /* Text input style */
-.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
-                width: 400px;
-            }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body {
                         margin-top: 0;
                     }
@@ -142,14 +139,6 @@
                                     padding-top: 10px;
                                 }
 @media (max-width: 767px) {
-                .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
-                    top: 10px;
-                    left: 10px;
-                    position: relative;
-                    -webkit-transform: none;
-                            transform: none;
-                    width: calc(100% - 20px);
-                }
 
                     .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content {
                         padding: 38px 10px 10px;

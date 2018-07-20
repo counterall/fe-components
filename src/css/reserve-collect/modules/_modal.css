@@ -1,10 +1,7 @@
 .catalog-product-view {
     .rich-product-page {
-
         #reserve-overlay {
             .modal-dialog {
-                width: 400px;
-
                 .modal-content {
                     .modal-body {
                         margin-top: 0;
@@ -189,11 +186,6 @@
 
             #reserve-overlay {
                 .modal-dialog {
-                    top: 10px;
-                    left: 10px;
-                    position: relative;
-                    transform: none;
-                    width: calc(100% - 20px);
 
                     .modal-content {
                         padding: 38px 10px 10px;
