@@ -72,7 +72,7 @@
                 <div class='toggle-icon'></div>
                 <div class='toggle-link' @click='toggleDropdown'>Katso saatavuus myymälöissä</div>
             </div>
-            <div class='store-inventory-info' v-if='showDropdown'>
+            <div class='store-inventory-info' v-show='showDropdown'>
 
                 <vue-select2 
                     v-if='statesStore.selector.city'
