@@ -111,12 +111,12 @@ jQuery(function ($) {
 
                 this.config.dropdownParent = $('#' + this.dropDownWrapperId);
                 var vm = this;
-                this.selector
-                .select2(this.config)
-                // emit vue change
-                .on('change', function () {
-                    vm.$emit('change', this.value);
-                });
+                this.selector.
+                on('change', function () {
+                    /* validate value and emit vue change event*/
+                    vm.checkSelectValidity();
+                })
+                .select2(this.config);
 
                 // Destory select2 if on touch screen
                 if (inventoryStatesStore.screen.touch) {
@@ -163,11 +163,11 @@ jQuery(function ($) {
                     });
                 })
             },
-            checkSelectValidity: function(evt) {
+            checkSelectValidity: function() {
                 if (typeof this.validate !== 'undefined' && this.validate) {
-                    var select = evt.target;
-                    inputValidateHELPER.checkInputValidity($(select), this.errorMsg);
+                    inputValidateHELPER.checkInputValidity(this.selector, "Please choose " + this.label);
                 }
+                this.$emit('change', this.selector.val());
             }
         },
         computed: {

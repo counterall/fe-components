@@ -10,7 +10,7 @@ window.inputValidateHELPER = (function($) {
 
             $msgBeforeContainer.removeClass('mari-input--text-primary').addClass('mari-input--text-error');
 
-            if (!$("+ .error-validation-msg", ele).length) {
+            if (!$msgBeforeContainer.next('.error-validation-msg').length) {
                 var $errorMsg = $('<div/>', {
                     "class": "error-validation-msg",
                     text: msg
@@ -22,7 +22,7 @@ window.inputValidateHELPER = (function($) {
 
         } else {
 
-            $("+ .error-validation-msg", ele).remove();
+            $msgBeforeContainer.next('.error-validation-msg').remove();
             $msgBeforeContainer.addClass('mari-input--text-primary').removeClass('mari-input--text-error');
             return true;
 

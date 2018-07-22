@@ -84,8 +84,7 @@
                         options: statesStore.selector.city,
                         htmlOptions: false,
                         disableSearch: false,
-                        validate: true,
-                        errorMsg: 'Please choose city'
+                        validate: true
                     }"
                 >
                 </vue-select2>
@@ -166,8 +165,7 @@
                                                 htmlOptions: false,
                                                 disableSearch: true,
                                                 width: '100%',
-                                                validate: true,
-                                                errorMsg: 'Please choose quantity'
+                                                validate: true
                                             }"
                                             @change='updateQty'
                                         >
@@ -185,8 +183,7 @@
                                                 htmlOptions: true,
                                                 disableSearch: true,
                                                 width: '100%',
-                                                validate: true,
-                                                errorMsg: 'Please choose size'
+                                                validate: true
                                             }"
                                             @change='updateSku'
                                         >
@@ -405,7 +402,7 @@
 
         <script type='text/x-template' id='vue-select2-component'>
             <div class='select2-component-wrapper'>
-                <select :class='className' :name='label' v-model='selected' @change='checkSelectValidity' required>
+                <select :class='className' :name='label' v-model='selected' required>
                     <slot></slot>
                 </select>
                 <div :id='dropDownWrapperId'></div>
