@@ -210,6 +210,18 @@
                             }
                         }
                     }
+
+                    .select2-container--marimekko {
+                        .select2-selection--single {
+                            height: $dropdownHeightXS;
+                            .select2-selection__arrow {
+                                height: 100%;
+                            }
+                            .select2-selection__rendered {
+                                line-height: $dropdownHeightXS;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -339,17 +351,6 @@
                     }
                 }
 
-                .select2-container--marimekko {
-                    .select2-selection--single {
-                        height: $dropdownHeightXS;
-                        .select2-selection__arrow {
-                            height: 100%;
-                        }
-                        .select2-selection__rendered {
-                            line-height: $dropdownHeightXS;
-                        }
-                    }
-                }
             }
         }
 

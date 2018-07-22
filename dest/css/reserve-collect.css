@@ -170,6 +170,15 @@
                                     font-weight: bold;
                                     padding-top: 10px;
                                 }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .select2-container--marimekko .select2-selection--single {
+                            height: 35px;
+                        }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .select2-container--marimekko .select2-selection--single .select2-selection__arrow {
+                                height: 100%;
+                            }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .select2-container--marimekko .select2-selection--single .select2-selection__rendered {
+                                line-height: 35px;
+                            }
 @media (max-width: 767px) {
                     .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content {
                         padding: 38px 0 0 0;
@@ -247,15 +256,6 @@
                                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form .right-column {
                                     width: calc(100% - 471px);
                                 }
-                    .catalog-product-view .rich-product-page #reserve-overlay .select2-container--marimekko .select2-selection--single {
-                        height: 35px;
-                    }
-                        .catalog-product-view .rich-product-page #reserve-overlay .select2-container--marimekko .select2-selection--single .select2-selection__arrow {
-                            height: 100%;
-                        }
-                        .catalog-product-view .rich-product-page #reserve-overlay .select2-container--marimekko .select2-selection--single .select2-selection__rendered {
-                            line-height: 35px;
-                        }
         }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--contact {
                                 letter-spacing: 1px;
