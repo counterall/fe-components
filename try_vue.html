@@ -220,17 +220,19 @@
                         </div>
                     </div>
                     <template slot='messages' v-else>
-                        <div class='msg-header'>Kiitos varauksestasi!</div>
-                        <div class="msg-body">
-                            <div class="success-msg" v-show='statesStore.reservationForm.reserveMsg == "success"'>
-                            Myymälästä lähetetään sinulle sähköpostia, kun varauksesi on noudettavissa. Yhteydenotto saattaa viivästyä myymälän aukioloajoista riippuen. Tuote on myymälän viestin jälkeen noudettavissa 48 tunnin ajan.
+                        <div class='modal-msg clearfix'>
+                            <div class='msg-header'>Kiitos varauksestasi!</div>
+                            <div class="msg-body">
+                                <div class="success-msg" v-show='statesStore.reservationForm.reserveMsg == "success"'>
+                                Myymälästä lähetetään sinulle sähköpostia, kun varauksesi on noudettavissa. Yhteydenotto saattaa viivästyä myymälän aukioloajoista riippuen. Tuote on myymälän viestin jälkeen noudettavissa 48 tunnin ajan.
+                                </div>
+                                <div class="error-msg" v-show='statesStore.reservationForm.reserveMsg == "error"'>
+                                Sorry, something went wrong when doing the reservation request, please try again later.
+                                </div>
                             </div>
-                            <div class="error-msg" v-show='statesStore.reservationForm.reserveMsg == "error"'>
-                            Sorry, something went wrong when doing the reservation request, please try again later.
+                            <div class='msg-footer'>
+                                <button class='mari-btn mari-btn-md mari-btn-primary' data-dismiss="modal" aria-label="Close">Ok</button>
                             </div>
-                        </div>
-                        <div class='msg-footer'>
-                            <button class='mari-btn mari-btn-md mari-btn-primary' data-dismiss="modal" aria-label="Close">Ok</button>
                         </div>
 
                     </template>
@@ -280,9 +282,7 @@
                         <div class="modal-body clearfix">
                             <slot name='body'></slot>
                         </div>
-                        <div class='modal-msg clearfix'>
-                            <slot name='messages'></slot>
-                        </div>
+                        <slot name='messages'></slot>
                     </div>
                 </div>
             </div>
