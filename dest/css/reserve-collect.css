@@ -170,6 +170,23 @@
                                     font-weight: bold;
                                     padding-top: 10px;
                                 }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-msg{
+                        padding: 0 35px 44px 35px;
+                    }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-msg .msg-header{
+                            font-size: 18px;
+                            letter-spacing: 1px;
+                            margin-bottom: 20px;
+                        }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-msg .msg-body{
+                            margin-bottom: 20px;
+                        }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-msg .msg-footer{
+                            text-align: center;
+                        }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-msg .msg-footer button{
+                                width: 100px;
+                            }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .select2-container--marimekko .select2-selection--single {
                             height: 35px;
                         }

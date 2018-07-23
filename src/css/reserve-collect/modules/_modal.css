@@ -211,6 +211,23 @@
                         }
                     }
 
+                    .modal-msg{
+                        padding: 0 35px 44px 35px;
+                        .msg-header{
+                            font-size: 18px;
+                            letter-spacing: 1px;
+                            margin-bottom: 20px;
+                        }
+                        .msg-body{
+                            margin-bottom: 20px;
+                        }
+                        .msg-footer{
+                            text-align: center;
+                            button{
+                                width: 100px;
+                            }
+                        }
+                    }
                     .select2-container--marimekko {
                         .select2-selection--single {
                             height: $dropdownHeightXS;
