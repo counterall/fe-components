@@ -231,6 +231,9 @@
                                 }
         }
 @media (min-width: 768px) {
+                    .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog.message-wide{
+                        width: 490px;
+                    }
                     .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content {
                         padding: 0;
                     }
@@ -254,6 +257,9 @@
                                             width: calc(100% - 31px);
                                             margin-left: 30px;
                                         }
+                        .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-msg{
+                            padding-top: 34px;
+                        }
         }
 @media (min-width: 768px) and (max-width: 1024px) {
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {

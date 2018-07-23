@@ -297,6 +297,9 @@
         @media (min-width: 768px) {
             #reserve-overlay {
                 .modal-dialog {
+                    &.message-wide{
+                        width: 490px;
+                    }
                     .modal-content {
                         padding: 0;
                         .modal-body {
@@ -325,6 +328,9 @@
                                     }
                                 }
                             }
+                        }
+                        .modal-msg{
+                            padding-top: 34px;
                         }
                     }
                 }
