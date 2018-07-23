@@ -146,6 +146,9 @@
                                 color: #333333;
                                 z-index: 1051;
                             }
+.catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header .close-section:hover{
+                                    cursor: pointer;
+                                }
 .catalog-product-view .rich-product-page .modal.fade .modal-dialog .modal-content .modal-header .close-section .txt{
                                     font-size: 14px;
                                     position: relative;

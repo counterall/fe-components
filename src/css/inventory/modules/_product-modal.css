@@ -39,6 +39,10 @@
                                 text-decoration: none;
                                 color: $accentColour09;
                                 z-index: 1051;
+                                
+                                &:hover{
+                                    cursor: pointer;
+                                }
 
                                 .txt{
                                     font-size: 14px;
