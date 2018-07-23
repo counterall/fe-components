@@ -16,14 +16,6 @@
                             &--product {
                                 margin-bottom: 50px;
 
-                                .attribute-selector {
-                                    &--size {
-                                        select.size-selector {
-                                            width: 300px;
-                                        }
-                                    }
-                                }
-
                                 .store {
                                     display: flex;
                                     flex-direction: row;
@@ -143,6 +135,10 @@
                                                     }
 
                                                 }
+                                            }
+
+                                            .error-validation-msg{
+                                                position: absolute;
                                             }
                                         }
                                     }
