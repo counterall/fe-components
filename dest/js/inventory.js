@@ -338,6 +338,14 @@ jQuery(function ($) {
         },
         mounted: function() {
             $(this.$el).modal();
+        },
+        computed: {
+            classObj: function() {
+                return {
+                  centred: this.centred,
+                  'message-wide': inventoryStatesStore.reservationForm.reserveMsg
+                }
+            }
         }
     });
 
