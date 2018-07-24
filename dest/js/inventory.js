@@ -342,7 +342,7 @@ jQuery(function ($) {
         computed: {
             classObj: function() {
                 return {
-                  centred: this.centred,
+                  centred: this.centred || inventoryStatesStore.reservationForm.reserveMsg,
                   'message-wide': inventoryStatesStore.reservationForm.reserveMsg
                 }
             }
