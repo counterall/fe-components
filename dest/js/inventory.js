@@ -16,7 +16,9 @@ jQuery(function ($) {
             contact: false,
             storeId: false,
             qty: 1,
-            currencyAhead: false
+            currencyAhead: false,
+            productName: '',
+            productPrice: ''
         },
         productParams: {
             sku: false
@@ -254,6 +256,7 @@ jQuery(function ($) {
             },
             prepareReserveForm: function() {
 
+                /* Not showing 'thank you' message content when initializing a reservation form popup */
                 inventoryStatesStore.setReserveAttrs('reserveMsg', false);
 
                 /* set contact info property for reservation form*/
@@ -262,6 +265,11 @@ jQuery(function ($) {
                 /* set store ID for reservation form */
                 inventoryStatesStore.setReserveAttrs('storeId', this.storeId);
 
+                /* Set html content of product name and product price */
+                inventoryStatesStore.setReserveAttrs('productName', $('.product-essential .product-name').html());
+                inventoryStatesStore.setReserveAttrs('productPrice', $('.product-essential .price-box').html());
+
+                /* Set size selector with sku of each size as the value of each size option */
                 if (this.productType === 'sizable') {
                     var vm = this;
                     /* Empty size select*/
@@ -365,7 +373,7 @@ jQuery(function ($) {
 
     /* Reserve & Collect Product Component */
     Vue.component("reserve-product-block", {
-        props: ['storeContact'],
+        props: ['formData'],
         data: function() {
             return {
                 productType: inventoryStatesStore.productParams.type,

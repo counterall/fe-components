@@ -153,7 +153,7 @@
                         <div class="left-column">
                             <div class="modal-title">Reserve & Collect</div>
                             <reserve-product-block 
-                                :store-contact='statesStore.reservationForm.contact'
+                                :form-data='statesStore.reservationForm'
                             >
                                 <!-- Quantity Selector -->
                                 <vue-select2 
@@ -345,32 +345,17 @@
                 <div class='store'>
                     <div class="store-icon"></div>
                     <div class="store-info">
-                        <div class="store-info--name">{{storeContact.name}}</div>
-                        <div class="store-info--phone">{{storeContact.phone}}</div>
+                        <div class="store-info--name">{{formData.contact.name}}</div>
+                        <div class="store-info--phone">{{formData.contact.phone}}</div>
                     </div>
                 </div>
                 <div class='product-attribute'>
                     <div class="left-side">
                         <img class='product-img' src="dest/img/test_product.jpg">
                     </div>
-                    <div class="right-side">
-                        <div class="product-name">
-                            <h1>
-                                <span style="color:rgb(255, 186, 25);">-50%</span> Feeni Ruusuruoho
-                                <span class="product-secondary-name">-tunika</span>
-                                <span class="product-color-variant product-color-variant-title">l.valkoinen, musta</span>
-                            </h1>
-                        </div>
-                        <div class='product-price'>
-                            <p class="old-price">
-                                <span class="price" id="old-price-42200">
-                                    120,00 </span>
-                            </p>
-                            <p class="special-price">
-                                <span class="price" id="product-price-42200">
-                                    60,00&nbsp;EUR </span>
-                            </p>
-                        </div>
+                    <div class="right-side"Name>
+                        <div class="product-name" v-html='formData.productName'></div>
+                        <div class='product-price' v-html='formData.productPrice'></div>
                         <div class='attribute-selector attribute-selector--qty' v-if="productType === 'onesize'">
                             <slot name='qty-selector'></slot>
                         </div>
