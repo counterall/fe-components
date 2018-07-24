@@ -18,7 +18,8 @@ jQuery(function ($) {
             qty: 1,
             currencyAhead: false,
             productName: '',
-            productPrice: ''
+            productPrice: '',
+            productCoverImg: ''
         },
         productParams: {
             sku: false
@@ -269,6 +270,9 @@ jQuery(function ($) {
                 inventoryStatesStore.setReserveAttrs('productName', $('.product-essential .product-name').html());
                 inventoryStatesStore.setReserveAttrs('productPrice', $('.product-essential .price-box').html());
 
+                /* Set product cover image url */
+                inventoryStatesStore.setReserveAttrs('productCoverImg', $('.product-essential .product-images > li.product-image img')[0].src)
+                
                 /* Set size selector with sku of each size as the value of each size option */
                 if (this.productType === 'sizable') {
                     var vm = this;

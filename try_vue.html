@@ -38,6 +38,23 @@
         
         <!-- Simulate the product info block -->
         <div class="product-essential" style="display: none">
+            <ul class="product-images ">
+                <div class="hero-image-container">
+                    <a class="mm-popup-hero" href="https://www.marimekko.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/0/4/045584-190_10_1520509142.jpg"
+                        rel="group">
+                        <img src="https://www.marimekko.com/media/catalog/product/cache/1/image/890x1338/17f82f742ffe127f42dca9de82fb58b1/0/4/045584-190_10_1520509142.jpg"
+                            alt="Feeni Ruusuruoho -tunika" title="Feeni Ruusuruoho -tunika" itemprop="image"> </a>
+
+
+                </div>
+                <li class="product-image selected active thumbnail-selected visible-xs visible-sm" id="main-image-default">
+                    <a class="mm-popup thumbnail-image" href="https://www.marimekko.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/0/4/045584-190_10_1520509142.jpg"
+                        rel="group">
+                        <img src="https://www.marimekko.com/media/catalog/product/cache/1/image/890x1338/17f82f742ffe127f42dca9de82fb58b1/0/4/045584-190_10_1520509142.jpg"
+                            alt="Feeni Ruusuruoho -tunika" title="Feeni Ruusuruoho -tunika" itemprop="image"> </a>
+                    <a class="quickview_zoom mobile-open mm-popup product-page"></a>
+                </li>
+            </ul>
             <div class="product-shop">
                 <div class="product-name">
                     <h1>
@@ -47,19 +64,17 @@
                     </h1>
                 </div>
                 
-                <div class="product-shop">
-                    <div class="price-box-configurable">
-                        <div class="price-wrapper">
-                            <div class="price-box">
-                                <p class="old-price">
-                                    <span class="price" id="old-price-42200">
-                                        120,00 </span>
-                                </p>
-                                <p class="special-price">
-                                    <span class="price" id="product-price-42200">
-                                        60,00&nbsp;EUR </span>
-                                </p>
-                            </div>
+                <div class="price-box-configurable">
+                    <div class="price-wrapper">
+                        <div class="price-box">
+                            <p class="old-price">
+                                <span class="price" id="old-price-42200">
+                                    120,00 </span>
+                            </p>
+                            <p class="special-price">
+                                <span class="price" id="product-price-42200">
+                                    60,00&nbsp;EUR </span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -351,7 +366,7 @@
                 </div>
                 <div class='product-attribute'>
                     <div class="left-side">
-                        <img class='product-img' src="dest/img/test_product.jpg">
+                        <img class='product-img' :src="formData.productCoverImg">
                     </div>
                     <div class="right-side"Name>
                         <div class="product-name" v-html='formData.productName'></div>
