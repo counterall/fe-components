@@ -4,9 +4,9 @@
     /* For text-type input field */
     &--text{
         outline: none;
-        padding: 10px 15px;
-        line-height: 1.5;
+        padding: 0px 15px;
         letter-spacing: 0.8px;
+        margin: 0;
 
         /* Height of different size input*/
         &-xs{
