@@ -89,6 +89,7 @@
             </div>
             <div class='store-inventory-info' v-show='showDropdown'>
 
+                <!-- City selector -->
                 <vue-select2 
                     v-if='statesStore.selector.city'
                     @change="switchList" 
@@ -119,6 +120,7 @@
                     </ul>
                 </div>
 
+                <!-- List of stores of a chosen city -->
                 <div class="store-list">
                     <template v-if='cityData'>
                         <store-inventory-list
@@ -255,6 +257,7 @@
             </div>
         </div>
         
+        <!-- Reservation summary template: product quantity, final price, etc. -->
         <script type='text/x-template' id='reserve-summary-template'>
             <div class='reserve-form--summary'>
                 <div class='summary-title'>
@@ -283,6 +286,7 @@
             </div>
         </script>
 
+        <!-- General Bootstrap modal component implemented in Vue -->
         <script type="text/x-template" id='store-general-overlay'>
             <div class="modal fade" :id="modalId" tabindex="-1" role="dialog" :aria-labelledby="modalId + '-label'">
                 <div class="modal-dialog" :class='classObj' role="document">
@@ -355,6 +359,7 @@
             </div>
         </script>
 
+        <!-- Product info template inside reservation overlay -->
         <script type='text/x-template' id='reserve-product-template'>
             <div class='reserve-form--product'>
                 <div class='store'>
@@ -382,6 +387,7 @@
             </div>
         </script>
 
+        <!-- Reservation form block inside reservation overlay -->
         <script type='text/x-template' id='reserve-form-template'>
         
             <div class='reserve-form--contact'>
@@ -405,6 +411,7 @@
         
         </script>
 
+        <!-- General select2 component implemented in Vue -->
         <script type='text/x-template' id='vue-select2-component'>
             <div class='select2-component-wrapper'>
                 <select :class='className' :name='label' v-model='selected' required>

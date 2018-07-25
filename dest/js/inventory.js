@@ -197,6 +197,7 @@ jQuery(function ($) {
         }
     });
 
+    /* Create Vue component to show store list after related city is chosen */
     Vue.component('store-inventory-list', {
         props: ['storeName', 'contact', 'sizes', 'ownStore', 'countryCode', 'openingHours', "productMapping", "storeId", "storeType"],
         template: "#store-inventory-template",
@@ -337,6 +338,7 @@ jQuery(function ($) {
         }
     });
 
+    /* Create Vue component for Bootstrap modal */
     Vue.component('store-general-overlay', {
         props: ['modalId', 'modalTitle', 'showModal', 'centred'],
         template: '#store-general-overlay',
@@ -361,6 +363,7 @@ jQuery(function ($) {
         }
     });
 
+    /* Create Vue component for store contact overlay */
     Vue.component("store-contact", {
         props: ['storeContact'],
         template: "#store-contact-template",
