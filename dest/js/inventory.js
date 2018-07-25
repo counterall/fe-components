@@ -221,7 +221,7 @@ jQuery(function ($) {
             hasInventory: function() {
                 var validLevel = [1, 2];
                 var hasInventory = false;
-                if (this.ownStore && this.storeType != 1) {
+                if (this.ownStore && this.storeType != 1 && this.$root.rawProductData) {
                     $.each(this.sizes, function(idx, size) {
                         if (validLevel.indexOf(size.level) !== -1) {
                             hasInventory = true;
