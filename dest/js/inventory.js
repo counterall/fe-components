@@ -583,21 +583,29 @@ jQuery(function ($) {
 
         },
         computed: {
-            productParams: function() {
+            rawProductData: function() {
                 var dataMine;
                 if ($('ul.list-size > li').length > 1) {
                     dataMine = '.product-data-mine2';
                 } else {
-                    dataMine = '.product-data-mine1';
+                    dataMine = '.product-data-mine3';
                 }
-                var rawProductData = JSON.parse($(dataMine).data('lookup').replace(/'/g, '\"'));
+
+                if (typeof $(dataMine).data('lookup') === 'string' && $(dataMine).data('lookup').length) {
+                    return JSON.parse($(dataMine).data('lookup').replace(/'/g, '\"'));
+                }else{
+                    return false;
+                }
+            },
+            productParams: function() {                
                 var productMapping = {};
-                for (var key in rawProductData) {
-                    productMapping[key] = {};
-                    productMapping[key].sku = rawProductData[key].sku; 
-                    productMapping[key].size = rawProductData[key].size;
+                if (this.rawProductData) {
+                    for (var key in this.rawProductData) {
+                        productMapping[key] = {};
+                        productMapping[key].sku = this.rawProductData[key].sku; 
+                        productMapping[key].size = this.rawProductData[key].size;
+                    }
                 }
-                
                 return {
                     product_mapping: productMapping
                 };
@@ -609,16 +617,12 @@ jQuery(function ($) {
         mounted: function() {
             var bePassedParams = $(this.$el).data('product-params');
             bePassedParams.type = $('ul.list-size > li').length > 1 ? "sizable" : "onesize";
-            var dataMine;
-            if (bePassedParams.type == 'sizable') {
-                dataMine = '.product-data-mine2';
-            }else{
-                dataMine = '.product-data-mine1';
+            
+            if (this.rawProductData) {
+               var productDataKey = Object.keys(this.rawProductData);
+               bePassedParams.unitPrice = Number(this.rawProductData[productDataKey[0]].price_numeric);  
             }
-            var rawProductData = JSON.parse($(dataMine).data('lookup').replace(/'/g, '\"'));
-            var productDataKey = Object.keys(rawProductData);
-            bePassedParams.unitPrice = Number(rawProductData[productDataKey[0]].price_numeric);
-
+           
             var nonEuroCountries = ['US', 'AU', 'SE', 'UK', 'DK', 'NO'];
             var currency;
             if (nonEuroCountries.indexOf(this.countryCode) === -1) {
