@@ -48,6 +48,7 @@
                                 .product-attribute {
                                     display: flex;
                                     flex-direction: row;
+                                    justify-content: space-between;
                                     
                                     .left-side {
                                         width: 80px;
@@ -268,10 +269,6 @@
                                     .product-attribute{
                                         .right-side{
                                             width: calc(100% - 91px);
-                                            margin-left: 10px;
-
-                                            
-
                                         }
                                     }
 
@@ -321,8 +318,7 @@
                                 &--product {
                                     .product-attribute {
                                         .right-side {
-                                            width: calc(100% - 31px);
-                                            margin-left: 30px;
+                                            width: calc(100% - 111px);
                                         }
                                     }
                                 }
