@@ -168,7 +168,13 @@
                 >
                     <div class='reserve-form' slot='body' v-if='!statesStore.reservationForm.reserveMsg'>
                         <div class="left-column">
-                            <div class="modal-title">Reserve & Collect</div>
+                            <div class="modal-title">
+                                <div class="heading">Varaa tuote netistä, nouda ja maksa myymälässä.</div>
+                                <div class="notice">
+                                    Tee varaus vain tuotteesta, jonka haluat ostaa. Emme voi taata saatavuutta, myymälä vahvistaa varauksesi sähköpostitse 2
+                                    tunnin sisään myymälän aukioloaikojen puitteissa.
+                                </div>
+                            </div>
                             <reserve-product-block 
                                 :form-data='statesStore.reservationForm'
                             >

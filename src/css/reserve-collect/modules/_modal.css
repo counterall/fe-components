@@ -7,11 +7,17 @@
                         margin-top: 0;
 
                         .modal-title {
-                            font-size: 18px;
-                            letter-spacing: 1px;
+                            .heading{
+                                font-size: 18px;
+                                letter-spacing: 1px;
+                            }
                         }
 
                         .reserve-form {
+
+                            .right-column{
+                                background-color: $background02;
+                            }
 
                             &--product {
                                 margin-bottom: 50px;
@@ -147,7 +153,6 @@
                             }
 
                             &--additional{
-                                background-color: $background02;
                                 line-height: 1.5;
                                 letter-spacing: 0.8px;
                                 padding: 88px 35px 40px;
@@ -307,7 +312,7 @@
                                 flex-direction: row;
                                 
                                 .left-column{
-                                    padding: 34px 0 0 0;
+                                    padding: 34px 0 49px 0;
                                     > div{
                                         width: 360px;
                                         margin-left: auto;
@@ -321,6 +326,10 @@
                                             width: calc(100% - 111px);
                                         }
                                     }
+                                }
+
+                                &--additional {
+                                    height: 100%;
                                 }
                             }
                         }
