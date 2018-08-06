@@ -98,36 +98,48 @@ jQuery(function ($) {
                 }
             },
             renderSelect2: function() {
-                if (!this.htmlOptions) {
-                    this.config.data = this.options;
-                } else {
-                    this.selector.empty().append(this.options);
-                }
+                if (this.options.length) {
+                    var vm = this;
 
-                if (this.disableSearch) {
-                    this.config.minimumResultsForSearch = Infinity;
-                }
+                    if (!this.htmlOptions) {
+                        var $optionEles = [];
+                            $.each(this.options, function (i, v) {
+                                var $optionEle = $('<option/>', {
+                                    value: v,
+                                    text: v
+                                });
+                                $optionEles.push($optionEle);
+                            });
+                        this.selector.empty().append($optionEles);  
+                    } else {
+                        this.selector.empty().append(this.options);
+                    }
 
-                if (this.width) {
-                    this.selector.css('width', this.width);
-                }
+                    this.selector.on('change', function () {
+                        /* validate value and emit vue change event*/
+                        vm.checkSelectValidity();
+                    });
 
-                this.config.dropdownParent = $('#' + this.dropDownWrapperId);
-                var vm = this;
-                this.selector.
-                on('change', function () {
-                    /* validate value and emit vue change event*/
-                    vm.checkSelectValidity();
-                })
-                .select2(this.config);
+                    if (!inventoryStatesStore.screen.touch) {
+                        if (this.disableSearch) {
+                            this.config.minimumResultsForSearch = Infinity;
+                        }
 
-                // Destory select2 if on touch screen
-                if (inventoryStatesStore.screen.touch) {
-                    this.destroySelect2();
-                    this.selector.find('option').eq(0).text(this.config.placeholder);
-                }else{
-                    if (this.label == 'size') {
-                        this.colorSizeOptions();
+                        if (this.width) {
+                            this.selector.css('width', this.width);
+                        }
+
+                        this.config.dropdownParent = $('#' + this.dropDownWrapperId);
+                        this.selector.select2(this.config);
+    
+                        if (this.label == 'size') {
+                            this.colorSizeOptions();
+                        }
+
+                    }else{
+
+                        this.selector.find('option').eq(0).text(this.config.placeholder);
+
                     }
                 }
             },
