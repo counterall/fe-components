@@ -1,121 +1,99 @@
  .rich-product-page {
-
-    .store-inventory {
-
-        &-toggle {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            height: 25px;
-
-            .toggle-icon{
-                width:  25px;
-                height: 19px;
-                background-image: url(../img/location_icon.svg);
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-origin: content-box;
-            }
-
-            .toggle-link{
-                font-weight: bold;
-                position: relative;
-                top: 1px;
-                &:hover {
-                    cursor: pointer;
-                    border-bottom: 1px solid $accentColour09;
-                }
-            }
-        }
-
-        &-info {
-            margin-top: 19px;
-            line-height: $defaultLineHeight;
-            letter-spacing: 0.8px;
-
-            .city-selector{
-                width: 300px;
-            }
-
-            .instruction{
-                
-                &-text{
-                    color: $accentColour09;
-                    margin-top: 15px;
-                }
-
-                &-demo{
-                    margin: 15px 0 0 0;
-                    padding-left: 0;
-                    list-style-type: none;
-
-                    li{
-                        line-height: 25px;
-                        .icon{
-                            display: inline-block;
-                            width: 15px;
-                            height: 15px;
-                            background-position: center;
-                            background-repeat: no-repeat;
-                            background-size: contain;
-                            margin-right: 10px;
-                            vertical-align: middle;
-                            position: relative;
-                            bottom: 2px;
-                        }
-
-                        &.green{
-                            color: $inventoryStatusSuccess;
-
-                            .icon{
-                                background-image: url(../img/success.svg);
-                            }
-                        }
-
-                        &.orange{
-                            color: $inventoryStatusWarning;
-
-                            .icon{
-                                background-image: url(../img/warning.svg);
-                            }
-                        }
-
-                        &.red{
-                            color: $inventoryStatusDanger;
-
-                            .icon{
-                                background-image: url(../img/error.svg);
-                            }
-                        }
-                    }
-                }
-
-            }
-
-            .store-list{
-                line-height: 14px;
-
-                .store-item{
-                    .store-title{
-                        padding: 20px 0 10px 0;
-                        &-name{
-                            font-weight: bold;
-                            border-bottom: 1px solid #333333;
-                            cursor: pointer;
-                        }
-                    }
-
-                    &--sizable,
-                    &--onesize {
+     .store-inventory {
+         &-toggle {
+             display: flex;
+             flex-direction: row;
+             justify-content: flex-start;
+             align-items: center;
+             height: 25px;
+             .toggle-icon {
+                 width: 25px;
+                 height: 19px;
+                 background-image: url(../img/location_icon.svg);
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 background-origin: content-box;
+             }
+             .toggle-link {
+                 font-weight: bold;
+                 position: relative;
+                 top: 1px;
+                 &:hover {
+                     cursor: pointer;
+                     border-bottom: 1px solid $accentColour09;
+                 }
+             }
+         }
+         &-info {
+             margin-top: 19px;
+             line-height: $defaultLineHeight;
+             letter-spacing: 0.8px;
+             .city-selector {
+                 width: 300px;
+             }
+             .instruction {
+                 &-text {
+                     color: $accentColour09;
+                     margin-top: 15px;
+                 }
+                 &-demo {
+                     margin: 15px 0 0 0;
+                     padding-left: 0;
+                     list-style-type: none;
+                     li {
+                         line-height: 25px;
+                         .icon {
+                             display: inline-block;
+                             width: 15px;
+                             height: 15px;
+                             background-position: center;
+                             background-repeat: no-repeat;
+                             background-size: contain;
+                             margin-right: 10px;
+                             vertical-align: middle;
+                             position: relative;
+                             bottom: 2px;
+                         }
+                         &.green {
+                             color: $inventoryStatusSuccess;
+                             .icon {
+                                 background-image: url(../img/success.svg);
+                             }
+                         }
+                         &.orange {
+                             color: $inventoryStatusWarning;
+                             .icon {
+                                 background-image: url(../img/warning.svg);
+                             }
+                         }
+                         &.red {
+                             color: $inventoryStatusDanger;
+                             .icon {
+                                 background-image: url(../img/error.svg);
+                             }
+                         }
+                     }
+                 }
+             }
+             .store-list {
+                 line-height: 14px;
+                 .store-item {
+                     .store-title {
+                         padding: 20px 0 10px 0;
+                         &-name {
+                             font-weight: bold;
+                             border-bottom: 1px solid #333333;
+                             cursor: pointer;
+                         }
+                     }
+                     &--sizable,
+                     &--onesize {
                          .store-status {
                              display: flex;
                              flex-flow: row wrap;
                              justify-content: flex-start;
-                             
                              &-item {
                                  margin-right: 10px;
-                                 
                                  &--green {
                                      color: $inventoryStatusSuccess;
                                  }
@@ -127,48 +105,40 @@
                                  }
                              }
                          }
-
-                    }
-
-                    &--null{
-                        .store-status{
-                            line-height: 22px;
-                        }
-                    }
-
-                    .reserve-btn {
-                        margin-top: 10px;
-                    }
-
-                }
-            }
-
-
-        }
-
-        .select2-component-wrapper{
-            select{
-                width: $textInputWidthS;
-                height: $dropdownHeightM;
-                line-height : $dropdownHeightM;
-                padding: 0 15px;
-                border-radius: 0;
-                outline: none;
-                background-color: $background01;
-                border: 1px solid $borderColour04;
-                color: $accentColour13;
-            }
-        }
-
-        @media (max-width: 767px) {
-           .select2-component-wrapper {
-               select {
-                   width: 100%;
-               }
-           }
-        }
-    }
-
-    
-
-}
+                     }
+                     &--null {
+                         .store-status {
+                             line-height: 22px;
+                         }
+                     }
+                     .reserve-btn {
+                         margin-top: 10px;
+                     }
+                 }
+             }
+         }
+         @media (max-width: 1023px) {
+             .select2-component-wrapper {
+                 select {
+                     width: $textInputWidthS;
+                     height: $dropdownHeightM;
+                     line-height: $dropdownHeightM;
+                     padding: 0 15px;
+                     border-radius: 0;
+                     outline: none;
+                     background-color: $background01;
+                     border: 1px solid $borderColour04;
+                    //  color: $accentColour13;
+                     -webkit-appearance: none;
+                 }
+             }
+         }
+         @media (max-width: 767px) {
+             .select2-component-wrapper {
+                 select {
+                     width: 100%;
+                 }
+             }
+         }
+     }
+ }

@@ -600,7 +600,7 @@ jQuery(function ($) {
                 if ($('ul.list-size > li').length > 1) {
                     dataMine = '.product-data-mine2';
                 } else {
-                    dataMine = '.product-data-mine3';
+                    dataMine = '.product-data-mine1';
                 }
 
                 if (typeof $(dataMine).data('lookup') === 'string' && $(dataMine).data('lookup').length) {

@@ -4,92 +4,90 @@
 /* Button style */
 /* Text input style */
 .rich-product-page .store-inventory-toggle {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            height: 25px;
-        }
-.rich-product-page .store-inventory-toggle .toggle-icon{
-                width:  25px;
-                height: 19px;
-                background-image: url(../img/location_icon.svg);
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-origin: content-box;
-            }
-.rich-product-page .store-inventory-toggle .toggle-link{
-                font-weight: bold;
-                position: relative;
-                top: 1px;
-            }
+             display: flex;
+             flex-direction: row;
+             justify-content: flex-start;
+             align-items: center;
+             height: 25px;
+         }
+.rich-product-page .store-inventory-toggle .toggle-icon {
+                 width: 25px;
+                 height: 19px;
+                 background-image: url(../img/location_icon.svg);
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 background-origin: content-box;
+             }
+.rich-product-page .store-inventory-toggle .toggle-link {
+                 font-weight: bold;
+                 position: relative;
+                 top: 1px;
+             }
 .rich-product-page .store-inventory-toggle .toggle-link:hover {
-                    cursor: pointer;
-                    border-bottom: 1px solid #333333;
-                }
+                     cursor: pointer;
+                     border-bottom: 1px solid #333333;
+                 }
 .rich-product-page .store-inventory-info {
-            margin-top: 19px;
-            line-height: 22px;
-            letter-spacing: 0.8px;
-
-
-        }
-.rich-product-page .store-inventory-info .city-selector{
-                width: 300px;
-            }
-.rich-product-page .store-inventory-info .instruction-text{
-                    color: #333333;
-                    margin-top: 15px;
-                }
-.rich-product-page .store-inventory-info .instruction-demo{
-                    margin: 15px 0 0 0;
-                    padding-left: 0;
-                    list-style-type: none;
-                }
-.rich-product-page .store-inventory-info .instruction-demo li{
-                        line-height: 25px;
-                    }
-.rich-product-page .store-inventory-info .instruction-demo li .icon{
-                            display: inline-block;
-                            width: 15px;
-                            height: 15px;
-                            background-position: center;
-                            background-repeat: no-repeat;
-                            background-size: contain;
-                            margin-right: 10px;
-                            vertical-align: middle;
-                            position: relative;
-                            bottom: 2px;
-                        }
-.rich-product-page .store-inventory-info .instruction-demo li.green{
-                            color: #7ed321;
-                        }
-.rich-product-page .store-inventory-info .instruction-demo li.green .icon{
-                                background-image: url(../img/success.svg);
-                            }
-.rich-product-page .store-inventory-info .instruction-demo li.orange{
-                            color: #f1c40e;
-                        }
-.rich-product-page .store-inventory-info .instruction-demo li.orange .icon{
-                                background-image: url(../img/warning.svg);
-                            }
-.rich-product-page .store-inventory-info .instruction-demo li.red{
-                            color: #d0021b;
-                        }
-.rich-product-page .store-inventory-info .instruction-demo li.red .icon{
-                                background-image: url(../img/error.svg);
-                            }
-.rich-product-page .store-inventory-info .store-list{
-                line-height: 14px;
-            }
-.rich-product-page .store-inventory-info .store-list .store-item .store-title{
-                        padding: 20px 0 10px 0;
-                    }
-.rich-product-page .store-inventory-info .store-list .store-item .store-title-name{
-                            font-weight: bold;
-                            border-bottom: 1px solid #333333;
-                            cursor: pointer;
-                        }
+             margin-top: 19px;
+             line-height: 22px;
+             letter-spacing: 0.8px;
+         }
+.rich-product-page .store-inventory-info .city-selector {
+                 width: 300px;
+             }
+.rich-product-page .store-inventory-info .instruction-text {
+                     color: #333333;
+                     margin-top: 15px;
+                 }
+.rich-product-page .store-inventory-info .instruction-demo {
+                     margin: 15px 0 0 0;
+                     padding-left: 0;
+                     list-style-type: none;
+                 }
+.rich-product-page .store-inventory-info .instruction-demo li {
+                         line-height: 25px;
+                     }
+.rich-product-page .store-inventory-info .instruction-demo li .icon {
+                             display: inline-block;
+                             width: 15px;
+                             height: 15px;
+                             background-position: center;
+                             background-repeat: no-repeat;
+                             background-size: contain;
+                             margin-right: 10px;
+                             vertical-align: middle;
+                             position: relative;
+                             bottom: 2px;
+                         }
+.rich-product-page .store-inventory-info .instruction-demo li.green {
+                             color: #7ed321;
+                         }
+.rich-product-page .store-inventory-info .instruction-demo li.green .icon {
+                                 background-image: url(../img/success.svg);
+                             }
+.rich-product-page .store-inventory-info .instruction-demo li.orange {
+                             color: #f1c40e;
+                         }
+.rich-product-page .store-inventory-info .instruction-demo li.orange .icon {
+                                 background-image: url(../img/warning.svg);
+                             }
+.rich-product-page .store-inventory-info .instruction-demo li.red {
+                             color: #d0021b;
+                         }
+.rich-product-page .store-inventory-info .instruction-demo li.red .icon {
+                                 background-image: url(../img/error.svg);
+                             }
+.rich-product-page .store-inventory-info .store-list {
+                 line-height: 14px;
+             }
+.rich-product-page .store-inventory-info .store-list .store-item .store-title {
+                         padding: 20px 0 10px 0;
+                     }
+.rich-product-page .store-inventory-info .store-list .store-item .store-title-name {
+                             font-weight: bold;
+                             border-bottom: 1px solid #333333;
+                             cursor: pointer;
+                         }
 .rich-product-page .store-inventory-info .store-list .store-item--sizable .store-status, .rich-product-page .store-inventory-info .store-list .store-item--onesize .store-status {
                              display: flex;
                              flex-flow: row wrap;
@@ -107,28 +105,31 @@
 .rich-product-page .store-inventory-info .store-list .store-item--sizable .store-status-item--orange, .rich-product-page .store-inventory-info .store-list .store-item--onesize .store-status-item--orange {
                                      color: #f1c40e;
                                  }
-.rich-product-page .store-inventory-info .store-list .store-item--null .store-status{
-                            line-height: 22px;
-                        }
+.rich-product-page .store-inventory-info .store-list .store-item--null .store-status {
+                             line-height: 22px;
+                         }
 .rich-product-page .store-inventory-info .store-list .store-item .reserve-btn {
-                        margin-top: 10px;
-                    }
-.rich-product-page .store-inventory .select2-component-wrapper select{
-                width: 300px;
-                height: 45px;
-                line-height : 45px;
-                padding: 0 15px;
-                border-radius: 0;
-                outline: none;
-                background-color: #ffffff;
-                border: 1px solid #dfdfdf;
-                color: #989898;
-            }
+                         margin-top: 10px;
+                     }
+@media (max-width: 1023px) {
+                 .rich-product-page .store-inventory .select2-component-wrapper select {
+                     width: 300px;
+                     height: 45px;
+                     line-height: 45px;
+                     padding: 0 15px;
+                     border-radius: 0;
+                     outline: none;
+                     background-color: #ffffff;
+                     border: 1px solid #dfdfdf;
+                    //  color: #989898;
+                     -webkit-appearance: none;
+                 }
+         }
 @media (max-width: 767px) {
-               .rich-product-page .store-inventory .select2-component-wrapper select {
-                   width: 100%;
-               }
-        }
+                 .rich-product-page .store-inventory .select2-component-wrapper select {
+                     width: 100%;
+                 }
+         }
 .catalog-product-view .rich-product-page .modal.fade .modal-dialog.centred{
                         position: fixed;
                         top: 50%;
