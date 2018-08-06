@@ -145,6 +145,28 @@
 
 
         }
+
+        .select2-component-wrapper{
+            select{
+                width: $textInputWidthS;
+                height: $dropdownHeightM;
+                line-height : $dropdownHeightM;
+                padding: 0 15px;
+                border-radius: 0;
+                outline: none;
+                background-color: $background01;
+                border: 1px solid $borderColour04;
+                color: $accentColour13;
+            }
+        }
+
+        @media (max-width: 767px) {
+           .select2-component-wrapper {
+               select {
+                   width: 100%;
+               }
+           }
+        }
     }
 
     

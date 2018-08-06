@@ -211,6 +211,13 @@
                                 }
                                 
                             }
+
+                            .select2-component-wrapper {
+                                select {
+                                    height: $dropdownHeightXS;
+                                    line-height: $dropdownHeightXS;
+                                }
+                            }
                         }
                     }
 

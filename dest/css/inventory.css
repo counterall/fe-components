@@ -113,6 +113,22 @@
 .rich-product-page .store-inventory-info .store-list .store-item .reserve-btn {
                         margin-top: 10px;
                     }
+.rich-product-page .store-inventory .select2-component-wrapper select{
+                width: 300px;
+                height: 45px;
+                line-height : 45px;
+                padding: 0 15px;
+                border-radius: 0;
+                outline: none;
+                background-color: #ffffff;
+                border: 1px solid #dfdfdf;
+                color: #989898;
+            }
+@media (max-width: 767px) {
+               .rich-product-page .store-inventory .select2-component-wrapper select {
+                   width: 100%;
+               }
+        }
 .catalog-product-view .rich-product-page .modal.fade .modal-dialog.centred{
                         position: fixed;
                         top: 50%;

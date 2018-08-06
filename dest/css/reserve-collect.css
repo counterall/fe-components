@@ -176,6 +176,10 @@
                                     font-weight: bold;
                                     padding-top: 10px;
                                 }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form .select2-component-wrapper select {
+                                    height: 35px;
+                                    line-height: 35px;
+                                }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-msg{
                         padding: 0 35px 44px 35px;
                     }
