@@ -36,7 +36,7 @@ window.inputValidateHELPER = (function($) {
         /* when select2 widget is used to render the original select*/
         var $selectContainer = $container.next('.select2-container');
         if ($selectContainer.length) {
-            $container = $selectContainer;
+            $container = $selectContainer.find('.select2-selection');
         }
         
         return doValidation(ele, $container, msg);
