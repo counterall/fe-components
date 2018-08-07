@@ -32,13 +32,13 @@
         }
 
         &-error {
-            border: 1px solid $inventoryStatusDanger;
-            background-color: $errorBackground;
+            border: 1px solid $inventoryStatusDanger !important;
+            background-color: $errorBackground !important;
         }
         
         &-warning {
-            border: 1px solid $inventoryStatusWarning;
-            background-color: $warningBackground;
+            border: 1px solid $inventoryStatusWarning !important;
+            background-color: $warningBackground !important;
         }
         
         &-success{

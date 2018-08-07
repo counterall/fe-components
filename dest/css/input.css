@@ -31,12 +31,12 @@
             border: 1px solid #989898;
         }
 .mari-input--text-error {
-            border: 1px solid #d0021b;
-            background-color: rgba(208, 2, 27, 0.1);
+            border: 1px solid #d0021b !important;
+            background-color: rgba(208, 2, 27, 0.1) !important;
         }
 .mari-input--text-warning {
-            border: 1px solid #f1c40e;
-            background-color: rgba(241, 196, 14, 0.1);
+            border: 1px solid #f1c40e !important;
+            background-color: rgba(241, 196, 14, 0.1) !important;
         }
 .mari-input--text-success{
             border: 1px solid #7ed321;
