@@ -302,7 +302,7 @@
                 }
             }
         }
-        @media (min-width: 768px) and (max-width: 1023px) {
+        @media (min-width: 768px) and (max-width: 1024px) {
             #reserve-overlay {
                 .modal-dialog {
                     width: 740px;
@@ -321,7 +321,7 @@
                 }
             }
         }
-        @media (max-width: 1023px) {
+        @media (max-width: 1024px) {
             #reserve-overlay {
                 .select2-component-wrapper {
                     select {
@@ -331,7 +331,7 @@
                 }
             }
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 1025px) {
             #reserve-overlay {
                 .modal-dialog {
                     width: 840px;

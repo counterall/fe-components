@@ -259,7 +259,7 @@
                             padding-top: 34px;
                         }
         }
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1024px) {
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
                     width: 740px;
                 }
@@ -270,13 +270,13 @@
                                     width: calc(100% - 401px);
                                 }
         }
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
                     .catalog-product-view .rich-product-page #reserve-overlay .select2-component-wrapper select {
                         height: 35px;
                         line-height: 35px;
                     }
         }
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
                 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog {
                     width: 840px;
                 }

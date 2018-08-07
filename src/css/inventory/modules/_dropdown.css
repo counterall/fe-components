@@ -117,7 +117,7 @@
                  }
              }
          }
-         @media (max-width: 1023px) {
+         @media (max-width: 1024px) {
              .select2-component-wrapper {
                  select {
                      width: $textInputWidthS;
