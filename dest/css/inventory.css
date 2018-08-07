@@ -112,8 +112,12 @@
                          margin-top: 10px;
                      }
 @media (max-width: 1024px) {
+             .rich-product-page .store-inventory .select2-component-wrapper {
+                 width: 300px;
+                 position: relative;
+             }
                  .rich-product-page .store-inventory .select2-component-wrapper select {
-                     width: 300px;
+                     width: 100%;
                      height: 45px;
                      line-height: 45px;
                      padding: 0 15px;
@@ -121,14 +125,33 @@
                      outline: none;
                      background-color: #ffffff;
                      border: 1px solid #dfdfdf;
-                    //  color: #989898;
                      -webkit-appearance: none;
                  }
+                 .rich-product-page .store-inventory .select2-component-wrapper .arrow-icon {
+                     width: 10px;
+                     height: 45px;
+                     position: absolute;
+                     top: 0;
+                     right: 15px;
+                     display: flex;
+                     flex-direction: row;
+                     justify-content: flex-end;
+                     align-items: center;
+                 }
+
+                     .rich-product-page .store-inventory .select2-component-wrapper .arrow-icon > div {
+                         width: 100%;
+                         height: 6px;
+                         background-image: url(../img/arrow_icon.svg);
+                         background-repeat: no-repeat;
+                         background-size: contain;
+                         background-origin: content-box;
+                     }
          }
 @media (max-width: 767px) {
-                 .rich-product-page .store-inventory .select2-component-wrapper select {
-                     width: 100%;
-                 }
+             .rich-product-page .store-inventory .select2-component-wrapper {
+                 width: 100%;
+             }
          }
 .catalog-product-view .rich-product-page .modal.fade .modal-dialog.centred{
                         position: fixed;

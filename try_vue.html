@@ -420,8 +420,8 @@
         <!-- General select2 component implemented in Vue -->
         <script type='text/x-template' id='vue-select2-component'>
             <div class='select2-component-wrapper'>
+                <div class='arrow-icon'><div></div></div>
                 <select :class='className' :name='label' v-model='selected' required>
-                    <slot></slot>
                 </select>
                 <div :id='dropDownWrapperId'></div>
             </div>

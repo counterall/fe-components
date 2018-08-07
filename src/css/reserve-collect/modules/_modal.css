@@ -324,9 +324,13 @@
         @media (max-width: 1024px) {
             #reserve-overlay {
                 .select2-component-wrapper {
+                    width: 100%;
                     select {
                         height: $dropdownHeightXS;
                         line-height: $dropdownHeightXS;
+                    }
+                    .arrow-icon {
+                        height: $dropdownHeightXS;
                     }
                 }
             }

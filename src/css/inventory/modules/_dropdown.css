@@ -119,8 +119,10 @@
          }
          @media (max-width: 1024px) {
              .select2-component-wrapper {
+                 width: $textInputWidthS;
+                 position: relative;
                  select {
-                     width: $textInputWidthS;
+                     width: 100%;
                      height: $dropdownHeightM;
                      line-height: $dropdownHeightM;
                      padding: 0 15px;
@@ -128,16 +130,33 @@
                      outline: none;
                      background-color: $background01;
                      border: 1px solid $borderColour04;
-                    //  color: $accentColour13;
                      -webkit-appearance: none;
+                 }
+                 .arrow-icon {
+                     width: 10px;
+                     height: $dropdownHeightM;
+                     position: absolute;
+                     top: 0;
+                     right: 15px;
+                     display: flex;
+                     flex-direction: row;
+                     justify-content: flex-end;
+                     align-items: center;
+
+                     > div {
+                         width: 100%;
+                         height: 6px;
+                         background-image: url(../img/arrow_icon.svg);
+                         background-repeat: no-repeat;
+                         background-size: contain;
+                         background-origin: content-box;
+                     }
                  }
              }
          }
          @media (max-width: 767px) {
              .select2-component-wrapper {
-                 select {
-                     width: 100%;
-                 }
+                 width: 100%;
              }
          }
      }

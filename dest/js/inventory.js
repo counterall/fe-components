@@ -100,7 +100,10 @@ jQuery(function ($) {
             renderSelect2: function() {
                 if (this.options.length) {
                     var vm = this;
+                    /* empty existing options if any */
+                    this.selector.empty();
 
+                    /* feed options into selector */
                     if (!this.htmlOptions) {
                         var $optionEles = [];
                             $.each(this.options, function (i, v) {
@@ -110,25 +113,26 @@ jQuery(function ($) {
                                 });
                                 $optionEles.push($optionEle);
                             });
-                        this.selector.empty().append($optionEles);  
+                        this.selector.append($optionEles);  
                     } else {
-                        this.selector.empty().append(this.options);
+                        this.selector.append(this.options);
                     }
 
+                    /* validate value and emit vue change event */
                     this.selector.on('change', function () {
-                        /* validate value and emit vue change event*/
                         vm.checkSelectValidity();
                     });
 
+                    /* Set the width of selector based on width prop of the component instance */
+                    if (this.width) {
+                        this.selector.css('width', this.width);
+                    }
+
+                    /* No select2 wrapper is rendered for touch screens in order to use native selector dropdown */
                     if (!inventoryStatesStore.screen.touch) {
                         if (this.disableSearch) {
                             this.config.minimumResultsForSearch = Infinity;
                         }
-
-                        if (this.width) {
-                            this.selector.css('width', this.width);
-                        }
-
                         this.config.dropdownParent = $('#' + this.dropDownWrapperId);
                         this.selector.select2(this.config);
     
