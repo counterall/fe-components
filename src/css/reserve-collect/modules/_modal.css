@@ -50,15 +50,12 @@
                                     flex-direction: row;
                                     justify-content: space-between;
                                     .left-side {
-                                        width: 80px;
-                                        .product-img {
-                                            width: 100%;
-                                            height: auto;
-                                            display: block;
-                                        }
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        background-origin: content-box;
+                                        height: 100%;
                                     }
                                     .right-side {
-                                        position: relative;
                                         .product-name {
                                             h1 {
                                                 margin: 0;
@@ -113,9 +110,7 @@
                                             }
                                         }
                                         .attribute-selector {
-                                            width: 100%;
-                                            position: absolute;
-                                            bottom: 0;
+                                            margin-top: 30px;
                                             &--size {
                                                 #custom-size-select2-dropdown-wrapper {
                                                     .select2-results__option {
