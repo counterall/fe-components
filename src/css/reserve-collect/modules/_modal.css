@@ -132,6 +132,9 @@
                                         }
                                     }
                                 }
+                                .onesize-notice{
+                                    margin-top: 10px;
+                                }
                             }
                             &--additional {
                                 line-height: 1.5;

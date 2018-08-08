@@ -121,6 +121,9 @@
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .attribute-selector .error-validation-msg {
                                                 position: absolute;
                                             }
+.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .onesize-notice{
+                                    margin-top: 10px;
+                                }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--additional {
                                 line-height: 1.5;
                                 letter-spacing: 0.8px;
