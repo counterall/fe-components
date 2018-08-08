@@ -50,15 +50,10 @@
                                     justify-content: space-between;
                                 }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .left-side {
-                                        width: 80px;
-                                    }
-.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .left-side .product-img {
-                                            width: 100%;
-                                            height: auto;
-                                            display: block;
-                                        }
-.catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side {
-                                        position: relative;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        background-origin: content-box;
+                                        height: 100%;
                                     }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .product-name h1 {
                                                 margin: 0;
@@ -112,9 +107,7 @@
                                                 color: #e40079;
                                             }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .attribute-selector {
-                                            width: 100%;
-                                            position: absolute;
-                                            bottom: 0;
+                                            margin-top: 30px;
                                         }
 .catalog-product-view .rich-product-page #reserve-overlay .modal-dialog .modal-content .modal-body .reserve-form--product .product-attribute .right-side .attribute-selector--size #custom-size-select2-dropdown-wrapper .select2-results__option.green {
                                                             color: #7ed321

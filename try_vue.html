@@ -376,8 +376,7 @@
                     </div>
                 </div>
                 <div class='product-attribute'>
-                    <div class="left-side">
-                        <img class='product-img' :src="formData.productCoverImg">
+                    <div class="left-side" :style='{backgroundImage: "url(" + formData.productCoverImg + ")"}'>
                     </div>
                     <div class="right-side"Name>
                         <div class="product-name" v-html='formData.productName'></div>
