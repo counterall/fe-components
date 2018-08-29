@@ -37,6 +37,9 @@
 .country-switcher-overlay .modal-dialog .country-switcher-selector{
                 width: 100%;
             }
+.country-switcher-overlay .modal-dialog .country-switcher-confirm{
+                width: 100%;
+            }
 @media (max-width: 1024px) {
             .country-switcher-overlay .modal-dialog .country-switcher {
                 position: relative;

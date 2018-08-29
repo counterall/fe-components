@@ -36,6 +36,9 @@
             &-selector{
                 width: 100%;
             }
+            &-confirm{
+                width: 100%;
+            }
         }
 
         @media (max-width: 1024px) {
