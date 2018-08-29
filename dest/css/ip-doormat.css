@@ -3,6 +3,10 @@
 /* Text input field themes*/
 /* Button style */
 /* Text input style */
-h1{
-    font-size: 22px
-}
+.country-switcher-doormat .modal-dialog {
+        width: 739px;
+    }
+.country-switcher-doormat .modal-dialog .modal-content{
+            height: 489px;
+            
+        }
