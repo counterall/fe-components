@@ -1,9 +1,12 @@
 
 .country-switcher-overlay{
-
+    
     .modal-dialog {
         width: 739px;
-
+        * {
+            padding: 0;
+            margin: 0;
+        }
         .modal-content{
             padding: 0 !important;
 
@@ -23,8 +26,18 @@
                         }
                     }
                     &-right{
-                        padding: 30px;
+                        padding: 90px 30px 30px;
                         text-align: center;
+                        h1{
+                            font-size: 22px;
+                            margin-bottom: 50px;
+                        }
+                        h2{
+                            font-size: 15px;
+                            line-height: 1.4;
+                            margin-bottom: 50px;
+                        }
+
                     }
                 }
             }
@@ -38,6 +51,8 @@
             }
             &-confirm{
                 width: 100%;
+                font-weight: bold;
+                margin-top: 20px;
             }
         }
 
