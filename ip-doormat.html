@@ -93,8 +93,7 @@
     <script type="text/javascript">
     
         jQuery(function($){
-            var doormat = $('.country-switcher-overlay.modal');
-            doormat.modal();
+            
             var placeholder = "Choose your country"
             var select2Config = {
                 placeholder: placeholder,
@@ -119,6 +118,9 @@
                     location.href = redirectURI;
                 }
             });
+
+            var doormat = $('.country-switcher-overlay.modal');
+            doormat.modal();
         });
 
     </script>
