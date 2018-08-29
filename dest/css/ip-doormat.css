@@ -6,10 +6,6 @@
 .country-switcher-overlay .modal-dialog {
         width: 739px;
     }
-.country-switcher-overlay .modal-dialog * {
-            padding: 0;
-            margin: 0;
-        }
 .country-switcher-overlay .modal-dialog .modal-content{
             padding: 0 !important;
         }
@@ -37,12 +33,12 @@
                     }
 .country-switcher-overlay .modal-dialog .modal-content .modal-body .column-right h1{
                             font-size: 22px;
-                            margin-bottom: 50px;
+                            margin: 0 0 50px 0;
                         }
 .country-switcher-overlay .modal-dialog .modal-content .modal-body .column-right h2{
                             font-size: 15px;
                             line-height: 1.4;
-                            margin-bottom: 50px;
+                            margin: 0 0 50px 0;
                         }
 .country-switcher-overlay .modal-dialog .country-switcher{
             width: 100%;
