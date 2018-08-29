@@ -47,5 +47,10 @@ gulp.task('watch', function () {
         gulp.start('qty-selector');
     });
 
+    // quantity selector component
+    watch('./src/css/ip-doormat/**/*.css', function () {
+        gulp.start('ip-doormat');
+    });
+
 });
 
