@@ -20,7 +20,7 @@
 <body>
     <div class='catalog-product-view'>
         <div class='rich-product-page'>
-            <div class="country-switcher-doormat modal fade" tabindex="-1" role="dialog">
+            <div class="country-switcher-overlay modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog " role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -30,6 +30,56 @@
                             </a>
                         </div>
                         <div class="modal-body clearfix">
+                            <div class='column column-left'>
+                                <img src="https://ecom-dev.marimekko.com/media/wysiwyg/CLASSICS/FABRICS/Sk_rmklipp_2015-09-08_19.07.58.png" alt="">
+                            </div>
+                            <div class='column column-right'>
+                                <h1>Welcome to Marimekko.com</h1>
+                                <h3>Prints, colours and joys for everyday life<br>Finnish liftstyle brand since 1951</h3>
+                                <div class='country-switcher'>
+                                    <div class="arrow-icon">
+                                        <div></div>
+                                    </div>
+                                    <select class="country-switcher-selector" title="Select Currency">
+                                        <option value=""></option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/au_en/">Australia</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Austria</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Belgium</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Croatia</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Czech Republic</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/dk_en/">Denmark</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Estonia</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/fi_fi/">Finland</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">France</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Germany</option>
+                                        
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Greece</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Hungary</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Ireland</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Italy</option>
+                                        <option value="http://www.marimekko.jp/#JP">Japan</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Latvia</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Lithuania</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Luxembourg</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Malta</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Netherlands</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/no_en/">Norway</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Poland</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Portugal</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Romania</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Slovakia</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Slovenia</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Spain</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/se_en/">Sweden</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/eu_en/">Switzerland</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/gb_en/">UK</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/us_en/">US</option>
+                                        <option value="http://kandy.io/marimekko-qa/htdocs/com_en/">Other</option>
+                                    </select>
+                                    <div id='country-switcher-select2-wrapper'></div>
+                                    <button class='country-switch-confirm'>Proceed to site</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -40,10 +90,25 @@
 
 
     <script type="text/javascript">
-        var doormat = $('.country-switcher-doormat.modal');
+        var doormat = $('.country-switcher-overlay.modal');
         doormat.modal();
+        var placeholder = "Choose your country:"
+        var select2Config = {
+            placeholder: placeholder,
+            width: "resolve",
+            theme: "marimekko",
+            minimumResultsForSearch: Infinity
+        };
 
-    
+        var touchScreen = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        var $csSelector = $('.country-switcher-selector');
+        
+        if (touchScreen) {
+            $csSelector.find('option').eq(0).text(select2Config.placeholder);
+        }else{
+            select2Config.dropdownParent = $('#country-switcher-select2-wrapper');
+            $csSelector.select2(select2Config);
+        }
     </script>
 </body>
 </html>

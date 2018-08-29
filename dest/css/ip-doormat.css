@@ -3,10 +3,75 @@
 /* Text input field themes*/
 /* Button style */
 /* Text input style */
-.country-switcher-doormat .modal-dialog {
+.country-switcher-overlay .modal-dialog {
         width: 739px;
     }
-.country-switcher-doormat .modal-dialog .modal-content{
-            height: 489px;
-            
+.country-switcher-overlay .modal-dialog .modal-content{
+            padding: 0 !important;
+        }
+.country-switcher-overlay .modal-dialog .modal-content .modal-body{
+                height: 489px;
+                display: flex;
+                flex-direction: row;
+            }
+.country-switcher-overlay .modal-dialog .modal-content .modal-body .column {
+                    flex: 1;
+                    height: 100%;
+                }
+.country-switcher-overlay .modal-dialog .modal-content .modal-body .column-left {
+                        padding: 15px;
+                    }
+.country-switcher-overlay .modal-dialog .modal-content .modal-body .column-left img{
+                            height: 100%;
+                            width: auto;
+                            display: inline-block;
+                        }
+.country-switcher-overlay .modal-dialog .modal-content .modal-body .column-right{
+                        padding: 30px;
+                        text-align: center;
+                    }
+.country-switcher-overlay .modal-dialog .country-switcher{
+            width: 100%;
+            text-align: left;
+        }
+.country-switcher-overlay .modal-dialog .country-switcher-selector{
+                width: 100%;
+            }
+@media (max-width: 1024px) {
+            .country-switcher-overlay .modal-dialog .country-switcher {
+                position: relative;
+            }
+
+                .country-switcher-overlay .modal-dialog .country-switcher-selector {
+                    width: 100%;
+                    height: 45px;
+                    line-height: 45px;
+                    padding: 0 15px;
+                    border-radius: 0;
+                    outline: none;
+                    background-color: #ffffff;
+                    border: 1px solid #dfdfdf;
+                    -webkit-appearance: none;
+                }
+
+                .country-switcher-overlay .modal-dialog .country-switcher .arrow-icon {
+                    width: 10px;
+                    height: 45px;
+                    position: absolute;
+                    top: 0;
+                    right: 15px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-items: center;
+                }
+
+                    .country-switcher-overlay .modal-dialog .country-switcher .arrow-icon > div {
+                        width: 100%;
+                        height: 6px;
+                        background-image: url(../img/arrow_icon.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-origin: content-box;
+                    }
         }
