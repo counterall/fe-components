@@ -91,24 +91,36 @@
 
 
     <script type="text/javascript">
-        var doormat = $('.country-switcher-overlay.modal');
-        doormat.modal();
-        var placeholder = "Choose your country"
-        var select2Config = {
-            placeholder: placeholder,
-            width: "resolve",
-            theme: "marimekko",
-        };
+    
+        jQuery(function($){
+            var doormat = $('.country-switcher-overlay.modal');
+            doormat.modal();
+            var placeholder = "Choose your country"
+            var select2Config = {
+                placeholder: placeholder,
+                width: "resolve",
+                theme: "marimekko",
+            };
 
-        var touchScreen = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        var $csSelector = $('.country-switcher-selector');
-        
-        if (touchScreen) {
-            $csSelector.find('option').eq(0).text(select2Config.placeholder);
-        }else{
-            select2Config.dropdownParent = $('#country-switcher-select2-wrapper');
-            $csSelector.select2(select2Config);
-        }
+            var touchScreen = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            var $csSelector = $('.country-switcher-selector');
+            
+            if (touchScreen) {
+                $csSelector.find('option').eq(0).text(select2Config.placeholder);
+            }else{
+                select2Config.dropdownParent = $('#country-switcher-select2-wrapper');
+                $csSelector.select2(select2Config);
+            }
+            
+            // Click button to redirect
+            $('.country-switcher-confirm').on('click', function() {
+                var redirectURI = $csSelector.val();
+                if (redirectURI) {
+                    location.href = redirectURI;
+                }
+            });
+        });
+
     </script>
 </body>
 </html>
