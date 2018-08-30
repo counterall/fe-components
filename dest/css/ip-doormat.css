@@ -3,6 +3,11 @@
 /* Text input field themes*/
 /* Button style */
 /* Text input style */
+.country-switcher-overlay .modal-dialog.centred{
+            top: 50% !important;
+            -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%);
+        }
 .country-switcher-overlay .modal-dialog .modal-content{
             padding: 0 !important;
         }

@@ -3,6 +3,11 @@
     
     .modal-dialog {
 
+        &.centred{
+            top: 50% !important;
+            transform: translateY(-50%);
+        }
+
         .modal-content{
             padding: 0 !important;
 
