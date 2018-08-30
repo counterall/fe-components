@@ -3,9 +3,6 @@
 /* Text input field themes*/
 /* Button style */
 /* Text input style */
-.country-switcher-overlay .modal-dialog {
-        width: 739px;
-    }
 .country-switcher-overlay .modal-dialog .modal-content{
             padding: 0 !important;
         }
@@ -84,4 +81,19 @@
                         background-size: contain;
                         background-origin: content-box;
                     }
+        }
+@media (min-width: 768px) {
+.country-switcher-overlay .modal-dialog {
+            width: 740px
+    }
+        }
+@media (max-width: 767px) {
+
+                        .country-switcher-overlay .modal-dialog .modal-content .modal-body .column-left {
+                            display: none;
+                        }
+                        .country-switcher-overlay .modal-dialog .modal-content .modal-body .column-right{
+                            width: 100%;
+                            padding: 90px 0 25px 0;
+                        }
         }
