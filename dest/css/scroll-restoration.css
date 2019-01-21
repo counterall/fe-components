@@ -7,7 +7,7 @@ header {
 .wrapper a.cover-wrapper{
     display: inline-block;
     cursor: pointer;
-    width: 33.33333333%;
+    width: 33%;
 }
 
 .wrapper img.cover {
