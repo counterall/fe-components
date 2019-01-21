@@ -4,16 +4,16 @@ jQuery(function($) {
         type: 'GET',
         url: window.location.origin + "/dest/json/scroll-location.json"
     }).done(function (data) {
-        const $wrapper = $('.wrapper');
-        const imgNames = data['cover-name'];
-        for (let index = 0; index < 50; index++) {
-           let randomID = Math.floor(Math.random() * 4);
-           let imgName = `dest/img/${imgNames[randomID]}.jpg`;
-           let $link = $('<a/>', {
+        var $wrapper = $('.wrapper');
+        var imgNames = data['cover-name'];
+        for (var index = 0; index < 50; index++) {
+           var randomID = Math.floor(Math.random() * 4);
+           var imgName = "dest/img/" + imgNames[randomID] + '.jpg';
+           var $link = $('<a/>', {
                'class': 'cover-wrapper',
                href: 'inventory.html'
            });
-           let $imgEle = $('<img/>', {
+           var $imgEle = $('<img/>', {
                src: imgName,
                'class': 'cover'
            });
