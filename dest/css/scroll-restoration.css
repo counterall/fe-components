@@ -1,0 +1,17 @@
+header {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0;
+}
+.wrapper a.cover-wrapper{
+    display: inline-block;
+    cursor: pointer;
+    width: 33.33333333%;
+}
+
+.wrapper img.cover {
+    display: block;
+    height: auto;
+    width: 100%;
+}
