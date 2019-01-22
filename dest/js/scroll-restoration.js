@@ -24,10 +24,28 @@ jQuery(function($) {
     }).fail(function () {
         
     });
+
+     var $floatPos = $("<div/>", {
+         "class": 'float-pos'
+     }).css({
+         "position": "fixed",
+         "top": "50%",
+         "left": "50%",
+         "transform": "translate(-50%, -50%)",
+         "font-size": "150px",
+         "line-height": "150px",
+         "background-color": "black",
+         "opacity": "0.8",
+         "color": "crimson",
+         "z-index": 999
+     }).text(window.scrollY);
+
+     $floatPos.prependTo($('body'));
 });
 
-// FOR non-chrome browsers
+// For non-chrome browsers
 if (!/chrome/i.test(window.navigator.userAgent)) {
+
     // Turn off auto page position restoration
     ('scrollRestoration' in window.history) && (window.history.scrollRestoration = 'manual');
 
@@ -58,5 +76,7 @@ if (!/chrome/i.test(window.navigator.userAgent)) {
         }, 'cateogry page', "");
     }).on('load', function() {
         $(this).trigger('popState');
-    }).on('scroll', function(){console.log(window.scrollY);});
+    }).on('scroll', function(){
+        $('.float-pos').text(window.scrollY);
+    });
 }
