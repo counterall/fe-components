@@ -25,7 +25,7 @@ if (!/chrome/i.test(window.navigator.userAgent)) {
 
     // scroll restoration after history entry has been accessed
     $(window).on('popState', function () {
-        console.log('history entry accessed!', window.scrollY);
+        console.log('history entry accessed!', history.state);
         if (window.history.state) {
             var xPos = window.history.state.scrollX ? window.history.state.scrollX : 0;
             var yPos = window.history.state.scrollY ? window.history.state.scrollY : 0;
@@ -44,10 +44,19 @@ if (!/chrome/i.test(window.navigator.userAgent)) {
 
     // Mark location before page unloads
     $(window).on('beforeunload', function () {
-        history.pushState({
-            scrollY: window.scrollY,
-            scrollX: window.scrollX
-        }, 'cateogry page', "");
+        if (window.history.pushState) {
+           if (window.history.state) {
+               window.history.replaceState({
+                   scrollY: window.scrollY,
+                   scrollX: window.scrollX
+               }, 'save scroll position', "");
+           } else {
+               window.history.pushState({
+                   scrollY: window.scrollY,
+                   scrollX: window.scrollX
+               }, 'save scroll position', "");
+           }
+        }
     }).on('load', function() {
         $(this).trigger('popState');
     }).on('scroll', function(){
