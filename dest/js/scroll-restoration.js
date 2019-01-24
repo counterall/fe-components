@@ -20,7 +20,7 @@ jQuery(function ($) {
     });
 });
 
-// For non-chrome browsers
+// For FF & Safari browsers
 if (/firefox|safari/i.test(window.navigator.userAgent)) {
 
     // Turn off auto page position restoration
@@ -61,6 +61,7 @@ if (/firefox|safari/i.test(window.navigator.userAgent)) {
             }
         }
     }).on('load', function () {
+        // Dislike Chrome, FF does not trigger popstate even after page loads, so we do it manually
         $(this).trigger('popState');
     });
 }
