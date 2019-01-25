@@ -20,58 +20,80 @@ jQuery(function ($) {
     });
 });
 
-// Detect current browser, using patterns from https://github.com/lancedikson/bowser
-var browser = window.navigator.userAgent;
-var isFF = /firefox|iceweasel|fxios/i.test(browser);
-var isEdge = /edg([ea]|ios)/i.test(browser);
-var isChrome = /chrome|crios|crmo/i.test(browser);
-var isSafari = /safari|applewebkit/i.test(browser);
-var isAndroid = !/like android/i.test(browser) && /android/i.test(browser);
 
 /**
  * This manual solution fixing scrollRestoration issue is applied to 
- * browsers in Android platform, and Firefox &* Safari of desktop version. 
- * Since other browsers can handle this issue much better natively.
- * userAgent of Edge has "Chrome" and "Safari" keywords, and Chrome 
- * also includes "Safari" keyword, so exclude them first.
+ * browsers in Android, Windows and Mac. 
+ * iOS natively handles scrolling mostly OK, so skip it.
+ * Using patterns from https: //github.com/lancedikson/bowser to detect browser's metadata
  */
-if (isAndroid || (!isEdge && !isChrome && (isFF || isSafari))) {
-    console.log('valid browser');
-    // Turn off auto page position restoration
-    ('scrollRestoration' in window.history) && (window.history.scrollRestoration = 'manual');
+var browser = window.navigator.userAgent;
 
-    // Scroll restoration after history entry has been accessed
-    $(window).on('popState', function () {
-      console.log('history entry accessed!', history.state);
-      if (window.history.state) {
-        var yPos = window.history.state.scrollY ? window.history.state.scrollY : 0;
-        if (yPos) {
-          var checkHeight = setInterval(function () {
-            console.log(window.scrollY, yPos, $(document).height());
-            if ($(document).height() >= yPos) {
-              window.scrollTo(0, yPos);
-              clearInterval(checkHeight);
-            }
-          }, 100);
-        }
-      }
-    });
+// Check OS platform then
+var osDetected = {
+  isWin: /Windows ((NT|XP)( \d\d?.\d)?)/i.test(browser),
+  isMac: /mac os x (\d+(\.?_?\d+)+)/i.test(browser),
+  isAndroid: !/like android/i.test(browser) && /android/i.test(browser),
+  isiOS: /(ipod|iphone|ipad)/i.test(browser)
+}
 
-    // Mark location before page unloads
-    $(window).on('beforeunload', function () {
-      if (window.history.pushState) {
+// iOS can be skipped as all main browsers works fine with scrollRestoration natively
+if (!osDetected.isiOS) {
+  var isFF = /firefox|iceweasel|fxios/i.test(browser);
+  var isEdge = /edg([ea]|ios)/i.test(browser);
+  var isChrome = /chrome|crios|crmo/i.test(browser);
+  var isSafari = /safari|applewebkit/i.test(browser);
+  var isSamsung = /SamsungBrowser/i.test(browser);
+
+  var fixScroll = false;
+
+  if (osDetected.isWin) {
+    fixScroll = isFF;
+  } else if (osDetected.isMac) {
+    fixScroll = isFF || (!isChrome && isSafari);
+  } else if (osDetected.isAndroid) {
+    fixScroll = !(isEdge || isSamsung);
+  }
+
+  if (fixScroll) {
+      console.log('let us fix!');
+      // Turn off auto page position restoration
+      ('scrollRestoration' in window.history) && (window.history.scrollRestoration = 'manual');
+
+      // Scroll restoration after history entry has been accessed
+      $(window).on('popState', function () {
+        console.log('history entry accessed!', history.state);
         if (window.history.state) {
-          window.history.replaceState({
-            scrollY: window.scrollY
-          }, 'save vertical scroll position', "");
-        } else {
-          window.history.pushState({
-            scrollY: window.scrollY
-          }, 'save vertical scroll position', "");
+          var yPos = window.history.state.scrollY ? window.history.state.scrollY : 0;
+          if (yPos) {
+            var checkHeight = setInterval(function () {
+              console.log(window.scrollY, yPos, $(document).height());
+              if ($(document).height() >= yPos) {
+                window.scrollTo(0, yPos);
+                clearInterval(checkHeight);
+              }
+            }, 100);
+          }
         }
-      }
-    }).on('load', function () {
-      // Dislike Chrome, FF does not trigger popstate event after page loads, so we manualluy trigger it.
-      $(this).trigger('popState');
-    });
+      });
+
+      // Mark location before page unloads
+      $(window).on('beforeunload', function () {
+        if (window.history.pushState) {
+          if (window.history.state) {
+            window.history.replaceState({
+              scrollY: window.scrollY
+            }, 'save vertical scroll position', "");
+          } else {
+            window.history.pushState({
+              scrollY: window.scrollY
+            }, 'save vertical scroll position', "");
+          }
+        }
+      }).on('load', function () {
+        // Dislike Chrome, FF does not trigger popstate event after page loads, so we manualluy trigger it.
+        $(this).trigger('popState');
+      });
+  }
+
 }
