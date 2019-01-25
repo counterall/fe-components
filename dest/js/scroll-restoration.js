@@ -27,32 +27,36 @@ jQuery(function ($) {
  * iOS natively handles scrolling mostly OK, so skip it.
  * Using patterns from https: //github.com/lancedikson/bowser to detect browser's metadata
  */
-var browser = window.navigator.userAgent;
+var usrAgent = window.navigator.userAgent;
 
-// Check OS platform then
-var osDetected = {
-  isWin: /Windows ((NT|XP)( \d\d?.\d)?)/i.test(browser),
-  isMac: /mac os x (\d+(\.?_?\d+)+)/i.test(browser),
-  isAndroid: !/like android/i.test(browser) && /android/i.test(browser),
-  isiOS: /(ipod|iphone|ipad)/i.test(browser)
+// Check OS platform first
+var browser = {
+  os: {
+    isWin: /Windows ((NT|XP)( \d\d?.\d)?)/i.test(usrAgent),
+    isMac: /mac os x (\d+(\.?_?\d+)+)/i.test(usrAgent),
+    isAndroid: !/like android/i.test(usrAgent) && /android/i.test(usrAgent),
+    isiOS: /(ipod|iphone|ipad)/i.test(usrAgent)
+  }
 }
 
-// iOS can be skipped as all main browsers works fine with scrollRestoration natively
-if (!osDetected.isiOS) {
-  var isFF = /firefox|iceweasel|fxios/i.test(browser);
-  var isEdge = /edg([ea]|ios)/i.test(browser);
-  var isChrome = /chrome|crios|crmo/i.test(browser);
-  var isSafari = /safari|applewebkit/i.test(browser);
-  var isSamsung = /SamsungBrowser/i.test(browser);
-
+// iOS can be skipped as all main browsers work mostly fine with scrollRestoration natively
+if (!browser.os.isiOS) {
+  browser.type = {
+    isFF: /firefox|iceweasel|fxios/i.test(usrAgent),
+    isEdge: /edg([ea]|ios)/i.test(usrAgent),
+    isChrome: /chrome|crios|crmo/i.test(usrAgent),
+    isSafari: /safari|applewebkit/i.test(usrAgent),
+    isSamsung: /SamsungBrowser/i.test(usrAgent)
+  };
+  
   var fixScroll = false;
 
-  if (osDetected.isWin) {
-    fixScroll = isFF;
-  } else if (osDetected.isMac) {
-    fixScroll = isFF || (!isChrome && isSafari);
-  } else if (osDetected.isAndroid) {
-    fixScroll = !(isEdge || isSamsung);
+  if (browser.os.isWin) {
+    fixScroll = browser.type.isFF;
+  } else if (browser.os.isMac) {
+    fixScroll = browser.type.isFF || (!browser.type.isChrome && browser.type.isSafari);
+  } else if (browser.os.isAndroid) {
+    fixScroll = !(browser.type.isEdge || browser.type.isSamsung);
   }
 
   if (fixScroll) {

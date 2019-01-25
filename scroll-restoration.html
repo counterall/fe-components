@@ -73,7 +73,7 @@
         type: 'GET',
         url: window.location.origin + "/dest/json/scroll-location.json"
     }).done(function (data) {
-        setTimeout(() => {
+        // setTimeout(() => {
             var $wrapper = $('.wrapper');
             var imgNames = data['cover-name'];
             for (var index = 0; index < 51; index++) {
@@ -90,7 +90,7 @@
                 $imgEle.appendTo($link);
                 $link.appendTo($wrapper);
             }
-        }, 1000);
+        // }, 1000);
     }).fail(function () {
         
     });
