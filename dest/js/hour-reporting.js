@@ -17,7 +17,6 @@
       }
       
       var timer = showTimer();
-      var pauseTime = 0;
       $('#pause').on('click', function () {
         var newStatus = $(this).data('status') == 'play' ? "pause" : "play";
         $(this).data('status', newStatus);
