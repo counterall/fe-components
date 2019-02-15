@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="src/css/lib/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="dest/css/global.css" />
+  <link rel="stylesheet" href="src/css/lib/select2.min.css">
+  <script src='src/js/lib/jquery-3.3.1.min.js'></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body{
+        padding: 50px 100px;
+    }
+    .wrapper, .footer {
+      width: 100%;
+      display: flex;
+    }
+
+    .left,
+    .right {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      text-align: center;
+      font-size: 35px;
+    }
+
+    .left {
+      width: 66.666667%;
+      background: lightblue;
+      height: 2000px;
+      line-height: 800px;
+    }
+
+    .right {
+      width: 33.333333%;
+      background: lightcoral;
+      height: 1200px;
+      /* position: fixed;
+      right: 50px;
+      top: 50px; */
+      line-height: 400px;
+    }
+
+    .footer {
+      background: lightgray;
+      height: 300px;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='wrapper'>
+    <div class='left'>asdiadiasdiasdiwqeflgphjweogjg</div>
+    <div class='right'>asdiadiasdiasdiwqeflgphjweogjg</div>
+  </div>
+  <div class='footer'></div>
+
+  <script>
+    var $left = $('.left');
+    var $right = $('.right');
+  </script>
+</body>
+
+</html>
