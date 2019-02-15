@@ -64,13 +64,56 @@
   <script>
     var $left = $('.left');
     var $right = $('.right');
+    var rightHeight = $right.height();
+    var leftHeight = $left.height();
+    var makeFixed = leftHeight > rightHeight;
+    var winHeight = window.innerHeight;
+    var crdTop = $right.offset().top;
+    var scrollDownfixedThreshold = crdTop + rightHeight + 20 - winHeight;
 
-    if ($left.height() > $right.height()) {
-      $right.css({
+    if (makeFixed) {
+      // check the window height
+      if (winHeight < $right.height()) {
+
+        // when refreshing page after detail info has been fixed
+        if (window.scrollY > scrollDownfixedThreshold) {
+          makeRightFixed(`-${scrollDownfixedThreshold}px`);
+        } else {
+          var tmpInterval;
+          $(window).on('scroll', function () {
+            clearInterval(tmpInterval);
+            // If scrolling down
+            if ($right.css('position') !== 'fixed') {
+              tmpInterval = setInterval(() => {
+                scrollDownDetailInfoBeforeFixed();
+              }, 10);
+            } else {
+              // If scrolling up
+            }
+          });
+        }
+
+      }else{
+        makeRightFixed();
+      }
+
+    }
+
+    function scrollDownDetailInfoBeforeFixed() {
+      console.log('Scroll Down Fixing is detecting!');
+      clearInterval(tmpInterval);
+      if (window.scrollY >= scrollDownfixedThreshold) {
+        console.log(`Scroll Down Fixed!: ${scrollDownfixedThreshold}:${window.scrollY}`);
+        makeRightFixed(`-${window.scrollY}px`);
+      }
+    }
+
+    function makeRightFixed(top) {
+        $('.right').css({
         'position': "fixed",
-        'right': '79px',
-        'top': '50px'
-      })
+        'top': top,
+        'right': "74px"
+        });
     }
   </script>
 </body>
