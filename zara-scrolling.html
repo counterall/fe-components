@@ -75,36 +75,31 @@
     var scrollDownfixedThreshold = crdTop + rightHeight + 20 - winHeight;
 
     if (makeFixed) {
-      // check the window height
-      if (winHeight < $right.height()) {
 
-        // when refreshing page after detail info has been fixed
-        if (window.scrollY > scrollDownfixedThreshold) {
-          
-        } else {
-          $(window).on('scroll', _.throttle(scrollDownDetailInfoBeforeFixed, 10));
-        }
-      }else{
-        makeRightFixed();
+      // when refreshing page after detail info has been fixed
+      if (window.scrollY > scrollDownfixedThreshold) {
+        
+      } else {
+        var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 10);
+        $(window).on('scroll', throttledScroll);
       }
-
+      
     }
 
     function scrollDownDetailInfoBeforeFixed() {
       console.log('Scroll Down Fixing is detecting!');
-      if(window.scrollY + winHeight <= bodyHeight && window.scrollY >= scrollDownfixedThreshold){
-        $right.css({
-          "top": `${window.scrollY - scrollDownfixedThreshold}px`
-        });
+      if(window.scrollY + winHeight <= bodyHeight){
+        if (window.scrollY >= scrollDownfixedThreshold) {
+          $right.css({
+            "top": `${window.scrollY - scrollDownfixedThreshold}px`
+          });
+        }else {
+          $right.css({
+            "top": 0
+          });
+        }
+        
       }
-    }
-
-    function makeRightFixed(top) {
-        $('.right').css({
-        'position': "fixed",
-        'top': top,
-        'right': "74px"
-        });
     }
   </script>
 </body>
