@@ -105,17 +105,17 @@
       lastScrollY = currentScrollY;
       console.log(scrollDown);
 
-      var currentDocPos = window.scrollY + winHeight;
+      var currentDocPos = currentScrollY + winHeight;
       if(currentDocPos <= bodyHeight){
 
         if (scrollDown) {
           if (currentDocPos <= leftBottomPos + 20) {
-            if (window.scrollY >= scrollDownfixedThreshold) {
+            if (currentScrollY >= scrollDownfixedThreshold) {
               if (!scrollDownFixed) {
                 scrollDownFixed = true;
               }
               $right.css({
-                "margin-top": `${window.scrollY - scrollDownfixedThreshold}px`
+                "margin-top": `${currentScrollY - scrollDownfixedThreshold}px`
               });
             } else {
               $right.css({
