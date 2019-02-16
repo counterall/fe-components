@@ -53,6 +53,10 @@
       height: 300px;
       margin-top: 100px;
     }
+
+    .expand-right {
+      height: 1500px;
+    }
   </style>
 </head>
 
@@ -84,6 +88,10 @@
       } else {
         var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 10);
         $(window).on('scroll', throttledScroll);
+        $right.on('click', function () {
+          $right.toggleClass('expand-right');
+        });
+
       }
       
     }
@@ -96,17 +104,17 @@
 
             if (window.scrollY >= scrollDownfixedThreshold) {
               $right.css({
-                "top": `${window.scrollY - scrollDownfixedThreshold}px`
+                "margin-top": `${window.scrollY - scrollDownfixedThreshold}px`
               });
             }else {
               $right.css({
-                "top": 0
+                "margin-top": 0
               });
             }
             // fix right column position when window scrolls to the bottom of left column    
           } else {
             $right.css({
-              "top": `${leftBottomPos - crdTop - rightHeight}px`
+              "margin-top": `${leftBottomPos - crdTop - rightHeight}px`
             });
           }      
         }
