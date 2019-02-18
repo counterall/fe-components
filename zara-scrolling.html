@@ -88,8 +88,8 @@
       } else {
 
         var lastScrollY = window.scrollY;
-        var lastMarginTop = 0;
-        var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 10);
+        var lastMarginTopVal = 0;
+        var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
         $(window).on('scroll', throttledScroll);
         $right.on('click', function () {
           $right.toggleClass('expand-right');
@@ -100,6 +100,7 @@
     }
 
     function scrollDownDetailInfoBeforeFixed() {
+      var updatedMarginTop;
       var currentScrollY = window.scrollY;
       var scrollDown = window.scrollY > lastScrollY;
       lastScrollY = currentScrollY;
@@ -112,21 +113,33 @@
           // Do this until window scrolls down to the bottom of left column
           if (currentDocPos <= leftBottomPos + 20) {
             if (currentScrollY >= scrollDownfixedThreshold) {
-              lastMarginTop = `${currentScrollY - scrollDownfixedThreshold}px`;
+              lastMarginTopVal = currentScrollY - scrollDownfixedThreshold + 1;
+              updatedMarginTop = `${lastMarginTopVal}px`
             } else {
-              lastMarginTop = 0
+              lastMarginTopVal = updatedMarginTop = 0;
             }
           } else {
-            lastMarginTop = `${leftBottomPos - crdTop - rightHeight}px`;
+            lastMarginTopVal = leftBottomPos - crdTop - rightHeight;
+            updatedMarginTop = `${lastMarginTopVal}px`
           }  
-          
-          $right.css({
-            "margin-top": lastMarginTop
-          });
 
         }else {
+          console.log(lastMarginTopVal, currentScrollY);
+          if (currentScrollY <= lastMarginTopVal) {
+            if (currentScrollY > 0) {
+              lastMarginTopVal = currentScrollY - 1;
+              updatedMarginTop = `${lastMarginTopVal}px`
+            }else {
+              lastMarginTopVal = updatedMarginTop = 0;
+            }
+            
+          }
 
         }
+
+        $right.css({
+          "margin-top": updatedMarginTop
+        });
     
       }
     }
