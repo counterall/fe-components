@@ -23,6 +23,7 @@
       margin-left: auto;
       margin-right: auto;
       display: flex;
+      position: relative;
     }
 
     .left,
@@ -36,7 +37,7 @@
     .left {
       width: 750px;
       background: lightblue;
-      height: 7000px;
+      height: 4000px;
       line-height: 750px;
     }
 
@@ -45,6 +46,7 @@
       background: lightcoral;
       height: 1200px;
       line-height: 450px;
+      right: 70px;
       /* position: relative; */
       /* transition: margin 5ms linear; */
     }
@@ -104,11 +106,11 @@
     }
 
     function scrollDownDetailInfoBeforeFixed() {
-      var updatedMarginTop;
+      var updatedMarginTop, css = {}, overrideCSS = false;
       var currentScrollY = window.scrollY;
       var scrollDown = window.scrollY > lastScrollY;
       lastScrollY = currentScrollY;
-      console.log(scrollDown);
+      console.log(scrollDown, currentScrollY, scrollDownfixedThreshold);
 
       var currentDocPos = currentScrollY + winHeight;
       if(currentDocPos <= bodyHeight){
@@ -117,34 +119,64 @@
           // Do this until window scrolls down to the bottom of left column
           if (currentDocPos <= leftBottomPos + 20) {
             if (currentScrollY >= scrollDownfixedThreshold) {
-              lastMarginTopVal = currentScrollY - scrollDownfixedThreshold + 1;
-              updatedMarginTop = `${lastMarginTopVal}px`
+              css = {
+                'position': 'fixed',
+                'top': -(scrollDownfixedThreshold - crdTop) + "px"
+              };
+              if ($right.css('position') !== 'fixed') {
+                overrideCSS = true;
+              }
             } else {
-              lastMarginTopVal = updatedMarginTop = 0;
+              css = {
+                'position': 'static',
+              };
+              if ($right.css('position') !== 'static') {
+                overrideCSS = true;
+              }
             }
           } else {
-            lastMarginTopVal = leftBottomPos - crdTop - rightHeight;
-            updatedMarginTop = `${lastMarginTopVal}px`
+            position = "absolute";
+            css = {
+              'position': 'absolute',
+              'bottom': 0,
+              'right': 0
+            };
+            if ($right.css('position') !== 'absolute') {
+              overrideCSS = true;
+            }
+
           }  
 
         }else {
-          console.log(lastMarginTopVal, currentScrollY);
-          if (currentScrollY <= lastMarginTopVal + (crdTop - 50)) {
-            if (currentScrollY > crdTop) {
-              lastMarginTopVal = currentScrollY - 1;
-              updatedMarginTop = `${lastMarginTopVal - crdTop + 50}px`
-            }else {
-              lastMarginTopVal = updatedMarginTop = 0;
+          if (currentScrollY <= leftBottomPos - 50 - rightHeight) {
+            console.log('hello');
+            if (currentScrollY <= crdTop + 50) {
+              css = {
+                'position': 'static',
+              };
+              if ($right.css('position') !== 'static') {
+                overrideCSS = true;
+              }
+            } else {
+              css = {
+                'position': 'fixed',
+                'top': 50
+              };
+              if ($right.css('position') !== 'fixed') {
+                overrideCSS = true;
+              }
             }
-            
+
+          } else{
+            $right.css(css);
+
           }
 
         }
+        if (overrideCSS) {
+          $right.removeAttr('style').css(css);
+        }
 
-        $right.css({
-          "margin-top": updatedMarginTop
-        });
-    
       }
     }
   </script>
