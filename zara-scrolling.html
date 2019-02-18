@@ -16,7 +16,7 @@
       box-sizing: border-box;
     }
     body{
-        padding: 200px 0 50px 0;
+        padding: 100px 0 50px 0;
     }
     .wrapper, .footer {
       width: 1200px;
@@ -36,7 +36,7 @@
     .left {
       width: 750px;
       background: lightblue;
-      height: 4000px;
+      height: 3000px;
       line-height: 750px;
     }
 
@@ -84,87 +84,133 @@
 
     if (makeFixed) {
       // when refreshing page after detail info has been fixed
+      var lastScrollY = window.scrollY;
+      var scrollUpInitialTop = 0, scrollUpInitialY = 0;
+
       if (window.scrollY > scrollDownfixedThreshold) {
+        lastScrollY = window.scrollY - 1;
         scrollDownDetailInfoBeforeFixed();
       } else {
 
-        var lastScrollY = window.scrollY;
         var lastMarginTopVal = 0;
         var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 50);
 
         $(window).on('scroll', throttledScroll);
-        // $(window).on('scroll', function () {
-        //   scrollDownDetailInfoBeforeFixed();
-        // });
-        
 
       }
+      
+    } else {
       
     }
 
     function scrollDownDetailInfoBeforeFixed() {
       var updatedMarginTop, css = {}, overrideCSS = false;
       var currentScrollY = window.scrollY;
-      var scrollDown = window.scrollY > lastScrollY;
+      var scrollDown = currentScrollY > lastScrollY;
       lastScrollY = currentScrollY;
       console.log(scrollDown);
 
       var currentDocPos = currentScrollY + winHeight;
       if(currentDocPos <= bodyHeight){
 
-        if (scrollDown) {
-          // Do this until window scrolls down to the bottom of left column
-          console.log(currentDocPos, leftBottomPos + 20);
-          if (currentDocPos <= leftBottomPos + 20) {
-            if (currentScrollY >= scrollDownfixedThreshold) {
-              css = {
-                'position': 'fixed',
-                'top': `-${scrollDownfixedThreshold - crdTop}px`,
-                'right': '69.5px'
-              };
-              if ($right.css('position') !== 'fixed') {
-                overrideCSS = true;
+        // Do this until window scrolls down to the bottom of left column
+        // console.log(currentDocPos, leftBottomPos + 20);
+        if (currentDocPos <= leftBottomPos + 20) {
+            if (scrollDown) {
+              scrollUpInitialY = false;
+              if (currentScrollY >= scrollDownfixedThreshold) {
+                css = {
+                  'position': 'fixed',
+                  'top': `-${scrollDownfixedThreshold - crdTop}px`,
+                  'right': '69.5px'
+                };
+                
+                if ($right.css('position') !== 'fixed') {
+                  overrideCSS = true;
+                }
+              } else {
+                css = {
+                };
+                if ($right.css('position') !== 'static') {
+                  overrideCSS = true;
+                }
               }
             } else {
-              css = {
-              };
-              if ($right.css('position') !== 'static') {
-                overrideCSS = true;
+              console.log(currentScrollY, scrollUpInitialTop, scrollDownfixedThreshold);
+
+              if (currentScrollY >= scrollDownfixedThreshold) {
+                css = {
+                  'margin-top': `${currentDocPos - crdTop - rightHeight - 20}px`,
+                };
+                if (!scrollUpInitialTop) {
+                  scrollUpInitialTop = currentDocPos - crdTop - rightHeight - 20;
+                  scrollUpInitialY = currentScrollY;
+                }
+                if ($right.css('position') == 'fixed') { 
+                  overrideCSS = true;
+                }
+
+                if (currentScrollY < scrollUpInitialTop) {
+                  css = {
+                    // "margin-top": `${2 * scrollUpInitialTop - currentScrollY - crdTop}px`,
+                    "position": 'fixed',
+                    "top": crdTop + "px",
+                    'right': '69.5px'
+                  };
+                  if ($right.css('position') !== 'fixed') {
+                    overrideCSS = true;
+                  }
+                }
+                
+              } else {
+                if (currentScrollY <= 0) {
+                  css = {
+                  };
+                  if ($right.css('position') !== 'static') {
+                    overrideCSS = true;
+                  }
+                }
+                
               }
             }
           } else {
-            css = {
-              'margin-top': `${leftBottomPos - crdTop - rightHeight}px`
-            };
-            if ($right.css('margin-top') !== `${leftBottomPos - crdTop - rightHeight}px`) {
-              overrideCSS = true;
+            if (scrollDown) {
+              css = {
+                'margin-top': `${leftBottomPos - crdTop - rightHeight}px`
+              };
+              if ($right.css('margin-top') !== `${leftBottomPos - crdTop - rightHeight}px`) {
+                overrideCSS = true;
+              }
+            } else {
+              
             }
 
           }  
 
-        } else {
-          if (currentScrollY <= leftBottomPos - 50 - rightHeight) {
-            console.log('hello');
-            if (currentScrollY <= crdTop + 50) {
-              css = {
-              };
-              if ($right.css('position') !== 'static') {
-                overrideCSS = true;
-              }
-            } else {
-              css = {
-                'position': 'fixed',
-                'top': '50px',
-                'right': '69.5px'
-              };
-              if ($right.css('position') !== 'fixed') {
-                overrideCSS = true;
-              }
-            }
+        // if (currentScrollY <= leftBottomPos - crdTop - rightHeight) {
+        //   console.log('hello');
+        //   if (currentScrollY <= crdTop) {
+        //     css = {
+        //     };
+        //     if ($right.css('position') !== 'static') {
+        //       overrideCSS = true;
+        //     }
+        //   } else {
+        //     css = {
+        //       'position': 'fixed',
+        //       'top': crdTop + 'px',
+        //       'right': '69.5px'
+        //     };
+        //     if ($right.css('position') !== 'fixed') {
+        //       overrideCSS = true;
+        //     }
+        //   }
 
-          }
+        // } else {
+        //   // For example, when page is refreshed when right side is fixed
+          
+        // }
 
-        }
         if (overrideCSS) {
           $right.removeAttr('style').css(css);
         }
