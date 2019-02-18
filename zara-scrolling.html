@@ -42,9 +42,17 @@
 
     .right {
       width: 450px;
-      background: lightcoral;
+      background: lightgray;
       height: 1000px;
       line-height: 450px;
+      position: fixed;
+      right: 69.5px;
+      top: 100px;
+    }
+
+    .right .inner {
+      position: relative;
+      background: lightcoral;
     }
 
     .footer {
@@ -62,160 +70,81 @@
 <body>
   <div class='wrapper'>
     <div class='left'>asdiadiasdiasdiwqeflgphjweogjg</div>
-    <div class='right'>asdiadias</div>
+    <div class='right'><div class='inner'>asdiadias</div></div>
   </div>
   <div class='footer'></div>
 
   <script>
     var $left = $('.left');
     var $right = $('.right');
+    var $rightInner = $('.right .inner');
     var rightHeight = $right.height();
+    var rightInnerHeight = $rightInner.height();
+
     var leftHeight = $left.height();
     var bodyHeight = $(document).height();
-    var makeFixed = leftHeight > rightHeight;
+    var makeFixed = leftHeight > rightInnerHeight;
     var winHeight = window.innerHeight;
-    var crdTop = $right.offset().top;
-    var scrollDownfixedThreshold = crdTop + rightHeight + 20 - winHeight;
+    var crdTop = $left.offset().top;
+
+    var rightOverflow = (crdTop + rightInnerHeight) > winHeight;
+    var scrollDownfixedThreshold = crdTop + rightInnerHeight + 20 - winHeight;
     var leftBottomPos = crdTop + leftHeight;
 
     $right.on('click', function () {
       $right.toggleClass('expand-right');
     });
 
-    if (makeFixed) {
-      // when refreshing page after detail info has been fixed
-      var lastScrollY = window.scrollY;
-      var scrollUpInitialTop = 0, scrollUpInitialY = 0;
+    if (rightOverflow) {
+      if (makeFixed) {
+        var lastScrollY = window.scrollY;
+        var scrollUpInitialTop = 0, scrollUpInitialY = 0;
+        // when refreshing page after detail info has been fixed
+        if (window.scrollY > scrollDownfixedThreshold) {
+          lastScrollY = window.scrollY - 1;
+          scrollDownDetailInfoBeforeFixed();
+        } else {
 
-      if (window.scrollY > scrollDownfixedThreshold) {
-        lastScrollY = window.scrollY - 1;
-        scrollDownDetailInfoBeforeFixed();
+          var lastMarginTopVal = 0;
+          var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 50);
+
+          $(window).on('scroll', throttledScroll);
+
+        }
+
       } else {
 
-        var lastMarginTopVal = 0;
-        var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 50);
-
-        $(window).on('scroll', throttledScroll);
-
       }
-      
-    } else {
-      
     }
 
+    
+
     function scrollDownDetailInfoBeforeFixed() {
-      var updatedMarginTop, css = {}, overrideCSS = false;
+      var newCSS = {}, overrideCSS = false;
       var currentScrollY = window.scrollY;
       var scrollDown = currentScrollY > lastScrollY;
       lastScrollY = currentScrollY;
       console.log(scrollDown);
 
-      var currentDocPos = currentScrollY + winHeight;
-      if(currentDocPos <= bodyHeight){
-
-        // Do this until window scrolls down to the bottom of left column
-        // console.log(currentDocPos, leftBottomPos + 20);
-        if (currentDocPos <= leftBottomPos + 20) {
-            if (scrollDown) {
-              scrollUpInitialY = false;
-              if (currentScrollY >= scrollDownfixedThreshold) {
-                css = {
-                  'position': 'fixed',
-                  'top': `-${scrollDownfixedThreshold - crdTop}px`,
-                  'right': '69.5px'
-                };
-                
-                if ($right.css('position') !== 'fixed') {
-                  overrideCSS = true;
-                }
-              } else {
-                css = {
-                };
-                if ($right.css('position') !== 'static') {
-                  overrideCSS = true;
-                }
-              }
-            } else {
-              console.log(currentScrollY, scrollUpInitialTop, scrollDownfixedThreshold);
-
-              if (currentScrollY >= scrollDownfixedThreshold) {
-                css = {
-                  'margin-top': `${currentDocPos - crdTop - rightHeight - 20}px`,
-                };
-                if (!scrollUpInitialTop) {
-                  scrollUpInitialTop = currentDocPos - crdTop - rightHeight - 20;
-                  scrollUpInitialY = currentScrollY;
-                }
-                if ($right.css('position') == 'fixed') { 
-                  overrideCSS = true;
-                }
-
-                if (currentScrollY < scrollUpInitialTop) {
-                  css = {
-                    // "margin-top": `${2 * scrollUpInitialTop - currentScrollY - crdTop}px`,
-                    "position": 'fixed',
-                    "top": crdTop + "px",
-                    'right': '69.5px'
-                  };
-                  if ($right.css('position') !== 'fixed') {
-                    overrideCSS = true;
-                  }
-                }
-                
-              } else {
-                if (currentScrollY <= 0) {
-                  css = {
-                  };
-                  if ($right.css('position') !== 'static') {
-                    overrideCSS = true;
-                  }
-                }
-                
-              }
-            }
-          } else {
-            if (scrollDown) {
-              css = {
-                'margin-top': `${leftBottomPos - crdTop - rightHeight}px`
-              };
-              if ($right.css('margin-top') !== `${leftBottomPos - crdTop - rightHeight}px`) {
-                overrideCSS = true;
-              }
-            } else {
-              
-            }
-
-          }  
-
-        // if (currentScrollY <= leftBottomPos - crdTop - rightHeight) {
-        //   console.log('hello');
-        //   if (currentScrollY <= crdTop) {
-        //     css = {
-        //     };
-        //     if ($right.css('position') !== 'static') {
-        //       overrideCSS = true;
-        //     }
-        //   } else {
-        //     css = {
-        //       'position': 'fixed',
-        //       'top': crdTop + 'px',
-        //       'right': '69.5px'
-        //     };
-        //     if ($right.css('position') !== 'fixed') {
-        //       overrideCSS = true;
-        //     }
-        //   }
-
-        // } else {
-        //   // For example, when page is refreshed when right side is fixed
-          
-        // }
-
-        if (overrideCSS) {
-          $right.removeAttr('style').css(css);
+      if (scrollDown) {
+        if (currentScrollY <= scrollDownfixedThreshold) {
+          newCSS = {
+            'top': `-${currentScrollY}px`
+          };
+          overrideCSS = true;
+        }else {
+          newCSS = {
+            'top': `-${scrollDownfixedThreshold}px`
+          }
+          if ($rightInner.css('top') !== `-${scrollDownfixedThreshold}px`) {
+            overrideCSS = true;
+          }
         }
-
       }
+      if (overrideCSS) {
+        $rightInner.removeAttr('style').css(newCSS);
+      }
+
     }
   </script>
 </body>
