@@ -16,7 +16,7 @@
       box-sizing: border-box;
     }
     body{
-        padding: 50px 0;
+        padding: 300px 0 50px 0;
     }
     .wrapper, .footer {
       width: 1200px;
@@ -36,7 +36,7 @@
     .left {
       width: 750px;
       background: lightblue;
-      height: 2000px;
+      height: 7000px;
       line-height: 750px;
     }
 
@@ -45,7 +45,8 @@
       background: lightcoral;
       height: 1200px;
       line-height: 450px;
-      position: relative;
+      /* position: relative; */
+      /* transition: margin 5ms linear; */
     }
 
     .footer {
@@ -89,8 +90,11 @@
 
         var lastScrollY = window.scrollY;
         var lastMarginTopVal = 0;
-        var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
-        $(window).on('scroll', throttledScroll);
+        // var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
+        // $(window).on('scroll', throttledScroll);
+        $(window).on('scroll', function () {
+          scrollDownDetailInfoBeforeFixed();
+        });
         $right.on('click', function () {
           $right.toggleClass('expand-right');
         });
@@ -125,10 +129,10 @@
 
         }else {
           console.log(lastMarginTopVal, currentScrollY);
-          if (currentScrollY <= lastMarginTopVal) {
-            if (currentScrollY > 0) {
+          if (currentScrollY <= lastMarginTopVal + (crdTop - 50)) {
+            if (currentScrollY > crdTop) {
               lastMarginTopVal = currentScrollY - 1;
-              updatedMarginTop = `${lastMarginTopVal}px`
+              updatedMarginTop = `${lastMarginTopVal - crdTop + 50}px`
             }else {
               lastMarginTopVal = updatedMarginTop = 0;
             }
