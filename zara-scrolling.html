@@ -87,8 +87,8 @@
         
       } else {
 
-        var scrollDownFixed = false;
         var lastScrollY = window.scrollY;
+        var lastMarginTop = 0;
         var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 10);
         $(window).on('scroll', throttledScroll);
         $right.on('click', function () {
@@ -109,25 +109,21 @@
       if(currentDocPos <= bodyHeight){
 
         if (scrollDown) {
+          // Do this until window scrolls down to the bottom of left column
           if (currentDocPos <= leftBottomPos + 20) {
             if (currentScrollY >= scrollDownfixedThreshold) {
-              if (!scrollDownFixed) {
-                scrollDownFixed = true;
-              }
-              $right.css({
-                "margin-top": `${currentScrollY - scrollDownfixedThreshold}px`
-              });
+              lastMarginTop = `${currentScrollY - scrollDownfixedThreshold}px`;
             } else {
-              $right.css({
-                "margin-top": 0
-              });
+              lastMarginTop = 0
             }
           } else {
-            // fix right column position when window scrolls to the bottom of left column    
-            $right.css({
-              "margin-top": `${leftBottomPos - crdTop - rightHeight}px`
-            });
+            lastMarginTop = `${leftBottomPos - crdTop - rightHeight}px`;
           }  
+          
+          $right.css({
+            "margin-top": lastMarginTop
+          });
+
         }else {
 
         }
