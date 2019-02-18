@@ -98,7 +98,7 @@
     if (rightOverflow) {
       if (makeFixed) {
         var lastScrollY = window.scrollY;
-        var scrollUpInitialTop = 0, scrollUpInitialY = 0;
+        var scrollUpRightInitialInnerTop = 0, scrollUpInitialY = 0;
         // when refreshing page after detail info has been fixed
         if (window.scrollY > scrollDownfixedThreshold) {
           lastScrollY = window.scrollY - 1;
@@ -106,7 +106,7 @@
         } else {
 
           var lastMarginTopVal = 0;
-          var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 50);
+          var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
 
           $(window).on('scroll', throttledScroll);
 
@@ -124,23 +124,55 @@
       var currentScrollY = window.scrollY;
       var scrollDown = currentScrollY > lastScrollY;
       lastScrollY = currentScrollY;
+      var currentDocPos = currentScrollY + winHeight;
+
       console.log(scrollDown);
 
       if (scrollDown) {
+        scrollUpInitialY = scrollUpRightInitialInnerTop = 0;
         if (currentScrollY <= scrollDownfixedThreshold) {
           newCSS = {
             'top': `-${currentScrollY}px`
           };
           overrideCSS = true;
         }else {
-          newCSS = {
-            'top': `-${scrollDownfixedThreshold}px`
-          }
-          if ($rightInner.css('top') !== `-${scrollDownfixedThreshold}px`) {
+          if (currentDocPos <= leftBottomPos + 20) {
+            newCSS = {
+              'top': `-${scrollDownfixedThreshold}px`
+            }
+            if ($rightInner.css('top') !== `-${scrollDownfixedThreshold}px`) {
+              overrideCSS = true;
+            }
+          } else {
+            newCSS = {
+              top: `-${scrollDownfixedThreshold + currentDocPos - leftBottomPos - 20}px`
+            };
             overrideCSS = true;
           }
+          
         }
+      } else {
+        if (!scrollUpInitialY) {
+          scrollUpInitialY = currentScrollY;
+        }
+        if (!scrollUpRightInitialInnerTop) {
+          scrollUpRightInitialInnerTop = $right.offset().top - $rightInner.offset().top;
+        }
+        // if (currentScrollY <= scrollDownfixedThreshold) {
+        var updatedScrollUpRightInnerTop = $right.offset().top - $rightInner.offset().top;
+        console.log(scrollUpInitialY, scrollUpRightInitialInnerTop, currentScrollY);
+        if (updatedScrollUpRightInnerTop != 0) {
+          newCSS = {
+            'top': `-${scrollUpRightInitialInnerTop - (scrollUpInitialY - currentScrollY)}px`
+          };
+          overrideCSS = true;
+        }
+        // } else {
+
+        // }
+        
       }
+
       if (overrideCSS) {
         $rightInner.removeAttr('style').css(newCSS);
       }
