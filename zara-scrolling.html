@@ -25,8 +25,12 @@
       display: flex;
     }
 
+    .wrapper{
+      background: purple;
+    }
+
     .left,
-    .right {
+    .right .inner .info {
       writing-mode: vertical-rl;
       text-orientation: upright;
       text-align: center;
@@ -55,6 +59,17 @@
       background: lightcoral;
     }
 
+    .info {
+      height: calc(100% - 300px);
+    }
+    .accordion {
+      height: 300px;
+      background-color: lightgreen;
+      font-size: 35px;
+      line-height: 300px;
+      text-align: center;
+    }
+
     .footer {
       background: lightgoldenrodyellow;
       height: 300px;
@@ -64,17 +79,27 @@
     .expand-right {
       height: 1800px;
     }
+
+    .expand-wrapper{
+      padding-bottom: 300px;
+    }
   </style>
 </head>
 
 <body>
   <div class='wrapper'>
     <div class='left'>asdiadiasdiasdiwqeflgphjweogjg</div>
-    <div class='right'><div class='inner'>asdiadias</div></div>
+    <div class='right'>
+      <div class='inner'>
+        <div class='info'>asdiadias</div>
+        <div class='accordion'>accordion</div>
+    </div>
+    </div>
   </div>
   <div class='footer'></div>
 
   <script>
+    var $wrapper = $('.wrapper');
     var $left = $('.left');
     var $right = $('.right');
     var $rightInner = $('.right .inner');
@@ -91,8 +116,9 @@
     var scrollDownfixedThreshold = crdTop + rightInnerHeight + 20 - winHeight;
     var leftBottomPos = crdTop + leftHeight;
 
-    $right.on('click', function () {
-      $right.toggleClass('expand-right');
+    $rightInner.on('click', function () {
+      $rightInner.toggleClass('expand-right');
+      $wrapper.toggleClass('expand-wrapper');
     });
 
     if (rightOverflow) {
