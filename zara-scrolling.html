@@ -43,7 +43,7 @@
     .right {
       width: 450px;
       background: lightgray;
-      height: 1000px;
+      height: 1500px;
       line-height: 450px;
       position: fixed;
       right: 69.5px;
@@ -56,13 +56,13 @@
     }
 
     .footer {
-      background: lightgray;
+      background: lightgoldenrodyellow;
       height: 300px;
       margin-top: 100px;
     }
 
     .expand-right {
-      height: 1200px;
+      height: 1800px;
     }
   </style>
 </head>
@@ -100,17 +100,19 @@
         var lastScrollY = window.scrollY;
         var scrollUpRightInitialInnerTop = 0, scrollUpInitialY = 0;
         // when refreshing page after detail info has been fixed
-        if (window.scrollY > scrollDownfixedThreshold) {
-          lastScrollY = window.scrollY - 1;
-          scrollDownDetailInfoBeforeFixed();
-        } else {
+        // if (window.scrollY > scrollDownfixedThreshold) {
+        //   lastScrollY = window.scrollY - 1;
+        //   scrollDownDetailInfoBeforeFixed();
+        // } else {
 
-          var lastMarginTopVal = 0;
           var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
 
           $(window).on('scroll', throttledScroll);
+          // $(window).on('scroll', function() {
+          //   scrollDownDetailInfoBeforeFixed();
+          // });
 
-        }
+        // }
 
       } else {
 
@@ -158,7 +160,6 @@
         if (!scrollUpRightInitialInnerTop) {
           scrollUpRightInitialInnerTop = $right.offset().top - $rightInner.offset().top;
         }
-        // if (currentScrollY <= scrollDownfixedThreshold) {
         var updatedScrollUpRightInnerTop = $right.offset().top - $rightInner.offset().top;
         console.log(scrollUpInitialY, scrollUpRightInitialInnerTop, currentScrollY);
         if (updatedScrollUpRightInnerTop != 0) {
@@ -167,9 +168,6 @@
           };
           overrideCSS = true;
         }
-        // } else {
-
-        // }
         
       }
 
