@@ -77,7 +77,7 @@
     }
 
     .expand-right {
-      height: 1800px;
+      height: 600px;
     }
 
     .expand-wrapper{
@@ -103,6 +103,7 @@
     var $left = $('.left');
     var $right = $('.right');
     var $rightInner = $('.right .inner');
+    var $rightInnerAccordion = $rightInner.find('.accordion');
     var rightHeight = $right.height();
     var rightInnerHeight = $rightInner.height();
 
@@ -116,8 +117,8 @@
     var scrollDownfixedThreshold = crdTop + rightInnerHeight + 20 - winHeight;
     var leftBottomPos = crdTop + leftHeight;
 
-    $rightInner.on('click', function () {
-      $rightInner.toggleClass('expand-right');
+    $rightInnerAccordion.on('click', function () {
+      $(this).toggleClass('expand-right');
       $wrapper.toggleClass('expand-wrapper');
     });
 
