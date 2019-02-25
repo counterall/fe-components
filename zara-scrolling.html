@@ -160,8 +160,7 @@
       var scrollDown = currentScrollY > lastScrollY;
       lastScrollY = currentScrollY;
       var currentDocPos = currentScrollY + winHeight;
-
-      console.log(scrollDown);
+      console.log(scrollDown ? 'scroll down' : "scroll up");
 
       if (scrollDown) {
         // reset parameters used for scrolling-up 
@@ -215,7 +214,7 @@
         }
         
       }
-
+      console.log(scrollUpInitialY, scrollUpRightInitialInnerTop, currentScrollY);
       if (overrideCSS) {
         $rightInner.removeAttr('style').css(newCSS);
       }
