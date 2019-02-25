@@ -120,6 +120,7 @@
     $rightInnerAccordion.on('click', function () {
       $(this).toggleClass('expand-right');
       $wrapper.toggleClass('expand-wrapper');
+      scrollDownfixedThreshold = crdTop + $rightInner.height() + 20 - winHeight;
     });
 
     if (rightOverflow) {
