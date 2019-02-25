@@ -76,8 +76,8 @@
       margin-top: 100px;
     }
 
-    .expand-right {
-      height: 600px;
+    .expand-accordion {
+      height: 200px;
     }
 
     .expand-wrapper{
@@ -103,12 +103,13 @@
     var $left = $('.left');
     var $right = $('.right');
     var $rightInner = $('.right .inner');
-    var $rightInnerAccordion = $rightInner.find('.accordion');
-    var rightHeight = $right.height();
+    var $accordion = $rightInner.find('.accordion');
+    var initialAccordionHeight = updatedAccordionHeight =  $accordion.height();
+    // var rightHeight = $right.height();
     var rightInnerHeight = $rightInner.height();
 
     var leftHeight = $left.height();
-    var bodyHeight = $(document).height();
+    // var bodyHeight = $(document).height();
     var makeFixed = leftHeight > rightInnerHeight;
     var winHeight = window.innerHeight;
     var crdTop = $left.offset().top;
@@ -117,10 +118,20 @@
     var scrollDownfixedThreshold = crdTop + rightInnerHeight + 20 - winHeight;
     var leftBottomPos = crdTop + leftHeight;
 
-    $rightInnerAccordion.on('click', function () {
-      $(this).toggleClass('expand-right');
-      $wrapper.toggleClass('expand-wrapper');
+    $accordion.on('click', function () {
+      var accordionHeightOffset = $(this).toggleClass('expand-accordion').height() - updatedAccordionHeight;
+      updatedAccordionHeight = $accordion.height();
+      if (updatedAccordionHeight > initialAccordionHeight) {
+        var wrapperPaddingBottom = parseInt($wrapper.css('padding-bottom').replace('px', ''));
+        var updatedWrapperPaddingBottom = (wrapperPaddingBottom + accordionHeightOffset) > 0 ? wrapperPaddingBottom + accordionHeightOffset : 0;
+        console.log(accordionHeightOffset, wrapperPaddingBottom, updatedWrapperPaddingBottom);
+        $wrapper.css('padding-bottom', updatedWrapperPaddingBottom + "px");
+      }else {
+        $wrapper.css('padding-bottom', "0px");
+      }
+      
       scrollDownfixedThreshold = crdTop + $rightInner.height() + 20 - winHeight;
+      leftBottomPos = crdTop + $wrapper.innerHeight();
     });
 
     if (rightOverflow) {
@@ -159,7 +170,6 @@
       console.log(scrollDown);
 
       if (scrollDown) {
-        scrollUpInitialY = scrollUpRightInitialInnerTop = 0;
         if (currentScrollY <= scrollDownfixedThreshold) {
           newCSS = {
             'top': `-${currentScrollY}px`
@@ -174,6 +184,7 @@
               overrideCSS = true;
             }
           } else {
+            initialAccordionHeight = $accordion.height();
             newCSS = {
               top: `-${scrollDownfixedThreshold + currentDocPos - leftBottomPos - 20}px`
             };
