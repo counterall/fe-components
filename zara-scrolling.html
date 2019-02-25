@@ -131,7 +131,7 @@
       }
       
       scrollDownfixedThreshold = crdTop + $rightInner.height() + 20 - winHeight;
-      leftBottomPos = crdTop + $wrapper.innerHeight();
+      // leftBottomPos = crdTop + $wrapper.innerHeight();
     });
 
     if (rightOverflow) {
@@ -182,6 +182,9 @@
             }
             if ($rightInner.css('top') !== `-${scrollDownfixedThreshold}px`) {
               overrideCSS = true;
+            }
+            if ($wrapper.css('padding-bottom') !== '0px') {
+              $wrapper.css('padding-bottom', '0px');
             }
           } else {
             initialAccordionHeight = $accordion.height();
