@@ -170,6 +170,10 @@
       console.log(scrollDown);
 
       if (scrollDown) {
+        // reset parameters used for scrolling-up 
+        scrollUpInitialY = currentScrollY;
+        scrollUpRightInitialInnerTop = 0;
+
         if (currentScrollY <= scrollDownfixedThreshold) {
           newCSS = {
             'top': `-${currentScrollY}px`
@@ -196,14 +200,12 @@
           
         }
       } else {
-        if (!scrollUpInitialY) {
-          scrollUpInitialY = currentScrollY;
-        }
+        var rightInnerTopOffset = -parseInt($rightInner.css('top').replace('px', ''));
         if (!scrollUpRightInitialInnerTop) {
-          scrollUpRightInitialInnerTop = $right.offset().top - $rightInner.offset().top;
+          scrollUpRightInitialInnerTop = rightInnerTopOffset;
         }
-        var updatedScrollUpRightInnerTop = $right.offset().top - $rightInner.offset().top;
-        console.log(scrollUpInitialY, scrollUpRightInitialInnerTop, currentScrollY);
+        var updatedScrollUpRightInnerTop = rightInnerTopOffset;
+
         if (updatedScrollUpRightInnerTop != 0) {
           newCSS = {
             'top': `-${scrollUpRightInitialInnerTop - (scrollUpInitialY - currentScrollY)}px`
