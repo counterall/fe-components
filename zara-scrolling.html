@@ -138,20 +138,14 @@
       if (makeFixed) {
         var lastScrollY = window.scrollY;
         var scrollUpRightInitialInnerTop = 0, scrollUpInitialY = 0;
+        
         // when refreshing page after detail info has been fixed
-        // if (window.scrollY > scrollDownfixedThreshold) {
-        //   lastScrollY = window.scrollY - 1;
-        //   scrollDownDetailInfoBeforeFixed();
-        // } else {
-
-          var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
-
-          $(window).on('scroll', throttledScroll);
-          // $(window).on('scroll', function() {
-          //   scrollDownDetailInfoBeforeFixed();
-          // });
-
-        // }
+        if (window.scrollY > scrollDownfixedThreshold) {
+          lastScrollY = window.scrollY - 1;
+          scrollDownDetailInfoBeforeFixed();
+        } 
+        var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
+        $(window).on('scroll', throttledScroll);
 
       } else {
 
