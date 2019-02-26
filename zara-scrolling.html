@@ -105,12 +105,10 @@
     var $rightInner = $('.right .inner');
     var $accordion = $rightInner.find('.accordion');
     var initialAccordionHeight = updatedAccordionHeight =  $accordion.height();
-    // var rightHeight = $right.height();
     var rightInnerHeight = $rightInner.height();
 
     var leftHeight = $left.height();
-    // var bodyHeight = $(document).height();
-    var makeFixed = leftHeight > rightInnerHeight;
+    // var makeFixed = leftHeight > rightInnerHeight;
     var winHeight = window.innerHeight;
     var crdTop = $left.offset().top;
 
@@ -134,8 +132,8 @@
       // leftBottomPos = crdTop + $wrapper.innerHeight();
     });
 
-    if (rightOverflow) {
-      if (makeFixed) {
+    // if (rightOverflow) {
+    //   if (makeFixed) {
         var lastScrollY = window.scrollY;
         var scrollUpRightInitialInnerTop = 0, scrollUpInitialY = 0;
         
@@ -147,10 +145,10 @@
         var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
         $(window).on('scroll', throttledScroll);
 
-      } else {
+    //   } else {
 
-      }
-    }
+    //   }
+    // }
 
     
 
