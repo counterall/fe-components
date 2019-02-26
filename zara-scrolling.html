@@ -16,7 +16,7 @@
       box-sizing: border-box;
     }
     body{
-        padding: 100px 0 50px 0;
+        padding: 300px 0 50px 0;
     }
     .wrapper, .footer {
       width: 1200px;
@@ -51,7 +51,7 @@
       line-height: 450px;
       position: fixed;
       right: 69.5px;
-      top: 100px;
+      top: 300px;
     }
 
     .right .inner {
@@ -108,7 +108,6 @@
     var rightInnerHeight = $rightInner.height();
 
     var leftHeight = $left.height();
-    // var makeFixed = leftHeight > rightInnerHeight;
     var winHeight = window.innerHeight;
     var crdTop = $left.offset().top;
 
@@ -132,35 +131,28 @@
       // leftBottomPos = crdTop + $wrapper.innerHeight();
     });
 
-    // if (rightOverflow) {
-    //   if (makeFixed) {
-        var lastScrollY = window.scrollY;
-        var scrollUpRightInitialInnerTop = 0, scrollUpInitialY = 0;
-        
-        // when refreshing page after detail info has been fixed
-        if (window.scrollY > scrollDownfixedThreshold) {
-          lastScrollY = window.scrollY - 1;
-          scrollDownDetailInfoBeforeFixed();
-        } 
-        var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
-        $(window).on('scroll', throttledScroll);
-
-    //   } else {
-
-    //   }
-    // }
-
+    var lastScrollY = window.scrollY;
+    var scrollUpRightInitialInnerTop = 0, scrollUpInitialY = 0;
+    
+    // when refreshing page after detail info has been fixed
+    if (window.scrollY > scrollDownfixedThreshold) {
+      lastScrollY = window.scrollY - 1;
+      scrollDownDetailInfoBeforeFixed();
+    } 
+    var throttledScroll = _.throttle(scrollDownDetailInfoBeforeFixed, 5);
+    $(window).on('scroll', throttledScroll);
     
 
     function scrollDownDetailInfoBeforeFixed() {
       var newCSS = {}, overrideCSS = false;
       var currentScrollY = window.scrollY;
-      var scrollDown = currentScrollY > lastScrollY;
+      var scrollDown = currentScrollY - lastScrollY;
       lastScrollY = currentScrollY;
       var currentDocPos = currentScrollY + winHeight;
       console.log(scrollDown ? 'scroll down' : "scroll up");
-
-      if (scrollDown) {
+      var rightInnerTopOffset = -parseInt($rightInner.css('top').replace('px', ''));
+      console.log("scrollY: " + scrollY, "scrollDown: " + scrollDown, rightInnerTopOffset);
+      if (scrollDown > 0) {
         // reset parameters used for scrolling-up 
         scrollUpInitialY = currentScrollY;
         scrollUpRightInitialInnerTop = 0;
@@ -172,12 +164,21 @@
           overrideCSS = true;
         }else {
           if (currentDocPos <= leftBottomPos + 20) {
-            newCSS = {
-              'top': `-${scrollDownfixedThreshold}px`
-            }
-            if ($rightInner.css('top') !== `-${scrollDownfixedThreshold}px`) {
+            
+            if (rightInnerTopOffset < scrollDownfixedThreshold) {
+              newCSS = {
+                top: `-${rightInnerTopOffset + scrollDown}px`
+              };
               overrideCSS = true;
+            } else {
+              newCSS = {
+                top: `-${scrollDownfixedThreshold}px`
+              };
+              if ($rightInner.css('top') !== `-${scrollDownfixedThreshold}px`) {
+                overrideCSS = true;
+              }
             }
+            console.log("new top scroll down: " + newCSS.top);
             if ($wrapper.css('padding-bottom') !== '0px') {
               $wrapper.css('padding-bottom', '0px');
             }
@@ -198,7 +199,6 @@
 
         }
       } else {
-        var rightInnerTopOffset = -parseInt($rightInner.css('top').replace('px', ''));
         if (!scrollUpRightInitialInnerTop) {
           scrollUpRightInitialInnerTop = rightInnerTopOffset;
         }
